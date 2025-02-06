@@ -1,9 +1,13 @@
-const express = require("express");
-const db = require("./config/db");
-const cors = require("cors");
+import user from "./models/user.js";
+import * as userController from "./controllers/userController.js";
+import express from "express";
+import cors from "cors";
 
 const app = express();
 const PORT = 3002;
+
+// const itineraryController = require("./controllers/index.js");
+
 app.use(express.json());
 let corsOptions = {
   origin: ["http://localhost"],
@@ -16,59 +20,13 @@ app.get("/api", (req, res) => {
 });
 
 // Route to get all users
-app.get("/api/users", (req, res) => {
-  db.query("SELECT * FROM users", (err, result) => {
-    if (err) {
-      console.log(err);
-    }
-    res.status(200);
-    res.send(result);
-  });
-});
+app.get("/api/users", (req, res) => userController.getAllUsers(req, res));
 
 // Log in: check if user exists
-app.post("/api/login", (req, res) => {
-  const username = req.body.username;
-  const password = req.body.password;
-
-  console.log("request", req.body);
-  db.query(
-    `SELECT * FROM users WHERE username = (?) AND password = (?)`,
-    [username, password],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-      }
-      if (result.length === 1) {
-        res.status(200);
-      } else if (result.length === 0) {
-        res.status(403);
-      }
-      res.send(result);
-    }
-  );
-});
+app.post("/api/login", (req, res) => userController.findUser(req, res));
 
 // Sign up: Create new user
-app.post("/api/signup", (req, res) => {
-  const username = req.body.username;
-  const password = req.body.password;
-
-  db.query(
-    "INSERT INTO users (username, password) VALUES (?,?)",
-    [username, password],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-        res.status(500);
-      } else {
-        res.status(200);
-      }
-      console.log(result);
-      res.send();
-    }
-  );
-});
+app.post("/api/signup", (req, res) => userController.createUser(req, res));
 
 // TODO: find itineraries by user id
 

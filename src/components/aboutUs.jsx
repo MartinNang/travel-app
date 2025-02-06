@@ -19,10 +19,10 @@ const Home = () => {
           <h1>About Us</h1>
         </Row>
         <Row>
-          <Col xs={12} lg={5}>
+          <Col xs={7}>
             <p>Left Column</p>
           </Col>
-          <Col xs={12} lg={5}>
+          <Col xs={7}>
             <p>Right Column</p>
           </Col>
         </Row>
