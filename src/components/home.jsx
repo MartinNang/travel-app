@@ -1,5 +1,5 @@
 /**
- * The portfolio homepage. Features an animated slideshow.
+ * En Route homepage
  */
 
 import React from "react";
@@ -17,11 +17,11 @@ const Home = () => {
       <Container>
         <Row>
           <img
-            id="profile"
+            id="banner-image"
             src={
               "https://image.brigitte.de/12213288/t/XG/v4/w1440/r0/-/naturwunder-elbsandsteingebirge.jpg"
             }
-            alt="Martin Nangole in front of a metal gate with some greenery in the background."
+            alt="Mountain scenery"
           />
         </Row>
         <Row>
