@@ -2,6 +2,10 @@
     font-family: gyst;
     src: url(gyst-regular.otf);
   }
+ @font-face {
+    font-family: inria;
+    src: url(InriaSerif-Regular.ttf);
+  }
 body {
   margin: 0;
 font-family: gyst, serif;
@@ -12,4 +16,25 @@ font-family: gyst, serif;
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.footer {
+    background-color: #bfe7c2;
+    padding: 50px 100px;
+    margin-top: 40px;
+    font-family: inria;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color:#6b4a8b;
+    height: ;
+}
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 20px;
+    margin-top: ;
+    
 }
