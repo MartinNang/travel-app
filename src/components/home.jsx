@@ -1,5 +1,5 @@
 /**
- * En Route homepage
+ * En Route - Home page
  */
 
 import React from "react";

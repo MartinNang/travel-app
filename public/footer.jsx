@@ -4,7 +4,7 @@
 
 import React, { useEffect } from "react";
 import fbImg from "../images/fb.png";
-import instaImg from "../images/insta.png";
+import instaImg from "../images/inst.png";
 import logoImg from "../images/logo.png";
 import mapImg from "../images/map.png";
 import tiktokImg from "../images/tiktok.png";

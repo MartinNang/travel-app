@@ -1,6 +1,7 @@
 import db from "../config/db.js";
 
 export function getAllUsers(callback) {
+  console.log(db);
   db.query("SELECT * FROM users", (err, result) => {
     if (err) {
       console.log(err);
