@@ -31,6 +31,11 @@ const Header = () => {
               <Nav.Link href="/travel-app/#" onClick={window.scrollTo(0, 0)}>
                 search
               </Nav.Link>
+              <Nav.Link
+                href="/travel-app/#/api"
+                onClick={window.scrollTo(0, 0)}>
+                api
+              </Nav.Link>
               {/* <NavDropdown title="projects" id="collapsible-nav-dropdown">
                 <NavDropdown.Item href="/CS7025-portfolio/#/projects/games">
                   games

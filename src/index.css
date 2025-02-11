@@ -1,8 +1,14 @@
+@font-face {
+    font-family: gyst;
+    src: url(gyst-regular.otf);
+  }
+ @font-face {
+    font-family: inria;
+    src: url(InriaSerif-Regular.ttf);
+  }
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+font-family: gyst, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +16,25 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.footer {
+    background-color: #bfe7c2;
+    padding: 50px 100px;
+    margin-top: 40px;
+    font-family: inria;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color:#6b4a8b;
+    height: ;
+}
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 75px;
+    font-size: 20px;
+    margin-top: ;
+    
 }
