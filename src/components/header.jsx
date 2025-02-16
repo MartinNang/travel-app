@@ -23,7 +23,7 @@ const Header = () => {
         <Container>
           {/* <Navbar.Brand href="/CS7025-portfolio/#" id="logo"> */}
           <Navbar.Brand href="#" id="logo">
-            Travel App
+            <img src={"../images/logo.png"} alt="Travel App Logo" width="100" height="auto"/>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
@@ -36,6 +36,16 @@ const Header = () => {
                 onClick={window.scrollTo(0, 0)}>
                 api
               </Nav.Link>
+              <Nav.Link href="/travel-app/#/itineraries" onClick={window.scrollTo(0,0)}>
+                itineraries
+              </Nav.Link>
+
+                
+
+
+
+
+
               {/* <NavDropdown title="projects" id="collapsible-nav-dropdown">
                 <NavDropdown.Item href="/CS7025-portfolio/#/projects/games">
                   games
