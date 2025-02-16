@@ -5,6 +5,8 @@ import NavigationMenu from "./components/header";
 import Footer from "./components/footer";
 import Home from "./components/home";
 import Itineraries from "./components/itineraries";
+import SignIn from "./components/signIn";
+import SignUp from "./components/signUp";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import Api from "./components/api";
@@ -18,6 +20,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/api" element={<Api />} />
         <Route path="/itineraries" element={<Itineraries />} />
+        <Route path="/signIn" element={<SignIn />} />
+        <Route path="/signUp" element={<SignUp />} />
         {/* <Route path="/contact" element={<Contact />} /> */}
       </Routes>
       <Footer></Footer>

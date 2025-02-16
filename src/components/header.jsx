@@ -29,23 +29,21 @@ const Header = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ms-auto" activeKey={location.pathname}>
               <Nav.Link href="/travel-app/#" onClick={window.scrollTo(0, 0)}>
-                search
-              </Nav.Link>
-              <Nav.Link
-                href="/travel-app/#/api"
-                onClick={window.scrollTo(0, 0)}>
-                api
+                home
               </Nav.Link>
               <Nav.Link href="/travel-app/#/itineraries" onClick={window.scrollTo(0,0)}>
                 itineraries
               </Nav.Link>
-
-                
-
-
-
-
-
+              <Nav.Link href="/travel-app/#/feed" onClick={window.scrollTo(0,0)}>
+                myFeed
+              </Nav.Link>
+              <Nav.Link href="/travel-app/#/search" onClick={window.scrollTo(0, 0)}>
+                events
+              </Nav.Link>
+              <Nav.Link href="/travel-app/#/api" onClick={window.scrollTo(0, 0)}>
+                api
+              </Nav.Link>
+              
               {/* <NavDropdown title="projects" id="collapsible-nav-dropdown">
                 <NavDropdown.Item href="/CS7025-portfolio/#/projects/games">
                   games
