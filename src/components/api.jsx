@@ -1,26 +1,104 @@
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import React, { useEffect, useState } from "react";
+import {
+  Container,
+  Row,
+  Col,
+  Form,
+  Button,
+  Table,
+  Alert,
+} from "react-bootstrap";
+import React, { use, useEffect, useState } from "react";
 import axios from "axios";
+import AlertDismissible from "./alertDismissible";
 
 const Api = ({}) => {
-  const [loading, setLoading] = useState(false);
-  const [failed, setFailed] = useState(false);
-  const [results, setResults] = useState(null);
+  const [isEdit, setEdit] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [profileNames, setProfileNames] = useState([]);
+  const [show, setShow] = useState(false);
+  const [heading, setHeading] = useState("");
   const [message, setMessage] = useState("");
-  const [data, setData] = useState([]);
+  const [variant, setVariant] = useState("");
+
+  axios.defaults.baseURL = "http://localhost:8080";
+  // axios.defaults.headers.get["Content-Type"] = "application/json;charset=utf-8";
+  axios.defaults.headers.get["Access-Control-Allow-Origin"] = "*";
+
+  const handleEdit = (i) => {
+    // handle edit
+    let newEdit = isEdit.slice();
+    newEdit[i] = !newEdit[i];
+    setEdit(newEdit);
+  };
+
+  const handleDelete = (userId) => {
+    // handle delete
+    axios.delete(`api/users/${userId}`).then(() => {
+      // display success message
+      console.log("deleted user with id", userId);
+      setVariant("success");
+      setHeading("Operation successful");
+      setMessage("User was deleted.");
+      setShow(true);
+      // refresh table
+      fetchUsers();
+    });
+  };
+
+  const handleSave = (i, userId, newProfileName) => {
+    console.log(`changing profile of user ${userId} to ${newProfileName}`);
+    setEdit(!isEdit);
+    axios
+      .put(`api/users/${userId}/updateProfileName`, {
+        newProfileName: newProfileName,
+      })
+      .then(() => {
+        // display success message
+        setShow(true);
+        console.log("updated username");
+        // refresh table
+        fetchUsers();
+      });
+  };
+
+  const handleInputChange = (event, index) => {
+    let newProfileNames = profileNames.slice();
+    newProfileNames[index] = event.target.value;
+    setProfileNames(newProfileNames);
+  };
+
+  const handleKeyPress = (event, i, userId, newProfileName) => {
+    if (event.key == "Enter" && isEdit[i]) {
+      handleSave(i, userId, newProfileName);
+    }
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://localhost:3002/api/users");
-        setData(response.data);
-        console.log("data response:", response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchData();
+    fetchUsers();
   }, []);
+
+  function fetchUsers() {
+    axios
+      .get("/api/users")
+      .then((response) => {
+        let users = response.data;
+        if (response.data) {
+          let newEdit = [];
+          let newProfileNames = [];
+          for (let i = 0; i < users.length; i++) {
+            newEdit.push(false);
+            newProfileNames.push(response.data[i].profileName);
+          }
+          setUsers(users);
+          setEdit(newEdit);
+          setProfileNames(newProfileNames);
+        }
+        console.log("data response:", response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 
   return (
     <article>
@@ -28,9 +106,66 @@ const Api = ({}) => {
         <Row>
           <h1>API</h1>
         </Row>
-        {data.map((user) => (
-          <Row>{user.username}</Row>
-        ))}{" "}
+        <Row>
+          <h2>Users</h2>
+        </Row>
+        <Row>
+          <AlertDismissible
+            variant={variant}
+            heading={heading}
+            message={message}
+            show={show}
+            setShow={setShow}></AlertDismissible>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>User ID</th>
+                <th>Profile name</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((user, i) => (
+                <tr className="mb-3">
+                  <td>{user.userId}</td>
+                  <td>
+                    {!isEdit[i] ? (
+                      users[i].profileName
+                    ) : (
+                      <input
+                        type="text"
+                        id={"pName-" + i}
+                        name={"pName-" + i}
+                        onChange={(e) => handleInputChange(e, i)}
+                        onKeyDown={(e) =>
+                          handleKeyPress(e, i, user.userId, profileNames[i])
+                        }
+                      />
+                    )}
+                  </td>
+                  <td>
+                    {isEdit[i] ? (
+                      <Button
+                        onClick={() =>
+                          handleSave(i, user.userId, profileNames[i])
+                        }>
+                        Save
+                      </Button>
+                    ) : (
+                      <Button onClick={() => handleEdit(i)}>Edit</Button>
+                    )}
+                  </td>
+                  <td>
+                    <Button onClick={() => handleDelete(user.userId)}>
+                      Delete
+                    </Button>
+                  </td>
+                </tr>
+              ))}{" "}
+            </tbody>
+          </Table>
+        </Row>
       </Container>
     </article>
   );

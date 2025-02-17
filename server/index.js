@@ -3,7 +3,7 @@ import * as userController from "./controllers/userController.js";
 import express from "express";
 import cors from "cors";
 const app = express();
-const PORT = 3002;
+const PORT = 8080;
 
 // const itineraryController = require("./controllers/index.js");
 
@@ -12,7 +12,7 @@ let corsOptions = {
   origin: ["http://localhost"],
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.get("/api", (req, res) => {
   res.send("Hello, World!");
@@ -26,6 +26,16 @@ app.post("/api/login", (req, res) => userController.findUser(req, res));
 
 // Sign up: Create new user
 app.post("/api/signup", (req, res) => userController.createUser(req, res));
+
+// Update profile name
+app.put("/api/users/:userId/updateProfileName", (req, res) =>
+  userController.updateProfileName(req, res)
+);
+
+// Delete user
+app.delete("/api/users/:userId", (req, res) =>
+  userController.deleteUser(req, res)
+);
 
 // TODO: find itineraries by user id
 
