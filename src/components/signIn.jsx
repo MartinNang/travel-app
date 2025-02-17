@@ -39,7 +39,7 @@ const SignIn = () => {
             </Form.Group>
 
             <Row className="mt-4">
-                <Col xs={12} md={4} className="mb-3">
+                <Col xs={12} md={4} className="mb-3 mb-md-0">
                 <Button 
                   style={{ backgroundColor: "#b1f8b6", borderColor: "#b1f8b6", color: "black" }} 
                   type="submit" 
