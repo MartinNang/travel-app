@@ -26,11 +26,11 @@ const SignIn = () => {
           <h2 className="mb-4">Create your next adventure</h2>
           <Form>
             <Form.Group controlId="formEmail">
-              <Form.Control type="email" placeholder="Email" />
+              <Form.Control className="bg-light" type="email" placeholder="Email" />
             </Form.Group>
 
             <Form.Group controlId="formPassword" className="mt-3">
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Control className="bg-light" type="password" placeholder="Password" />
             </Form.Group>
 
             {/* Remember me checkbox */}
@@ -39,7 +39,7 @@ const SignIn = () => {
             </Form.Group>
 
             <Row className="mt-4">
-                <Col xs={12} md={4}>
+                <Col xs={12} md={4} className="mb-3">
                 <Button 
                   style={{ backgroundColor: "#b1f8b6", borderColor: "#b1f8b6", color: "black" }} 
                   type="submit" 

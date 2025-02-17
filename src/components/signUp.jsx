@@ -38,7 +38,7 @@ const SignUp = () => {
             </Form.Group>
 
 
-            <Row>
+            <Row className="mt-4"> 
                 <Col xs={12} md={4}>
             <Button 
                   style={{ backgroundColor: "#b1f8b6", borderColor: "#b1f8b6", color: "black" }} 
