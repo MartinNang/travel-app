@@ -23,19 +23,27 @@ const Header = () => {
         <Container>
           {/* <Navbar.Brand href="/CS7025-portfolio/#" id="logo"> */}
           <Navbar.Brand href="#" id="logo">
-            Travel App
+            <img src={"../images/logo.png"} alt="Travel App Logo" width="100" height="auto"/>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ms-auto" activeKey={location.pathname}>
               <Nav.Link href="/travel-app/#" onClick={window.scrollTo(0, 0)}>
-                search
+                home
               </Nav.Link>
-              <Nav.Link
-                href="/travel-app/#/api"
-                onClick={window.scrollTo(0, 0)}>
+              <Nav.Link href="/travel-app/#/itineraries" onClick={window.scrollTo(0,0)}>
+                itineraries
+              </Nav.Link>
+              <Nav.Link href="/travel-app/#/feed" onClick={window.scrollTo(0,0)}>
+                myFeed
+              </Nav.Link>
+              <Nav.Link href="/travel-app/#/search" onClick={window.scrollTo(0, 0)}>
+                events
+              </Nav.Link>
+              <Nav.Link href="/travel-app/#/api" onClick={window.scrollTo(0, 0)}>
                 api
               </Nav.Link>
+              
               {/* <NavDropdown title="projects" id="collapsible-nav-dropdown">
                 <NavDropdown.Item href="/CS7025-portfolio/#/projects/games">
                   games

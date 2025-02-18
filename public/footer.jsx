@@ -4,7 +4,7 @@
 
 import React, { useEffect } from "react";
 import fbImg from "../images/fb.png";
-import instaImg from "../images/insta.png";
+import instaImg from "../images/inst.png";
 import logoImg from "../images/logo.png";
 import mapImg from "../images/map.png";
 import tiktokImg from "../images/tiktok.png";
@@ -18,7 +18,7 @@ const Footer = () => {
     <footer class="footer">
       <div>
         <strong>SUPPORT</strong>
-        <em />{" "}
+        <em>{" "}
         <p>
           Contact Us
           <br />
@@ -26,7 +26,7 @@ const Footer = () => {
           <br />
           Privacy Policy
         </p>{" "}
-        <em />
+        </em>
       </div>
       <div>
         <strong>ABOUT</strong>
