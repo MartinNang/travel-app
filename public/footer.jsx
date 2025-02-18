@@ -18,7 +18,7 @@ const Footer = () => {
     <footer class="footer">
       <div>
         <strong>SUPPORT</strong>
-        <em />{" "}
+        <em>{" "}
         <p>
           Contact Us
           <br />
@@ -26,7 +26,7 @@ const Footer = () => {
           <br />
           Privacy Policy
         </p>{" "}
-        <em />
+        </em>
       </div>
       <div>
         <strong>ABOUT</strong>
