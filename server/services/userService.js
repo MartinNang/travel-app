@@ -11,10 +11,24 @@ export function getAllUsers(callback) {
   });
 }
 
-export function findUser(user, callback) {
+export function findEmailPassword(user, callback) {
   db.query(
-    `SELECT * FROM users WHERE username = (?) AND password = (?)`,
-    [user.username, user.password],
+    `SELECT * FROM users WHERE email = (?) AND password = (?)`,
+    [user.email, user.password],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        throw 500;
+      }
+      callback(result);
+    }
+  );
+}
+
+export function findUserByEmail(user, callback) {
+  db.query(
+    `SELECT * FROM users WHERE email = (?)`,
+    [user.email],
     (err, result) => {
       if (err) {
         console.log(err);
@@ -27,8 +41,8 @@ export function findUser(user, callback) {
 
 export function createUser(user, callback) {
   db.query(
-    "INSERT INTO users (username, password) VALUES (?,?)",
-    [user.username, user.password],
+    "INSERT INTO users (profileName, email, password) VALUES (?,?,?)",
+    [user.username, user.email, user.password],
     (err, result) => {
       if (err) {
         console.log(err);
@@ -46,6 +60,23 @@ export function updateProfileName(userId, profileName, callback) {
     SET profileName = ?
     WHERE userId = ?`,
     [profileName, userId],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        throw 500;
+      }
+      console.log(result);
+      callback();
+    }
+  );
+}
+
+export function updateProfileImage(userId, profileImage, callback) {
+  db.query(
+    `UPDATE users
+    SET profileImage = ?
+    WHERE userId = ?`,
+    [profileImage, userId],
     (err, result) => {
       if (err) {
         console.log(err);
