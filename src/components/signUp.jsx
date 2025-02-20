@@ -17,8 +17,8 @@ const SignUp = () => {
       {/* A line containing two columns */}
       <Row className="w-100">
         {/* Left column: image */}
-        <Col xs={12} md={6} className="d-flex align-items-center justify-content-center bg-light">
-          <h2>Map Picture</h2>
+        <Col xs={12} md={6} className="d-flex align-items-center justify-content-center">
+        <img src="/images/map.png" alt="Map" className="img-fluid" style={{ width: "100%", height: "auto", display: "block" }} />
         </Col>
 
         {/* Right column: form */}

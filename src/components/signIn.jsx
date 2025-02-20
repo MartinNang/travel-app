@@ -13,12 +13,12 @@ import { Link } from "react-router-dom";
 
 const SignIn = () => {
     return (
-        <Container className="vh-100 d-flex align-items-center">
+        <Container className="vh-100 d-flex align-items-center" >
       {/* A line containing two columns */}
       <Row className="w-100">
         {/* Left column: image */}
-        <Col xs={12} md={6} className="d-flex align-items-center justify-content-center bg-light">
-          <h2>Map Picture</h2>
+        <Col xs={12} md={6} className="d-flex align-items-center justify-content-center">
+        <img src="/images/map.png" alt="Map" className="img-fluid" style={{ width: "100%", height: "auto", display: "block" }} />
         </Col>
 
         {/* Right column: form */}
@@ -39,7 +39,7 @@ const SignIn = () => {
             </Form.Group>
 
             <Row className="mt-4">
-                <Col xs={12} md={4} className="mb-3">
+                <Col xs={12} md={4} className="mb-3 mb-md-0">
                 <Button 
                   style={{ backgroundColor: "#b1f8b6", borderColor: "#b1f8b6", color: "black" }} 
                   type="submit" 
@@ -48,7 +48,7 @@ const SignIn = () => {
                 </Button>
                 </Col>
 
-              <Col xs={12} md={8} className="d-flex align-items-center">
+              <Col xs={12} md={8} className="mb-5 mb-md-0 d-flex align-items-center">
               <Button 
                   style={{ backgroundColor: "#b1f8b6", borderColor: "#b1f8b6", color: "black" }} 
                   type="submit" 
