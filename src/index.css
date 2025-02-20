@@ -6,22 +6,30 @@
     font-family: inria;
     src: url(InriaSerif-Regular.ttf);
   }
+
 body {
   margin: 0;
-font-family: gyst, serif;
+  font-family: poppins, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
+.subfooter {
+  background-color: #EEF3F2;
+  padding: 50px 65px;
+  color:#0B524C;
+}
+
 .footer {
     background-color:  #b1f8b6; /*#bfe7c2*/
     padding: 50px 100px;
-    margin-top: 40px;
+    /*margin-top: 40px;*/
     font-family: inria;
     display: flex;
     justify-content: space-between;
@@ -37,4 +45,17 @@ code {
     font-size: 20px;
     margin-top: ;
     
+}
+
+.green-rectangle {
+  width: 90vw; 
+  max-width: 1200px; 
+  height: 25em; 
+  background-color: #0B524C; 
+  margin: 60px; 
+  padding: 40px; 
+  border-radius: 12px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
