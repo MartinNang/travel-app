@@ -13,17 +13,17 @@ import { Link } from "react-router-dom";
 
 const SignUp = () => {
     return (
-        <Container className="vh-100 d-flex align-items-center">
+        <Container className="vh-100 d-flex align-items-center signin-page">
       {/* A line containing two columns */}
       <Row className="w-100">
         {/* Left column: image */}
-        <Col xs={12} md={6} className="d-flex align-items-center justify-content-center bg-light">
-          <h2>Map Picture</h2>
+        <Col xs={12} md={6} className="d-flex align-items-center justify-content-center">
+        <img src="/images/map.png" alt="Map" className="img-fluid" style={{ width: "100%", height: "auto", display: "block" }} />
         </Col>
 
         {/* Right column: form */}
         <Col xs={12} md={6} className="p-5">
-          <h2 className="mb-4">Create your next adventure</h2>
+          <h2 className="mb-4" style={{fontWeight:'bold'}}>Create your next adventure!</h2>
           <Form>
             <Form.Group controlId="formEmail">
               <Form.Control type="email" placeholder="Email" />

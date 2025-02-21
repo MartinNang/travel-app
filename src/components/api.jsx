@@ -54,6 +54,9 @@ const Api = ({}) => {
       })
       .then(() => {
         // display success message
+        setVariant("success");
+        setHeading("Operation successful");
+        setMessage("Profile name was updated.");
         setShow(true);
         console.log("updated username");
         // refresh table
