@@ -7,7 +7,7 @@
     src: url(InriaSerif-Regular.ttf);
   }
 @font-face {
-    font-family: "poppins";
+    font-family: poppins;
     src: url(Poppins-Regular.ttf);
 
 body {
@@ -86,7 +86,7 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    font-family: "poppins";
+    font-family: poppins;
 }
 
 
@@ -127,7 +127,7 @@ nav {
 
 input[type=text] {
     color:#554293;
-    font-family: "poppins", sans-serif;
+    font-family: poppins, sans-serif;
     background-color: #f5f3f7;
     border: none;
     font-size: 1em;
