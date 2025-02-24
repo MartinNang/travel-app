@@ -9,8 +9,8 @@
 @font-face {
     font-family: poppins;
     src: url(Poppins-Regular.ttf);
-
-body {
+}
+ body {
   margin: 0;
   font-family: poppins, serif;
   -webkit-font-smoothing: antialiased;
