@@ -7,10 +7,10 @@
     src: url(InriaSerif-Regular.ttf);
   }
 @font-face {
-    font-family: "poppins";
+    font-family: poppins;
     src: url(Poppins-Regular.ttf);
-
-body {
+}
+ body {
   margin: 0;
   font-family: poppins, serif;
   -webkit-font-smoothing: antialiased;
@@ -25,8 +25,24 @@ code {
 
 .subfooter {
   background-color: #EEF3F2;
-  padding: 50px 65px;
+  margin-top: 2em;
+  padding: 40px;
   color:#0B524C;
+  font-family: poppins;
+}
+
+.subscribe-btn {
+  background-color:#0B524C;
+  color:#F19EDC;
+  border-radius: 80px;
+  border: none;
+  padding: 25px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.subscribe-btn:hover {
+  background-color: #093e38;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 .footer {
@@ -61,6 +77,7 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: poppins;
 }
 
 header {
@@ -69,7 +86,7 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    font-family: "poppins";
+    font-family: poppins;
 }
 
 
@@ -110,7 +127,7 @@ nav {
 
 input[type=text] {
     color:#554293;
-    font-family: "poppins", sans-serif;
+    font-family: poppins, sans-serif;
     background-color: #f5f3f7;
     border: none;
     font-size: 1em;

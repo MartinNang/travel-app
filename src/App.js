@@ -10,6 +10,7 @@ import SignUp from "./components/signUp";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import Api from "./components/api";
+import SubFooter from "./components/subFooter";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/signUp" element={<SignUp />} />
         {/* <Route path="/contact" element={<Contact />} /> */}
       </Routes>
+      <SubFooter></SubFooter>
       <Footer></Footer>
     </div>
   );
