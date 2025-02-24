@@ -6,6 +6,9 @@
     font-family: inria;
     src: url(InriaSerif-Regular.ttf);
   }
+@font-face {
+    font-family: "poppins";
+    src: url(Poppins-Regular.ttf);
 
 body {
   margin: 0;
@@ -75,4 +78,79 @@ code {
   justify-content: center;
   align-items: center;
   font-family: poppins;
+}
+
+header {
+    background-color: #fff;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    font-family: "poppins";
+}
+
+
+
+nav {
+   
+    display: flex;
+    justify-content: space-between; 
+    align-items:center; 
+    padding: 0px 60px;
+}
+
+.nav-links {
+    list-style: none; 
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 0;
+    margin: 0;
+    
+}
+.nav-links li {
+    display: flex; 
+    align-items: center;
+}
+.nav-links li a {
+    text-decoration: none; 
+    color: #554293;
+    font-size: 1.1em;
+}
+.nav-links li a.active {
+    font-weight: bold;
+}
+
+.it {
+    font-style: italic;
+}
+
+input[type=text] {
+    color:#554293;
+    font-family: "poppins", sans-serif;
+    background-color: #f5f3f7;
+    border: none;
+    font-size: 1em;
+    text-align: center;
+    width: 150px;
+    padding: 6px 12px;
+    border-radius: 9px
+    
+}
+
+input[type="text"]::placeholder{
+    color:#554293;
+    opacity: 1;
+}
+
+input[type=text]:focus {
+    background-color: #f5f3f7;
+    border: none;
+}
+
+
+.nav-links li img {
+    width: 20px;
+    height: auto;
+    cursor: pointer;
 }
