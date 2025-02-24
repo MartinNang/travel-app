@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 const SignUp = () => {
     return (
-        <Container className="vh-100 d-flex align-items-center">
+        <Container className="vh-100 d-flex align-items-center signin-page">
       {/* A line containing two columns */}
       <Row className="w-100">
         {/* Left column: image */}
@@ -23,7 +23,7 @@ const SignUp = () => {
 
         {/* Right column: form */}
         <Col xs={12} md={6} className="p-5">
-          <h2 className="mb-4">Create your next adventure</h2>
+          <h2 className="mb-4" style={{fontWeight:'bold'}}>Create your next adventure!</h2>
           <Form>
             <Form.Group controlId="formEmail">
               <Form.Control type="email" placeholder="Email" />

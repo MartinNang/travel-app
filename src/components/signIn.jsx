@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 const SignIn = () => {
     return (
-        <Container className="vh-100 d-flex align-items-center" >
+        <Container className="vh-100 d-flex align-items-center signin-page" >
       {/* A line containing two columns */}
       <Row className="w-100">
         {/* Left column: image */}
@@ -22,8 +22,8 @@ const SignIn = () => {
         </Col>
 
         {/* Right column: form */}
-        <Col xs={12} md={6} className="p-5">
-          <h2 className="mb-4">Create your next adventure</h2>
+        <Col xs={12} md={6} className="p-5" style={{fontFamily:'inria, serif'}}>
+          <h2 className="mb-4" style={{fontWeight:'bold', fontFamily:'gyst, serif'}}>Create your next adventure!</h2>
           <Form>
             <Form.Group controlId="formEmail">
               <Form.Control className="bg-light" type="email" placeholder="Email" />
@@ -44,7 +44,7 @@ const SignIn = () => {
                   style={{ backgroundColor: "#b1f8b6", borderColor: "#b1f8b6", color: "black" }} 
                   type="submit" 
                   className="w-100">
-                  Sign In
+                  Sign In!
                 </Button>
                 </Col>
 
@@ -54,7 +54,7 @@ const SignIn = () => {
                   type="submit" 
                   className="w-100"
                 >
-                <span>Don't have an account? <Link to="/signUp">Sign up!</Link></span>
+                <span>Don't have an account? <Link to="/signUp" style={{ color: 'black', textDecoration: 'none', fontWeight:'bold', fontStyle:'italic' }}>Sign up!</Link></span>
                 </Button>
               </Col>
 
