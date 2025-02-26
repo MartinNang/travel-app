@@ -21,9 +21,13 @@ const Header = () => {
     <header>
       <Navbar sticky="top" collapseOnSelect expand="lg" className="navigation">
         <Container>
-          {/* <Navbar.Brand href="/CS7025-portfolio/#" id="logo"> */}
           <Navbar.Brand href="#" id="logo">
-            <img src={"../images/logo.png"} alt="Travel App Logo" width="100" height="auto"/>
+            <img
+              src={"../images/logo.png"}
+              alt="Travel App Logo"
+              width="100"
+              height="auto"
+            />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
@@ -31,35 +35,26 @@ const Header = () => {
               <Nav.Link href="/travel-app/#" onClick={window.scrollTo(0, 0)}>
                 home
               </Nav.Link>
-              <Nav.Link href="/travel-app/#/itineraries" onClick={window.scrollTo(0,0)}>
+              <Nav.Link
+                href="/travel-app/#/itineraries"
+                onClick={window.scrollTo(0, 0)}>
                 itineraries
               </Nav.Link>
-              <Nav.Link href="/travel-app/#/feed" onClick={window.scrollTo(0,0)}>
+              <Nav.Link
+                href="/travel-app/#/feed"
+                onClick={window.scrollTo(0, 0)}>
                 myFeed
               </Nav.Link>
-              <Nav.Link href="/travel-app/#/search" onClick={window.scrollTo(0, 0)}>
+              <Nav.Link
+                href="/travel-app/#/search"
+                onClick={window.scrollTo(0, 0)}>
                 events
               </Nav.Link>
-              <Nav.Link href="/travel-app/#/api" onClick={window.scrollTo(0, 0)}>
+              <Nav.Link
+                href="/travel-app/#/api"
+                onClick={window.scrollTo(0, 0)}>
                 api
               </Nav.Link>
-              
-              {/* <NavDropdown title="projects" id="collapsible-nav-dropdown">
-                <NavDropdown.Item href="/CS7025-portfolio/#/projects/games">
-                  games
-                </NavDropdown.Item>
-                <NavDropdown.Item href="/CS7025-portfolio/#/projects/music">
-                  music
-                </NavDropdown.Item>
-                <NavDropdown.Item href="/CS7025-portfolio/#/projects/repositories">
-                  repositories
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="/CS7025-portfolio/#/projects">
-                  all
-                </NavDropdown.Item>
-              </NavDropdown> 
-              <Nav.Link href="/CS7025-portfolio/#/contact">contact</Nav.Link>*/}
             </Nav>
           </Navbar.Collapse>
         </Container>
