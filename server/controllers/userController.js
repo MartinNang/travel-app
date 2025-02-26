@@ -3,6 +3,8 @@ import * as userService from "../services/userService.js";
 
 export function getAllUsers(req, res) {
   try {
+    console.log("response:", res);
+    console.log("getting all users");
     userService.getAllUsers((result) => {
       if (result) {
         res.status(200);
@@ -78,6 +80,23 @@ export function updateProfileName(req, res) {
     res.send();
   }
 }
+
+/*export function updateProfileImage(req, res) {
+  try {
+    const userId = req.params.userId;
+    const newProfileImage = req.body.newProfileImage;
+    console.log("userId", userId);
+    console.log("profileImage", newProfileImage);
+
+    userService.updateProfileName(userId, newProfileName, () => {
+      res.status(204);
+    });
+  } catch (code) {
+    res.status(code);
+  } finally {
+    res.send();
+  }
+}*/
 
 export function deleteUser(req, res) {
   try {

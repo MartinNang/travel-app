@@ -3,6 +3,8 @@ import * as itineraryService from "../services/itineraryService.js";
 
 export function getAllItineraries(req, res) {
   try {
+    console.log("response:", res);
+    console.log("getting all itineraries");
     itineraryService.getAllItineraries((result) => {
       if (result) {
         res.status(200);
@@ -33,12 +35,14 @@ export function findItinerariesByName(req, res) {
 
 export function findItinerariesByUserEmail(req, res) {
   try {
-    itineraryService.findItinerariesByUserId(req.body.itineraryId, (result) => {
+    console.log("email", req.params.email);
+    itineraryService.findItinerariesByUserEmail(req.params.email, (result) => {
       if (result.length === 1) {
         res.status(200);
       } else if (result.length === 0) {
         res.status(403);
       }
+      console.log("found itinerary:", result);
       res.send(result);
     });
   } catch (code) {
@@ -55,7 +59,10 @@ export function createItinerary(req, res) {
       req.body.endDate,
       req.body.tags
     );
-    itineraryService.createItinerary(itinerary, () => {
+    const userEmail = req.params.email;
+    console.log("itinerary", itinerary);
+    console.log("user email", userEmail);
+    itineraryService.createItinerary(userEmail, itinerary, () => {
       res.status(200);
     });
   } catch (code) {
@@ -65,16 +72,24 @@ export function createItinerary(req, res) {
   }
 }
 
-export function updateUser(req, res) {
+export function updateItinerary(req, res) {
   try {
-    const currentUsername = req.body.username;
-    const currentPassword = req.body.password;
-    const newUsername = req.body.newUsername;
-    const newPassword = req.body.newPassword;
-    const user = new User(newUsername, newPassword);
-    userService.updateUser(currentUsername, user, () => {
-      res.status(200);
-    });
+    const userEmail = req.params.email;
+    const oldItineraryName = req.body.oldItineraryName;
+    const itinerary = new Itinerary(
+      req.body.name,
+      req.body.startDate,
+      req.body.endDate,
+      req.body.tags
+    );
+    itineraryService.updateItinerary(
+      userEmail,
+      oldItineraryName,
+      itinerary,
+      (result) => {
+        res.status(200);
+      }
+    );
   } catch (code) {
     res.status(code);
   } finally {
@@ -82,46 +97,12 @@ export function updateUser(req, res) {
   }
 }
 
-export function updateProfileName(req, res) {
+export function deleteItinerary(req, res) {
   try {
-    const userId = req.params.userId;
-    const newProfileName = req.body.newProfileName;
-    console.log("userId", userId);
-    console.log("profileName", newProfileName);
+    const itineraryId = req.params.itineraryId;
+    console.log("itineraryId", itineraryId);
 
-    userService.updateProfileName(userId, newProfileName, () => {
-      res.status(204);
-    });
-  } catch (code) {
-    res.status(code);
-  } finally {
-    res.send();
-  }
-}
-
-export function updateProfileImage(req, res) {
-  try {
-    const userId = req.params.userId;
-    const newProfileImage = req.body.newProfileImage;
-    console.log("userId", userId);
-    console.log("profileImage", newProfileImage);
-
-    userService.updateProfileName(userId, newProfileName, () => {
-      res.status(204);
-    });
-  } catch (code) {
-    res.status(code);
-  } finally {
-    res.send();
-  }
-}
-
-export function deleteUser(req, res) {
-  try {
-    const userId = req.params.userId;
-    console.log("userId", userId);
-
-    userService.deleteUser(userId, () => {
+    itineraryService.deleteItinerary(itineraryId, () => {
       res.status(204);
     });
   } catch (code) {

@@ -1,5 +1,7 @@
 import user from "./models/user.js";
 import * as userController from "./controllers/userController.js";
+import itinerary from "./models/itinerary.js";
+import * as itineraryController from "./controllers/itineraryController.js";
 import express from "express";
 import cors from "cors";
 const app = express();
@@ -43,11 +45,24 @@ app.delete("/api/users/:userId", (req, res) =>
 );
 
 // Get all itineraries from all users
+app.get("/api/itineraries", (req, res) =>
+  itineraryController.getAllItineraries(req, res)
+);
 
-// Get all itineraries from one user
+// Get all itineraries from all users
+app.get("/api/itineraries/:email", (req, res) =>
+  itineraryController.findItinerariesByUserEmail(req, res)
+);
+
+// Create itinerary from
+app.post("/api/itineraries/:email", (req, res) =>
+  itineraryController.createItinerary(req, res)
+);
 
 // Update itinerary (name, start date, end date and events)
-
+app.put("/api/itineraries/:email", (req, res) =>
+  itineraryController.updateItinerary(req, res)
+);
 // Delete itinerary using email and user
 
 app.listen(PORT, () => {

@@ -6,13 +6,3 @@ export default class Itinerary {
     this.tags = tags;
   }
 }
-
-/*
-itineraryId int AUTO_INCREMENT,
-      userId int,
-      itineraryName varchar(255),
-      startDate varchar(255),
-      endDate varchar(255),
-      PRIMARY KEY (itineraryId),
-      FOREIGN KEY (userId) REFERENCES users(userId)
-  */

@@ -9,16 +9,19 @@ const db = mysql.createConnection({
 setup();
 
 function setup() {
-  resetUsers();
-  resetEvents();
-  resetItineraries();
-  resetItineraryEvents();
+  resetUsers(true);
+  resetEvents(true);
+  resetItineraries(true);
+  resetItineraryEvents(true);
 }
 
-function resetItineraries() {
-  db.query("DROP TABLE IF EXISTS `itineraries`", () => {
-    console.log("deleted itineraries table");
-  });
+function resetItineraries(hardReset) {
+  db.query(
+    "DROP TABLE " + (!hardReset ? "IF EXISTS" : "") + "`itineraries`",
+    () => {
+      console.log("deleted itineraries table");
+    }
+  );
 
   db.query(
     `
@@ -37,17 +40,20 @@ function resetItineraries() {
   );
 
   db.query(
-    "INSERT INTO itineraries (`itineraryId`, `userId`, `itineraryName`, `startDate`, `endDate`) VALUES (1, 1, 'My trip in Dublin', '19.02.2025', '21.02.2025');",
+    "INSERT INTO itineraries (`userId`, `itineraryName`, `startDate`, `endDate`) VALUES (1, 'My trip in Dublin', '19.02.2025', '21.02.2025'), (2, 'My second trip in Dublin', '19.02.2026', '21.02.2026');",
     () => {
       console.log("added test itineraryEvents");
     }
   );
 }
 
-function resetItineraryEvents() {
-  db.query("DROP TABLE IF EXISTS `itineraryEvents`", () => {
-    console.log("deleted itineraryEvents table");
-  });
+function resetItineraryEvents(hardReset) {
+  db.query(
+    "DROP TABLE " + (!hardReset ? "IF EXISTS" : "") + "`itineraryEvents`",
+    () => {
+      console.log("deleted itineraryEvents table");
+    }
+  );
 
   db.query(
     `
@@ -71,8 +77,8 @@ function resetItineraryEvents() {
   );
 }
 
-function resetEvents() {
-  db.query("DROP TABLE IF EXISTS `events`", () => {
+function resetEvents(hardReset) {
+  db.query("DROP TABLE " + (!hardReset ? "IF EXISTS" : "") + "`events`", () => {
     console.log("deleted events table");
   });
 
@@ -113,8 +119,8 @@ function resetEvents() {
   );
 }
 
-function resetUsers() {
-  db.query("DROP TABLE `users`", () => {
+function resetUsers(hardReset) {
+  db.query("DROP TABLE " + (!hardReset ? "IF EXISTS" : "") + "`users`", () => {
     console.log("deleted users table");
   });
 
