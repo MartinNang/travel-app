@@ -1,5 +1,7 @@
 import user from "./models/user.js";
 import * as userController from "./controllers/userController.js";
+import itinerary from "./models/itinerary.js";
+import * as itineraryController from "./controllers/itineraryController.js";
 import express from "express";
 import cors from "cors";
 const app = express();
@@ -32,39 +34,36 @@ app.put("/api/users/:userId/updateProfileName", (req, res) =>
   userController.updateProfileName(req, res)
 );
 
+// TODO: Update profile image
+/* app.put("/api/users/:userId/updateProfileImage", (req, res) =>
+  userController.updateProfileImage(req, res)
+);*/
+
 // Delete user
 app.delete("/api/users/:userId", (req, res) =>
   userController.deleteUser(req, res)
 );
 
-// TODO: find itineraries by user id
+// Get all itineraries from all users
+app.get("/api/itineraries", (req, res) =>
+  itineraryController.getAllItineraries(req, res)
+);
 
-// Route to like a post
-// app.post("/api/like/:id", (req, res) => {
-//   const id = req.params.id;
-//   db.query(
-//     "UPDATE posts SET likes = likes + 1 WHERE id = ?",
-//     id,
-//     (err, result) => {
-//       if (err) {
-//         console.log(err);
-//       }
-//       console.log(result);
-//     }
-//   );
-// });
+// Get all itineraries from all users
+app.get("/api/itineraries/:email", (req, res) =>
+  itineraryController.findItinerariesByUserEmail(req, res)
+);
 
-// // Route to delete a post
+// Create itinerary from
+app.post("/api/itineraries/:email", (req, res) =>
+  itineraryController.createItinerary(req, res)
+);
 
-// app.delete("/api/delete/:id", (req, res) => {
-//   const id = req.params.id;
-
-//   db.query("DELETE FROM posts WHERE id= ?", id, (err, result) => {
-//     if (err) {
-//       console.log(err);
-//     }
-//   });
-// });
+// Update itinerary (name, start date, end date and events)
+app.put("/api/itineraries/:email", (req, res) =>
+  itineraryController.updateItinerary(req, res)
+);
+// Delete itinerary using email and user
 
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);

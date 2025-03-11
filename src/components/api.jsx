@@ -7,12 +7,13 @@ import {
   Table,
   Alert,
 } from "react-bootstrap";
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AlertDismissible from "./alertDismissible";
 
 const Api = ({}) => {
   const [isEdit, setEdit] = useState([]);
+  const [username, setUsername] = useState("");
   const [users, setUsers] = useState([]);
   const [profileNames, setProfileNames] = useState([]);
   const [show, setShow] = useState(false);
@@ -85,7 +86,7 @@ const Api = ({}) => {
       .get("/api/users")
       .then((response) => {
         let users = response.data;
-        if (response.data) {
+        if (users) {
           let newEdit = [];
           let newProfileNames = [];
           for (let i = 0; i < users.length; i++) {
