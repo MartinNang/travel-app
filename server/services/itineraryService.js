@@ -1,8 +1,6 @@
-import db from "../config/db.js";
-
-export function getAllItineraries(callback) {
-  console.log(db);
-  db.query("SELECT * FROM itineraries", (err, result) => {
+export function getAllItineraries(conn, callback) {
+  console.log(conn);
+  conn.query("SELECT * FROM itineraries", (err, result) => {
     if (err) {
       console.log(err);
     }
@@ -11,9 +9,9 @@ export function getAllItineraries(callback) {
   });
 }
 
-export function findItinerariesByUserId(userId, callback) {
-  db.query(
-    `SELECT * FROM itineraries WHERE userId = (?)`,
+export function findItinerariesByUserId(conn, userId, callback) {
+  conn.query(
+    `SELECT * FROM itineraries WHERE user_id = (?)`,
     [userId],
     (err, result) => {
       if (err) {
@@ -25,8 +23,8 @@ export function findItinerariesByUserId(userId, callback) {
   );
 }
 
-export function findItinerariesByUserEmail(userEmail, callback) {
-  db.query(
+export function findItinerariesByUserEmail(conn, userEmail, callback) {
+  conn.query(
     `SELECT * FROM users WHERE email = (?)`,
     [userEmail],
     (err, result) => {
@@ -45,9 +43,9 @@ export function findItinerariesByUserEmail(userEmail, callback) {
   );
 }
 
-export function findItinerariesByName(itineraryName, callback) {
-  db.query(
-    `SELECT * FROM itineraries WHERE itineraryName = (?)`,
+export function findItinerariesByName(conn, itineraryName, callback) {
+  conn.query(
+    `SELECT * FROM itineraries WHERE name = (?)`,
     [itineraryName],
     (err, result) => {
       if (err) {
@@ -59,92 +57,52 @@ export function findItinerariesByName(itineraryName, callback) {
   );
 }
 
-export function createItinerary(userEmail, itinerary, callback) {
-  db.query(
-    `SELECT * FROM users WHERE email = (?)`,
-    [userEmail],
+export function createItinerary(conn, userId, itinerary, callback) {
+  conn.query(
+    "INSERT INTO itineraries (`user_id`, `name`, `start_date`, `end_date`, `created_at`) VALUES (?, ?, ?, ?, ?);",
+    [
+      userId,
+      itinerary.name,
+      itinerary.startDate,
+      itinerary.endDate,
+      itinerary.createdAt,
+    ],
     (err, result) => {
       if (err) {
         console.log(err);
         throw 500;
       }
-      if (result && result.length > 0) {
-        console.log("found user with id", result[0].userId);
-        db.query(
-          "INSERT INTO itineraries (`userId`, `itineraryName`, `startDate`, `endDate`) VALUES (?, ?, ?, ?);",
-          [
-            result[0].userId,
-            itinerary.name,
-            itinerary.startDate,
-            itinerary.endDate,
-          ],
-          (err, result) => {
-            if (err) {
-              console.log(err);
-              throw 500;
-            }
-            console.log(result);
-            callback();
-          }
-        );
-      }
+      console.log(result);
+      callback();
     }
   );
 }
 
-export function updateItinerary(
-  userEmail,
-  oldItineraryName,
-  itinerary,
-  callback
-) {
-  console.log("oldItineraryName", oldItineraryName);
-  console.log("updating itinerary:", itinerary);
-  db.query(
-    `SELECT * FROM users WHERE email = (?)`,
-    [userEmail],
+export function updateItinerary(conn, itineraryId, itinerary, callback) {
+  console.log("updating itinerary:", itinerary.name);
+
+  conn.query(
+    `UPDATE itineraries
+          SET name = ?, start_date = ?, end_date = ?
+          WHERE id = ?`,
+    [itinerary.name, itinerary.startDate, itinerary.endDate, itineraryId],
     (err, result) => {
       if (err) {
         console.log(err);
         throw 500;
       }
-      if (result && result.length > 0) {
-        console.log("found user with id", result[0].userId);
-        // TODO: get itineraryId using itineraryName + email OR use iName + email as primary key in table
-        db.query(
-          `UPDATE itineraries
-          SET itineraryName = ?, startDate = ?, endDate = ?
-          WHERE userId = ? AND itineraryName = ?`,
-          [
-            itinerary.name,
-            itinerary.startDate,
-            itinerary.endDate,
-            result[0].userId,
-            oldItineraryName,
-          ],
-          (err, result) => {
-            if (err) {
-              console.log(err);
-              throw 500;
-            }
-            console.log(result);
-            callback();
-          }
-        );
-      } else {
-        callback(result);
-        //throw 404;
-      }
+      console.log(result);
+      callback();
     }
   );
 }
 
-export function deleteItinerary(itineraryId, callback) {
+export function deleteItinerary(conn, itineraryId, callback) {
   // TODO: get itineraryId using itineraryName + email OR use iName + email as primary key in table
   console.log("deleting itinerary", itineraryId);
-  db.query(
+  conn.query(
     `DELETE FROM itineraries
-    WHERE itineraryId = ?`,
+    WHERE id = ?`,
     [itineraryId],
     (err, result) => {
       if (err) {

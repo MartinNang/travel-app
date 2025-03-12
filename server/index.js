@@ -1,70 +1,109 @@
-import user from "./models/user.js";
-import * as userController from "./controllers/userController.js";
-import itinerary from "./models/itinerary.js";
-import * as itineraryController from "./controllers/itineraryController.js";
 import express from "express";
+import morgan from "morgan";
+import chalk from "chalk";
 import cors from "cors";
-const app = express();
-const PORT = 8080;
+import mariadb from "mariadb";
 
-// const itineraryController = require("./controllers/index.js");
+const app = express();
+import * as itineraryController from "./controllers/itineraryController.js";
+import * as userController from "./controllers/userController.js";
+import {
+  deleteItinerary,
+  updateItinerary,
+} from "./services/itineraryService.js";
+const hostname = "nodejs_2425-cs7025-group1";
+const port = 3000;
+const project_name = "en route";
+
+// Use Morgan for logging HTTP requests
+app.use(morgan("dev"));
 
 app.use(express.json());
-let corsOptions = {
-  origin: ["http://localhost"],
-};
 
+// Use CORS
 app.use(cors());
 
-app.get("/api", (req, res) => {
-  res.send("Hello, World!");
+app.set("view engine", "ejs");
+
+app.get("/", (req, res) => {
+  res.send("Hello");
 });
 
-// Route to get all users
-app.get("/api/users", (req, res) => userController.getAllUsers(req, res));
+// return all users
+app.get("/users", (req, res) => {
+  const conn = pool.getConnection();
+  userController.getAllUsers(conn, req, res);
+});
 
-// Log in: check if user exists
-app.post("/api/login", (req, res) => userController.findUser(req, res));
+// check if user exists
+app.get("/login", (req, res) => {
+  const conn = pool.getConnection();
+  userController.findUser(conn, req, res);
+});
 
-// Sign up: Create new user
-app.post("/api/signup", (req, res) => userController.createUser(req, res));
+// create new user
+app.post("/signup", (req, res) => {
+  const conn = pool.getConnection();
+  userController.findUser(conn, req, res);
+});
 
-// Update profile name
-app.put("/api/users/:userId/updateProfileName", (req, res) =>
-  userController.updateProfileName(req, res)
-);
+// update profile name
+app.put("/users/:userId/profileName", (req, res) => {
+  const conn = pool.getConnection();
+  userController.updateProfileName(conn, req, res);
+});
 
-// TODO: Update profile image
-/* app.put("/api/users/:userId/updateProfileImage", (req, res) =>
-  userController.updateProfileImage(req, res)
-);*/
+// update profile image
+app.put("/users/:userId/profileImage", (req, res) => {
+  const conn = pool.getConnection();
+  userController.updateProfileImage(conn, req, res);
+});
 
-// Delete user
-app.delete("/api/users/:userId", (req, res) =>
-  userController.deleteUser(req, res)
-);
+// delete user
+app.delete("/users/:userId", (req, res) => {
+  const conn = pool.getConnection();
+  userController.deleteUser(conn, req, res);
+});
 
-// Get all itineraries from all users
-app.get("/api/itineraries", (req, res) =>
-  itineraryController.getAllItineraries(req, res)
-);
+// return all itineraries from all users
+app.get("/itineraries", (req, res) => {
+  const conn = pool.getConnection();
+  itineraryController.getAllItineraries(conn, req, res);
+});
 
-// Get all itineraries from all users
-app.get("/api/itineraries/:email", (req, res) =>
-  itineraryController.findItinerariesByUserEmail(req, res)
-);
+// return all itineraries from one user
+app.get("/users/:userId/itineraries", (req, res) => {
+  const conn = pool.getConnection();
+  itineraryController.findItinerariesByUserId(conn, req, res);
+});
 
-// Create itinerary from
-app.post("/api/itineraries/:email", (req, res) =>
-  itineraryController.createItinerary(req, res)
-);
+// create new itinerary
+app.post("/itineraries", (req, res) => {
+  const conn = pool.getConnection();
+  itineraryController.createItinerary(conn, req, res);
+});
 
-// Update itinerary (name, start date, end date and events)
-app.put("/api/itineraries/:email", (req, res) =>
-  itineraryController.updateItinerary(req, res)
-);
-// Delete itinerary using email and user
+// update existing itinerary
+app.post("/itineraries", (req, res) => {
+  const conn = pool.getConnection();
+  itineraryController.updateItinerary(conn, req, res);
+});
 
-app.listen(PORT, () => {
-  console.log(`Server is running on ${PORT}`);
+// delete itinerary
+app.delete("/itineraries", (req, res) => {
+  const conn = pool.getConnection();
+  itineraryController.deleteItinerary(conn, req, res);
+});
+
+app.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
+
+// Create a connection pool
+const pool = mariadb.createPool({
+  host: "mariadb_2425-cs7025-group1",
+  user: "2425-cs7025-group1",
+  password: "jdgMm6VkTKTmhMv6",
+  database: "2425-cs7025-group1_db",
+  connectionLimit: 5,
 });

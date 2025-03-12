@@ -1,18 +1,20 @@
-import db from "../config/db.js";
+//import db from "../config/db.js";
 
-export function getAllUsers(callback) {
-  console.log(db);
-  db.query("SELECT * FROM users", (err, result) => {
-    if (err) {
-      console.log(err);
-    }
-    console.log(result);
-    callback(result);
-  });
+export async function getAllUsers(conn, callback) {
+  console.log(conn);
+  const result = await conn.query("SELECT * FROM users");
+  callback(result);
+  // (err, result) => {
+  //   if (err) {
+  //     console.log(err);
+  //   }
+  //   console.log(result);
+  //   callback(result);
+  // }
 }
 
-export function findEmailPassword(user, callback) {
-  db.query(
+export function findEmailPassword(conn, user, callback) {
+  conn.query(
     `SELECT * FROM users WHERE email = (?) AND password = (?)`,
     [user.email, user.password],
     (err, result) => {
@@ -25,8 +27,8 @@ export function findEmailPassword(user, callback) {
   );
 }
 
-export function findUserByEmail(user, callback) {
-  db.query(
+export function findUserByEmail(conn, user, callback) {
+  conn.query(
     `SELECT * FROM users WHERE email = (?)`,
     [user.email],
     (err, result) => {
@@ -39,9 +41,9 @@ export function findUserByEmail(user, callback) {
   );
 }
 
-export function createUser(user, callback) {
-  db.query(
-    "INSERT INTO users (profileName, email, password) VALUES (?,?,?)",
+export function createUser(conn, user, callback) {
+  conn.query(
+    "INSERT INTO users (profile_name, email, password) VALUES (?,?,?)",
     [user.username, user.email, user.password],
     (err, result) => {
       if (err) {
@@ -54,11 +56,11 @@ export function createUser(user, callback) {
   );
 }
 
-export function updateProfileName(userId, profileName, callback) {
-  db.query(
+export function updateProfileName(conn, userId, profileName, callback) {
+  conn.query(
     `UPDATE users
-    SET profileName = ?
-    WHERE userId = ?`,
+    SET profile_name = ?
+    WHERE id = ?`,
     [profileName, userId],
     (err, result) => {
       if (err) {
@@ -71,11 +73,11 @@ export function updateProfileName(userId, profileName, callback) {
   );
 }
 
-export function updateProfileImage(userId, profileImage, callback) {
-  db.query(
+export function updateProfileImage(conn, userId, profileImage, callback) {
+  conn.query(
     `UPDATE users
     SET profileImage = ?
-    WHERE userId = ?`,
+    WHERE id = ?`,
     [profileImage, userId],
     (err, result) => {
       if (err) {
@@ -88,11 +90,11 @@ export function updateProfileImage(userId, profileImage, callback) {
   );
 }
 
-export function deleteUser(userId, callback) {
+export function deleteUser(conn, userId, callback) {
   console.log("deleting user", userId);
-  db.query(
+  conn.query(
     `DELETE FROM users
-    WHERE userId = ?`,
+    WHERE id = ?`,
     [userId],
     (err, result) => {
       if (err) {
