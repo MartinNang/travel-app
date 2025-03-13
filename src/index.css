@@ -279,13 +279,3 @@ header {
 }
 
 
-
-/* Itinerary page */
-
-.accordion {
-  background: transparent !important; 
-}
-
-.accordion-body {
-  background: rgba(255, 255, 255, 0.15) !important ;
- }

@@ -20,7 +20,7 @@
       {
         "src": "images/itinerary_page/statue-of-liberty.jpg",
         "alt": "NYC Slide 1",
-        "caption": "The Iconic Statue of Liberty"
+        "caption": "The Statue of Liberty"
       },
       {
         "src": "images/itinerary_page/times-square.jpg",
@@ -28,41 +28,41 @@
         "caption": "Times Square"
       },
       {
-        "src": "central-park.jpg",
+        "src": "images/itinerary_page/central-park.jpg",
         "alt": "NYC Slide 3",
-        "caption": "Central Park in Autumn"
+        "caption": "Central Park"
       }
     ],
     "paris": [
       {
-        "src": "eiffel-tower.jpg",
+        "src": "images/itinerary_page/eiffel-tower.jpg",
         "alt": "Paris Slide 1",
         "caption": "The Eiffel Tower"
       },
       {
-        "src": "jardin-du-luxembourg.jpg",
+        "src": "images/itinerary_page/jardin-du-luxembourg.jpg",
         "alt": "Paris Slide 2",
         "caption": "Luxembourg's garden"
       },
       {
-        "src": "louvre.jpg",
+        "src": "images/itinerary_page/louvre.jpg",
         "alt": "Paris Slide 3",
         "caption": "Louvre Museum"
       }
     ],
     "tokyo": [
       {
-        "src": "shibuya-crossing.jpg",
+        "src": "images/itinerary_page/shibuya-crossing.jpg",
         "alt": "Tokyo Slide 1",
         "caption": "Shibuya Crossing"
       },
       {
-        "src": "tokyo-tower.jpg",
+        "src": "images/itinerary_page/tokyo-tower.jpg",
         "alt": "Tokyo Slide 2",
         "caption": "Tokyo Tower"
       },
       {
-        "src": "cherry-blossoms.jpg",
+        "src": "images/itinerary_page/cherry-blossoms.jpg",
         "alt": "Tokyo Slide 3",
         "caption": "Cherry Blossoms in Tokyo"
       }

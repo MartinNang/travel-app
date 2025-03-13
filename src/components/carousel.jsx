@@ -4,6 +4,7 @@ import carouselImages from "../carouselImages.json"; // Import the JSON data
 
 const PhotoCarousel = ({ city }) => {
   const images = carouselImages[city] || [];
+  console.log(images)
 
   return (
     <Carousel>
@@ -13,6 +14,7 @@ const PhotoCarousel = ({ city }) => {
             className="d-block w-100"
             src={`/${image.src}`}  // Assuming you have the images in the public folder or a suitable path
             alt={image.alt}
+            style={{ height: "300px", objectFit: "cover" }}
           />
           <Carousel.Caption>
             <h3>{image.caption}</h3>
