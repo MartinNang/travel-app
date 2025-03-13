@@ -8,6 +8,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Accordion from "react-bootstrap/Accordion";
+import PhotoCarousel from "./carousel.jsx";
 
 const Itineraries = () => {
     return (
@@ -22,6 +23,7 @@ const Itineraries = () => {
                 <Row>
                     <Col>
                         <h2 className="text-center p-3" style={{ color: '#F19EDC', fontWeight: "bold" }}>DUBLIN</h2>
+                        <PhotoCarousel city="dublin" />
                     </Col>
 
                     <Col>
@@ -73,8 +75,6 @@ const Itineraries = () => {
                             </Accordion.Body>
                             </Accordion.Item>
                         </Accordion>
-
-
 
                     </Col>
                 </Row>
