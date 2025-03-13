@@ -1,12 +1,12 @@
 import queryOverpass from "query-overpass";
 import $ from "jquery";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import CustomCard from "./card";
 import { Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const Search = ({}) => {
+const Events = ({}) => {
   const [loading, setLoading] = useState(false);
   const [failed, setFailed] = useState(false);
   const [results, setResults] = useState(null);
@@ -61,27 +61,68 @@ const Search = ({}) => {
   return (
     <article>
       <Container>
-        <Row>
-          <h1>Points of interest</h1>
-        </Row>
-        <Row>
-          <Form className="d-flex" onSubmit={onFormSubmit}>
-            <Form.Control
-              type="search"
-              placeholder="e.g. Dublin"
-              className="me-2"
-              aria-label="Search"
-              onChange={onInput}
-              value={searchTerm}
-            />
-            <Button variant="primary" type="submit">
-              Search{loading ? "ing..." : ""}
-            </Button>
-          </Form>
-        </Row>
         <Row className="mt-4">
-          <Col xs={8}>
-            <Container style={{ maxHeight: "100vh", overflowY: "auto" }}>
+          <Col xs={12} md={6} lg={2}>
+            {/* Search for Events in [City] */}
+            {/* <label for="events">Events</label> */}
+            {/* <input
+              type="events"
+              id="events"
+              name="events"
+              placeholder="Search for Events in [City]"
+            /> */}
+            <Container>
+              <Row>
+                <Form className="d-flex p-0" onSubmit={onFormSubmit}>
+                  <Form.Control
+                    type="search"
+                    placeholder="e.g. Dublin"
+                    aria-label="Search"
+                    onChange={onInput}
+                    value={searchTerm}
+                  />
+                  <Button variant="primary" type="submit">
+                    Search{loading ? "ing..." : ""}
+                  </Button>
+                </Form>
+              </Row>
+              <Row className="mt-4 mb-4">
+                <h4>
+                  <label for="from">From</label>
+                </h4>
+                <input
+                  type="date"
+                  id="fromDate"
+                  name="fromDate"
+                  placeholder="From"
+                />
+                <h4>
+                  <label for="to">To</label>
+                </h4>
+                <input type="date" id="toDate" name="toDate" placeholder="To" />
+              </Row>
+              <Row className="mb-4">
+                <h4>
+                  <label for="filters">Filters</label>
+                </h4>
+                <input id="filters" name="filters" />
+              </Row>
+              <Row className="mb-4">
+                <h4>
+                  <label for="opening-hours">Opening Hours</label>
+                </h4>
+                <input
+                  id="opening-hours"
+                  name="opening-hours"
+                  type="range"
+                  min="1"
+                  max="24"
+                />
+              </Row>
+            </Container>
+          </Col>
+          <Col xs={7}>
+            <Container className="events-body p-4">
               <Row>
                 {loading ? (
                   <h2 className="text-center">
@@ -108,7 +149,12 @@ const Search = ({}) => {
                         type={element.tags.tourism}
                         operator={element.tags.operator}
                         wheelchair={element.tags.wheelchair}
-                        description={element.tags.description}
+                        description={
+                          element.tags.description
+                            ? element.tags.description
+                            : ""
+                        }
+                        wikidataId={element.tags.wikidata}
                         fee={element.tags.fee}
                         setPois={setPois}
                         pois={pois}
@@ -118,34 +164,25 @@ const Search = ({}) => {
               </Row>
             </Container>
           </Col>
-          <Col>
-            <Container>
+          <Col xs={3}>
+            <Container className="wishlist-body p-4">
               <Row>
-                <Col>
-                  <h3>My Waypoints</h3>
-                </Col>
-                <Col>
-                  <Button
-                    onClick={() => {
-                      setPois([]);
-                    }}>
-                    Clear route
-                  </Button>
-                </Col>
+                <h3>Wishlist</h3>
               </Row>
-              <Row>
+              <Row className="wishlist-pois p-2">
                 {pois
                   ? pois.map((element, i) => (
-                      <p>
-                        latitude={element.lat}
-                        longitude={element.lon}
-                      </p>
+                      <div className="wishlist-card p-2 ps-4 mb-2">
+                        {element.name}
+                        {/* latitude={element.lat}
+                        longitude={element.lon} */}
+                      </div>
                     ))
                   : ""}
               </Row>
-              <Row>
+              <Row className="m-2">
                 <Button href={mapsLink} target="_blank">
-                  Open route in Google Maps
+                  Create new itinerary
                 </Button>
               </Row>
             </Container>
@@ -156,4 +193,4 @@ const Search = ({}) => {
   );
 };
 
-export default Search;
+export default Events;

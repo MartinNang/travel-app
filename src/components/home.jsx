@@ -29,12 +29,12 @@ const Home = () => {
           <h1>Homepage</h1>
         </Row>
         <Row className="mb-3">
-        <Col className="text-center">
-          <Link to="/signIn">
-            <Button variant="primary">Sign In</Button>
-          </Link>
-        </Col>
-      </Row>
+          <Col className="text-center">
+            <Link to="/signIn">
+              <Button variant="primary">Sign In</Button>
+            </Link>
+          </Col>
+        </Row>
         <Row>
           <Col xs={12} lg={5}>
             <p>Left Column</p>
