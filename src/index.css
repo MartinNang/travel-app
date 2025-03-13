@@ -64,19 +64,7 @@ code {
   margin-top: ;
 }
 
-.green-rectangle {
-  width: 90vw;
-  max-width: 1200px;
-  height: 25em;
-  background-color: #0b524c;
-  margin: 60px;
-  padding: 40px;
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: poppins;
-}
+
 
 header {
   background-color: #fff;
