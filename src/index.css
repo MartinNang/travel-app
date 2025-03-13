@@ -205,3 +205,87 @@ input[type="text"]:focus {
 header {
   z-index: 10;
 }
+
+
+/* contact page in footer */
+
+
+
+.hero-section {
+  width: 99vw;
+  height: 740px;
+  background: url('images/balloon.png') no-repeat center center/cover;
+}
+
+.contact-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+  
+}
+
+
+.contact-box {
+  background-color: rgba(104, 84, 167, 0.67); 
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 500px;
+  width: 100%;
+  
+  text-align: center;
+}
+
+.contact-box h2 {
+  color: #000;
+  
+  margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 95%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  background: white;
+  color: #000;
+  font-family: poppins, sans-serif;
+  background-color: #f5f3f7;
+  border: none;
+  font-size: 1em;
+  text-align: left;
+}
+
+.contact-form textarea {
+  
+  height: 100px;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #554293;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #413079;
+}
+
+
+.decor {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200px;
+  opacity: 0.6;
+}
