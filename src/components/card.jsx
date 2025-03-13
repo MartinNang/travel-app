@@ -2,6 +2,8 @@ import { Card, CardBody, CardFooter, CardImg, CardText } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { useState } from "react";
+import { BsHeart, BsHeartFill } from "react-icons/bs";
+import axios from "axios";
 
 /**
  * A basic Bootstrap card template for projects.
@@ -27,53 +29,97 @@ const CustomCard = ({
   operator,
   wheelchair,
   description,
+  wikidataId,
   fee,
   setPois,
   pois,
 }) => {
   const [added, setAdded] = useState(false);
+  const [cardDescription, setCardDescription] = useState(description);
+  console.log("address", address);
+  console.log("description", description);
+  if (!description && wikidataId) {
+    console.log("fetching wikidata", wikidataId);
+    fetchWikidata(wikidataId);
+  }
+
+  function fetchWikidata(wikidataId) {
+    axios
+      .get(
+        `https://www.wikidata.org/wiki/Special:EntityData/${wikidataId}.json`
+      )
+      .then((response) => {
+        console.log(
+          "fetched",
+          response.data.entities[wikidataId].descriptions.en.value
+        );
+        setCardDescription(
+          response.data.entities[wikidataId].descriptions.en.value
+        );
+        console.log("card description", cardDescription);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 
   return (
-    <Card key={id} className="mb-2 p-2">
+    <Card key={id} className="mb-4 p-4 event-card">
       <CardBody>
         <h2 class="card-title">{name}</h2>
-        {latitude && longitude ? (
+        {/*{latitude && longitude ? (
           <CardText>
             [{latitude}, {longitude}]
           </CardText>
         ) : (
           ""
-        )}
-        {address ? <CardText>Address: {address}</CardText> : ""}
-        {openingHours ? <CardText>Opening Hours: {openingHours}</CardText> : ""}
-        {phoneNr ? <CardText>Phone Number: {phoneNr}</CardText> : ""}
-        {email ? <CardText>E-Mail: {email}</CardText> : ""}
-        {link ? (
-          <CardText>
-            Website: <Link to={link}>{link}</Link>
-          </CardText>
-        ) : (
-          ""
-        )}
-        {operator ? <CardText>Operated by: {operator}</CardText> : ""}
-        {wheelchair ? (
-          <CardText>Wheelchair accessible: {wheelchair}</CardText>
-        ) : (
-          ""
-        )}
-        {fee ? <CardText>Fee: {fee}</CardText> : ""}
+        )}*/}
+        <div className="mt-4">
+          {cardDescription ? <CardText>{cardDescription}</CardText> : ""}
+          {address ? <CardText>Address: {address}</CardText> : ""}
+          {openingHours ? (
+            <CardText>Opening Hours: {openingHours}</CardText>
+          ) : (
+            ""
+          )}
+          {/* {phoneNr ? <CardText>Phone Number: {phoneNr}</CardText> : ""} */}
+          {/* {email ? <CardText>E-Mail: {email}</CardText> : ""} */}
+          {link ? (
+            <CardText>
+              Website: <Link to={link}>{link}</Link>
+            </CardText>
+          ) : (
+            ""
+          )}
+          {/*
+        {operator ? <CardText>Operated by: {operator}</CardText> : ""}*/}
+          {wheelchair ? (
+            <CardText>Wheelchair accessible: {wheelchair}</CardText>
+          ) : (
+            ""
+          )}
+          {fee ? <CardText>Fee: {fee}</CardText> : ""}
+        </div>
+
         <Button
           variant="secondary"
-          className="bg-dark float-end"
+          className="float-end rounded-circle p-0 bg-transparent border-0"
           disabled={added}
           onClick={() => {
-            setPois((pois) => [...pois, { lat: latitude, lon: longitude }]);
+            setPois((pois) => [
+              ...pois,
+              { name: name, lat: latitude, lon: longitude },
+            ]);
             setAdded(true);
           }}>
-          Add{added ? "ed" : ""}
+          {added ? (
+            <BsHeartFill className="add-button"></BsHeartFill>
+          ) : (
+            <BsHeart className="add-button"></BsHeart>
+          )}
         </Button>
       </CardBody>
-      <CardFooter className="row">
+      <CardFooter className="row bg-transparent">
         <small class="">Type: {type}</small>
       </CardFooter>
     </Card>

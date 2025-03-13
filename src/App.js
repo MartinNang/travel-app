@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
-import Search from "./components/search";
+import Events from "./components/events";
+import Elements from "./components/elements";
 import NavigationMenu from "./components/header";
 import Footer from "./components/footer";
 import Home from "./components/home";
@@ -19,12 +20,13 @@ function App() {
       <NavigationMenu></NavigationMenu>
       <PageContent>
         <Routes>
-          <Route path="/search" element={<Search />} />
           <Route path="/" element={<Home />} />
           <Route path="/api" element={<Api />} />
           <Route path="/itineraries" element={<Itineraries />} />
           <Route path="/signIn" element={<SignIn />} />
           <Route path="/signUp" element={<SignUp />} />
+          <Route path="/elements" element={<Elements />} />
+          <Route path="/events" element={<Events />} />
           {/* <Route path="/contact" element={<Contact />} /> */}
         </Routes>
       </PageContent>

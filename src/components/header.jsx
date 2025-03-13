@@ -46,7 +46,7 @@ const Header = () => {
                 myFeed
               </Nav.Link>
               <Nav.Link
-                href="/travel-app/#/search"
+                href="/travel-app/#/events"
                 onClick={window.scrollTo(0, 0)}>
                 events
               </Nav.Link>
