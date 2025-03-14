@@ -54,17 +54,15 @@ code {
   align-items: center;
   font-size: 14px;
   color: #6b4a8b;
-  height: ;
+  /* height: ; */
 }
 .socials {
   display: flex;
   justify-content: center;
   gap: 75px;
   font-size: 20px;
-  margin-top: ;
+  /* margin-top: ; */
 }
-
-
 
 header {
   background-color: #fff;
@@ -73,6 +71,7 @@ header {
   width: 100%;
   top: 0;
   font-family: poppins;
+  z-index: 1000;
 }
 
 .page-content {
@@ -190,19 +189,12 @@ input[type="text"]:focus {
   font-size: 16px;
 }
 
-header {
-  z-index: 10;
-}
-
-
 /* contact page in footer */
-
-
 
 .hero-section {
   width: 99vw;
   height: 740px;
-  background: url('images/balloon.png') no-repeat center center/cover;
+  background: url("images/balloon.png") no-repeat center center/cover;
 }
 
 .contact-container {
@@ -211,23 +203,21 @@ header {
   justify-content: center;
   align-items: center;
   padding: 50px 20px;
-  
 }
 
-
 .contact-box {
-  background-color: rgba(104, 84, 167, 0.67); 
+  background-color: rgba(104, 84, 167, 0.67);
   padding: 40px;
   border-radius: 15px;
   max-width: 500px;
   width: 100%;
-  
+
   text-align: center;
 }
 
 .contact-box h2 {
   color: #000;
-  
+
   margin-bottom: 20px;
 }
 
@@ -249,7 +239,6 @@ header {
 }
 
 .contact-form textarea {
-  
   height: 100px;
 }
 
@@ -268,7 +257,6 @@ header {
 .contact-form button:hover {
   background-color: #413079;
 }
-
 
 .decor {
   position: absolute;
