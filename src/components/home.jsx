@@ -14,7 +14,7 @@ import mountainsImg from "../images/mountains.jpg";
 import tokyoImg from "../images/tokyo.jpg";
 import newyorkImg from "../images/newyork.jpg";
 import signinImg from "../images/signin.jpg";
-import mapImg from "../images/map.png";
+import mapsImg from "../images/maps.png";
 import computerImg from "../images/computer.png";
 import japanImg from "../images/japan.jpg";
 import parisImg from "../images/paris.jpg";
@@ -71,7 +71,7 @@ const Home = () => {
 
       {/* <!-- Dashboard Section --> */}
       <section class="dashboard">
-        <img src={mapImg} alt="Dashboard Image" />
+        <img src={mapsImg} alt="Dashboard Image" />
         <img src={computerImg} id="computer-image" alt="Computer Image" />
         <p>A Step By Step Guide On How To Navigate Our Website</p>
       </section>
