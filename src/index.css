@@ -1,39 +1,38 @@
 @font-face {
-    font-family: gyst;
-    src: url(gyst-regular.otf);
-  }
- @font-face {
-    font-family: inria;
-    src: url(InriaSerif-Regular.ttf);
-  }
-@font-face {
-    font-family: poppins;
-    src: url(Poppins-Regular.ttf);
+  font-family: gyst;
+  src: url(gyst-regular.otf);
 }
- body {
+@font-face {
+  font-family: inria;
+  src: url(InriaSerif-Regular.ttf);
+}
+@font-face {
+  font-family: poppins;
+  src: url(Poppins-Regular.ttf);
+}
+body {
   margin: 0;
   font-family: poppins, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 .subfooter {
-  background-color: #EEF3F2;
+  background-color: #eef3f2;
   margin-top: 2em;
   padding: 40px;
-  color:#0B524C;
+  color: #0b524c;
   font-family: poppins;
 }
 
 .subscribe-btn {
-  background-color:#0B524C;
-  color:#F19EDC;
+  background-color: #0b524c;
+  color: #f19edc;
   border-radius: 80px;
   border: none;
   padding: 25px;
@@ -46,111 +45,223 @@ code {
 }
 
 .footer {
-    background-color:  #b1f8b6; /*#bfe7c2*/
-    padding: 50px 100px;
-    /*margin-top: 40px;*/
-    font-family: inria;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 14px;
-    color:#6b4a8b;
-    height: ;
+  background-color: #b1f8b6; /*#bfe7c2*/
+  padding: 50px 100px;
+  /*margin-top: 40px;*/
+  font-family: inria;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #6b4a8b;
+  /* height: ; */
 }
 .socials {
-    display: flex;
-    justify-content: center;
-    gap: 75px;
-    font-size: 20px;
-    margin-top: ;
-    
-}
-
-.green-rectangle {
-  width: 90vw; 
-  max-width: 1200px; 
-  height: 25em; 
-  background-color: #0B524C; 
-  margin: 60px; 
-  padding: 40px; 
-  border-radius: 12px; 
   display: flex;
   justify-content: center;
-  align-items: center;
-  font-family: poppins;
+  gap: 75px;
+  font-size: 20px;
+  /* margin-top: ; */
 }
 
 header {
-    background-color: #fff;
-    padding: 15px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    font-family: poppins;
+  background-color: #fff;
+  padding: 15px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  font-family: poppins;
+  z-index: 1000;
 }
 
-
+.page-content {
+  margin-top: 91px;
+}
 
 nav {
-   
-    display: flex;
-    justify-content: space-between; 
-    align-items:center; 
-    padding: 0px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 60px;
 }
 
 .nav-links {
-    list-style: none; 
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    padding: 0;
-    margin: 0;
-    
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 0;
+  margin: 0;
 }
 .nav-links li {
-    display: flex; 
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 .nav-links li a {
-    text-decoration: none; 
-    color: #554293;
-    font-size: 1.1em;
+  text-decoration: none;
+  color: #554293;
+  font-size: 1.1em;
 }
 .nav-links li a.active {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .it {
-    font-style: italic;
+  font-style: italic;
 }
 
-input[type=text] {
-    color:#554293;
-    font-family: poppins, sans-serif;
-    background-color: #f5f3f7;
-    border: none;
-    font-size: 1em;
-    text-align: center;
-    width: 150px;
-    padding: 6px 12px;
-    border-radius: 9px
-    
+input[type="text"] {
+  color: #554293;
+  font-family: poppins, sans-serif;
+  background-color: #f5f3f7;
+  border: none;
+  font-size: 1em;
+  text-align: center;
+  width: 150px;
+  padding: 6px 12px;
+  border-radius: 9px;
 }
 
-input[type="text"]::placeholder{
-    color:#554293;
-    opacity: 1;
+input[type="text"]::placeholder {
+  color: #554293;
+  opacity: 1;
 }
 
-input[type=text]:focus {
-    background-color: #f5f3f7;
-    border: none;
+input[type="text"]:focus {
+  background-color: #f5f3f7;
+  border: none;
 }
-
 
 .nav-links li img {
-    width: 20px;
-    height: auto;
-    cursor: pointer;
+  width: 20px;
+  height: auto;
+  cursor: pointer;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+  background-color: #b1f8b6 !important;
+  border-color: #b1f8b6 !important;
+  color: black !important;
+}
+
+.events-body {
+  background: #0b524c;
+  border-radius: 40px;
+  height: 80vh;
+  overflow-y: auto;
+}
+
+.wishlist-body {
+  background: #6d5faa;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  max-height: 80vh;
+}
+
+.wishlist-body h3 {
+  color: white;
+}
+
+.wishlist-pois {
+  overflow-y: auto;
+  max-height: calc(80vh - 130px);
+}
+
+.add-button {
+  color: #f19edc;
+  width: 25px;
+  height: 25px;
+}
+
+.event-card {
+  background: #ffffff;
+  border-radius: 60px !important;
+}
+
+.wishlist-card {
+  filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
+  background-color: #ffffff;
+  border-radius: 20px;
+  display: flex;
+  font-size: 16px;
+}
+
+/* contact page in footer */
+
+.hero-section {
+  width: 99vw;
+  height: 740px;
+  background: url("images/balloon.png") no-repeat center center/cover;
+}
+
+.contact-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+.contact-box {
+  background-color: rgba(104, 84, 167, 0.67);
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 500px;
+  width: 100%;
+
+  text-align: center;
+}
+
+.contact-box h2 {
+  color: #000;
+
+  margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 95%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  background: white;
+  color: #000;
+  font-family: poppins, sans-serif;
+  background-color: #f5f3f7;
+  border: none;
+  font-size: 1em;
+  text-align: left;
+}
+
+.contact-form textarea {
+  height: 100px;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #554293;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #413079;
+}
+
+.decor {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200px;
+  opacity: 0.6;
 }
