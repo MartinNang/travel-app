@@ -4,105 +4,62 @@ export async function getAllUsers(conn, callback) {
   console.log(conn);
   const result = await conn.query("SELECT * FROM users");
   callback(result);
-  // (err, result) => {
-  //   if (err) {
-  //     console.log(err);
-  //   }
-  //   console.log(result);
-  //   callback(result);
-  // }
 }
 
-export function findEmailPassword(conn, user, callback) {
-  conn.query(
+export async function findEmailPassword(conn, user, callback) {
+  console.log(conn);
+  const result = await conn.query(
     `SELECT * FROM users WHERE email = (?) AND password = (?)`,
-    [user.email, user.password],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-        throw 500;
-      }
-      callback(result);
-    }
+    [user.email, user.password]
   );
+  callback(result);
 }
 
-export function findUserByEmail(conn, user, callback) {
-  conn.query(
-    `SELECT * FROM users WHERE email = (?)`,
-    [user.email],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-        throw 500;
-      }
-      callback(result);
-    }
-  );
+export async function findUserByEmail(conn, user, callback) {
+  console.log(conn);
+  const result = await conn.query(`SELECT * FROM users WHERE email = (?)`, [
+    user.email,
+  ]);
+  callback(result);
 }
 
-export function createUser(conn, user, callback) {
-  conn.query(
+export async function createUser(conn, user, callback) {
+  console.log(conn);
+  const result = await conn.query(
     "INSERT INTO users (profile_name, email, password) VALUES (?,?,?)",
-    [user.username, user.email, user.password],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-        throw 500;
-      }
-      console.log(result);
-      callback();
-    }
+    [user.username, user.email, user.password]
   );
+  callback(result);
 }
 
-export function updateProfileName(conn, userId, profileName, callback) {
-  conn.query(
+export async function updateProfileName(conn, userId, profileName, callback) {
+  console.log(conn);
+  const result = await conn.query(
     `UPDATE users
     SET profile_name = ?
     WHERE id = ?`,
-    [profileName, userId],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-        throw 500;
-      }
-      console.log(result);
-      callback();
-    }
+    [profileName, userId]
   );
+  callback(result);
 }
 
-export function updateProfileImage(conn, userId, profileImage, callback) {
-  conn.query(
+export async function updateProfileImage(conn, userId, profileImage, callback) {
+  console.log(conn);
+  const result = await conn.query(
     `UPDATE users
     SET profileImage = ?
     WHERE id = ?`,
-    [profileImage, userId],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-        throw 500;
-      }
-      console.log(result);
-      callback();
-    }
+    [profileImage, userId]
   );
+  callback(result);
 }
 
-export function deleteUser(conn, userId, callback) {
-  console.log("deleting user", userId);
-  conn.query(
+export async function deleteUser(conn, userId, callback) {
+  console.log(conn);
+  const result = await conn.query(
     `DELETE FROM users
     WHERE id = ?`,
-    [userId],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-        throw 500;
-      }
-      console.log(result);
-      callback();
-    }
+    [userId]
   );
+  callback(result);
 }

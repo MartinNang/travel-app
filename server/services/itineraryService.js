@@ -1,30 +1,21 @@
-export function getAllItineraries(conn, callback) {
+export async function getAllItineraries(conn, callback) {
   console.log(conn);
-  conn.query("SELECT * FROM itineraries", (err, result) => {
-    if (err) {
-      console.log(err);
-    }
-    console.log(result);
-    callback(result);
-  });
+  const result = await conn.query("SELECT * FROM itineraries");
+  callback(result);
 }
 
-export function findItinerariesByUserId(conn, userId, callback) {
-  conn.query(
+export async function findItinerariesByUserId(conn, userId, callback) {
+  console.log(conn);
+  const result = await conn.query(
     `SELECT * FROM itineraries WHERE user_id = (?)`,
-    [userId],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-        throw 500;
-      }
-      callback(result);
-    }
+    [userId]
   );
+  callback(result);
 }
 
-export function findItinerariesByUserEmail(conn, userEmail, callback) {
-  conn.query(
+export async function findItinerariesByUserEmail(conn, userEmail, callback) {
+  console.log(conn);
+  const result = await conn.query(
     `SELECT * FROM users WHERE email = (?)`,
     [userEmail],
     (err, result) => {
@@ -41,24 +32,21 @@ export function findItinerariesByUserEmail(conn, userEmail, callback) {
       }
     }
   );
+  callback(result);
 }
 
-export function findItinerariesByName(conn, itineraryName, callback) {
-  conn.query(
+export async function findItinerariesByName(conn, itineraryName, callback) {
+  console.log(conn);
+  const result = await conn.query(
     `SELECT * FROM itineraries WHERE name = (?)`,
-    [itineraryName],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-        throw 500;
-      }
-      callback(result);
-    }
+    [itineraryName]
   );
+  callback(result);
 }
 
-export function createItinerary(conn, userId, itinerary, callback) {
-  conn.query(
+export async function createItinerary(conn, userId, itinerary, callback) {
+  console.log(conn);
+  const result = await conn.query(
     "INSERT INTO itineraries (`user_id`, `name`, `start_date`, `end_date`, `created_at`) VALUES (?, ?, ?, ?, ?);",
     [
       userId,
@@ -66,51 +54,29 @@ export function createItinerary(conn, userId, itinerary, callback) {
       itinerary.startDate,
       itinerary.endDate,
       itinerary.createdAt,
-    ],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-        throw 500;
-      }
-      console.log(result);
-      callback();
-    }
+    ]
   );
+  callback(result);
 }
 
-export function updateItinerary(conn, itineraryId, itinerary, callback) {
-  console.log("updating itinerary:", itinerary.name);
-
-  conn.query(
+export async function updateItinerary(conn, itineraryId, itinerary, callback) {
+  console.log(conn);
+  const result = await conn.query(
     `UPDATE itineraries
           SET name = ?, start_date = ?, end_date = ?
           WHERE id = ?`,
-    [itinerary.name, itinerary.startDate, itinerary.endDate, itineraryId],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-        throw 500;
-      }
-      console.log(result);
-      callback();
-    }
+    [itinerary.name, itinerary.startDate, itinerary.endDate, itineraryId]
   );
+  callback(result);
 }
 
-export function deleteItinerary(conn, itineraryId, callback) {
+export async function deleteItinerary(conn, itineraryId, callback) {
   // TODO: get itineraryId using itineraryName + email OR use iName + email as primary key in table
   console.log("deleting itinerary", itineraryId);
-  conn.query(
+  const result = await conn.query(
     `DELETE FROM itineraries
     WHERE id = ?`,
-    [itineraryId],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-        throw 500;
-      }
-      console.log(result);
-      callback();
-    }
+    [itineraryId]
   );
+  callback(result);
 }
