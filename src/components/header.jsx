@@ -50,11 +50,6 @@ const Header = () => {
                 onClick={window.scrollTo(0, 0)}>
                 events
               </Nav.Link>
-              <Nav.Link
-                href="/travel-app/#/api"
-                onClick={window.scrollTo(0, 0)}>
-                api
-              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

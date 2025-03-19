@@ -19,7 +19,7 @@ function App() {
     <div className="App">
       <NavigationMenu></NavigationMenu>
       <PageContent>
-        <Routes>
+        {/* <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/api" element={<Api />} />
           <Route path="/itineraries" element={<Itineraries />} />
@@ -27,8 +27,7 @@ function App() {
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/elements" element={<Elements />} />
           <Route path="/events" element={<Events />} />
-          {/* <Route path="/contact" element={<Contact />} /> */}
-        </Routes>
+        </Routes> */}
       </PageContent>
       <SubFooter></SubFooter>
       <Footer></Footer>

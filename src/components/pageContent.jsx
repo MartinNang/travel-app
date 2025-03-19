@@ -6,17 +6,19 @@ import SignUp from "./signUp";
 import Events from "./events";
 import Api from "./api";
 import { Route, Routes } from "react-router-dom";
+import Profile from "./profile";
 
 const PageContent = () => {
   return (
     <div className="page-content">
       <Routes>
-        <Route path="/search" element={<Events />} />
         <Route path="/" element={<Home />} />
         <Route path="/api" element={<Api />} />
+        <Route path="/events" element={<Events />} />
         <Route path="/itineraries" element={<Itineraries />} />
-        <Route path="/signIn" element={<SignIn />} />
-        <Route path="/signUp" element={<SignUp />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
         {/* <Route path="/contact" element={<Contact />} /> */}
       </Routes>
     </div>

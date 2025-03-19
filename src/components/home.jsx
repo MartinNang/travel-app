@@ -66,7 +66,11 @@ const Home = () => {
       <div class="hero">
         <img src={signinImg} alt="Signin Image" />
         <h1>Your Journey, Perfectly Planned.</h1>
-        <button className="btn btn-primary">Sign In</button>
+        <Link to={"/sign-in"}>
+          <button className="btn btn-primary" type="submit">
+            Sign In
+          </button>
+        </Link>
       </div>
 
       {/* <!-- Dashboard Section --> */}
