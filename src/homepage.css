@@ -358,7 +358,7 @@ section {
 }
 
 .card {
-  width: 30%;
+  /* width: 30%; */
   background: rgba(0, 0, 0, 0.1);
   padding: 20px;
   border-radius: 10px;

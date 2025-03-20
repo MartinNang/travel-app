@@ -2,7 +2,7 @@ import queryOverpass from "query-overpass";
 import $ from "jquery";
 import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
-import CustomCard from "./card";
+import CustomCard from "../ui/card";
 import { Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -183,7 +183,8 @@ const Events = ({}) => {
                   : ""}
               </Row>
               <Row className="m-2">
-                <Button href={mapsLink} target="_blank">
+                {/* <Button href={mapsLink} target="_blank"> */}
+                <Button href={"#/create-itinerary"}>
                   Create new itinerary
                 </Button>
               </Row>

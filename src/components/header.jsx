@@ -53,7 +53,6 @@ const Header = () => {
             </Nav>
           </Navbar.Collapse>
         </Container>
-        <div class="bg-rect header-rect"></div>
       </Navbar>
     </header>
   );
