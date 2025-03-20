@@ -121,11 +121,13 @@ const Events = ({}) => {
               </Row>
             </Container>
           </Col>
-          <Col xs={7}>
+          <Col xs={12} md={7} className="mb-3">
             <Container className="events-body p-4">
-              <Row>
+              <Row className="p-4" style={{ height: "100%" }}>
                 {loading ? (
-                  <h2 className="text-center">
+                  <h2
+                    className="text-center align-self-center"
+                    style={{ top: "50%" }}>
                     <Spinner animation="grow" role="status">
                       <span className="visually-hidden">Loading...</span>
                     </Spinner>
@@ -164,7 +166,7 @@ const Events = ({}) => {
               </Row>
             </Container>
           </Col>
-          <Col xs={3}>
+          <Col xs={12} md={3}>
             <Container className="wishlist-body p-4">
               <Row>
                 <h3>Wishlist</h3>
