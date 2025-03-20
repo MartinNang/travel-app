@@ -13,6 +13,7 @@ import Api from "./components/api";
 import SubFooter from "./components/subFooter";
 import PageContent from "./components/pageContent";
 import { Route, Routes } from "react-router-dom";
+export const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 function App() {
   return (

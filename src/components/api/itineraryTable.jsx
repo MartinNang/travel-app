@@ -9,7 +9,8 @@ import {
 } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import AlertDismissible from "./alertDismissible";
+import AlertDismissible from "../alertDismissible";
+import { BACKEND_URL } from "../../App";
 
 const ItineraryTable = ({}) => {
   const [isEdit, setEdit] = useState([]);
@@ -19,8 +20,7 @@ const ItineraryTable = ({}) => {
   const [message, setMessage] = useState("");
   const [variant, setVariant] = useState("");
 
-  axios.defaults.baseURL = "http://localhost:8080";
-  // axios.defaults.headers.get["Content-Type"] = "application/json;charset=utf-8";
+  axios.defaults.headers.get["Content-Type"] = "application/json;charset=utf-8";
   axios.defaults.headers.get["Access-Control-Allow-Origin"] = "*";
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const ItineraryTable = ({}) => {
 
   function fetchItineraries() {
     axios
-      .get("/api/itineraries")
+      .get("/itineraries")
       .then((response) => {
         let itineraries = response.data;
         if (itineraries) {
@@ -67,11 +67,11 @@ const ItineraryTable = ({}) => {
           <tbody>
             {itineraries.map((itinerary, i) => (
               <tr className="mb-3">
-                <td>{itinerary.itineraryId}</td>
-                <td>{itinerary.itineraryName}</td>
-                <td>{itinerary.userId}</td>
-                <td>{itinerary.startDate}</td>
-                <td>{itinerary.endDate}</td>
+                <td>{itinerary.id}</td>
+                <td>{itinerary.name}</td>
+                <td>{itinerary.user_id}</td>
+                <td>{itinerary.start_date}</td>
+                <td>{itinerary.end_date}</td>
               </tr>
             ))}{" "}
           </tbody>

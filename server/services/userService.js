@@ -6,11 +6,11 @@ export async function getAllUsers(conn, callback) {
   callback(result);
 }
 
-export async function findEmailPassword(conn, user, callback) {
+export async function findEmailPassword(conn, email, password, callback) {
   console.log(conn);
   const result = await conn.query(
-    `SELECT * FROM users WHERE email = (?) AND password = (?)`,
-    [user.email, user.password]
+    `SELECT * FROM users WHERE email = ? AND password = ?`,
+    [email, password]
   );
   callback(result);
 }
@@ -26,8 +26,8 @@ export async function findUserByEmail(conn, user, callback) {
 export async function createUser(conn, user, callback) {
   console.log(conn);
   const result = await conn.query(
-    "INSERT INTO users (profile_name, email, password) VALUES (?,?,?)",
-    [user.username, user.email, user.password]
+    "INSERT INTO users (email, password, profileName, profileImage) VALUES (?,?,?,?)",
+    [user.email, user.password, user.profileName, user.profileImage]
   );
   callback(result);
 }
@@ -36,7 +36,7 @@ export async function updateProfileName(conn, userId, profileName, callback) {
   console.log(conn);
   const result = await conn.query(
     `UPDATE users
-    SET profile_name = ?
+    SET profileName = ?
     WHERE id = ?`,
     [profileName, userId]
   );

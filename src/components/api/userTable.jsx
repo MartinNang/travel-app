@@ -9,7 +9,8 @@ import {
 } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import AlertDismissible from "./alertDismissible";
+import AlertDismissible from "../alertDismissible";
+import { BACKEND_URL } from "../../App";
 
 const UserTable = ({}) => {
   const [isEdit, setEdit] = useState([]);
@@ -21,8 +22,9 @@ const UserTable = ({}) => {
   const [message, setMessage] = useState("");
   const [variant, setVariant] = useState("");
 
-  axios.defaults.baseURL = "http://localhost:8080";
-  // axios.defaults.headers.get["Content-Type"] = "application/json;charset=utf-8";
+  axios.defaults.baseURL = "https://2425-cs7025-group1.scss.tcd.ie/";
+  console.log("base url", BACKEND_URL);
+  axios.defaults.headers.get["Content-Type"] = "application/json;charset=utf-8";
   axios.defaults.headers.get["Access-Control-Allow-Origin"] = "*";
 
   const handleEdit = (i) => {
@@ -34,7 +36,7 @@ const UserTable = ({}) => {
 
   const handleDelete = (userId) => {
     // handle delete
-    axios.delete(`api/users/${userId}`).then(() => {
+    axios.delete(`users/${userId}`).then(() => {
       // display success message
       console.log("deleted user with id", userId);
       setVariant("success");
@@ -50,7 +52,7 @@ const UserTable = ({}) => {
     console.log(`changing profile of user ${userId} to ${newProfileName}`);
     setEdit(!isEdit);
     axios
-      .put(`api/users/${userId}/updateProfileName`, {
+      .put(`users/${userId}/profileName`, {
         newProfileName: newProfileName,
       })
       .then(() => {
@@ -83,7 +85,7 @@ const UserTable = ({}) => {
 
   function fetchUsers() {
     axios
-      .get("/api/users")
+      .get("users")
       .then((response) => {
         let users = response.data;
         if (users) {
@@ -128,7 +130,7 @@ const UserTable = ({}) => {
           <tbody>
             {users.map((user, i) => (
               <tr className="mb-3">
-                <td>{user.userId}</td>
+                <td>{user.id}</td>
                 <td>
                   {!isEdit[i] ? (
                     users[i].profileName
@@ -137,9 +139,10 @@ const UserTable = ({}) => {
                       type="text"
                       id={"pName-" + i}
                       name={"pName-" + i}
+                      value={users[i].profileName}
                       onChange={(e) => handleInputChange(e, i)}
                       onKeyDown={(e) =>
-                        handleKeyPress(e, i, user.userId, profileNames[i])
+                        handleKeyPress(e, i, user.id, profileNames[i])
                       }
                     />
                   )}
