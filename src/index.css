@@ -342,3 +342,381 @@ input[type="text"]:focus {
   font-size: 2rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); 
 }
+
+/*PROFILE PAGE IN PROGRESS */
+
+
+.header {
+  margin-top: 90px;
+  background-color: #ECF2F1;
+  height: 110px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  position: relative;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.username {
+  font-size: 40px;
+  color: #0B524C;
+  margin: 0;
+}
+
+.status {
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  color: #6D5FAA;
+  margin: 0;
+}
+
+.stats-follow {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  justify-content: center;
+  width: 100%;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  width: 450px;
+  margin-right: 40px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 40px;
+  color: #0B524C;
+  margin: 0;
+  font-weight: bold;
+}
+
+.stat-title {
+  font-size: 20px;
+  color: #F19EDC;
+  margin: 0;
+}
+
+.follow-btn {
+  width: 100px;
+  height: 50px;
+  background-color: #3E3568;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  position: absolute;
+  right: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.follow-btn:hover {
+  background-color: #6D5FAA;
+}
+
+.settings-btn {
+  position: absolute;
+  top:20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+
+.separator {
+  width: 100%;
+  height: 1px;
+  background-color: #6D5FAA;
+}
+
+
+.tabs {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  gap: 20px;
+}
+
+.tab {
+  font-size: 25px;
+  font-family: 'Inter', sans-serif;
+  color: #BBB9B9;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+
+.tab.active {
+  color: #F19EDC;
+}
+
+
+.tab-content {
+  display: none; 
+  padding: 20px;
+}
+
+
+.tab-content.active {
+  display: block;
+}
+.all-itinerary-wrapper {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto; 
+  white-space: nowrap; 
+  padding-bottom: 10px; 
+}
+
+.all-itinerary-container {
+  background-color: #ECF2F1;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  width: 40%;
+  max-width: 350px;
+  min-width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 250px;
+}
+
+.all-itinerary-title {
+  font-size: 16px;
+  color: #F19EDC;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.all-itinerary-text {
+  font-size: 12px;
+  color: #6D5FAA;
+  position: absolute;
+  left: 10px;
+  top: 70px;
+  text-align: left;
+}
+
+.all-itinerary-text-right {
+  font-size: 12px;
+  color: #6D5FAA;
+  position: absolute;
+  right: 3px;
+  bottom: 30px;
+  text-align: left;
+}
+
+.all-itinerary-images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+}
+
+.all-itinerary-polaroid {
+  width: 70px;
+}
+
+.all-itinerary-polaroid img {
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+}
+
+
+.all-photo-collage-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  margin-left: 30px;
+}
+
+.all-photo-row {
+  display: flex;
+  gap: 20px;
+  justify-content: right;
+}
+
+.all-photo img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.collage-container {
+  position: relative;
+  width: 80%;
+  height: 80vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 35px; 
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+.collage-item {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.collage-item:nth-child(6n+1) {
+  transform: scale(1.2) rotate(-5deg); 
+}
+.collage-item:nth-child(6n+2) {
+  transform: scale(0.95) rotate(4deg); 
+}
+.collage-item:nth-child(6n+3) {
+  transform: scale(1.05) rotate(-2deg); 
+}
+.collage-item:nth-child(6n+4) {
+  transform: scale(1.15) rotate(3deg); 
+}
+.collage-item:nth-child(6n+5) {
+  transform: scale(1.0) rotate(-3deg); 
+}
+.collage-item:nth-child(6n+6) {
+  transform: scale(1.1) rotate(2deg); 
+}
+
+
+.collage-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;  
+}
+
+.collage-item:hover {
+  transform: scale(1.05) rotate(0deg);
+  z-index: 10;
+}
+
+.itinerary-wrapper {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto; 
+  white-space: nowrap; 
+  padding-bottom: 10px; 
+  scrollbar-width: thin;
+}
+
+.itinerary-container {
+  background-color: #ECF2F1;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  width: 40%;
+  max-width: 350px;
+  min-width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 250px;
+}
+
+.itinerary-title {
+  font-size: 16px;
+  color: #F19EDC;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.itinerary-text {
+  font-size: 12px;
+  color: #6D5FAA;
+  position: absolute;
+  left: 10px;
+  top: 70px;
+  text-align: left;
+}
+
+.itinerary-text-right {
+  font-size: 12px;
+  color: #6D5FAA;
+  position: absolute;
+  right: 3px;
+  bottom: 30px;
+  text-align: left;
+}
+
+.itinerary-images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+}
+
+.itinerary-polaroid {
+  width: 70px;
+}
+
+.itinerary-polaroid img {
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+}
+
+.itinerary-rotated-left {
+  transform: rotate(-10deg);
+}
+
+.itinerary-rotated-right {
+  transform: rotate(10deg);
+}
+
