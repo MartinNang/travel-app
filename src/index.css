@@ -45,17 +45,30 @@ code {
 }
 
 .footer {
-  background-color: #b1f8b6; /*#bfe7c2*/
+  background-color: #b1f8b6;
   padding: 50px 100px;
-  /*margin-top: 40px;*/
   font-family: inria;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 14px;
   color: #6b4a8b;
-  /* height: ; */
 }
+
+
+.footer a {
+  text-decoration: none;
+  color: #6b4a8b;
+}
+
+.footer a:visited {
+  color: #6b4a8b;
+}
+
+.footer a:hover {
+  text-decoration: none; 
+}
+
 .socials {
   display: flex;
   justify-content: center;
