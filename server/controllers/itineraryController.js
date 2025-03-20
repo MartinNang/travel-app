@@ -1,11 +1,11 @@
 import Itinerary from "../models/itinerary.js";
 import * as itineraryService from "../services/itineraryService.js";
 
-export function getAllItineraries(req, res) {
+export function getAllItineraries(conn, req, res) {
   try {
     console.log("response:", res);
     console.log("getting all itineraries");
-    itineraryService.getAllItineraries((result) => {
+    itineraryService.getAllItineraries(conn, (result) => {
       if (result) {
         res.status(200);
       }
@@ -17,52 +17,61 @@ export function getAllItineraries(req, res) {
   }
 }
 
-export function findItinerariesByName(req, res) {
+export function findItinerariesByName(conn, req, res) {
   try {
-    itineraryService.findItinerariesByName(req.body.itineraryName, (result) => {
-      if (result.length === 1) {
-        res.status(200);
-      } else if (result.length === 0) {
-        res.status(403);
+    itineraryService.findItinerariesByName(
+      conn,
+      req.body.itineraryName,
+      (result) => {
+        if (result.length === 1) {
+          res.status(200);
+        } else if (result.length === 0) {
+          res.status(403);
+        }
+        res.send(result);
       }
-      res.send(result);
-    });
+    );
   } catch (code) {
     res.status(code);
     res.send();
   }
 }
 
-export function findItinerariesByUserEmail(req, res) {
+export function findItinerariesByUserId(conn, req, res) {
   try {
-    console.log("email", req.params.email);
-    itineraryService.findItinerariesByUserEmail(req.params.email, (result) => {
-      if (result.length === 1) {
-        res.status(200);
-      } else if (result.length === 0) {
-        res.status(403);
+    console.log("finding itineraries by userId", req.params.userId);
+    itineraryService.findItinerariesByUserId(
+      conn,
+      req.params.userId,
+      (result) => {
+        if (result.length === 1) {
+          res.status(200);
+        } else if (result.length === 0) {
+          res.status(404);
+        }
+        console.log("found itinerary:", result);
+        res.send(result);
       }
-      console.log("found itinerary:", result);
-      res.send(result);
-    });
+    );
   } catch (code) {
     res.status(code);
     res.send();
   }
 }
 
-export function createItinerary(req, res) {
+export function createItinerary(conn, req, res) {
   try {
     const itinerary = new Itinerary(
       req.body.name,
       req.body.startDate,
       req.body.endDate,
+      req.body.createdAt,
       req.body.tags
     );
-    const userEmail = req.params.email;
+    const userId = req.params.userId;
     console.log("itinerary", itinerary);
-    console.log("user email", userEmail);
-    itineraryService.createItinerary(userEmail, itinerary, () => {
+    console.log("userId", userId);
+    itineraryService.createItinerary(conn, userId, itinerary, () => {
       res.status(200);
     });
   } catch (code) {
@@ -72,24 +81,20 @@ export function createItinerary(req, res) {
   }
 }
 
-export function updateItinerary(req, res) {
+export function updateItinerary(conn, req, res) {
   try {
-    const userEmail = req.params.email;
-    const oldItineraryName = req.body.oldItineraryName;
+    const itineraryId = req.params.itineraryId;
+    console.log("updating itinerary", req.body);
     const itinerary = new Itinerary(
       req.body.name,
       req.body.startDate,
       req.body.endDate,
       req.body.tags
     );
-    itineraryService.updateItinerary(
-      userEmail,
-      oldItineraryName,
-      itinerary,
-      (result) => {
-        res.status(200);
-      }
-    );
+    itineraryService.updateItinerary(conn, itineraryId, itinerary, (result) => {
+      res.status(200);
+      res.send(result);
+    });
   } catch (code) {
     res.status(code);
   } finally {
@@ -97,12 +102,12 @@ export function updateItinerary(req, res) {
   }
 }
 
-export function deleteItinerary(req, res) {
+export function deleteItinerary(conn, req, res) {
   try {
     const itineraryId = req.params.itineraryId;
     console.log("itineraryId", itineraryId);
 
-    itineraryService.deleteItinerary(itineraryId, () => {
+    itineraryService.deleteItinerary(conn, itineraryId, () => {
       res.status(204);
     });
   } catch (code) {
