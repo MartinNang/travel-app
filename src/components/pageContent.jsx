@@ -9,6 +9,7 @@ import Feed from "./pages/feed";
 import CreateItinerary from "./pages/createItinerary";
 import { Route, Routes } from "react-router-dom";
 import Profile from "./pages/profile";
+import Contact from "./pages/contact";
 
 const PageContent = () => {
   return (
@@ -23,7 +24,7 @@ const PageContent = () => {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/create-itinerary" element={<CreateItinerary />} />
         <Route path="/feed" element={<Feed />} />
-        {/* <Route path="/contact" element={<Contact />} /> */}
+        <Route path="/contact" element={<Contact />} /> 
       </Routes>
     </div>
   );
