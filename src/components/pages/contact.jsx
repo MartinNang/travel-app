@@ -23,7 +23,7 @@ const Contact = () => {
             <button type="submit">Send Message</button>
         </form>
         <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-            <script src="email.js"></script>
+            <script src="../../email.js"></script>
         
     </div>
 </div>
