@@ -720,3 +720,37 @@ input[type="text"]:focus {
   transform: rotate(10deg);
 }
 
+
+.events-timetable {
+  background-color: #554293;
+  border-radius: 15px;
+  overflow-y: auto;
+  height: 70%;
+}
+
+.grid-container {
+  display: inline-grid;
+  grid-template-columns: auto 1fr 1fr; /* First column auto-sized, others flexible */
+  gap: 5px;
+  text-align: center;
+  padding: 5px;
+}
+
+.grid-container span {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background: #f8f9fa;
+}
+
+.timetable-first-row {
+  color: #554293;
+  font-weight: bold;
+}
+
+#create-itinerary-btn {
+  background-color: #b1f8b6 !important;
+  border-color: #b1f8b6 !important;
+  color: #554293 !important;
+  font-weight: 500;
+  font-size: small;
+}
