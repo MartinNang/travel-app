@@ -21,7 +21,36 @@ export async function getAllUsers(conn, req, res) {
 
 export async function findUser(conn, req, res) {
   try {
-    userService.findEmailPassword(
+    userService.findUserByEmail(conn, req.body.email, (result) => {
+      if (result.length > 0) {
+        userService.findEmailPassword(
+          conn,
+          req.body.email,
+          req.body.password,
+          (result) => {
+            if (result.length === 1) {
+              res.status(200);
+            } else if (result.length === 0) {
+              res.status(400);
+              res.send({ error: "incorrect password" });
+            }
+            res.send(result);
+          }
+        );
+      } else {
+        res.status(404);
+        res.send({ error: "incorrect user" });
+      }
+    });
+  } catch (code) {
+    res.status(code);
+    res.send();
+  }
+}
+
+export async function findUserById(conn, req, res) {
+  try {
+    userService.findUserById(
       conn,
       req.body.email,
       req.body.password,
@@ -48,17 +77,25 @@ export async function createUser(conn, req, res) {
       req.body.profileName,
       req.body.profileImage
     );
-    userService.createUser(conn, user, (result) => {
-      if (result) {
-        res.status(201);
+    userService.findUserByEmail(conn, user, (result) => {
+      if (result.length > 0) {
+        res.status(400);
+        res.send({ error: "user already exists" });
       } else {
-        res.status(200);
+        userService.createUser(conn, user, (result) => {
+          if (result) {
+            res.status(200);
+            res.send({ success: "registered new user" });
+          } else {
+            res.status(500);
+            res.send({ error: "failed to register new user" });
+          }
+        });
       }
     });
-  } catch (code) {
-    res.status(code);
-  } finally {
-    res.send();
+  } catch (err) {
+    res.status(500);
+    res.send(err);
   }
 }
 

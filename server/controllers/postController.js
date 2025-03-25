@@ -1,10 +1,10 @@
 import Post from "../models/post.js";
 import * as postService from "../services/postService.js";
 
-export function getAllItineraries(conn, req, res) {
+export function getAllPosts(conn, req, res) {
   try {
     console.log("response:", res);
-    console.log("getting all itineraries");
+    console.log("getting all posts");
     postService.getAllPosts(conn, (result) => {
       if (result) {
         res.status(200);
@@ -17,19 +17,17 @@ export function getAllItineraries(conn, req, res) {
   }
 }
 
-export function createItinerary(conn, req, res) {
+export function createPost(conn, req, res) {
   try {
-    const itinerary = new Itinerary(
-      req.body.name,
-      req.body.startDate,
-      req.body.endDate,
-      req.body.createdAt,
-      req.body.tags
+    const post = new Post(
+      req.body.itineraryId,
+      req.body.userId,
+      req.body.description,
+      req.body.image,
+      req.body.createdAt
     );
-    const userId = req.params.userId;
-    console.log("itinerary", itinerary);
-    console.log("userId", userId);
-    itineraryService.createItinerary(conn, userId, itinerary, () => {
+
+    postService.createItinerary(conn, post, () => {
       res.status(200);
     });
   } catch (code) {
@@ -39,17 +37,22 @@ export function createItinerary(conn, req, res) {
   }
 }
 
-export function updateItinerary(conn, req, res) {
+export function updatePost(conn, req, res) {
   try {
     const itineraryId = req.params.itineraryId;
-    console.log("updating itinerary", req.body);
-    const itinerary = new Itinerary(
-      req.body.name,
-      req.body.startDate,
-      req.body.endDate,
-      req.body.tags
+    const userId = req.params.userId;
+
+    console.log("updating post", req.body);
+
+    const post = new Post(
+      req.body.itineraryId,
+      req.body.userId,
+      req.body.description,
+      req.body.image,
+      req.body.createdAt
     );
-    itineraryService.updateItinerary(conn, itineraryId, itinerary, (result) => {
+
+    postService.updatePost(conn, post, itinerary, (result) => {
       res.status(200);
       res.send(result);
     });
@@ -60,12 +63,13 @@ export function updateItinerary(conn, req, res) {
   }
 }
 
-export function deleteItinerary(conn, req, res) {
+export function deletePost(conn, req, res) {
   try {
     const itineraryId = req.params.itineraryId;
-    console.log("itineraryId", itineraryId);
+    const userId = req.params.userId;
+    // console.log("itineraryId", itineraryId);
 
-    itineraryService.deleteItinerary(conn, itineraryId, () => {
+    postService.deletePost(conn, itineraryId, userId, () => {
       res.status(204);
     });
   } catch (code) {

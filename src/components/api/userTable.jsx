@@ -139,7 +139,7 @@ const UserTable = ({}) => {
                       type="text"
                       id={"pName-" + i}
                       name={"pName-" + i}
-                      value={users[i].profileName}
+                      // value={users[i].profileName}
                       onChange={(e) => handleInputChange(e, i)}
                       onKeyDown={(e) =>
                         handleKeyPress(e, i, user.id, profileNames[i])

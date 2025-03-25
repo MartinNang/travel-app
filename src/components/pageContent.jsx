@@ -1,3 +1,8 @@
+/*
+  This component displays every page depending on the URL
+
+*/
+
 import React from "react";
 import Home from "./pages/home";
 import Itineraries from "./itineraries";
