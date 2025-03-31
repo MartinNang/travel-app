@@ -55,7 +55,8 @@ const Events = ({}) => {
     pois.map((element) => {
       suffix += element.lat + "," + element.lon + "/";
     });
-    setMapsLink("https://www.google.com/maps/dir/" + suffix);
+    sessionStorage.setItem("pois", JSON.stringify(pois));
+    // setMapsLink("https://www.google.com/maps/dir/" + suffix);
   }, [pois]);
 
   return (
