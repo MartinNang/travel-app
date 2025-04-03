@@ -1,5 +1,6 @@
 export async function getAllItineraryTypes(conn, callback) {
   console.log("get all itineraryTypes");
+  console.log("connection:", conn);
   const result = await conn.query("SELECT * FROM itineraryTypes");
   callback(result);
 }

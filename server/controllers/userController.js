@@ -1,5 +1,6 @@
 import User from "../models/user.js";
 import * as userService from "../services/userService.js";
+import bcrypt from "bcrypt";
 
 export async function getAllUsers(conn, req, res) {
   try {
@@ -23,18 +24,35 @@ export async function findUser(conn, req, res) {
   try {
     userService.findUserByEmail(conn, req.body.email, (result) => {
       if (result.length > 0) {
-        userService.findEmailPassword(
-          conn,
-          req.body.email,
+        // userService.findEmailPassword(
+        //   conn,
+        //   req.body.email,
+        //   req.body.password,
+        //   (result) => {
+        //     if (result && result.length === 1) {
+        //       res.status(200);
+        //       res.send(result);
+        //     } else if (result.length === 0) {
+        //       res.status(400);
+        //       res.send({ error: "incorrect password" });
+        //     }
+        //   }
+        // );
+        bcrypt.compare(
           req.body.password,
-          (result) => {
-            if (result.length === 1) {
+          result[0].password,
+          function (err, compResult) {
+            if (compResult) {
+              console.log("Password match");
               res.status(200);
-            } else if (result.length === 0) {
+              res.send(result);
+            } else {
+              console.log("Password does not match");
+              console.log("pw", req.body.password);
+              console.log("hash", result[0].password);
               res.status(400);
               res.send({ error: "incorrect password" });
             }
-            res.send(result);
           }
         );
       } else {
@@ -48,26 +66,26 @@ export async function findUser(conn, req, res) {
   }
 }
 
-export async function findUserById(conn, req, res) {
-  try {
-    userService.findUserById(
-      conn,
-      req.body.email,
-      req.body.password,
-      (result) => {
-        if (result.length === 1) {
-          res.status(200);
-        } else if (result.length === 0) {
-          res.status(404);
-        }
-        res.send(result);
-      }
-    );
-  } catch (code) {
-    res.status(code);
-    res.send();
-  }
-}
+// export async function findUserById(conn, req, res) {
+//   try {
+//     userService.findUserById(
+//       conn,
+//       req.body.email,
+//       req.body.password,
+//       (result) => {
+//         if (result.length === 1) {
+//           res.status(200);
+//         } else if (result.length === 0) {
+//           res.status(404);
+//         }
+//         res.send(result);
+//       }
+//     );
+//   } catch (code) {
+//     res.status(code);
+//     res.send();
+//   }
+// }
 
 export async function createUser(conn, req, res) {
   try {
@@ -77,7 +95,7 @@ export async function createUser(conn, req, res) {
       req.body.profileName,
       req.body.profileImage
     );
-    userService.findUserByEmail(conn, user, (result) => {
+    userService.findUserByEmail(conn, user.email, (result) => {
       if (result.length > 0) {
         res.status(400);
         res.send({ error: "user already exists" });
@@ -101,12 +119,20 @@ export async function createUser(conn, req, res) {
 
 export async function updateUser(conn, req, res) {
   try {
-    const currentUsername = req.body.username;
-    const currentPassword = req.body.password;
-    const newUsername = req.body.newUsername;
+    const id = req.params.userId;
+
+    const newEmail = req.body.newEmail;
     const newPassword = req.body.newPassword;
-    const user = new User(newUsername, newPassword);
-    userService.updateUser(currentUsername, user, () => {
+    const newProfileName = req.body.newProfileName;
+    const newProfileImage = req.body.newProfileImage;
+
+    const user = new User(
+      newEmail,
+      newPassword,
+      newProfileName,
+      newProfileImage
+    );
+    userService.updateUser(conn, id, user, () => {
       res.status(200);
     });
   } catch (code) {
@@ -142,6 +168,7 @@ export async function updateProfileImage(conn, req, res) {
 
     userService.updateProfileName(conn, userId, newProfileName, () => {
       res.status(204);
+      res.send();
     });
   } catch (code) {
     res.status(code);
@@ -157,10 +184,10 @@ export async function deleteUser(conn, req, res) {
 
     userService.deleteUser(conn, userId, () => {
       res.status(204);
+      res.send();
     });
   } catch (code) {
     res.status(code);
-  } finally {
     res.send();
   }
 }

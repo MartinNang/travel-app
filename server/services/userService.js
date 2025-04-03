@@ -1,4 +1,5 @@
 // import db from "../config/db.js";
+import bcrypt from "bcrypt";
 
 export async function getAllUsers(conn, callback) {
   console.log(conn);
@@ -8,28 +9,62 @@ export async function getAllUsers(conn, callback) {
 
 export async function findEmailPassword(conn, email, password, callback) {
   console.log(conn);
-  const result = await conn.query(
-    `SELECT * FROM users WHERE email = ? AND password = ?`,
-    [email, password]
-  );
-  callback(result);
+  let result;
+  bcrypt.genSalt(10, function (err, salt) {
+    bcrypt.hash(password, salt, async function (err, hash) {
+      result = await conn.query(
+        `SELECT * FROM users WHERE email = ? AND password = ?`,
+        [email, hash]
+      );
+      callback(result);
+    });
+  });
 }
 
-export async function findUserByEmail(conn, user, callback) {
+export async function findUserByEmail(conn, email, callback) {
   console.log(conn);
-  const result = await conn.query(`SELECT * FROM users WHERE email = (?)`, [
-    user.email,
+  const result = await conn.query(`SELECT * FROM users WHERE email = ?`, [
+    email,
   ]);
   callback(result);
 }
 
 export async function createUser(conn, user, callback) {
   console.log(conn);
-  const result = await conn.query(
-    "INSERT INTO users (email, password, profileName, profileImage) VALUES (?,?,?,?)",
-    [user.email, user.password, user.profileName, user.profileImage]
-  );
-  callback(result);
+  let result;
+  bcrypt.genSalt(10, function (err, salt) {
+    bcrypt.hash(user.password, salt, async function (err, hash) {
+      console.log("hash", hash);
+      result = await conn.query(
+        "INSERT INTO users (email, password, profileName, profileImage) VALUES (?,?,?,?)",
+        [user.email, hash, user.profileName, user.profileImage]
+      );
+      callback(result);
+    });
+  });
+}
+
+export async function updateUser(conn, userId, updatedUser, callback) {
+  console.log(conn);
+  console.log("updated user:", updatedUser);
+  console.log("user id:", userId);
+  bcrypt.genSalt(10, function (err, salt) {
+    bcrypt.hash(updatedUser.password, salt, async function (err, hash) {
+      const result = await conn.query(
+        `UPDATE users
+    SET email = ?, password = ?, profileName = ?, profileImage = ?
+    WHERE id = ?`,
+        [
+          updatedUser.email,
+          hash,
+          updatedUser.profileName,
+          updatedUser.profileImage,
+          userId,
+        ]
+      );
+      callback(result);
+    });
+  });
 }
 
 export async function updateProfileName(conn, userId, profileName, callback) {

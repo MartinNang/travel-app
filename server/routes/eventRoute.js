@@ -1,124 +1,30 @@
-import Event from "../models/event.js";
-import * as eventService from "../services/eventService.js";
+import express from "express";
+import * as eventController from "../controllers/eventController.js";
 
-export async function getAllEvents(conn, req, res) {
-  try {
-    console.log("response:", res);
-    console.log("getting all events");
-    eventService.getAllEvents(conn, (result) => {
-      if (result && result.length > 0) {
-        res.status(200);
-      } else {
-        res.status(404);
-      }
-      res.send(result);
-    });
-  } catch (code) {
-    res.status(code);
-    res.send();
-  }
-}
+import { connect } from "../index.js";
 
-export async function findEventsByItineraryId(conn, req, res) {
-  try {
-    eventService.findEventsByItineraryId(
-      conn,
-      req.body.itineraryId,
-      (result) => {
-        if (result.length === 1) {
-          res.status(200);
-        } else if (result.length === 0) {
-          res.status(404);
-        }
-        res.send(result);
-      }
-    );
-  } catch (code) {
-    res.status(code);
-    res.send();
-  }
-}
+export const eventRouter = express.Router();
 
-export async function findEventsByOverpassId(conn, req, res) {
-  try {
-    eventService.findEventsByOverpassId(
-      conn,
-      req.params.overpassId,
-      (result) => {
-        if (result.length === 1) {
-          res.status(200);
-        } else if (result.length === 0) {
-          res.status(404);
-        }
-        res.send(result);
-      }
-    );
-  } catch (code) {
-    res.status(code);
-    res.send();
-  }
-}
+eventRouter.get("/", (req, res, next) => {
+  connect((conn) => eventController.getAllEvents(conn, req, res));
+});
 
-export async function createEvent(conn, req, res) {
-  try {
-    const event = new Event(
-      req.body.itineraryId,
-      req.body.overpassId,
-      req.body.startTime,
-      req.body.endTime
-    );
-    eventService.createEvent(
-      conn,
-      req.body.overpassId,
-      event,
-      (err, result) => {
-        if (err) {
-          res.status(500);
-          res.send(err);
-        } else {
-          if (result) {
-            res.status(404);
-          } else {
-            res.status(405);
-          }
-          res.send(err);
-        }
-      }
-    );
-  } catch (err) {
-    res.status(500);
-    res.send(err);
-  }
-}
+eventRouter.get("itinerary/:itineraryId", (req, res, next) => {
+  connect((conn) => eventController.findEventsByItineraryId(conn, req, res));
+});
 
-export async function updateEvent(conn, req, res) {
-  try {
-    const itineraryId = req.body.itineraryId;
-    const overpassId = req.body.overpassId;
-    const startTime = req.body.startTime;
-    const endTime = req.body.endTime;
-    const event = new Event(itineraryId, overpassId, startTime, endTime);
-    eventService.updateEvent(conn, overpassId, event, () => {
-      res.status(200);
-    });
-  } catch (code) {
-    res.status(code);
-  } finally {
-    res.send();
-  }
-}
+eventRouter.get("/overpassId/:overpassId", (req, res, next) => {
+  connect((conn) => eventController.findEventsByOverpassId(conn, req, res));
+});
 
-export async function deleteEvent(conn, req, res) {
-  try {
-    const overpassId = req.params.overpassId;
-    console.log("overpassId", overpassId);
+eventRouter.put("/:overpassId", (req, res, next) => {
+  connect((conn) => eventController.updateEvent(conn, req, res));
+});
 
-    eventService.deleteEvent(conn, overpassId, () => {
-      res.status(204);
-    });
-  } catch (code) {
-    res.status(code);
-  } finally {
-    res.send();
-  }
-}
+eventRouter.post("/:overpassId", (req, res, next) => {
+  connect((conn) => eventController.createEvent(conn, req, res));
+});
+
+eventRouter.delete("/:overpassId", (req, res, next) => {
+  connect((conn) => eventController.deleteEvent(conn, req, res));
+});

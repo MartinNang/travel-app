@@ -8,8 +8,18 @@ const app = express();
 import * as eventController from "./controllers/eventController.js";
 import * as itineraryController from "./controllers/itineraryController.js";
 import * as userController from "./controllers/userController.js";
-import * as postImagesController from "./controllers/postImagesController.js";
+import * as postImagesController from "./controllers/postImageController.js";
 import path from "path";
+
+// Routers
+import { collaboratorRouter } from "./routes/collaboratorRoute.js";
+import { eventRouter } from "./routes/eventRoute.js";
+import { itineraryRouter } from "./routes/itineraryRoute.js";
+import { itineraryTypeRouter } from "./routes/itineraryTypeRoute.js";
+import { locationRouter } from "./routes/locationRoute.js";
+import { postImageRouter } from "./routes/postImagesRoute.js";
+import { postRouter } from "./routes/postRoute.js";
+import { userRouter } from "./routes/userRoute.js";
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -30,7 +40,7 @@ const port = 3000;
 const project_name = "en route";
 
 // Create a connection pool
-const pool = mariadb.createPool({
+export const pool = mariadb.createPool({
   host: "mariadb_2425-cs7025-group1",
   user: "2425-cs7025-group1",
   password: "jdgMm6VkTKTmhMv6",
@@ -52,97 +62,135 @@ app.get("/", (req, res) => {
   res.send("Hello");
 });
 
-// Users
-// return all users
-app.get("/users", async (req, res) => {
-  const conn = await pool.getConnection();
-  userController.getAllUsers(conn, req, res);
-  conn.release();
-});
+// // Users
+// // return all users
+// app.get("/users", async (req, res) => {
+//   const conn = await pool.getConnection();
+//   userController.getAllUsers(conn, req, res);
+//   conn.release();
+// });
 
-// check if user exists
-app.post("/login", async (req, res) => {
-  const conn = await pool.getConnection();
-  userController.findUser(conn, req, res);
-  conn.release();
-});
+// // check if user exists
+// app.post("/login", async (req, res) => {
+//   const conn = await pool.getConnection();
+//   userController.findUser(conn, req, res);
+//   conn.release();
+// });
 
-// create new user
-app.post("/signup", async (req, res) => {
-  const conn = await pool.getConnection();
-  userController.createUser(conn, req, res);
-  conn.release();
-});
+// // create new user
+// app.post("/signup", async (req, res) => {
+//   const conn = await pool.getConnection();
+//   userController.createUser(conn, req, res);
+//   conn.release();
+// });
 
-// update profile name
-app.put("/users/:userId/profileName", async (req, res) => {
-  const conn = await pool.getConnection();
-  userController.updateProfileName(conn, req, res);
-  conn.release();
-});
+// // update profile name
+// app.put("/users/:userId/profileName", async (req, res) => {
+//   const conn = await pool.getConnection();
+//   userController.updateProfileName(conn, req, res);
+//   conn.release();
+// });
 
-// update profile image
-app.put("/users/:userId/profileImage", async (req, res) => {
-  const conn = await pool.getConnection();
-  userController.updateProfileImage(conn, req, res);
-  conn.release();
-});
+// // update profile image
+// app.put("/users/:userId/profileImage", async (req, res) => {
+//   const conn = await pool.getConnection();
+//   userController.updateProfileImage(conn, req, res);
+//   conn.release();
+// });
 
-// delete user
-app.delete("/users/:userId", async (req, res) => {
-  const conn = await pool.getConnection();
-  userController.deleteUser(conn, req, res);
-  conn.release();
-});
+// // delete user
+// app.delete("/users/:userId", async (req, res) => {
+//   const conn = await pool.getConnection();
+//   userController.deleteUser(conn, req, res);
+//   conn.release();
+// });
 
-// return all itineraries from one user
-app.get("/users/:userId/itineraries", async (req, res) => {
-  const conn = await pool.getConnection();
-  itineraryController.findItinerariesByUserId(conn, req, res);
-  conn.release();
-});
+// // return all itineraries from one user
+// app.get("/users/:userId/itineraries", async (req, res) => {
+//   const conn = await pool.getConnection();
+//   itineraryController.findItinerariesByUserId(conn, req, res);
+//   conn.release();
+// });
 
-// Itineraries
-// return all itineraries from all users
-app.get("/itineraries", async (req, res) => {
-  const conn = await pool.getConnection();
-  itineraryController.getAllItineraries(conn, req, res);
-  conn.release();
-});
+// // Itineraries
+// // return all itineraries from all users
+// app.get("/itineraries", async (req, res) => {
+//   const conn = await pool.getConnection();
+//   itineraryController.getAllItineraries(conn, req, res);
+//   conn.release();
+// });
 
-// create new itinerary
-app.post("/itineraries", async (req, res) => {
-  const conn = await pool.getConnection();
-  itineraryController.createItinerary(conn, req, res);
-  conn.release();
-});
+// // create new itinerary
+// app.post("/itineraries", async (req, res) => {
+//   const conn = await pool.getConnection();
+//   itineraryController.createItinerary(conn, req, res);
+//   conn.release();
+// });
 
-// update existing itinerary
-app.post("/itineraries", async (req, res) => {
-  const conn = await pool.getConnection();
-  itineraryController.updateItinerary(conn, req, res);
-  conn.release();
-});
+// // update existing itinerary
+// app.post("/itineraries", async (req, res) => {
+//   const conn = await pool.getConnection();
+//   itineraryController.updateItinerary(conn, req, res);
+//   conn.release();
+// });
 
-// delete itinerary
-app.delete("/itineraries", async (req, res) => {
-  const conn = await pool.getConnection();
-  itineraryController.deleteItinerary(conn, req, res);
-  conn.release();
-});
+// // delete itinerary
+// app.delete("/itineraries", async (req, res) => {
+//   const conn = await pool.getConnection();
+//   itineraryController.deleteItinerary(conn, req, res);
+//   conn.release();
+// });
 
-// Events
-// get events
-app.get("/events", async (req, res) => {
-  const conn = await pool.getConnection();
-  eventController.getAllEvents(conn, req, res);
-});
+// // Events
+// // get events
+// app.get("/events", async (req, res) => {
+//   const conn = await pool.getConnection();
+//   eventController.getAllEvents(conn, req, res);
+// });
 
 // file upload
 app.post("/upload", upload.single("img"), (req, res) => {
   postImagesController.uploadImage(req, res);
 });
 
+// Collaborators
+app.use("/collaborators", collaboratorRouter);
+
+// Events
+app.use("/events", eventRouter);
+
+// Itineraries
+app.use("/itineraries", itineraryRouter);
+
+// Itinerary Types
+app.use("/itineraryTypes", itineraryTypeRouter);
+
+// Locations
+app.use("/locations", locationRouter);
+
+// Post Images
+app.use("/postImages", postImageRouter);
+
+// Posts
+app.use("/posts", postRouter);
+
+// Users
+app.use("/users", userRouter);
+
 app.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
+
+export async function connect(controllerMethod) {
+  let conn;
+  try {
+    conn = await pool.getConnection();
+    controllerMethod(conn);
+  } catch (err) {
+    console.log(err);
+  } finally {
+    if (conn) {
+      conn.release();
+    }
+  }
+}
