@@ -49,9 +49,20 @@ const Events = ({ wishlist, setWishlist }) => {
       console.log("results", results);
     };
 
-  // useEffect(() => {
-  //   // sessionStorage.setItem("wishlist", JSON.stringify(wishlist));
-  // }, [wishlist]);
+  useEffect(() => {
+    let suffix = "";
+    pois.map((element) => {
+      suffix += element.lat + "," + element.lon + "/";
+    });
+    sessionStorage.setItem("pois", JSON.stringify(pois));
+    // setMapsLink("https://www.google.com/maps/dir/" + suffix);
+  }, [pois]);
+
+  const addToWishlist = (event) => {
+    const updatedWishlist = [...pois, event];
+    setPois(updatedWishlist);
+    localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
+  };
 
   return (
     <article>

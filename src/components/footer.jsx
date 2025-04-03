@@ -8,6 +8,8 @@ import instaImg from "../images/insta.png";
 import logoImg from "../images/logo.png";
 import mapImg from "../images/map.png";
 import tiktokImg from "../images/tiktok.png";
+import { Link } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
 
 const Footer = () => {
   useEffect(() => {
@@ -20,11 +22,23 @@ const Footer = () => {
         <strong>SUPPORT</strong>
         <em />{" "}
         <p>
-          Contact Us
+        <Link
+                      to="/contact"
+                      style={{
+                        fontStyle: "italic",
+                      }}>
+                      Contact Us
+                    </Link>
           <br />
-          Cookie Policy
+          <Link
+                      to="/cookies"
+                      style={{
+                        fontStyle: "italic",
+                      }}>
+                      Cookie Policy
+                    </Link>
           <br />
-          Privacy Policy
+       
         </p>{" "}
         <em />
       </div>
@@ -32,21 +46,45 @@ const Footer = () => {
         <strong>ABOUT</strong>
         <em>
           <p>
-            About Us
-            <br />
-            Mission Statement
+          <HashLink
+                      to="/#anchor"
+                      style={{
+                        fontStyle: "italic",
+                      }}>
+                      About Us
+                    </HashLink>
+            
+            
           </p>{" "}
         </em>
       </div>
       <div class="socials">
-        <span>
-          <img src={fbImg} width="25px" />
+        <span><Link
+                      to="/Cookie"
+                      style={{
+                        fontStyle: "italic",
+                      }}>
+                      <img src={fbImg} width="25px" />
+                    </Link>
+          
         </span>
-        <span>
-          <img src={instaImg} width="25px" />
+        <span><Link
+                      to="/Cookies"
+                      style={{
+                        fontStyle: "italic",
+                      }}>
+                      <img src={instaImg} width="25px" />
+                    </Link>
+          
         </span>
-        <span>
-          <img src={tiktokImg} width="25px" />
+        <span><Link
+                      to="/Cookies"
+                      style={{
+                        fontStyle: "italic",
+                      }}>
+                      <img src={tiktokImg} width="25px" />
+                    </Link>
+          
         </span>
       </div>
     </footer>
