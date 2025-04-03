@@ -55,7 +55,6 @@ code {
   color: #6b4a8b;
 }
 
-
 .footer a {
   text-decoration: none;
   color: #6b4a8b;
@@ -66,7 +65,7 @@ code {
 }
 
 .footer a:hover {
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 .socials {
@@ -79,6 +78,7 @@ code {
 
 header {
   background-color: #fff;
+  /* background-color: transparent; */
   padding: 15px 0;
   position: fixed;
   width: 100%;
@@ -279,17 +279,12 @@ input[type="text"]:focus {
   opacity: 0.6;
 }
 
-
-
-
 /* cookie policy */
-
 
 .cookie-policy {
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
- 
 }
 
 .cookie-policy h2 {
@@ -300,7 +295,7 @@ input[type="text"]:focus {
 }
 
 .cookie-policy h3 {
-  color: #6D5FAA; 
+  color: #6d5faa;
   margin-top: 20px;
   font-size: 1.5rem;
 }
@@ -322,7 +317,7 @@ input[type="text"]:focus {
 }
 
 .cookie-policy ul li strong {
-  color: #6D5FAA; 
+  color: #6d5faa;
 }
 
 .cookie-banner {
@@ -333,22 +328,20 @@ input[type="text"]:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 .cookie-banner h1 {
-  color: white; 
+  color: white;
   padding: 10px 20px;
   border-radius: 8px;
   font-size: 2rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 /*PROFILE PAGE IN PROGRESS */
 
-
 .header {
   margin-top: 90px;
-  background-color: #ECF2F1;
+  background-color: #ecf2f1;
   height: 110px;
   display: flex;
   justify-content: space-between;
@@ -377,14 +370,14 @@ input[type="text"]:focus {
 
 .username {
   font-size: 40px;
-  color: #0B524C;
+  color: #0b524c;
   margin: 0;
 }
 
 .status {
   font-size: 20px;
-  font-family: 'Inter', sans-serif;
-  color: #6D5FAA;
+  font-family: "Inter", sans-serif;
+  color: #6d5faa;
   margin: 0;
 }
 
@@ -409,23 +402,23 @@ input[type="text"]:focus {
 
 .stat-number {
   font-size: 40px;
-  color: #0B524C;
+  color: #0b524c;
   margin: 0;
   font-weight: bold;
 }
 
 .stat-title {
   font-size: 20px;
-  color: #F19EDC;
+  color: #f19edc;
   margin: 0;
 }
 
 .follow-btn {
   width: 100px;
   height: 50px;
-  background-color: #3E3568;
+  background-color: #3e3568;
   color: white;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   border: none;
   border-radius: 15px;
@@ -437,25 +430,23 @@ input[type="text"]:focus {
 }
 
 .follow-btn:hover {
-  background-color: #6D5FAA;
+  background-color: #6d5faa;
 }
 
 .settings-btn {
   position: absolute;
-  top:20px;
+  top: 20px;
   right: 20px;
   width: 30px;
   height: 30px;
   cursor: pointer;
 }
 
-
 .separator {
   width: 100%;
   height: 1px;
-  background-color: #6D5FAA;
+  background-color: #6d5faa;
 }
-
 
 .tabs {
   display: flex;
@@ -466,23 +457,20 @@ input[type="text"]:focus {
 
 .tab {
   font-size: 25px;
-  font-family: 'Inter', sans-serif;
-  color: #BBB9B9;
+  font-family: "Inter", sans-serif;
+  color: #bbb9b9;
   cursor: pointer;
   padding: 5px 10px;
 }
 
-
 .tab.active {
-  color: #F19EDC;
+  color: #f19edc;
 }
-
 
 .tab-content {
-  display: none; 
+  display: none;
   padding: 20px;
 }
-
 
 .tab-content.active {
   display: block;
@@ -490,13 +478,13 @@ input[type="text"]:focus {
 .all-itinerary-wrapper {
   display: flex;
   gap: 20px;
-  overflow-x: auto; 
-  white-space: nowrap; 
-  padding-bottom: 10px; 
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 10px;
 }
 
 .all-itinerary-container {
-  background-color: #ECF2F1;
+  background-color: #ecf2f1;
   padding: 20px;
   border-radius: 15px;
   text-align: center;
@@ -513,7 +501,7 @@ input[type="text"]:focus {
 
 .all-itinerary-title {
   font-size: 16px;
-  color: #F19EDC;
+  color: #f19edc;
   text-transform: uppercase;
   font-weight: bold;
   margin-bottom: 10px;
@@ -521,7 +509,7 @@ input[type="text"]:focus {
 
 .all-itinerary-text {
   font-size: 12px;
-  color: #6D5FAA;
+  color: #6d5faa;
   position: absolute;
   left: 10px;
   top: 70px;
@@ -530,7 +518,7 @@ input[type="text"]:focus {
 
 .all-itinerary-text-right {
   font-size: 12px;
-  color: #6D5FAA;
+  color: #6d5faa;
   position: absolute;
   right: 3px;
   bottom: 30px;
@@ -557,7 +545,6 @@ input[type="text"]:focus {
   display: block;
   border-radius: 4px;
 }
-
 
 .all-photo-collage-container {
   display: flex;
@@ -590,7 +577,7 @@ input[type="text"]:focus {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 35px; 
+  gap: 35px;
   justify-content: center;
   align-items: center;
   padding: 20px;
@@ -607,32 +594,30 @@ input[type="text"]:focus {
   transition: all 0.3s ease-in-out;
 }
 
-
-.collage-item:nth-child(6n+1) {
-  transform: scale(1.2) rotate(-5deg); 
+.collage-item:nth-child(6n + 1) {
+  transform: scale(1.2) rotate(-5deg);
 }
-.collage-item:nth-child(6n+2) {
-  transform: scale(0.95) rotate(4deg); 
+.collage-item:nth-child(6n + 2) {
+  transform: scale(0.95) rotate(4deg);
 }
-.collage-item:nth-child(6n+3) {
-  transform: scale(1.05) rotate(-2deg); 
+.collage-item:nth-child(6n + 3) {
+  transform: scale(1.05) rotate(-2deg);
 }
-.collage-item:nth-child(6n+4) {
-  transform: scale(1.15) rotate(3deg); 
+.collage-item:nth-child(6n + 4) {
+  transform: scale(1.15) rotate(3deg);
 }
-.collage-item:nth-child(6n+5) {
-  transform: scale(1.0) rotate(-3deg); 
+.collage-item:nth-child(6n + 5) {
+  transform: scale(1) rotate(-3deg);
 }
-.collage-item:nth-child(6n+6) {
-  transform: scale(1.1) rotate(2deg); 
+.collage-item:nth-child(6n + 6) {
+  transform: scale(1.1) rotate(2deg);
 }
-
 
 .collage-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 4px;  
+  border-radius: 4px;
 }
 
 .collage-item:hover {
@@ -643,14 +628,14 @@ input[type="text"]:focus {
 .itinerary-wrapper {
   display: flex;
   gap: 20px;
-  overflow-x: auto; 
-  white-space: nowrap; 
-  padding-bottom: 10px; 
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 10px;
   scrollbar-width: thin;
 }
 
 .itinerary-container {
-  background-color: #ECF2F1;
+  background-color: #ecf2f1;
   padding: 20px;
   border-radius: 15px;
   text-align: center;
@@ -667,7 +652,7 @@ input[type="text"]:focus {
 
 .itinerary-title {
   font-size: 16px;
-  color: #F19EDC;
+  color: #f19edc;
   text-transform: uppercase;
   font-weight: bold;
   margin-bottom: 10px;
@@ -675,7 +660,7 @@ input[type="text"]:focus {
 
 .itinerary-text {
   font-size: 12px;
-  color: #6D5FAA;
+  color: #6d5faa;
   position: absolute;
   left: 10px;
   top: 70px;
@@ -684,7 +669,7 @@ input[type="text"]:focus {
 
 .itinerary-text-right {
   font-size: 12px;
-  color: #6D5FAA;
+  color: #6d5faa;
   position: absolute;
   right: 3px;
   bottom: 30px;
@@ -720,7 +705,6 @@ input[type="text"]:focus {
   transform: rotate(10deg);
 }
 
-
 .events-timetable {
   background-color: #554293;
   border-radius: 15px;
@@ -753,4 +737,22 @@ input[type="text"]:focus {
   color: #554293 !important;
   font-weight: 500;
   font-size: small;
+}
+
+#profile-icon {
+  width: 1.5em;
+  height: 1.5em;
+  border-width: 2px;
+}
+
+a:has(#profile-icon) {
+  border-radius: 100%;
+}
+
+a:hover:has(#profile-icon) {
+  background-color: #0000001f;
+}
+
+.nav-link {
+  color: #554293 !important;
 }

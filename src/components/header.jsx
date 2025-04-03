@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-
+import { BsPerson } from "react-icons/bs";
 const Header = () => {
   const location = useLocation();
 
@@ -19,8 +19,8 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar sticky="top" collapseOnSelect expand="lg" className="navigation">
-        <Container>
+      <Navbar sticky="top" collapseOnSelect expand="lg" className="navigation ">
+        <Container fluid className="ms-5 me-5">
           <Navbar.Brand href="#" id="logo">
             <img
               src={"../images/logo.png"}
@@ -32,24 +32,45 @@ const Header = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ms-auto" activeKey={location.pathname}>
-              <Nav.Link href="/travel-app/#" onClick={window.scrollTo(0, 0)}>
+              <Nav.Link
+                href="/travel-app/#"
+                onClick={window.scrollTo(0, 0)}
+                className="mx-3">
                 home
               </Nav.Link>
               <Nav.Link
                 href="/travel-app/#/itineraries"
-                onClick={window.scrollTo(0, 0)}>
+                onClick={window.scrollTo(0, 0)}
+                className="mx-3">
                 itineraries
               </Nav.Link>
               <Nav.Link
                 href="/travel-app/#/feed"
-                onClick={window.scrollTo(0, 0)}>
+                onClick={window.scrollTo(0, 0)}
+                className="mx-3">
                 myFeed
               </Nav.Link>
               <Nav.Link
                 href="/travel-app/#/events"
-                onClick={window.scrollTo(0, 0)}>
+                onClick={window.scrollTo(0, 0)}
+                className="mx-3">
                 events
               </Nav.Link>
+              {sessionStorage.getItem("profileName") ? (
+                <Nav.Link
+                  href="/travel-app/#/profile"
+                  onClick={window.scrollTo(0, 0)}
+                  className="mx-3">
+                  <BsPerson id="profile-icon" />
+                  {/* <Nav.Link
+                    href="/travel-app/#/profile"
+                    onClick={window.scrollTo(0, 0)}>
+                    {sessionStorage.getItem("profileName")}
+                  </Nav.Link> */}
+                </Nav.Link>
+              ) : (
+                ""
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>

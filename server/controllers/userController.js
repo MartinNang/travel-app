@@ -23,21 +23,8 @@ export async function getAllUsers(conn, req, res) {
 export async function findUser(conn, req, res) {
   try {
     userService.findUserByEmail(conn, req.body.email, (result) => {
+      console.log("find user by email result:", result);
       if (result.length > 0) {
-        // userService.findEmailPassword(
-        //   conn,
-        //   req.body.email,
-        //   req.body.password,
-        //   (result) => {
-        //     if (result && result.length === 1) {
-        //       res.status(200);
-        //       res.send(result);
-        //     } else if (result.length === 0) {
-        //       res.status(400);
-        //       res.send({ error: "incorrect password" });
-        //     }
-        //   }
-        // );
         bcrypt.compare(
           req.body.password,
           result[0].password,

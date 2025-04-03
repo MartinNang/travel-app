@@ -10,31 +10,31 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import axios from "axios";
-axios.defaults.baseURL = "https://2425-cs7025-group1.scss.tcd.ie";
+import { useNavigate } from "react-router-dom";
+
+axios.defaults.baseURL = "https://2425-cs7025-group1.scss.tcd.ie/";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [user, setUser] = useState();
+  const navigate = useNavigate();
 
-  function handleSubmit (event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    /*const formData = new FormData(event.currentTarget);   
+    console.log("logging in");
 
-    const email = formData.get("email");
-    const password = formData.get("password");*/
-
-    axios
-      .post("login", {email: email, password: password})
+    const result = await axios
+      .post("/users/login", { email: email, password: password })
       .then((response) => {
-        let users = response.data;
-        if (users.length != 0) {
-          console.log(users);
-
-          const userId = users[0].id;
-          const userEmail = users[0].email;
-          const userPwd = users[0].password;
-          const userProfileName = users[0].profileName;
-          const userProfileImage = users[0].profileImage;
+        console.log("response", response);
+        let user = response.data[0];
+        if (user && user.id) {
+          const userId = user.id;
+          const userEmail = user.email;
+          const userPwd = user.password;
+          const userProfileName = user.profileName;
+          const userProfileImage = user.profileImage;
 
           sessionStorage.setItem("id", userId);
           sessionStorage.setItem("email", userEmail);
@@ -45,19 +45,19 @@ const SignIn = () => {
 
           console.log("Success");
           console.log("user email: ", userEmail);
-
+          navigate("/");
+        } else {
+          console.log("failed to log in user");
         }
-        
-        });
-    }
-  
+      });
+  }
+
   function handleChangeEmail(event) {
     setEmail(event.target.value);
   }
   function handleChangePwd(event) {
     setPassword(event.target.value);
   }
-
 
   return (
     <Container className="vh-100 d-flex align-items-center signin-page">
@@ -87,16 +87,14 @@ const SignIn = () => {
             style={{ fontWeight: "bold", fontFamily: "gyst, serif" }}>
             Create your next adventure!
           </h2>
-          <Form
-            onSubmit={handleSubmit}
-           >
+          <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formEmail">
               <Form.Control
                 className="bg-light"
                 type="email"
                 placeholder="Email"
-                value = {email}
-                onInput = {handleChangeEmail}
+                value={email}
+                onInput={handleChangeEmail}
               />
             </Form.Group>
 
@@ -105,8 +103,8 @@ const SignIn = () => {
                 className="bg-light"
                 type="password"
                 placeholder="Password"
-                value = {password}
-                onInput = {handleChangePwd}
+                value={password}
+                onInput={handleChangePwd}
               />
             </Form.Group>
 

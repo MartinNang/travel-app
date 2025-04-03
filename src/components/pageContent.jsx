@@ -3,7 +3,7 @@
 
 */
 
-import React from "react";
+import React, { useState } from "react";
 import Home from "./pages/home";
 import Itineraries from "./itineraries";
 import SignIn from "./signIn";
@@ -18,17 +18,27 @@ import Contact from "./pages/contact";
 import InsideItinerary from "./pages/insideItinerary";
 
 const PageContent = () => {
+  const [wishlist, setWishlist] = useState([]);
+
   return (
     <div className="page-content">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/api" element={<Api />} />
-        <Route path="/events" element={<Events />} />
+        <Route
+          path="/events"
+          element={<Events wishlist={wishlist} setWishlist={setWishlist} />}
+        />
         <Route path="/itineraries" element={<Itineraries />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/create-itinerary" element={<CreateItinerary />} />
+        <Route
+          path="/create-itinerary"
+          element={
+            <CreateItinerary wishlist={wishlist} setWishlist={setWishlist} />
+          }
+        />
         <Route path="/inside-itinerary" element={<InsideItinerary />} />
         <Route path="/feed" element={<Feed />} />
         <Route path="/contact" element={<Contact />} />

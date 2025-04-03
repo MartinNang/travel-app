@@ -31,6 +31,7 @@ const Home = () => {
   let isContentVisible = false; // Track whether new content is visible
 
   function toggleContent() {
+    console.log("toggle content");
     // Hide the current slide
     document.querySelector(`.slide${currentSlide}`).style.display = "none";
 
@@ -67,11 +68,15 @@ const Home = () => {
       <div class="hero">
         <img src={signinImg} alt="Signin Image" />
         <h1>Your Journey, Perfectly Planned.</h1>
-        <Link to={"/sign-in"}>
-          <button className="btn btn-primary" type="submit">
-            Sign In
-          </button>
-        </Link>
+        {!sessionStorage.getItem("profileName") ? (
+          <Link to={"/sign-in"}>
+            <button className="btn btn-primary" type="submit">
+              Sign In
+            </button>
+          </Link>
+        ) : (
+          ""
+        )}
       </div>
 
       {/* <!-- Dashboard Section --> */}

@@ -31,15 +31,15 @@ const CustomCard = ({
   description,
   wikidataId,
   fee,
-  setPois,
-  pois,
+  wishlist,
+  setWishlist,
 }) => {
   const [added, setAdded] = useState(false);
   const [cardDescription, setCardDescription] = useState(description);
-  console.log("address", address);
-  console.log("description", description);
+  // console.log("address", address);
+  // console.log("description", description);
   if (!description && wikidataId) {
-    console.log("fetching wikidata", wikidataId);
+    // console.log("fetching wikidata", wikidataId);
     fetchWikidata(wikidataId);
   }
 
@@ -49,14 +49,14 @@ const CustomCard = ({
         `https://www.wikidata.org/wiki/Special:EntityData/${wikidataId}.json`
       )
       .then((response) => {
-        console.log(
+        /*console.log(
           "fetched",
           response.data.entities[wikidataId].descriptions.en.value
-        );
+        );*/
         setCardDescription(
           response.data.entities[wikidataId].descriptions.en.value
         );
-        console.log("card description", cardDescription);
+        // console.log("card description", cardDescription);
       })
       .catch((error) => {
         console.error(error);
@@ -106,9 +106,13 @@ const CustomCard = ({
           className="float-end rounded-circle p-0 bg-transparent border-0"
           disabled={added}
           onClick={() => {
-            setPois((pois) => [
-              ...pois,
-              { name: name, lat: latitude, lon: longitude },
+            setWishlist((wishlist) => [
+              ...wishlist,
+              {
+                name: name,
+                description: description,
+                wikidataId: wikidataId,
+              },
             ]);
             setAdded(true);
           }}>
