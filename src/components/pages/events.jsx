@@ -2,7 +2,7 @@ import queryOverpass from "query-overpass";
 import $ from "jquery";
 import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
-import CustomCard from "./card";
+import CustomCard from "../ui/card";
 import { Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -55,7 +55,8 @@ const Events = ({}) => {
     pois.map((element) => {
       suffix += element.lat + "," + element.lon + "/";
     });
-    setMapsLink("https://www.google.com/maps/dir/" + suffix);
+    sessionStorage.setItem("pois", JSON.stringify(pois));
+    // setMapsLink("https://www.google.com/maps/dir/" + suffix);
   }, [pois]);
 
   return (
@@ -121,11 +122,13 @@ const Events = ({}) => {
               </Row>
             </Container>
           </Col>
-          <Col xs={7}>
+          <Col xs={12} md={7} className="mb-3">
             <Container className="events-body p-4">
-              <Row>
+              <Row className="p-4" style={{ height: "100%" }}>
                 {loading ? (
-                  <h2 className="text-center">
+                  <h2
+                    className="text-center align-self-center"
+                    style={{ top: "50%" }}>
                     <Spinner animation="grow" role="status">
                       <span className="visually-hidden">Loading...</span>
                     </Spinner>
@@ -164,7 +167,7 @@ const Events = ({}) => {
               </Row>
             </Container>
           </Col>
-          <Col xs={3}>
+          <Col xs={12} md={3}>
             <Container className="wishlist-body p-4">
               <Row>
                 <h3>Wishlist</h3>
@@ -181,7 +184,8 @@ const Events = ({}) => {
                   : ""}
               </Row>
               <Row className="m-2">
-                <Button href={mapsLink} target="_blank">
+                {/* <Button href={mapsLink} target="_blank"> */}
+                <Button href={"#/create-itinerary"}>
                   Create new itinerary
                 </Button>
               </Row>

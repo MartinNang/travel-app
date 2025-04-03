@@ -26,37 +26,50 @@
 
     <div class="hero-section"></div>
 
-    <!-- Contact Section -->
+   
     <div class="contact-container">
-        <!-- Decorative Image in Bottom Left -->
+        
         <img src="images/decor.png" alt="Decorative Element" class="decor">
 
-        <!-- Contact Form Box -->
+        
         <div class="contact-box">
             <h2>Contact Us!</h2>
-            <form class="contact-form">
-                <input type="message" id="name" name="name" placeholder="Your Name*" required> <br>
-                <input type="message" id="email" name="email" placeholder="Email Address*" required><br>
+            <form class="contact-form" id="contact-form">
+                <input type="message" id="name" name="from_name" placeholder="Your Name*" required> <br>
+                <input type="message" id="email" name="from_email" placeholder="Email Address*" required><br>
                 <input type="message" id="subject" name="subject" placeholder="Subject*" required>
                 <textarea id="text" name="message" placeholder="Message*" required></textarea>
                 <button type="submit">Send Message</button>
             </form>
+            <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+                <script src="email.js"></script>
+            </script>
         </div>
     </div>
+    
     <div class="footer">
         <div>
             <strong>SUPPORT</strong>
-           <em></em> <p>Contact Us<br>Cookie Policy<br>Privacy Policy</p> </em>
+            <em>
+                <p>
+                    <a href="contact.html">Contact Us</a><br>
+                    <a href="cookies.html">Cookie Policy</a><br>
+                    <a href="privacy.html">Privacy Policy</a>
+                </p>
+            </em>
         </div>
         <div>
             <strong>ABOUT</strong>
-            <em><p>About Us<br>Mission Statement</p> </em>
+            <em>
+                <p><a href="about.html">About Us</a></p>
+            </em>
         </div>
         <div class="socials">
-            <span><img src="images/fb.png" width="25px"></span>
-            <span><img src="images/insta.png" width="25px"></span>
-            <span><img src="images/tiktok.png" width="25px"></span>
+            <span><img src="images/fb.png" width="25px" alt="Facebook"></span>
+            <span><img src="images/insta.png" width="25px" alt="Instagram"></span>
+            <span><img src="images/tiktok.png" width="25px" alt="TikTok"></span>
         </div>
     </div>
+    
     </body>
 </html>

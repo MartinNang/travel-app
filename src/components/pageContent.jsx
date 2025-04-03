@@ -1,10 +1,17 @@
+/*
+  This component displays every page depending on the URL
+
+*/
+
 import React from "react";
-import Home from "./home";
+import Home from "./pages/home";
 import Itineraries from "./itineraries";
 import SignIn from "./signIn";
 import SignUp from "./signUp";
-import Events from "./events";
-import Api from "./api";
+import Events from "./pages/events";
+import Api from "./pages/api";
+import Feed from "./pages/feed";
+import CreateItinerary from "./pages/createItinerary";
 import { Route, Routes } from "react-router-dom";
 <<<<<<< Updated upstream
 import Profile from "./profile";

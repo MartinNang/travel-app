@@ -9,7 +9,7 @@ import {
 } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import AlertDismissible from "../alertDismissible";
+import AlertDismissible from "../ui/alertDismissible";
 import { BACKEND_URL } from "../../App";
 
 const ItineraryTable = ({}) => {

@@ -358,7 +358,7 @@ section {
 }
 
 .card {
-  width: 30%;
+  /* width: 30%; */
   background: rgba(0, 0, 0, 0.1);
   padding: 20px;
   border-radius: 10px;
@@ -384,7 +384,7 @@ section {
   /*#bfe7c2*/
   padding: 70px 120px;
   margin: 0;
-  margin-top: 40px;
+  /*margin-top: 40px;*/
   font-family: inria;
   display: flex;
   justify-content: space-between;

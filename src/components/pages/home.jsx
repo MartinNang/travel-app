@@ -8,16 +8,17 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import homepageCss from "../homepage.css";
-import aboutUsImg from "../images/aboutus.jpg";
-import mountainsImg from "../images/mountains.jpg";
-import tokyoImg from "../images/tokyo.jpg";
-import newyorkImg from "../images/newyork.jpg";
-import signinImg from "../images/signin.jpg";
-import mapsImg from "../images/maps.png";
-import computerImg from "../images/computer.png";
-import japanImg from "../images/japan.jpg";
-import parisImg from "../images/paris.jpg";
+import homepageCss from "../../homepage.css";
+import aboutUsImg from "../../images/aboutus.jpg";
+import mountainsImg from "../../images/mountains.jpg";
+import tokyoImg from "../../images/tokyo.jpg";
+import newyorkImg from "../../images/newyork.jpg";
+import signinImg from "../../images/signin.jpg";
+import mapsImg from "../../images/maps.png";
+import computerImg from "../../images/computer.png";
+import japanImg from "../../images/japan.jpg";
+import parisImg from "../../images/paris.jpg";
+import { Card } from "react-bootstrap";
 
 // Icons
 //import profile from "../assets/img/Profile.jpeg";
@@ -218,26 +219,42 @@ const Home = () => {
         <h2>
           Recommendations by <em>enRoute</em>
         </h2>
-        <div class="cards">
-          <div class="card">
-            <img src={newyorkImg} alt="Destination 1" height="110%" />
-            <h3>Lazy New York City Itinerary</h3>
-            <p>Some details here...</p>
-            <button>View</button>
-          </div>
-          <div class="card">
-            <img src={tokyoImg} alt="Destination 2" />
-            <h3>Cozy Tokyo Itinerary</h3>
-            <p>Some details here...</p>
-            <button>View</button>
-          </div>
-          <div class="card">
-            <img src={parisImg} alt="Destination 3" />
-            <h3>Adventurous Paris Itinerary</h3>
-            <p>Some details here...</p>
-            <button>View</button>
-          </div>
-        </div>
+        <Container class="cards">
+          <Row className="mt-4">
+            <Col xs={12} md={6} lg={4}>
+              <Card>
+                <img src={newyorkImg} alt="Destination 1" height="110%" />
+                <h3>Lazy New York City Itinerary</h3>
+                <p>Some details here...</p>
+                <button>View</button>
+              </Card>
+            </Col>
+            <Col
+              xs={12}
+              md={6}
+              lg={4}
+              className="mt-xl-0 mt-sm-2 mt-xs-2 mt-md-0 mt-lg-0">
+              <Card>
+                <img src={tokyoImg} alt="Destination 2" />
+                <h3>Cozy Tokyo Itinerary</h3>
+                <p>Some details here...</p>
+                <button>View</button>
+              </Card>
+            </Col>
+            <Col
+              xs={12}
+              md={6}
+              lg={4}
+              className="mt-xl-0 mt-sm-2 mt-xs-2 mt-md-0 mt-lg-0">
+              <Card>
+                <img src={parisImg} alt="Destination 3" />
+                <h3>Adventurous Paris Itinerary</h3>
+                <p>Some details here...</p>
+                <button>View</button>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
       </section>
     </>
   );

@@ -13,16 +13,30 @@ export async function findLocationByOverpassId(conn, overpassId, callback) {
   callback(result);
 }
 
-/*
 export async function createLocation(conn, overpassId, location, callback) {
   console.log("creating location", overpassId);
   const result = await conn.query(
-    "INSERT INTO locations (`overpass_id`, `itinerary_id`, `start_date`, `end_date`) VALUES (?, ?, ?, ?);",
-    [overpassId, event.itineraryId, event.startDate, event.endDate]
+    "INSERT INTO locations (`id`, `name`, `latitude`, `longitude`, `address`, `opening_hours`, `phone_nr`, `link`, `type`, `operator`, `wheelchair`, `description`, `fee`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
+    [
+      overpassId,
+      location.name,
+      location.latitude,
+      location.longitude,
+      location.address,
+      location.openingHours,
+      location.phoneNr,
+      location.link,
+      location.type,
+      location.operator,
+      location.wheelchair,
+      location.description,
+      location.fee,
+    ]
   );
   callback(result);
 }
 
+/*
 export async function updateEvent(conn, overpassId, event, callback) {
   console.log("updating event", overpassId);
   const result = await conn.query(

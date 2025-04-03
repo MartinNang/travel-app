@@ -9,7 +9,7 @@ import {
 } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import AlertDismissible from "../alertDismissible";
+import AlertDismissible from "../ui/alertDismissible";
 import { BACKEND_URL } from "../../App";
 
 const UserTable = ({}) => {
@@ -74,7 +74,7 @@ const UserTable = ({}) => {
   };
 
   const handleKeyPress = (event, i, userId, newProfileName) => {
-    if (event.key == "Enter" && isEdit[i]) {
+    if (event.key === "Enter" && isEdit[i]) {
       handleSave(i, userId, newProfileName);
     }
   };
@@ -139,7 +139,7 @@ const UserTable = ({}) => {
                       type="text"
                       id={"pName-" + i}
                       name={"pName-" + i}
-                      value={users[i].profileName}
+                      // value={users[i].profileName}
                       onChange={(e) => handleInputChange(e, i)}
                       onKeyDown={(e) =>
                         handleKeyPress(e, i, user.id, profileNames[i])

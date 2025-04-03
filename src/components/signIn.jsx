@@ -2,7 +2,7 @@
  * En Route - Sign In page
  */
 
-import React from "react";
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -13,6 +13,52 @@ import axios from "axios";
 axios.defaults.baseURL = "https://2425-cs7025-group1.scss.tcd.ie";
 
 const SignIn = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  function handleSubmit (event) {
+    event.preventDefault();
+    /*const formData = new FormData(event.currentTarget);   
+
+    const email = formData.get("email");
+    const password = formData.get("password");*/
+
+    axios
+      .post("login", {email: email, password: password})
+      .then((response) => {
+        let users = response.data;
+        if (users.length != 0) {
+          console.log(users);
+
+          const userId = users[0].id;
+          const userEmail = users[0].email;
+          const userPwd = users[0].password;
+          const userProfileName = users[0].profileName;
+          const userProfileImage = users[0].profileImage;
+
+          sessionStorage.setItem("id", userId);
+          sessionStorage.setItem("email", userEmail);
+          sessionStorage.setItem("password", userPwd);
+          sessionStorage.setItem("profileName", userProfileName);
+          sessionStorage.setItem("profileImage", userProfileImage);
+          console.log(userId);
+
+          console.log("Success");
+          console.log("user email: ", userEmail);
+
+        }
+        
+        });
+    }
+  
+  function handleChangeEmail(event) {
+    setEmail(event.target.value);
+  }
+  function handleChangePwd(event) {
+    setPassword(event.target.value);
+  }
+
+
   return (
     <Container className="vh-100 d-flex align-items-center signin-page">
       {/* A line containing two columns */}
@@ -42,13 +88,15 @@ const SignIn = () => {
             Create your next adventure!
           </h2>
           <Form
-            method="post"
-            action={"https://2425-cs7025-group1.scss.tcd.ie/login"}>
+            onSubmit={handleSubmit}
+           >
             <Form.Group controlId="formEmail">
               <Form.Control
                 className="bg-light"
                 type="email"
                 placeholder="Email"
+                value = {email}
+                onInput = {handleChangeEmail}
               />
             </Form.Group>
 
@@ -57,6 +105,8 @@ const SignIn = () => {
                 className="bg-light"
                 type="password"
                 placeholder="Password"
+                value = {password}
+                onInput = {handleChangePwd}
               />
             </Form.Group>
 
@@ -68,6 +118,7 @@ const SignIn = () => {
             <Row className="mt-4">
               <Col xs={12} md={4} className="mb-3 mb-md-0">
                 <Button
+                  onClick={handleSubmit}
                   style={{
                     backgroundColor: "#b1f8b6",
                     borderColor: "#b1f8b6",
@@ -94,7 +145,7 @@ const SignIn = () => {
                   <span>
                     Don't have an account?{" "}
                     <Link
-                      to="/signUp"
+                      to="/sign-up"
                       style={{
                         color: "black",
                         textDecoration: "none",

@@ -17,7 +17,11 @@ export async function findCollaboratorByItineraryId(
   callback(result);
 }
 
-export async function findItineraryByUserId(conn, userId, callback) {
+export async function findItineraryByCollaboratorUserId(
+  conn,
+  userId,
+  callback
+) {
   console.log("find collaborators by user_id", userId);
   const result = await conn.query(
     `SELECT * FROM collaborators WHERE user_id = (?)`,
