@@ -109,9 +109,21 @@ const CustomCard = ({
             setWishlist((wishlist) => [
               ...wishlist,
               {
-                name: name,
-                description: description,
-                wikidataId: wikidataId,
+                name,
+                description,
+                latitude,
+                longitude,
+                address,
+                openingHours,
+                phoneNr,
+                email,
+                link,
+                type,
+                operator,
+                wheelchair,
+                description,
+                wikidataId,
+                fee,
               },
             ]);
             setAdded(true);
