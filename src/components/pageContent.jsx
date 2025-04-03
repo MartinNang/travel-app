@@ -33,7 +33,7 @@ const PageContent = () => {
         <Route path="/inside-itinerary" element={<InsideItinerary />} />
         <Route path="/feed" element={<Feed />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/cookies" elements={<Cookies />} />
+        <Route path="/cookies" element={<Cookies />} />
       </Routes>
     </div>
   );
