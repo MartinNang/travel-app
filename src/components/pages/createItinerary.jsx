@@ -114,35 +114,13 @@ const CreateItinerary = ({}) => {
               </Col>
             </Row>
           </Col>
-          <Col xs={12} md={8}>
-            <Container className="events-timetable d-grid flex-grow-1">
-              <div className="grid-container">
-                {/* Header row */}
-                <span></span> {/* Empty top-left cell */}
-                <span className="timetable-first-row">Day 1</span>
-                <span className="timetable-first-row">Day 2</span>
-                {/* First column */}
-                <span>8-10am</span> <span>Event A</span> <span>Event B</span>
-                <span>10-12pm</span> <span>Event A</span> <span>Event B</span>
-                <span>2-4pm</span> <span>Event A</span> <span>Event B</span>
-                <span>8-10pm</span> <span>Event A</span> <span>Event B</span>
-              </div>
-            </Container>
-
-            {/* Button Row */}
-            <Row className="p-3 mt-auto">
-              <Col className="d-flex justify-content-end">
-                <Button>Save</Button>
-              </Col>
-            </Row>
-          </Col>
-
+          
+      
           <Col xs={12} md={1}></Col>
 
           <Col xs={12} md={3} className="d-flex flex-column">
             <Container className="wishlist-body p-4 flex-grow-1 d-flex flex-column">
-              <Col xs={12} md={3} className="d-flex flex-column vh-100">
-                <Container className="wishlist-body p-4 flex-grow-1 d-flex flex-column">
+              
                   <Row>
                     <h3>Wishlist</h3>
                   </Row>
@@ -175,29 +153,10 @@ const CreateItinerary = ({}) => {
                 ))}
               </Row>*/}
 
-                  {/* I don't think we need this button for this page*/}
-                  {/*<Row className="m-2 mt-auto"> 
-              <Row className="wishlist-pois p-2">
-                {wishlist
-                  ? wishlist.map((element, i) => (
-                      <div className="wishlist-card p-2 ps-4 mb-2">
-                        <p>{element.name}</p>
-                        <p>{element.description}</p>
-                      </div>
-                    ))
-                  : ""}
-              </Row>
-              <Row className="m-2 mt-auto">
-                {" "}
-                {/* To push the button to the bottom */}
-                  {/* This need to link somewhere else*/}
-                  <Button id="create-itinerary-btn" href={"#/create-itinerary"}>
-                    Create my own itinerary
-                  </Button>
-                </Container>
-              </Col>
             </Container>
           </Col>
+
+
         </Row>
       </Container>
     </article>
