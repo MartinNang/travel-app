@@ -3,7 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< Updated upstream
     "@emailjs/browser": "^4.4.1",
+=======
+    "@fullcalendar/adaptive": "^6.1.15",
+    "@fullcalendar/daygrid": "^6.1.15",
+    "@fullcalendar/interaction": "^6.1.15",
+    "@fullcalendar/react": "^6.1.15",
+    "@fullcalendar/timegrid": "^6.1.15",
+>>>>>>> Stashed changes
     "axios": "^1.7.9",
     "bcrypt": "^5.1.1",
     "bootstrap": "^5.3.3",

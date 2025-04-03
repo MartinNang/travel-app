@@ -6,6 +6,9 @@ import CustomCard from "../ui/card";
 import { Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+
+
+
 const Events = ({}) => {
   const [loading, setLoading] = useState(false);
   const [failed, setFailed] = useState(false);
@@ -58,6 +61,14 @@ const Events = ({}) => {
     sessionStorage.setItem("pois", JSON.stringify(pois));
     // setMapsLink("https://www.google.com/maps/dir/" + suffix);
   }, [pois]);
+
+
+  const addToWishlist = (event) => {
+    const updatedWishlist = [...pois, event]; 
+    setPois(updatedWishlist); 
+    localStorage.setItem("wishlist", JSON.stringify(updatedWishlist)); 
+  };
+  
 
   return (
     <article>

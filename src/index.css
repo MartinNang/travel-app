@@ -171,7 +171,9 @@ input[type="text"]:focus {
   background: #6d5faa;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
-  max-height: 80vh;
+  min-height: 450px;
+  max-height: 70vh;
+  overflow-y:  auto;
 }
 
 .wishlist-body h3 {
@@ -720,8 +722,8 @@ input[type="text"]:focus {
   transform: rotate(10deg);
 }
 
-
-.events-timetable {
+/* CREATE ITINERARY PAGE */
+/*.events-timetable {
   background-color: #554293;
   border-radius: 15px;
   overflow-y: auto;
@@ -730,7 +732,7 @@ input[type="text"]:focus {
 
 .grid-container {
   display: inline-grid;
-  grid-template-columns: auto 1fr 1fr; /* First column auto-sized, others flexible */
+  grid-template-columns: auto 1fr 1fr; 
   gap: 5px;
   text-align: center;
   padding: 5px;
@@ -754,3 +756,40 @@ input[type="text"]:focus {
   font-weight: 500;
   font-size: small;
 }
+*/
+
+/* CALENDAR - CREATE ITINERARY PAGE */
+
+/* Change background color of the entire calendar */
+.fc {
+  background-color: #554293;
+  font-family: 'Arial', sans-serif;
+  color: white;
+}
+
+/* Style the toolbar (header with navigation buttons) */
+.fc .fc-toolbar {
+  background-color: #554293;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Customize day grid borders */
+.fc .fc-daygrid-day {
+  border: 1px solid #ddd;
+}
+
+/* Style events */
+.fc .fc-event {
+  background-color: #28a745 !important; /* Change event background color */
+  color: white !important;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+/* Add hover effect to events */
+.fc .fc-event:hover {
+  opacity: 0.8;
+}
+
