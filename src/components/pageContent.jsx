@@ -16,6 +16,7 @@ import { Route, Routes } from "react-router-dom";
 import Profile from "./pages/profile";
 import Contact from "./pages/contact";
 import InsideItinerary from "./pages/insideItinerary";
+import Cookies from "./pages/cookies";
 
 const PageContent = () => {
   return (
@@ -32,6 +33,7 @@ const PageContent = () => {
         <Route path="/inside-itinerary" element={<InsideItinerary />} />
         <Route path="/feed" element={<Feed />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/cookies" elements={<Cookies />} />
       </Routes>
     </div>
   );

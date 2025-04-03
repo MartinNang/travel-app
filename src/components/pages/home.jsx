@@ -114,9 +114,9 @@ const Home = () => {
           <div class="dropdown-content">More info about Tab 4.</div>
         </div>
       </section>
-
       {/* <!-- About Us Section --> */}
-      <div class="about-section">
+      <div id="anchor"> </div>
+      <div class="about-section" id="anchor">
         <div class="about-overlay"></div>
         <h2>About Us</h2>
         <div class="lines">
@@ -187,7 +187,7 @@ const Home = () => {
         </div>
 
         {/* <!-- Slide 3 --> */}
-        <div class="new-content slide3">
+        <div class="new-content slide3" >
           <p class="new-text">
             EnRoute Travel was built by a passionate team of travel enthusiasts,
             tech innovators, and customer-first visionaries who share one

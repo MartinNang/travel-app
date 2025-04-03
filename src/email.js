@@ -1,7 +1,6 @@
 (function() {
     
-    emailjs.init("Wrr2nz10a-IwnQeAo"); //user ID on EmailJS, 
-})();
+    emailjs.init("Wrr2nz10a-IwnQeAo"); 
 
 document.getElementById("contact-form").addEventListener("submit", function(event) {
     event.preventDefault(); 
