@@ -50,19 +50,16 @@ const Events = ({ wishlist, setWishlist }) => {
     };
 
   useEffect(() => {
-    let suffix = "";
-    pois.map((element) => {
-      suffix += element.lat + "," + element.lon + "/";
-    });
-    sessionStorage.setItem("pois", JSON.stringify(pois));
-    // setMapsLink("https://www.google.com/maps/dir/" + suffix);
-  }, [pois]);
+    // const updatedWishlist = [...wishlist, event];
+    // setWishlist(updatedWishlist);
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  }, [wishlist]);
 
-  const addToWishlist = (event) => {
-    const updatedWishlist = [...pois, event];
-    setPois(updatedWishlist);
-    localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
-  };
+  // const addToWishlist = (event) => {
+  //   const updatedWishlist = [...wishlist, event];
+  //   setWishlist(updatedWishlist);
+  //   localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
+  // };
 
   return (
     <article>
