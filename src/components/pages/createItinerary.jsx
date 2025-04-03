@@ -2,7 +2,7 @@ import { Container, Row, Col, Button, Dropdown, Form } from "react-bootstrap";
 import React, { useEffect, useState, useRef } from "react";
 import FullCalendar from "@fullcalendar/react";
 import timeGridPlugin from "@fullcalendar/timegrid";
-import interactionPlugin from "@fullcalendar/interaction"
+import interactionPlugin from "@fullcalendar/interaction";
 import adaptivePlugin from "@fullcalendar/adaptive";
 
 
