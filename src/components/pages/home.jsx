@@ -31,6 +31,7 @@ const Home = () => {
   let isContentVisible = false; // Track whether new content is visible
 
   function toggleContent() {
+    console.log("toggle content");
     // Hide the current slide
     document.querySelector(`.slide${currentSlide}`).style.display = "none";
 
@@ -67,11 +68,15 @@ const Home = () => {
       <div class="hero">
         <img src={signinImg} alt="Signin Image" />
         <h1>Your Journey, Perfectly Planned.</h1>
-        <Link to={"/sign-in"}>
-          <button className="btn btn-primary" type="submit">
-            Sign In
-          </button>
-        </Link>
+        {!sessionStorage.getItem("profileName") ? (
+          <Link to={"/sign-in"}>
+            <button className="btn btn-primary" type="submit">
+              Sign In
+            </button>
+          </Link>
+        ) : (
+          ""
+        )}
       </div>
 
       {/* <!-- Dashboard Section --> */}
@@ -114,9 +119,9 @@ const Home = () => {
           <div class="dropdown-content">More info about Tab 4.</div>
         </div>
       </section>
-
       {/* <!-- About Us Section --> */}
-      <div class="about-section">
+      <div id="anchor"> </div>
+      <div class="about-section" id="anchor">
         <div class="about-overlay"></div>
         <h2>About Us</h2>
         <div class="lines">
@@ -187,7 +192,7 @@ const Home = () => {
         </div>
 
         {/* <!-- Slide 3 --> */}
-        <div class="new-content slide3">
+        <div class="new-content slide3" >
           <p class="new-text">
             EnRoute Travel was built by a passionate team of travel enthusiasts,
             tech innovators, and customer-first visionaries who share one

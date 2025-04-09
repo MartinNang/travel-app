@@ -21,7 +21,7 @@ export function findItinerariesByName(conn, req, res) {
   try {
     itineraryService.findItinerariesByName(
       conn,
-      req.body.itineraryName,
+      req.params.itineraryName,
       (result) => {
         if (result.length === 1) {
           res.status(200);

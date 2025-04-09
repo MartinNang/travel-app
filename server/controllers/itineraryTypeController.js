@@ -1,5 +1,5 @@
 import ItineraryType from "../models/itineraryType.js";
-import * as itineraryTypeService from "../services/itineraryService.js";
+import * as itineraryTypeService from "../services/itineraryTypeService.js";
 
 export function getAllItineraryTypes(conn, req, res) {
   try {
@@ -21,7 +21,7 @@ export function findItineraryTypeById(conn, req, res) {
   try {
     itineraryTypeService.findItineraryTypeById(
       conn,
-      req.body.itineraryTypeId,
+      req.params.id,
       (result) => {
         if (result.length === 1) {
           res.status(200);

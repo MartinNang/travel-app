@@ -21,7 +21,7 @@ export function findCollaboratorsByItineraryId(conn, req, res) {
   try {
     collaboratorService.findCollaboratorsByItineraryId(
       conn,
-      req.body.itineraryName,
+      req.params.itineraryId,
       (result) => {
         if (result.length === 1) {
           res.status(200);
@@ -37,11 +37,11 @@ export function findCollaboratorsByItineraryId(conn, req, res) {
   }
 }
 
-export function findCollaboratorsByUserId(conn, req, res) {
+export function findItinerariesByCollaboratorUserId(conn, req, res) {
   try {
-    collaboratorService.findCollaboratorsByUserId(
+    collaboratorService.findItinerariesByCollaboratorUserId(
       conn,
-      req.body.itineraryName,
+      req.params.userId,
       (result) => {
         if (result.length === 1) {
           res.status(200);

@@ -6,12 +6,11 @@ import CustomCard from "../ui/card";
 import { Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const Events = ({}) => {
+const Events = ({ wishlist, setWishlist }) => {
   const [loading, setLoading] = useState(false);
   const [failed, setFailed] = useState(false);
   const [results, setResults] = useState(null);
-  const [pois, setPois] = useState([]);
-  const [mapsLink, setMapsLink] = useState([]);
+  // const [mapsLink, setMapsLink] = useState([]);
   const [searchTerm, setSearchTerm] = useState("Dublin"),
     onInput = ({ target: { value } }) => setSearchTerm(value),
     onFormSubmit = (e) => {
@@ -51,12 +50,16 @@ const Events = ({}) => {
     };
 
   useEffect(() => {
-    let suffix = "";
-    pois.map((element) => {
-      suffix += element.lat + "," + element.lon + "/";
-    });
-    setMapsLink("https://www.google.com/maps/dir/" + suffix);
-  }, [pois]);
+    // const updatedWishlist = [...wishlist, event];
+    // setWishlist(updatedWishlist);
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  }, [wishlist]);
+
+  // const addToWishlist = (event) => {
+  //   const updatedWishlist = [...wishlist, event];
+  //   setWishlist(updatedWishlist);
+  //   localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
+  // };
 
   return (
     <article>
@@ -158,8 +161,8 @@ const Events = ({}) => {
                         }
                         wikidataId={element.tags.wikidata}
                         fee={element.tags.fee}
-                        setPois={setPois}
-                        pois={pois}
+                        wishlist={wishlist}
+                        setWishlist={setWishlist}
                       />
                     ))
                   : ""}
@@ -172,8 +175,8 @@ const Events = ({}) => {
                 <h3>Wishlist</h3>
               </Row>
               <Row className="wishlist-pois p-2">
-                {pois
-                  ? pois.map((element, i) => (
+                {wishlist
+                  ? wishlist.map((element, i) => (
                       <div className="wishlist-card p-2 ps-4 mb-2">
                         {element.name}
                         {/* latitude={element.lat}

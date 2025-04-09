@@ -4,7 +4,7 @@ export async function getAllCollaborators(conn, callback) {
   callback(result);
 }
 
-export async function findCollaboratorByItineraryId(
+export async function findCollaboratorsByItineraryId(
   conn,
   itineraryId,
   callback
@@ -17,7 +17,7 @@ export async function findCollaboratorByItineraryId(
   callback(result);
 }
 
-export async function findItineraryByCollaboratorUserId(
+export async function findItinerariesByCollaboratorUserId(
   conn,
   userId,
   callback
