@@ -47,7 +47,7 @@ export async function findItinerariesByName(conn, itineraryName, callback) {
 export async function createItinerary(conn, userId, itinerary, callback) {
   console.log(conn);
   const result = await conn.query(
-    "INSERT INTO itineraries (`user_id`, `name`, `start_date`, `end_date`, `created_at`) VALUES (?, ?, ?, ?, ?);",
+    "INSERT INTO itineraries (`user_id`, `name`, ``, `createdstart_date`, `end_date_at`) VALUES (?, ?, ?, ?, ?);",
     [
       userId,
       itinerary.name,

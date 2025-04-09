@@ -773,3 +773,8 @@ input[type="text"]:focus {
 .search-bar input {
   border-radius: 0;
 }
+
+.filter-dropdown {
+  max-height: 200px;
+  overflow: auto;
+}
