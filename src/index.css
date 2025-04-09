@@ -165,6 +165,7 @@ input[type="text"]:focus {
   border-radius: 40px;
   height: 80vh;
   overflow-y: auto;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .wishlist-body {
@@ -776,4 +777,26 @@ input[type="text"]:focus {
 /* Add hover effect to events */
 .fc .fc-event:hover {
   opacity: 0.8;
+}
+
+.search-bar {
+  --bs-btn-border-color: var(--bs-border-color) !important;
+}
+
+.search-bar .btn-primary {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-color: var(--bs-border-color) !important;
+}
+
+.dropdown .dropdown-toggle {
+  color: black;
+  background-color: #b1f8b6;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-color: var(--bs-border-color) !important;
+}
+
+.search-bar input {
+  border-radius: 0;
 }
