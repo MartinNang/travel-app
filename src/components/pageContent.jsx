@@ -15,6 +15,7 @@ import CreateItinerary from "./pages/createItinerary";
 import { Route, Routes } from "react-router-dom";
 import Profile from "./pages/profile";
 import Contact from "./pages/contact";
+import InsideItinerary from "./pages/insideItinerary";
 
 const PageContent = () => {
   return (
@@ -29,7 +30,9 @@ const PageContent = () => {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/create-itinerary" element={<CreateItinerary />} />
         <Route path="/feed" element={<Feed />} />
-        <Route path="/contact" element={<Contact />} /> 
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/inside-itinerary" element={<InsideItinerary />} />
+        {/* <Route path="/contact" element={<Contact />} /> */}
       </Routes>
     </div>
   );
