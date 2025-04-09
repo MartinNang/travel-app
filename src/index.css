@@ -751,6 +751,7 @@ input[type="text"]:focus {
   max-width: 100%;
 }
 
+/* Styling for search bar on events page*/
 .search-bar {
   --bs-btn-border-color: var(--bs-border-color) !important;
 }
