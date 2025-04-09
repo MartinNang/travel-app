@@ -176,6 +176,7 @@ input[type="text"]:focus {
   overflow-y: auto;
 }
 
+
 .wishlist-body h3 {
   color: white;
 }
@@ -707,41 +708,6 @@ input[type="text"]:focus {
   transform: rotate(10deg);
 }
 
-/* CREATE ITINERARY PAGE */
-/*.events-timetable {
-  background-color: #554293;
-  border-radius: 15px;
-  overflow-y: auto;
-  height: 70%;
-}
-
-.grid-container {
-  display: inline-grid;
-  grid-template-columns: auto 1fr 1fr; 
-  gap: 5px;
-  text-align: center;
-  padding: 5px;
-}
-
-.grid-container span {
-  border: 1px solid #ccc;
-  padding: 10px;
-  background: #f8f9fa;
-}
-
-.timetable-first-row {
-  color: #554293;
-  font-weight: bold;
-}
-
-#create-itinerary-btn {
-  background-color: #b1f8b6 !important;
-  border-color: #b1f8b6 !important;
-  color: #554293 !important;
-  font-weight: 500;
-  font-size: small;
-}
-*/
 
 /* CALENDAR - CREATE ITINERARY PAGE */
 
@@ -777,3 +743,12 @@ input[type="text"]:focus {
 .fc .fc-event:hover {
   opacity: 0.8;
 }
+
+/* Add "..." if the title is too long for the calendar slot */
+.fc-event-content {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%; 
+}
+
