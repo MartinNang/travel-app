@@ -3,15 +3,62 @@ import $ from "jquery";
 import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import CustomCard from "../ui/card";
-import { Spinner } from "react-bootstrap";
+import { Spinner, Pagination } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Dropdown from "react-bootstrap/Dropdown";
+
+const cities = [
+  {
+    displayName: "Dublin",
+    overpassName: "Dublin",
+  },
+  {
+    displayName: "Tokyo",
+    overpassName: "東京都",
+  },
+  {
+    displayName: "New York City",
+    overpassName: "City of New York",
+  },
+  {
+    displayName: "Paris",
+    overpassName: "Paris",
+  },
+];
+const tags = [
+  "attraction",
+  "artwork",
+  "aquarium",
+  "gallery",
+  "hotel",
+  "museum",
+  "zoo",
+  "yes",
+  "bar",
+  "cafe",
+  "pub",
+  "restaurant",
+  "events_venue",
+  "casino",
+  "cinema",
+  "arts_centre",
+  "library",
+  "university",
+];
 
 const Events = ({ wishlist, setWishlist }) => {
+  const [city, setCity] = useState({
+    displayName: "Dublin",
+    overpassName: "Dublin",
+  });
   const [loading, setLoading] = useState(false);
   const [failed, setFailed] = useState(false);
   const [results, setResults] = useState(null);
+  const [filter, setFilter] = useState(null);
+  const [activePage, setActivePage] = useState(1);
+
   // const [mapsLink, setMapsLink] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("Dublin"),
+  const [searchTerm, setSearchTerm] = useState(""),
     onInput = ({ target: { value } }) => setSearchTerm(value),
     onFormSubmit = (e) => {
       console.log("submitting");
@@ -22,19 +69,33 @@ const Events = ({ wishlist, setWishlist }) => {
       // console.log(value);
       // nwr(area)["tourism"~"museum|gallery"];
       // nwr(area)["amenity"~"cafe|bar"];
+      console.log("search term:", searchTerm);
       const requestData = {
         data: `
           [out:json]
           [timeout:25]
           ;
-          area[name="${searchTerm}"];
+          area["name"="${city.overpassName}"];
           (
-            nwr(area)["tourism"]["wikidata"];
-            nwr(area)["amenity"]["wikidata"];
+            nwr(area)["tourism${
+              filter && filter.length > 0 ? '"="' + filter : ""
+            }"]["wikidata"]${
+          searchTerm && searchTerm.length > 0
+            ? '["name"~"' + searchTerm + '"]'
+            : ""
+        };
+            nwr(area)["amenity${
+              filter && filter.length > 0 ? '"="' + filter : ""
+            }"]["wikidata"]${
+          searchTerm && searchTerm.length > 0
+            ? '["name"~"' + searchTerm + '"]'
+            : ""
+        };
           );
-          out center 10;
+          out center 30;
       `,
       };
+      console.log("request", requestData);
 
       $.post("https://overpass-api.de/api/interpreter", requestData)
         .done((response) => {
@@ -50,94 +111,108 @@ const Events = ({ wishlist, setWishlist }) => {
     };
 
   useEffect(() => {
-    // const updatedWishlist = [...wishlist, event];
-    // setWishlist(updatedWishlist);
     localStorage.setItem("wishlist", JSON.stringify(wishlist));
-  }, [wishlist]);
-
-  // const addToWishlist = (event) => {
-  //   const updatedWishlist = [...wishlist, event];
-  //   setWishlist(updatedWishlist);
-  //   localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
-  // };
+    console.log("city", city);
+    console.log("filter", filter);
+  }, [wishlist, city, filter]);
 
   return (
     <article>
       <Container>
         <Row className="mt-4">
-          <Col xs={12} md={6} lg={2}>
-            {/* Search for Events in [City] */}
-            {/* <label for="events">Events</label> */}
-            {/* <input
-              type="events"
-              id="events"
-              name="events"
-              placeholder="Search for Events in [City]"
-            /> */}
-            <Container>
-              <Row>
-                <Form className="d-flex p-0" onSubmit={onFormSubmit}>
+          <Col xs={12} lg={6} xl={3}>
+            <Form className="d-flex p-0 row search-bar" onSubmit={onFormSubmit}>
+              <Form.Group
+                as={Row}
+                className="m-0 mb-3 p-2"
+                controlId="formPlaintextEmail">
+                <Col xs="5" xl="4" className="p-0">
+                  <Dropdown>
+                    <Dropdown.Toggle
+                      variant="success"
+                      id="dropdown-basic"
+                      className="w-100">
+                      {city.displayName}
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu value={city.displayName}>
+                      {cities.map((city) => (
+                        <Dropdown.Item onClick={() => setCity(city)}>
+                          {city.displayName}
+                        </Dropdown.Item>
+                      ))}
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </Col>
+                <Col xs="10" xl="6" className="p-0">
                   <Form.Control
                     type="search"
-                    placeholder="e.g. Dublin"
+                    className="w-100"
+                    placeholder="e.g. Louvre"
                     aria-label="Search"
                     onChange={onInput}
                     value={searchTerm}
                   />
-                  <Button variant="primary" type="submit">
-                    Search{loading ? "ing..." : ""}
+                </Col>
+                <Col xs="2" className="p-0">
+                  <Button variant="primary" type="submit" className="w-100">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-search"
+                      viewBox="0 0 16 16">
+                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                    </svg>
                   </Button>
-                </Form>
-              </Row>
-              <Row className="mt-4 mb-4">
-                <h4>
-                  <label for="from">From</label>
-                </h4>
-                <input
-                  type="date"
-                  id="fromDate"
-                  name="fromDate"
-                  placeholder="From"
-                />
-                <h4>
-                  <label for="to">To</label>
-                </h4>
-                <input type="date" id="toDate" name="toDate" placeholder="To" />
-              </Row>
-              <Row className="mb-4">
-                <h4>
-                  <label for="filters">Filters</label>
-                </h4>
-                <input id="filters" name="filters" />
-              </Row>
-              <Row className="mb-4">
-                <h4>
-                  <label for="opening-hours">Opening Hours</label>
-                </h4>
-                <input
-                  id="opening-hours"
-                  name="opening-hours"
-                  type="range"
-                  min="1"
-                  max="24"
-                />
-              </Row>
-            </Container>
+                </Col>
+              </Form.Group>
+
+              <Form.Group
+                as={Row}
+                className="mb-3"
+                controlId="formPlaintextPassword">
+                <Form.Label column sm="2">
+                  Filter by
+                </Form.Label>
+                <Col sm="12">
+                  <Dropdown>
+                    <Dropdown.Toggle>
+                      {filter ? filter : "Choose Filter"}
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu className="filter-dropdown">
+                      {tags.map((tag) => (
+                        <Dropdown.Item onClick={() => setFilter(tag)}>
+                          {tag}
+                        </Dropdown.Item>
+                      ))}
+                    </Dropdown.Menu>
+                  </Dropdown>{" "}
+                </Col>
+              </Form.Group>
+            </Form>
           </Col>
-          <Col xs={12} md={7} className="mb-3">
+          <Col xs={12} lg={6} className="mb-3 pb-3">
             <Container className="events-body p-4">
               <Row className="p-4" style={{ height: "100%" }}>
-                {loading ? (
-                  <h2
-                    className="text-center align-self-center"
-                    style={{ top: "50%" }}>
+                <h2
+                  className="text-center align-self-center"
+                  style={{ top: "50%", color: "white" }}>
+                  {loading ? (
                     <Spinner animation="grow" role="status">
                       <span className="visually-hidden">Loading...</span>
                     </Spinner>
-                  </h2>
-                ) : (
-                  ""
-                )}
+                  ) : results === null ? (
+                    "Search for attractions for your itinerary!"
+                  ) : results.elements.length === 0 ? (
+                    "No results"
+                  ) : (
+                    ""
+                  )}
+                </h2>
+
                 {failed ? <h2>failed</h2> : null}
                 {results
                   ? results.elements.map((element, i) => (
@@ -168,8 +243,19 @@ const Events = ({ wishlist, setWishlist }) => {
                   : ""}
               </Row>
             </Container>
+            {/* <Pagination className="mt-2 justify-content-center">
+              <Pagination.Item key={1} active={1 === activePage}>
+                1
+              </Pagination.Item>
+              <Pagination.Item key={2} active={2 === activePage}>
+                2
+              </Pagination.Item>
+              <Pagination.Item key={3} active={3 === activePage}>
+                3
+              </Pagination.Item>
+            </Pagination> */}
           </Col>
-          <Col xs={12} md={3}>
+          <Col xs={12} lg={3}>
             <Container className="wishlist-body p-4">
               <Row>
                 <h3>Wishlist</h3>

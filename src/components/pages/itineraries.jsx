@@ -8,8 +8,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Accordion from "react-bootstrap/Accordion";
-import PhotoCarousel from "./carousel.jsx";
-import itinerariesPreviewsData from "../itineraryPreviews.json";
+import PhotoCarousel from "../ui/carousel.jsx";
+import itinerariesPreviewsData from "../../itineraryPreviews.json";
 
 const Itineraries = () => {
   const [selectedCity, setSelectedCity] = useState("dublin");

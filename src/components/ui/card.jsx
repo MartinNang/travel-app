@@ -1,9 +1,10 @@
 import { Card, CardBody, CardFooter, CardImg, CardText } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 import { BsHeart, BsHeartFill } from "react-icons/bs";
 import axios from "axios";
+import { Spinner } from "react-bootstrap";
 
 /**
  * A basic Bootstrap card template for projects.
@@ -35,33 +36,39 @@ const CustomCard = ({
   setWishlist,
 }) => {
   const [added, setAdded] = useState(false);
+  const [descriptionLoading, setDescriptionLoading] = useState(false);
   const [cardDescription, setCardDescription] = useState(description);
   // console.log("address", address);
   // console.log("description", description);
-  if (!description && wikidataId) {
-    // console.log("fetching wikidata", wikidataId);
-    fetchWikidata(wikidataId);
-  }
 
-  function fetchWikidata(wikidataId) {
-    axios
-      .get(
-        `https://www.wikidata.org/wiki/Special:EntityData/${wikidataId}.json`
-      )
-      .then((response) => {
-        /*console.log(
-          "fetched",
-          response.data.entities[wikidataId].descriptions.en.value
-        );*/
-        setCardDescription(
-          response.data.entities[wikidataId].descriptions.en.value
-        );
-        // console.log("card description", cardDescription);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }
+  useEffect(() => {
+    if (!description && wikidataId) {
+      // console.log("fetching wikidata", wikidataId);
+      setDescriptionLoading(true);
+      fetchWikidata(wikidataId);
+    }
+
+    function fetchWikidata(wikidataId) {
+      axios
+        .get(
+          `https://www.wikidata.org/wiki/Special:EntityData/${wikidataId}.json`
+        )
+        .then((response) => {
+          /*console.log(
+            "fetched",
+            response.data.entities[wikidataId].descriptions.en.value
+          );*/
+          setCardDescription(
+            response.data.entities[wikidataId].descriptions.en.value
+          );
+          // console.log("card description", cardDescription);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+      setDescriptionLoading(false);
+    }
+  });
 
   return (
     <Card key={id} className="mb-4 p-4 event-card">
@@ -75,7 +82,16 @@ const CustomCard = ({
           ""
         )}*/}
         <div className="mt-4">
-          {cardDescription ? <CardText>{cardDescription}</CardText> : ""}
+          {descriptionLoading ? (
+            <Spinner animation="grow" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          ) : cardDescription ? (
+            <CardText>{cardDescription}</CardText>
+          ) : (
+            ""
+          )}
+
           {address ? <CardText>Address: {address}</CardText> : ""}
           {openingHours ? (
             <CardText>Opening Hours: {openingHours}</CardText>

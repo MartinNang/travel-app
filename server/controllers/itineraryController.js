@@ -61,17 +61,19 @@ export function findItinerariesByUserId(conn, req, res) {
 
 export function createItinerary(conn, req, res) {
   try {
+    const userId = req.params.userId;
     const itinerary = new Itinerary(
       req.body.name,
+      userId,
       req.body.startDate,
       req.body.endDate,
       req.body.createdAt,
-      req.body.tags
+      req.body.updatedAt,
+      req.body.type
     );
-    const userId = req.params.userId;
     console.log("itinerary", itinerary);
     console.log("userId", userId);
-    itineraryService.createItinerary(conn, userId, itinerary, () => {
+    itineraryService.createItinerary(conn, itinerary, () => {
       res.status(200);
     });
   } catch (code) {
@@ -87,9 +89,12 @@ export function updateItinerary(conn, req, res) {
     console.log("updating itinerary", req.body);
     const itinerary = new Itinerary(
       req.body.name,
+      null,
       req.body.startDate,
       req.body.endDate,
-      req.body.tags
+      null,
+      req.body.updatedAt,
+      req.body.type
     );
     itineraryService.updateItinerary(conn, itineraryId, itinerary, (result) => {
       res.status(200);

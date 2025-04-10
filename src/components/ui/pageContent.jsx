@@ -4,19 +4,19 @@
 */
 
 import React, { useState } from "react";
-import Home from "./pages/home";
-import Itineraries from "./itineraries";
-import SignIn from "./signIn";
-import SignUp from "./signUp";
-import Events from "./pages/events";
-import Api from "./pages/api";
-import Feed from "./pages/feed";
-import CreateItinerary from "./pages/createItinerary";
+import Home from "../pages/home";
+import Itineraries from "../pages/itineraries";
+import SignIn from "../pages/signIn";
+import SignUp from "../pages/signUp";
+import Events from "../pages/events";
+import Api from "../api/api";
+import Feed from "../pages/feed";
+import CreateItinerary from "../pages/createItinerary";
 import { Route, Routes } from "react-router-dom";
-import Profile from "./pages/profile";
-import Contact from "./pages/contact";
-import InsideItinerary from "./pages/insideItinerary";
-import Cookies from "./pages/cookies";
+import Profile from "../pages/profile";
+import Contact from "../pages/contact";
+import InsideItinerary from "../pages/insideItinerary";
+import Cookies from "../pages/cookies";
 
 const PageContent = () => {
   const [wishlist, setWishlist] = useState([]);
