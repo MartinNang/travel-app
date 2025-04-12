@@ -9,6 +9,8 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { BsPerson } from "react-icons/bs";
+import logoImg from "../../images/logo.png";
+
 const Header = () => {
   const location = useLocation();
 
@@ -23,7 +25,7 @@ const Header = () => {
         <Container fluid className="ms-5 me-5">
           <Navbar.Brand href="#" id="logo">
             <img
-              src={"../images/logo.png"}
+              src={logoImg}
               alt="Travel App Logo"
               width="100"
               height="auto"

@@ -120,13 +120,13 @@ const Events = ({ wishlist, setWishlist }) => {
     <article>
       <Container>
         <Row className="mt-4">
-          <Col xs={12} lg={6} xl={3}>
+          <Col xs={12} lg={4} xl={3}>
             <Form className="d-flex p-0 row search-bar" onSubmit={onFormSubmit}>
               <Form.Group
                 as={Row}
                 className="m-0 mb-3 p-2"
                 controlId="formPlaintextEmail">
-                <Col xs="5" xl="4" className="p-0">
+                <Col xs="5" sm="3" xl="4" className="p-0">
                   <Dropdown>
                     <Dropdown.Toggle
                       variant="success"
@@ -144,11 +144,11 @@ const Events = ({ wishlist, setWishlist }) => {
                     </Dropdown.Menu>
                   </Dropdown>
                 </Col>
-                <Col xs="10" xl="3" className="p-0">
+                <Col xs="10" sm="7" xl="6" className="p-0">
                   <Form.Control
                     type="search"
                     className="w-100"
-                    placeholder="e.g. Louvre"
+                    placeholder="e.g. Temple Bar"
                     aria-label="Search"
                     onChange={onInput}
                     value={searchTerm}
@@ -192,7 +192,7 @@ const Events = ({ wishlist, setWishlist }) => {
               </Form.Group>
             </Form>
           </Col>
-          <Col xs={12} lg={6} className="mb-3 pb-3">
+          <Col xs={12} lg={8} xl={6} className="mb-3 pb-3">
             <Container className="events-body p-4">
               <Row className="p-4" style={{ height: "100%" }}>
                 <h2
@@ -253,7 +253,7 @@ const Events = ({ wishlist, setWishlist }) => {
               </Pagination.Item>
             </Pagination> */}
           </Col>
-          <Col xs={12} lg={3}>
+          <Col xs={12} xl={3}>
             <Container className="wishlist-body p-4">
               <Row>
                 <h3>Wishlist</h3>
