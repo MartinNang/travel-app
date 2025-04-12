@@ -796,3 +796,21 @@ input[type="text"]:focus {
 .events-body .card-title {
   color: black;
 }
+
+.card-header {
+  border-radius: 60px;
+}
+
+.card .card-header img {
+  border-radius: 60px;
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+
+.card .placeholder-img img {
+  border-radius: 0;
+  top: 50% !important;
+  width: 100px !important;
+  margin: auto;
+}

@@ -31,7 +31,6 @@ const tags = [
   "hotel",
   "museum",
   "zoo",
-  "yes",
   "bar",
   "cafe",
   "pub",
@@ -42,6 +41,7 @@ const tags = [
   "arts_centre",
   "library",
   "university",
+  "yes",
 ];
 
 const Events = ({ wishlist, setWishlist }) => {
@@ -76,14 +76,14 @@ const Events = ({ wishlist, setWishlist }) => {
           (
             nwr(area)["tourism${
               filter && filter.length > 0 ? '"="' + filter : ""
-            }"]["wikidata"]${
+            }"][wikidata]${
           searchTerm && searchTerm.length > 0
             ? '["name"~"' + searchTerm + '"]'
             : ""
         };
             nwr(area)["amenity${
               filter && filter.length > 0 ? '"="' + filter : ""
-            }"]["wikidata"]${
+            }"][wikidata]${
           searchTerm && searchTerm.length > 0
             ? '["name"~"' + searchTerm + '"]'
             : ""
@@ -210,35 +210,40 @@ const Events = ({ wishlist, setWishlist }) => {
 
                 {failed ? <h2>failed</h2> : null}
                 {results
-                  ? results.elements.map((element, i) => (
-                      <CustomCard
-                        id={i}
-                        name={
-                          element.tags["name:en"]
-                            ? element.tags["name:en"]
-                            : element.tags.name
-                        }
-                        latitude={element.lat}
-                        longitude={element.lon}
-                        address={element.tags["addr:street"]}
-                        openingHours={element.tags.openingHours}
-                        phoneNr={element.tags.phone}
-                        email={element.tags.email}
-                        link={element.tags.website}
-                        type={element.tags.tourism}
-                        operator={element.tags.operator}
-                        wheelchair={element.tags.wheelchair}
-                        description={
-                          element.tags.description
-                            ? element.tags.description
-                            : ""
-                        }
-                        wikidataId={element.tags.wikidata}
-                        fee={element.tags.fee}
-                        wishlist={wishlist}
-                        setWishlist={setWishlist}
-                      />
-                    ))
+                  ? results.elements.map((element, i) =>
+                      element.tags.name ? (
+                        <CustomCard
+                          id={i}
+                          name={
+                            element.tags["name:en"]
+                              ? element.tags["name:en"]
+                              : element.tags.name
+                          }
+                          latitude={element.lat}
+                          longitude={element.lon}
+                          address={element.tags["addr:street"]}
+                          openingHours={element.tags.openingHours}
+                          phoneNr={element.tags.phone}
+                          email={element.tags.email}
+                          link={element.tags.website}
+                          type={element.tags.tourism}
+                          operator={element.tags.operator}
+                          wheelchair={element.tags.wheelchair}
+                          description={
+                            element.tags.description
+                              ? element.tags.description
+                              : ""
+                          }
+                          wikidataId={element.tags.wikidata}
+                          fee={element.tags.fee}
+                          wishlist={wishlist}
+                          setWishlist={setWishlist}
+                          image={element.tags.image}
+                        />
+                      ) : (
+                        ""
+                      )
+                    )
                   : ""}
               </Row>
             </Container>
