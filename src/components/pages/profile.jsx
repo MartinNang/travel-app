@@ -1,15 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import profilepic from "../../images/profile-pic.png";
 import polaroid from "../../images/polaroid.png";
 import settings from "../../images/settings.png";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState("all");
+  const [itineraries, setItineraries] = useState([]);
+
+  const navigate = useNavigate();
+
+  axios.defaults.baseURL = "https://2425-cs7025-group1.scss.tcd.ie/";
 
   const handleTabClick = (tabId) => {
     setActiveTab(tabId);
   };
+
+  useEffect(() => {
+    fetchItineraries();
+  }, []);
+
+  function fetchItineraries() {
+    axios
+      .get("/itineraries/user/" + sessionStorage.getItem("id"))
+      .then((response) => {
+        let itineraries = response.data;
+        if (itineraries) {
+          setItineraries(itineraries);
+        }
+        console.log("data response:", response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 
   return (
     <>
@@ -24,7 +50,7 @@ const Profile = () => {
         <div class="stats-follow">
           <div class="stats">
             <div class="stat-item">
-              <p class="stat-number">500</p>
+              <p class="stat-number">{itineraries.length}</p>
               <p class="stat-title">Trips</p>
             </div>
             <div class="stat-item">
@@ -37,7 +63,18 @@ const Profile = () => {
             </div>
           </div>
           {sessionStorage.getItem("id") ? (
-            <button className="follow-btn">Sign out</button>
+            <button
+              className="follow-btn"
+              onClick={(e) => {
+                sessionStorage.removeItem("id");
+                sessionStorage.removeItem("email");
+                sessionStorage.removeItem("password");
+                sessionStorage.removeItem("profileImage");
+                sessionStorage.removeItem("profileName");
+                navigate("/");
+              }}>
+              Sign out
+            </button>
           ) : (
             <button class="follow-btn">Follow</button>
           )}

@@ -132,28 +132,24 @@ const SignIn = () => {
                 xs={12}
                 md={8}
                 className="mb-5 mb-md-0 d-flex align-items-center">
-                <Button
+                <Link
+                  to="/sign-up"
                   style={{
-                    backgroundColor: "#b1f8b6",
-                    borderColor: "#b1f8b6",
                     color: "black",
-                  }}
-                  type="submit"
-                  className="w-100">
-                  <span>
-                    Don't have an account?{" "}
-                    <Link
-                      to="/sign-up"
-                      style={{
-                        color: "black",
-                        textDecoration: "none",
-                        fontWeight: "bold",
-                        fontStyle: "italic",
-                      }}>
-                      Sign up!
-                    </Link>
-                  </span>
-                </Button>
+                    textDecoration: "none",
+                    fontWeight: "bold",
+                    fontStyle: "italic",
+                  }}>
+                  <Button
+                    style={{
+                      backgroundColor: "#b1f8b6",
+                      borderColor: "#b1f8b6",
+                      color: "black",
+                    }}
+                    className="w-100">
+                    <span>Don't have an account? Sign up!</span>
+                  </Button>
+                </Link>
               </Col>
             </Row>
           </Form>
