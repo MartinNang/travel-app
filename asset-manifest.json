@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/travel-app/static/css/main.d84b0094.css",
-    "main.js": "/travel-app/static/js/main.f27e5b7f.js",
+    "main.css": "/travel-app/static/css/main.bda1431a.css",
+    "main.js": "/travel-app/static/js/main.3396ed37.js",
     "static/media/it3.jpg": "/travel-app/static/media/it3.ee0a3fba77682521277c.jpg",
     "static/media/mountains.jpg": "/travel-app/static/media/mountains.3991bf8055a7e8b0c918.jpg",
     "static/media/balloon.png": "/travel-app/static/media/balloon.4911bd5e124c8dd82c9a.png",
@@ -23,12 +23,27 @@
     "static/media/InriaSerif-Regular.ttf": "/travel-app/static/media/InriaSerif-Regular.f43b3e7fe0caf2aaeade.ttf",
     "static/media/profile-pic.png": "/travel-app/static/media/profile-pic.095de2657a3c6d22d251.png",
     "static/media/logo.png": "/travel-app/static/media/logo.4a621dd34a40caaa91e6.png",
+    "static/media/ferris-wheel.png": "/travel-app/static/media/ferris-wheel.450f47a3eb7fe171753b.png",
+    "static/media/art.png": "/travel-app/static/media/art.4bf005b5a62122d3182c.png",
+    "static/media/zoo.png": "/travel-app/static/media/zoo.d1a9e553552698e70d8e.png",
+    "static/media/restaurant.png": "/travel-app/static/media/restaurant.1ac9095b202211c1ca48.png",
+    "static/media/coffee-cup.png": "/travel-app/static/media/coffee-cup.0f9e8ef71165ad20f15f.png",
+    "static/media/cinema-screen.png": "/travel-app/static/media/cinema-screen.50d4a9daf821b71ff45a.png",
+    "static/media/gallery.png": "/travel-app/static/media/gallery.fd3a136a75a0313f69b4.png",
+    "static/media/open-book.png": "/travel-app/static/media/open-book.58326e6d2e421c555b71.png",
+    "static/media/graduation.png": "/travel-app/static/media/graduation.e63610fce24976ef6edb.png",
+    "static/media/aquarium.png": "/travel-app/static/media/aquarium.ad1f3a2720742bb56a58.png",
+    "static/media/beer.png": "/travel-app/static/media/beer.123d761023d35f2b01e5.png",
+    "static/media/frame.png": "/travel-app/static/media/frame.0e29fe56fcf08da9ef6f.png",
+    "static/media/stage.png": "/travel-app/static/media/stage.76046bb5152ca97a3ae5.png",
+    "static/media/cocktail.png": "/travel-app/static/media/cocktail.0a138e2a1757cd31f624.png",
+    "static/media/slot-machine.png": "/travel-app/static/media/slot-machine.7df3bad59267d893e79b.png",
     "index.html": "/travel-app/index.html",
-    "main.d84b0094.css.map": "/travel-app/static/css/main.d84b0094.css.map",
-    "main.f27e5b7f.js.map": "/travel-app/static/js/main.f27e5b7f.js.map"
+    "main.bda1431a.css.map": "/travel-app/static/css/main.bda1431a.css.map",
+    "main.3396ed37.js.map": "/travel-app/static/js/main.3396ed37.js.map"
   },
   "entrypoints": [
-    "static/css/main.d84b0094.css",
-    "static/js/main.f27e5b7f.js"
+    "static/css/main.bda1431a.css",
+    "static/js/main.3396ed37.js"
   ]
 }
