@@ -9,7 +9,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Accordion from "react-bootstrap/Accordion";
 import PhotoCarousel from "../ui/carousel.jsx";
-import itinerariesPreviewsData from "../../itineraryPreviews.json";
+import itinerariesPreviewsData from "../../data/itineraryPreviews.json";
 
 const Itineraries = () => {
   const [selectedCity, setSelectedCity] = useState("dublin");

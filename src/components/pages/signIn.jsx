@@ -11,20 +11,20 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import mapImg from "../../images/map.png";
 
 axios.defaults.baseURL = "https://2425-cs7025-group1.scss.tcd.ie/";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState();
   const navigate = useNavigate();
 
   async function handleSubmit(event) {
     event.preventDefault();
     console.log("logging in");
 
-    const result = await axios
+    await axios
       .post("/users/login", { email: email, password: password })
       .then((response) => {
         console.log("response", response);
@@ -69,7 +69,7 @@ const SignIn = () => {
           md={6}
           className="d-flex align-items-center justify-content-center">
           <img
-            src="/images/map.png"
+            src={mapImg}
             alt="Map"
             className="img-fluid"
             style={{ width: "100%", height: "auto", display: "block" }}

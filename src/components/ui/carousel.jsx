@@ -1,6 +1,6 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
-import carouselImages from "../../carouselImages.json"; // Import the JSON data
+import carouselImages from "../../data/carouselImages.json"; // Import the JSON data
 
 const PhotoCarousel = ({ city }) => {
   const images = carouselImages[city] || [];

@@ -68,7 +68,7 @@ const CustomCard = ({
         });
       setDescriptionLoading(false);
     }
-  });
+  }, [description, wikidataId]);
 
   return (
     <Card key={id} className="mb-4 p-4 event-card">

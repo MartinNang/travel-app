@@ -1,10 +1,8 @@
-import queryOverpass from "query-overpass";
 import $ from "jquery";
-import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import CustomCard from "../ui/card";
-import { Spinner, Pagination } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Spinner } from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
 
 const cities = [
@@ -55,7 +53,6 @@ const Events = ({ wishlist, setWishlist }) => {
   const [failed, setFailed] = useState(false);
   const [results, setResults] = useState(null);
   const [filter, setFilter] = useState(null);
-  const [activePage, setActivePage] = useState(1);
 
   // const [mapsLink, setMapsLink] = useState([]);
   const [searchTerm, setSearchTerm] = useState(""),
@@ -216,7 +213,11 @@ const Events = ({ wishlist, setWishlist }) => {
                   ? results.elements.map((element, i) => (
                       <CustomCard
                         id={i}
-                        name={element.tags.name}
+                        name={
+                          element.tags["name:en"]
+                            ? element.tags["name:en"]
+                            : element.tags.name
+                        }
                         latitude={element.lat}
                         longitude={element.lon}
                         address={element.tags["addr:street"]}
@@ -256,7 +257,7 @@ const Events = ({ wishlist, setWishlist }) => {
           <Col xs={12} xl={3}>
             <Container className="wishlist-body p-4">
               <Row>
-                <h3>Wishlist</h3>
+                <h2>Wishlist</h2>
               </Row>
               <Row className="wishlist-pois p-2">
                 {wishlist

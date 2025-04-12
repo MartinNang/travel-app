@@ -1,20 +1,24 @@
 @font-face {
   font-family: gyst;
-  src: url(gyst-regular.otf);
+  src: url(fonts/gyst-regular.otf);
 }
 @font-face {
   font-family: inria;
-  src: url(InriaSerif-Regular.ttf);
+  src: url(fonts/InriaSerif-Regular.ttf);
 }
 @font-face {
   font-family: poppins;
-  src: url(Poppins-Regular.ttf);
+  src: url(fonts/Poppins-Regular.ttf);
 }
 body {
   margin: 0;
   font-family: poppins, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-family: gyst;
 }
 
 code {
@@ -777,4 +781,18 @@ input[type="text"]:focus {
 .filter-dropdown {
   max-height: 200px;
   overflow: auto;
+}
+
+.events-body h2 {
+  font-family: gyst;
+  color: white;
+}
+
+.wishlist-body h2 {
+  font-family: gyst;
+  color: white;
+}
+
+.events-body .card-title {
+  color: black;
 }

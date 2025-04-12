@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import { Container } from "react-bootstrap";
 import profilepic from "../../images/profile-pic.png";
 import polaroid from "../../images/polaroid.png";
 import settings from "../../images/settings.png";
@@ -16,7 +15,7 @@ const Profile = () => {
     <>
       <div class="header">
         <div class="profile-info">
-          <img src={profilepic} alt="Profile Picture" class="profile-pic" />
+          <img src={profilepic} alt="User Profile" class="profile-pic" />
           <div class="user-details">
             <h1 class="username">{sessionStorage.getItem("profileName")}</h1>
             <p class="status">This is a user status</p>
