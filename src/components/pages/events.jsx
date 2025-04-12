@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import CustomCard from "../ui/card";
 import { Spinner } from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
+import { BsX, BsTrash3 } from "react-icons/bs";
 
 const cities = [
   {
@@ -111,7 +112,15 @@ const Events = ({ wishlist, setWishlist }) => {
     localStorage.setItem("wishlist", JSON.stringify(wishlist));
     console.log("city", city);
     console.log("filter", filter);
+    console.log("wishlist", wishlist);
   }, [wishlist, city, filter]);
+
+  function removeFromWishlist(index) {
+    console.log("removing item from wishlist with index", index);
+    let w = wishlist;
+    w.splice(index, 1);
+    setWishlist(w);
+  }
 
   return (
     <article>
@@ -262,15 +271,36 @@ const Events = ({ wishlist, setWishlist }) => {
           <Col xs={12} xl={3}>
             <Container className="wishlist-body p-4">
               <Row>
-                <h2>Wishlist</h2>
+                <Col>
+                  <h2>Wishlist</h2>
+                </Col>
+                <Col>
+                  <Button
+                    onClick={() => {
+                      setWishlist([]);
+                    }}
+                    className="border-0 ms-auto float-end">
+                    Clear all
+                    <BsTrash3 className="ms-1"></BsTrash3>
+                  </Button>
+                </Col>
               </Row>
               <Row className="wishlist-pois p-2">
                 {wishlist
                   ? wishlist.map((element, i) => (
-                      <div className="wishlist-card p-2 ps-4 mb-2">
-                        {element.name}
+                      <div className="wishlist-card p-2 ps-4 mb-2 align-items-center">
+                        <p className="my-auto">{element.name}</p>
                         {/* latitude={element.lat}
                         longitude={element.lon} */}
+                        <Button
+                          onClick={() => {
+                            setWishlist(
+                              wishlist.filter((e) => e.name !== element.name)
+                            );
+                          }}
+                          className="bg-transparent border-0 ms-auto">
+                          <BsX></BsX>
+                        </Button>
                       </div>
                     ))
                   : ""}

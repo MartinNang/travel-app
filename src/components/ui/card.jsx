@@ -97,7 +97,8 @@ const CustomCard = ({
         });
       setDescriptionLoading(false);
     }
-  }, [description, wikidataId]);
+    setAdded(wishlist.some((e) => e.name === name));
+  }, [description, wikidataId, wishlist]);
 
   function getPlaceholder() {
     switch (type) {
@@ -237,7 +238,7 @@ const CustomCard = ({
                       fee,
                     },
                   ]);
-                  setAdded(true);
+                  // setAdded(true);
                 }}>
                 {added ? (
                   <BsHeartFill className="add-button"></BsHeartFill>
