@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/en-route/static/css/main.fd45d655.css",
+    "main.js": "/en-route/static/js/main.41dfec01.js",
+    "static/media/it3.jpg": "/en-route/static/media/it3.ee0a3fba77682521277c.jpg",
+    "static/media/mountains.jpg": "/en-route/static/media/mountains.3991bf8055a7e8b0c918.jpg",
+    "static/media/balloon.png": "/en-route/static/media/balloon.4911bd5e124c8dd82c9a.png",
+    "static/media/japan.jpg": "/en-route/static/media/japan.0798709f89ea11bec47c.jpg",
+    "static/media/signin.jpg": "/en-route/static/media/signin.de1d84e1afe70e5a743e.jpg",
+    "static/media/aboutus.jpg": "/en-route/static/media/aboutus.92028798cd4aeed44dc5.jpg",
+    "static/media/newyork.jpg": "/en-route/static/media/newyork.13105619e11da89697af.jpg",
+    "static/media/cookies.jpg": "/en-route/static/media/cookies.7e1ea922cb2eaae5114b.jpg",
+    "static/media/tokyo.jpg": "/en-route/static/media/tokyo.f2efb195efe14c811190.jpg",
+    "static/media/it4.jpg": "/en-route/static/media/it4.008fd841c575bbed3f76.jpg",
+    "static/media/map.png": "/en-route/static/media/map.d0ea8b4ffd6eb4b0ad37.png",
+    "static/media/it2.jpg": "/en-route/static/media/it2.7d3e3f716380e0548b94.jpg",
+    "static/media/paris.jpg": "/en-route/static/media/paris.32863644f21e8f8582ea.jpg",
+    "static/media/maps.png": "/en-route/static/media/maps.0abc16ee9d44f712783f.png",
+    "static/media/Poppins-Regular.ttf": "/en-route/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
+    "static/media/polaroid.png": "/en-route/static/media/polaroid.d19420ab6dd398fac8ce.png",
+    "static/media/computer.png": "/en-route/static/media/computer.9a57d78c3d3284e9a6ea.png",
+    "static/media/gyst-regular.otf": "/en-route/static/media/gyst-regular.592e6ddd2e57b90bc8be.otf",
+    "static/media/InriaSerif-Regular.ttf": "/en-route/static/media/InriaSerif-Regular.f43b3e7fe0caf2aaeade.ttf",
+    "static/media/profile-pic.png": "/en-route/static/media/profile-pic.095de2657a3c6d22d251.png",
+    "static/media/logo.png": "/en-route/static/media/logo.4a621dd34a40caaa91e6.png",
+    "index.html": "/en-route/index.html",
+    "main.fd45d655.css.map": "/en-route/static/css/main.fd45d655.css.map",
+    "main.41dfec01.js.map": "/en-route/static/js/main.41dfec01.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fd45d655.css",
+    "static/js/main.41dfec01.js"
+  ]
+}
