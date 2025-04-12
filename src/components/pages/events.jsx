@@ -144,7 +144,7 @@ const Events = ({ wishlist, setWishlist }) => {
                     </Dropdown.Menu>
                   </Dropdown>
                 </Col>
-                <Col xs="10" xl="6" className="p-0">
+                <Col xs="10" xl="3" className="p-0">
                   <Form.Control
                     type="search"
                     className="w-100"
@@ -173,9 +173,7 @@ const Events = ({ wishlist, setWishlist }) => {
                 as={Row}
                 className="mb-3"
                 controlId="formPlaintextPassword">
-                <Form.Label column sm="2">
-                  Filter by
-                </Form.Label>
+                <Form.Label column>Filter by</Form.Label>
                 <Col sm="12">
                   <Dropdown>
                     <Dropdown.Toggle>

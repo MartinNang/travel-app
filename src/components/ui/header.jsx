@@ -44,12 +44,12 @@ const Header = () => {
                 className="mx-3">
                 itineraries
               </Nav.Link>
-              <Nav.Link
+              {/* <Nav.Link
                 href="/travel-app/#/feed"
                 onClick={window.scrollTo(0, 0)}
                 className="mx-3">
                 myFeed
-              </Nav.Link>
+              </Nav.Link> */}
               <Nav.Link
                 href="/travel-app/#/events"
                 onClick={window.scrollTo(0, 0)}

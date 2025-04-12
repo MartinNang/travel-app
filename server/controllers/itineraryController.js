@@ -1,5 +1,6 @@
 import Itinerary from "../models/itinerary.js";
 import * as itineraryService from "../services/itineraryService.js";
+import * as eventService from "../services/eventService.js";
 
 export function getAllItineraries(conn, req, res) {
   try {
@@ -71,11 +72,29 @@ export function createItinerary(conn, req, res) {
       req.body.updatedAt,
       req.body.type
     );
-    console.log("itinerary", itinerary);
-    console.log("userId", userId);
-    itineraryService.createItinerary(conn, itinerary, () => {
-      res.status(200);
-    });
+    const events = req.body.events;
+    if (events) {
+      console.log("itinerary", itinerary);
+      console.log("events", events);
+      console.log("userId", userId);
+      itineraryService.createItinerary(conn, itinerary, (result) => {
+        const itineraryId = result.insertId.toString();
+
+        console.log("itineraryId", itinerary);
+        let updatedEvents = [];
+        for (let e of events) {
+          updatedEvents.push([e[0], itineraryId, e[1], e[2]]);
+        }
+        console.log("updated events", updatedEvents);
+
+        eventService.createEvents(conn, updatedEvents, (result) => {
+          res.status(200);
+        });
+      });
+    } else {
+      res.status(400);
+      res.send({ error: "missing events" });
+    }
   } catch (code) {
     res.status(code);
   } finally {

@@ -20,6 +20,11 @@ import { locationRouter } from "./routes/locationRoute.js";
 import { postImageRouter } from "./routes/postImagesRoute.js";
 import { postRouter } from "./routes/postRoute.js";
 import { userRouter } from "./routes/userRoute.js";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -176,6 +181,11 @@ app.use("/posts", postRouter);
 
 // Users
 app.use("/users", userRouter);
+
+// Images
+app.get("/uploads/:image", function (req, res) {
+  res.sendFile(path.join(__dirname, "/uploads/", req.params.image)); // find out the filePath based on given fileName
+});
 
 app.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
