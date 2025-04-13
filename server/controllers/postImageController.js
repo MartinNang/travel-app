@@ -55,5 +55,5 @@ export function createPostImage(conn, req, res) {
 
 export async function uploadImage(req, res) {
   res.status(200);
-  return res.send("Single file");
+  return res.send("Uploaded file");
 }

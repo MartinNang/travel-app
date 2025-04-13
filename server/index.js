@@ -20,6 +20,11 @@ import { locationRouter } from "./routes/locationRoute.js";
 import { postImageRouter } from "./routes/postImagesRoute.js";
 import { postRouter } from "./routes/postRoute.js";
 import { userRouter } from "./routes/userRoute.js";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -34,7 +39,10 @@ const storage = multer.diskStorage({
     cb(null, file.fieldname + "-" + uniqueSuffix);
   },
 });
-const upload = multer({ storage: storage });
+const upload = multer({
+  storage: storage,
+  limits: { fileSize: 5 * 1000 * 1000 },
+});
 const hostname = "nodejs_2425-cs7025-group1";
 const port = 3000;
 const project_name = "en route";
@@ -58,99 +66,20 @@ app.use(cors());
 
 app.set("view engine", "ejs");
 
+app.all("/", function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
+
 app.get("/", (req, res) => {
   res.send("Hello");
 });
 
-// // Users
-// // return all users
-// app.get("/users", async (req, res) => {
-//   const conn = await pool.getConnection();
-//   userController.getAllUsers(conn, req, res);
-//   conn.release();
-// });
-
-// // check if user exists
-// app.post("/login", async (req, res) => {
-//   const conn = await pool.getConnection();
-//   userController.findUser(conn, req, res);
-//   conn.release();
-// });
-
-// // create new user
-// app.post("/signup", async (req, res) => {
-//   const conn = await pool.getConnection();
-//   userController.createUser(conn, req, res);
-//   conn.release();
-// });
-
-// // update profile name
-// app.put("/users/:userId/profileName", async (req, res) => {
-//   const conn = await pool.getConnection();
-//   userController.updateProfileName(conn, req, res);
-//   conn.release();
-// });
-
-// // update profile image
-// app.put("/users/:userId/profileImage", async (req, res) => {
-//   const conn = await pool.getConnection();
-//   userController.updateProfileImage(conn, req, res);
-//   conn.release();
-// });
-
-// // delete user
-// app.delete("/users/:userId", async (req, res) => {
-//   const conn = await pool.getConnection();
-//   userController.deleteUser(conn, req, res);
-//   conn.release();
-// });
-
-// // return all itineraries from one user
-// app.get("/users/:userId/itineraries", async (req, res) => {
-//   const conn = await pool.getConnection();
-//   itineraryController.findItinerariesByUserId(conn, req, res);
-//   conn.release();
-// });
-
-// // Itineraries
-// // return all itineraries from all users
-// app.get("/itineraries", async (req, res) => {
-//   const conn = await pool.getConnection();
-//   itineraryController.getAllItineraries(conn, req, res);
-//   conn.release();
-// });
-
-// // create new itinerary
-// app.post("/itineraries", async (req, res) => {
-//   const conn = await pool.getConnection();
-//   itineraryController.createItinerary(conn, req, res);
-//   conn.release();
-// });
-
-// // update existing itinerary
-// app.post("/itineraries", async (req, res) => {
-//   const conn = await pool.getConnection();
-//   itineraryController.updateItinerary(conn, req, res);
-//   conn.release();
-// });
-
-// // delete itinerary
-// app.delete("/itineraries", async (req, res) => {
-//   const conn = await pool.getConnection();
-//   itineraryController.deleteItinerary(conn, req, res);
-//   conn.release();
-// });
-
-// // Events
-// // get events
-// app.get("/events", async (req, res) => {
-//   const conn = await pool.getConnection();
-//   eventController.getAllEvents(conn, req, res);
-// });
-
 // file upload
 app.post("/upload", upload.single("img"), (req, res) => {
-  postImagesController.uploadImage(req, res);
+  console.log("req", req.files);
+  res.status(200).send(req.files);
 });
 
 // Collaborators
@@ -176,6 +105,11 @@ app.use("/posts", postRouter);
 
 // Users
 app.use("/users", userRouter);
+
+// Images
+app.get("/uploads/:image", function (req, res) {
+  res.sendFile(path.join(__dirname, "/uploads/", req.params.image)); // find out the filePath based on given fileName
+});
 
 app.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);

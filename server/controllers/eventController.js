@@ -23,7 +23,7 @@ export async function findEventsByItineraryId(conn, req, res) {
   try {
     eventService.findEventsByItineraryId(
       conn,
-      req.body.itineraryId,
+      req.params.itineraryId,
       (result) => {
         if (result.length === 1) {
           res.status(200);
@@ -39,20 +39,16 @@ export async function findEventsByItineraryId(conn, req, res) {
   }
 }
 
-export async function findEventsByOverpassId(conn, req, res) {
+export async function findEventsById(conn, req, res) {
   try {
-    eventService.findEventsByOverpassId(
-      conn,
-      req.params.overpassId,
-      (result) => {
-        if (result.length === 1) {
-          res.status(200);
-        } else if (result.length === 0) {
-          res.status(404);
-        }
-        res.send(result);
+    eventService.findEventsById(conn, req.params.id, (result) => {
+      if (result.length === 1) {
+        res.status(200);
+      } else if (result.length === 0) {
+        res.status(404);
       }
-    );
+      res.send(result);
+    });
   } catch (code) {
     res.status(code);
     res.send();
@@ -62,29 +58,25 @@ export async function findEventsByOverpassId(conn, req, res) {
 export async function createEvent(conn, req, res) {
   try {
     const event = new Event(
+      req.body.name,
       req.body.itineraryId,
-      req.body.overpassId,
       req.body.startTime,
       req.body.endTime
     );
-    eventService.createEvent(
-      conn,
-      req.body.overpassId,
-      event,
-      (err, result) => {
-        if (err) {
-          res.status(500);
-          res.send(err);
+
+    eventService.createEvent(conn, event, (err, result) => {
+      if (err) {
+        res.status(500);
+        res.send(err);
+      } else {
+        if (result) {
+          res.status(404);
         } else {
-          if (result) {
-            res.status(404);
-          } else {
-            res.status(405);
-          }
-          res.send(err);
+          res.status(405);
         }
+        res.send(err);
       }
-    );
+    });
   } catch (err) {
     res.status(500);
     res.send(err);
@@ -94,11 +86,11 @@ export async function createEvent(conn, req, res) {
 export async function updateEvent(conn, req, res) {
   try {
     const itineraryId = req.body.itineraryId;
-    const overpassId = req.body.overpassId;
+    const id = req.body.id;
     const startTime = req.body.startTime;
     const endTime = req.body.endTime;
-    const event = new Event(itineraryId, overpassId, startTime, endTime);
-    eventService.updateEvent(conn, overpassId, event, () => {
+    const event = new Event(itineraryId, id, startTime, endTime);
+    eventService.updateEvent(conn, id, event, () => {
       res.status(200);
     });
   } catch (code) {
@@ -110,10 +102,10 @@ export async function updateEvent(conn, req, res) {
 
 export async function deleteEvent(conn, req, res) {
   try {
-    const overpassId = req.params.overpassId;
-    console.log("overpassId", overpassId);
+    const id = req.params.id;
+    console.log("id", id);
 
-    eventService.deleteEvent(conn, overpassId, () => {
+    eventService.deleteEvent(conn, id, () => {
       res.status(204);
     });
   } catch (code) {

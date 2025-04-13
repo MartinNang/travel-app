@@ -8,7 +8,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import homepageCss from "../../homepage.css";
+import homepageCss from "../../styles/homepage.css";
 import aboutUsImg from "../../images/aboutus.jpg";
 import mountainsImg from "../../images/mountains.jpg";
 import tokyoImg from "../../images/tokyo.jpg";
@@ -31,6 +31,7 @@ const Home = () => {
   let isContentVisible = false; // Track whether new content is visible
 
   function toggleContent() {
+    console.log("toggle content");
     // Hide the current slide
     document.querySelector(`.slide${currentSlide}`).style.display = "none";
 
@@ -67,11 +68,15 @@ const Home = () => {
       <div class="hero">
         <img src={signinImg} alt="Signin Image" />
         <h1>Your Journey, Perfectly Planned.</h1>
-        <Link to={"/sign-in"}>
-          <button className="btn btn-primary" type="submit">
-            Sign In
-          </button>
-        </Link>
+        {!sessionStorage.getItem("profileName") ? (
+          <Link to={"/sign-in"}>
+            <button className="btn btn-primary" type="submit">
+              Sign In
+            </button>
+          </Link>
+        ) : (
+          ""
+        )}
       </div>
 
       {/* <!-- Dashboard Section --> */}
@@ -187,7 +192,7 @@ const Home = () => {
         </div>
 
         {/* <!-- Slide 3 --> */}
-        <div class="new-content slide3" >
+        <div class="new-content slide3">
           <p class="new-text">
             EnRoute Travel was built by a passionate team of travel enthusiasts,
             tech innovators, and customer-first visionaries who share one
@@ -222,7 +227,7 @@ const Home = () => {
         <Container class="cards">
           <Row className="mt-4">
             <Col xs={12} md={6} lg={4}>
-              <Card>
+              <Card className="recommendation-card">
                 <img src={newyorkImg} alt="Destination 1" height="110%" />
                 <h3>Lazy New York City Itinerary</h3>
                 <p>Some details here...</p>
@@ -234,7 +239,7 @@ const Home = () => {
               md={6}
               lg={4}
               className="mt-xl-0 mt-sm-2 mt-xs-2 mt-md-0 mt-lg-0">
-              <Card>
+              <Card className="recommendation-card">
                 <img src={tokyoImg} alt="Destination 2" />
                 <h3>Cozy Tokyo Itinerary</h3>
                 <p>Some details here...</p>
@@ -246,7 +251,7 @@ const Home = () => {
               md={6}
               lg={4}
               className="mt-xl-0 mt-sm-2 mt-xs-2 mt-md-0 mt-lg-0">
-              <Card>
+              <Card className="recommendation-card">
                 <img src={parisImg} alt="Destination 3" />
                 <h3>Adventurous Paris Itinerary</h3>
                 <p>Some details here...</p>

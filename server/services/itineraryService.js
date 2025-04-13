@@ -44,16 +44,18 @@ export async function findItinerariesByName(conn, itineraryName, callback) {
   callback(result);
 }
 
-export async function createItinerary(conn, userId, itinerary, callback) {
+export async function createItinerary(conn, itinerary, callback) {
   console.log(conn);
   const result = await conn.query(
-    "INSERT INTO itineraries (`user_id`, `name`, `start_date`, `end_date`, `created_at`) VALUES (?, ?, ?, ?, ?);",
+    "INSERT INTO itineraries (`name`, `user_id`, `start_date`, `end_date`, `created_at`, `updated_at`, `type`) VALUES (?, ?, ?, ?, ?, ?, ?);",
     [
-      userId,
       itinerary.name,
+      itinerary.userId,
       itinerary.startDate,
       itinerary.endDate,
       itinerary.createdAt,
+      itinerary.updatedAt,
+      itinerary.type,
     ]
   );
   callback(result);
@@ -63,9 +65,16 @@ export async function updateItinerary(conn, itineraryId, itinerary, callback) {
   console.log(conn);
   const result = await conn.query(
     `UPDATE itineraries
-          SET name = ?, start_date = ?, end_date = ?
+          SET name = ?, start_date = ?, end_date = ?, updated_at = ?, type = ?
           WHERE id = ?`,
-    [itinerary.name, itinerary.startDate, itinerary.endDate, itineraryId]
+    [
+      itinerary.name,
+      itinerary.startDate,
+      itinerary.endDate,
+      itinerary.updatedAt,
+      itinerary.type,
+      itineraryId,
+    ]
   );
   callback(result);
 }

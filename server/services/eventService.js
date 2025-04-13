@@ -13,47 +13,53 @@ export async function findEventsByItineraryId(conn, itineraryId, callback) {
   callback(result);
 }
 
-export async function findEventsByOverpassId(conn, overpassId, callback) {
-  console.log("find events by overpass_id", overpassId);
+export async function findEventsById(conn, id, callback) {
+  console.log("find events by id", id);
+  const result = await conn.query(`SELECT * FROM events WHERE id = (?)`, [id]);
+  callback(result);
+}
+
+export async function createEvent(conn, event, callback) {
   const result = await conn.query(
-    `SELECT * FROM events WHERE overpass_id = (?)`,
-    [overpassId]
+    "INSERT INTO events (`name`, `itinerary_id`, `start_time`, `end_time`) VALUES (?, ?, ?, ?);",
+    [event.name, event.itineraryId, event.startDate, event.endDate]
   );
   callback(result);
 }
 
-export async function createEvent(conn, overpassId, event, callback) {
-  console.log("creating event", overpassId);
-  const result = await conn.query(
-    "INSERT INTO events (`overpass_id`, `itinerary_id`, `start_date`, `end_date`) VALUES (?, ?, ?, ?);",
-    [overpassId, event.itineraryId, event.startDate, event.endDate]
+export async function createEvents(conn, events, callback) {
+  const result = await conn.batch(
+    "INSERT INTO events (`name`, `itinerary_id`, `start_time`, `end_time`) VALUES (?, ?, ?, ?);",
+    events,
+    (err, res, meta) => {
+      if (err) {
+        console.error("Error loading data, reverting changes: ", err);
+      } else {
+        console.log(res);
+        console.log(meta);
+      }
+    }
   );
   callback(result);
 }
 
-export async function updateEvent(conn, overpassId, event, callback) {
-  console.log("updating event", overpassId);
+export async function updateEvent(conn, id, event, callback) {
+  console.log("updating event", id);
   const result = await conn.query(
     `UPDATE events
             SET overpass_id = ?, itinerary_id = ?, start_time = ?, end_time = ?
             WHERE overpass_id = ?`,
-    [
-      event.overpassId,
-      event.itineraryId,
-      event.startTime,
-      event.endTime,
-      event.overpassId,
-    ]
+    [event.id, event.itineraryId, event.startTime, event.endTime, event.id]
   );
   callback(result);
 }
 
-export async function deleteEvent(conn, overpassId, callback) {
-  console.log("deleting event", overpassId);
+export async function deleteEvent(conn, id, callback) {
+  console.log("deleting event", id);
   const result = await conn.query(
     `DELETE FROM events
       WHERE overpass_id = ?`,
-    [overpassId]
+    [id]
   );
   callback(result);
 }

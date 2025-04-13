@@ -1,20 +1,27 @@
 @font-face {
   font-family: gyst;
   src: url(gyst-regular.otf);
+  src: url(fonts/gyst-regular.otf);
 }
 @font-face {
   font-family: inria;
   src: url(InriaSerif-Regular.ttf);
+  src: url(fonts/InriaSerif-Regular.ttf);
 }
 @font-face {
   font-family: poppins;
   src: url(Poppins-Regular.ttf);
+  src: url(fonts/Poppins-Regular.ttf);
 }
 body {
   margin: 0;
   font-family: poppins, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-family: gyst;
 }
 
 code {
@@ -55,7 +62,6 @@ code {
   color: #6b4a8b;
 }
 
-
 .footer a {
   text-decoration: none;
   color: #6b4a8b;
@@ -67,6 +73,7 @@ code {
 
 .footer a:hover {
   text-decoration: none; 
+  text-decoration: none;
 }
 
 .socials {
@@ -79,6 +86,7 @@ code {
 
 header {
   background-color: #fff;
+  /* background-color: transparent; */
   padding: 15px 0;
   position: fixed;
   width: 100%;
@@ -165,6 +173,7 @@ input[type="text"]:focus {
   border-radius: 40px;
   height: 80vh;
   overflow-y: auto;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .wishlist-body {
@@ -174,6 +183,7 @@ input[type="text"]:focus {
   min-height: 450px;
   max-height: 70vh;
   overflow-y:  auto;
+  overflow-y: auto;
 }
 
 .wishlist-body h3 {
@@ -281,17 +291,12 @@ input[type="text"]:focus {
   opacity: 0.6;
 }
 
-
-
-
 /* cookie policy */
-
 
 .cookie-policy {
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
- 
 }
 
 .cookie-policy h2 {
@@ -303,6 +308,7 @@ input[type="text"]:focus {
 
 .cookie-policy h3 {
   color: #6D5FAA; 
+  color: #6d5faa;
   margin-top: 20px;
   font-size: 1.5rem;
 }
@@ -325,6 +331,7 @@ input[type="text"]:focus {
 
 .cookie-policy ul li strong {
   color: #6D5FAA; 
+  color: #6d5faa;
 }
 
 .cookie-banner {
@@ -339,10 +346,12 @@ input[type="text"]:focus {
 }
 .cookie-banner h1 {
   color: white; 
+  color: white;
   padding: 10px 20px;
   border-radius: 8px;
   font-size: 2rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .About-banner {
@@ -411,6 +420,7 @@ input[type="text"]:focus {
 .header {
   margin-top: 90px;
   background-color: #ECF2F1;
+  background-color: #ecf2f1;
   height: 110px;
   display: flex;
   justify-content: space-between;
@@ -440,6 +450,7 @@ input[type="text"]:focus {
 .username {
   font-size: 40px;
   color: #0B524C;
+  color: #0b524c;
   margin: 0;
 }
 
@@ -447,6 +458,8 @@ input[type="text"]:focus {
   font-size: 20px;
   font-family: 'Inter', sans-serif;
   color: #6D5FAA;
+  font-family: "Inter", sans-serif;
+  color: #6d5faa;
   margin: 0;
 }
 
@@ -472,6 +485,7 @@ input[type="text"]:focus {
 .stat-number {
   font-size: 40px;
   color: #0B524C;
+  color: #0b524c;
   margin: 0;
   font-weight: bold;
 }
@@ -479,6 +493,7 @@ input[type="text"]:focus {
 .stat-title {
   font-size: 20px;
   color: #F19EDC;
+  color: #f19edc;
   margin: 0;
 }
 
@@ -486,8 +501,10 @@ input[type="text"]:focus {
   width: 100px;
   height: 50px;
   background-color: #3E3568;
+  background-color: #3e3568;
   color: white;
   font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   border: none;
   border-radius: 15px;
@@ -500,11 +517,13 @@ input[type="text"]:focus {
 
 .follow-btn:hover {
   background-color: #6D5FAA;
+  background-color: #6d5faa;
 }
 
 .settings-btn {
   position: absolute;
   top:20px;
+  top: 20px;
   right: 20px;
   width: 30px;
   height: 30px;
@@ -516,6 +535,7 @@ input[type="text"]:focus {
   width: 100%;
   height: 1px;
   background-color: #6D5FAA;
+  background-color: #6d5faa;
 }
 
 
@@ -530,6 +550,8 @@ input[type="text"]:focus {
   font-size: 25px;
   font-family: 'Inter', sans-serif;
   color: #BBB9B9;
+  font-family: "Inter", sans-serif;
+  color: #bbb9b9;
   cursor: pointer;
   padding: 5px 10px;
 }
@@ -537,11 +559,13 @@ input[type="text"]:focus {
 
 .tab.active {
   color: #F19EDC;
+  color: #f19edc;
 }
 
 
 .tab-content {
   display: none; 
+  display: none;
   padding: 20px;
 }
 
@@ -555,10 +579,14 @@ input[type="text"]:focus {
   overflow-x: auto; 
   white-space: nowrap; 
   padding-bottom: 10px; 
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 10px;
 }
 
 .all-itinerary-container {
   background-color: #ECF2F1;
+  background-color: #ecf2f1;
   padding: 20px;
   border-radius: 15px;
   text-align: center;
@@ -576,6 +604,7 @@ input[type="text"]:focus {
 .all-itinerary-title {
   font-size: 16px;
   color: #F19EDC;
+  color: #f19edc;
   text-transform: uppercase;
   font-weight: bold;
   margin-bottom: 10px;
@@ -584,6 +613,7 @@ input[type="text"]:focus {
 .all-itinerary-text {
   font-size: 12px;
   color: #6D5FAA;
+  color: #6d5faa;
   position: absolute;
   left: 10px;
   top: 70px;
@@ -593,6 +623,7 @@ input[type="text"]:focus {
 .all-itinerary-text-right {
   font-size: 12px;
   color: #6D5FAA;
+  color: #6d5faa;
   position: absolute;
   right: 3px;
   bottom: 30px;
@@ -653,6 +684,7 @@ input[type="text"]:focus {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 35px; 
+  gap: 35px;
   justify-content: center;
   align-items: center;
   padding: 20px;
@@ -672,21 +704,33 @@ input[type="text"]:focus {
 
 .collage-item:nth-child(6n+1) {
   transform: scale(1.2) rotate(-5deg); 
+.collage-item:nth-child(6n + 1) {
+  transform: scale(1.2) rotate(-5deg);
 }
 .collage-item:nth-child(6n+2) {
   transform: scale(0.95) rotate(4deg); 
+.collage-item:nth-child(6n + 2) {
+  transform: scale(0.95) rotate(4deg);
 }
 .collage-item:nth-child(6n+3) {
   transform: scale(1.05) rotate(-2deg); 
+.collage-item:nth-child(6n + 3) {
+  transform: scale(1.05) rotate(-2deg);
 }
 .collage-item:nth-child(6n+4) {
   transform: scale(1.15) rotate(3deg); 
+.collage-item:nth-child(6n + 4) {
+  transform: scale(1.15) rotate(3deg);
 }
 .collage-item:nth-child(6n+5) {
   transform: scale(1.0) rotate(-3deg); 
+.collage-item:nth-child(6n + 5) {
+  transform: scale(1) rotate(-3deg);
 }
 .collage-item:nth-child(6n+6) {
   transform: scale(1.1) rotate(2deg); 
+.collage-item:nth-child(6n + 6) {
+  transform: scale(1.1) rotate(2deg);
 }
 
 
@@ -694,7 +738,7 @@ input[type="text"]:focus {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 4px;  
+  border-radius: 4px;
 }
 
 .collage-item:hover {
@@ -708,11 +752,15 @@ input[type="text"]:focus {
   overflow-x: auto; 
   white-space: nowrap; 
   padding-bottom: 10px; 
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 10px;
   scrollbar-width: thin;
 }
 
 .itinerary-container {
   background-color: #ECF2F1;
+  background-color: #ecf2f1;
   padding: 20px;
   border-radius: 15px;
   text-align: center;
@@ -730,6 +778,7 @@ input[type="text"]:focus {
 .itinerary-title {
   font-size: 16px;
   color: #F19EDC;
+  color: #f19edc;
   text-transform: uppercase;
   font-weight: bold;
   margin-bottom: 10px;
@@ -738,6 +787,7 @@ input[type="text"]:focus {
 .itinerary-text {
   font-size: 12px;
   color: #6D5FAA;
+  color: #6d5faa;
   position: absolute;
   left: 10px;
   top: 70px;
@@ -747,6 +797,7 @@ input[type="text"]:focus {
 .itinerary-text-right {
   font-size: 12px;
   color: #6D5FAA;
+  color: #6d5faa;
   position: absolute;
   right: 3px;
   bottom: 30px;
@@ -824,6 +875,7 @@ input[type="text"]:focus {
 .fc {
   background-color: #554293;
   font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   color: white;
 }
 
@@ -853,6 +905,7 @@ input[type="text"]:focus {
   opacity: 0.8;
 }
 
+<<<<<<< HEAD
 /* Itinerary */
 #itinerary-container {
   padding: 20px;
@@ -949,4 +1002,73 @@ input[type="text"]:focus {
   height: 8px;
   background-color: #D9D9D9;
   border-radius: 5px;
+}}
+=======
+/* Add "..." if the title is too long for the calendar slot */
+.fc-event-content {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
+
+/* Styling for search bar on events page*/
+.search-bar {
+  --bs-btn-border-color: var(--bs-border-color) !important;
+}
+
+.search-bar .btn-primary {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-color: var(--bs-border-color) !important;
+}
+
+.dropdown .dropdown-toggle {
+  color: black;
+  background-color: #b1f8b6;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-color: var(--bs-border-color) !important;
+}
+
+.search-bar input {
+  border-radius: 0;
+}
+
+.filter-dropdown {
+  max-height: 200px;
+  overflow: auto;
+}
+
+.events-body h2 {
+  font-family: gyst;
+  color: white;
+}
+
+.wishlist-body h2 {
+  font-family: gyst;
+  color: white;
+}
+
+.events-body .card-title {
+  color: black;
+}
+
+.card-header {
+  border-radius: 60px;
+}
+
+.card .card-header img {
+  border-radius: 60px;
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+
+.card .placeholder-img img {
+  border-radius: 0;
+  top: 50% !important;
+  width: 100px !important;
+  margin: auto;
+}
+>>>>>>> ef8107dc883163c3b4351b36747d789eb73a5e3d

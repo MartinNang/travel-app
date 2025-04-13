@@ -1,0 +1,406 @@
+@font-face {
+  font-family: gyst;
+  src: url(../fonts/gyst-regular.otf);
+}
+
+@font-face {
+  font-family: inria;
+  src: url(../fonts/InriaSerif-Regular.ttf);
+}
+
+body {
+  margin: 0;
+  /* font-family: gyst, serif; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/*homepage image*/
+.hero {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.hero img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(39, 63, 39, 0.222);
+  /* Semi-transparent dark green */
+  z-index: 1;
+  /* Makes sure the overlay is above the image */
+}
+
+.hero h1 {
+  font-family: gyst, serif;
+  font-size: xx-large;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+/*sign in button*/
+.hero button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px 40px;
+  font-size: 18px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  background-color: #b1f8b6;
+  color: black;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+/* sign in - Hover effect */
+.hero button:hover {
+  background-color: #6b4a8b;
+  /* Darker purple for hover */
+  transform: translate(-50%, -50%) scale(1.05);
+  /* Slightly enlarges on hover */
+}
+
+section {
+  padding: 50px;
+  position: relative;
+}
+
+.dashboard {
+  padding-top: 0;
+  margin-top: -28px;
+  color: #609264;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  /* Optional gap between the image and text */
+}
+
+.dashboard p {
+  font-family: sans-serif;
+  padding-bottom: 550px;
+  padding-right: 5px;
+  z-index: 12;
+  font-size: 1.5rem;
+  white-space: nowrap;
+  position: absolute;
+  z-index: 13;
+}
+
+/* Section to hold dropdown tabs */
+.dropdown-section {
+  position: absolute;
+  bottom: -460px;
+  left: 72%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.dropdown-tab {
+  position: relative;
+  background: linear-gradient(135deg, #6b4a8b, #4e356f);
+  border: none;
+  padding: 20px 30px;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  width: 550px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.dropdown-tab:hover {
+  background: linear-gradient(135deg, #b1f8b6, #88d6a0);
+  transform: scale(1.05);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Dropdown Content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 650px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Show dropdown on hover */
+.dropdown-tab:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(5px);
+  /* Smooth movement */
+}
+
+#computer-image {
+  position: absolute;
+  top: 28px;
+  right: 45%;
+  z-index: 10;
+  width: 82%;
+  opacity: 100%;
+  height: auto;
+}
+
+.dashboard img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 50%;
+  z-index: 1;
+}
+
+.about-section {
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  height: 600px;
+  margin: 50px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  background: url("../images/aboutus.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 50px;
+}
+
+/* Semi-transparent overlay */
+.about-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+}
+
+/* "About Us" text */
+.about-section h2 {
+  position: relative;
+  margin: 20px;
+  color: #b1f8b6;
+  /* Light green text */
+  font-size: 28px;
+  font-weight: bold;
+  z-index: 2;
+}
+
+/* Line under "About Us" */
+.lines {
+  position: absolute;
+  top: 120px;
+  left: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  /* Space between lines */
+}
+
+.line {
+  width: 300px;
+  /* Adjust width */
+  height: 2px;
+  background: #b1f8b6;
+  /* Same green as text */
+}
+
+/* Arrow positioning and styling */
+.arrow {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #b1f8b6;
+  /* Green color */
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.arrow:hover {
+  transform: translateX(5px);
+}
+
+/* Initially hidden new content */
+.new-content {
+  display: none;
+  position: absolute;
+  top: 200px;
+  left: 50px;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.new-content-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.342);
+  border-radius: 20px;
+}
+
+/* Show first slide */
+.new-content.slide1 {
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 30px;
+  }
+
+  .about-section h2 {
+    font-size: 24px;
+  }
+
+  .lines {
+    top: 100px;
+    left: 30px;
+  }
+
+  .line {
+    width: 250px;
+  }
+
+  .arrow {
+    font-size: 25px;
+  }
+
+  .arrow {
+    right: 15px;
+  }
+}
+
+.new-text {
+  width: 50%;
+  margin: 2px;
+  padding: 10px;
+  font-family: sans-serif;
+  line-height: 1.6;
+  z-index: 100;
+}
+
+/*recomendation section*/
+.recommendations h2 {
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: 80%;
+  border-radius: 5px;
+  display: block;
+  z-index: 1;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  /* width: 30%; */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.recommendation-card {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.card button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.card button:hover {
+  background-color: #0056b3;
+}
+
+/*footer*/
+.footer {
+  background-color: #b1f8b6;
+  /*#bfe7c2*/
+  padding: 70px 120px;
+  margin: 0;
+  /*margin-top: 40px;*/
+  font-family: inria;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #6b4a8b;
+}
+
+/*socials*/
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 75px;
+  font-size: 20px;
+  margin-top: 0;
+}

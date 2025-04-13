@@ -1,7 +1,7 @@
 export default class Event {
-  constructor(itineraryId, overpassId, startTime, endTime) {
+  constructor(name, itineraryId, startTime, endTime) {
+    this.name = name;
     this.itineraryId = itineraryId;
-    this.overpassId = overpassId;
     this.startTime = startTime;
     this.endTime = endTime;
   }

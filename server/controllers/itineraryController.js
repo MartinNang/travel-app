@@ -1,5 +1,6 @@
 import Itinerary from "../models/itinerary.js";
 import * as itineraryService from "../services/itineraryService.js";
+import * as eventService from "../services/eventService.js";
 
 export function getAllItineraries(conn, req, res) {
   try {
@@ -61,19 +62,39 @@ export function findItinerariesByUserId(conn, req, res) {
 
 export function createItinerary(conn, req, res) {
   try {
+    const userId = req.params.userId;
     const itinerary = new Itinerary(
       req.body.name,
+      userId,
       req.body.startDate,
       req.body.endDate,
       req.body.createdAt,
-      req.body.tags
+      req.body.updatedAt,
+      req.body.type
     );
-    const userId = req.params.userId;
-    console.log("itinerary", itinerary);
-    console.log("userId", userId);
-    itineraryService.createItinerary(conn, userId, itinerary, () => {
-      res.status(200);
-    });
+    const events = req.body.events;
+    if (events) {
+      console.log("itinerary", itinerary);
+      console.log("events", events);
+      console.log("userId", userId);
+      itineraryService.createItinerary(conn, itinerary, (result) => {
+        const itineraryId = result.insertId.toString();
+
+        console.log("itineraryId", itinerary);
+        let updatedEvents = [];
+        for (let e of events) {
+          updatedEvents.push([e[0], itineraryId, e[1], e[2]]);
+        }
+        console.log("updated events", updatedEvents);
+
+        eventService.createEvents(conn, updatedEvents, (result) => {
+          res.status(200);
+        });
+      });
+    } else {
+      res.status(400);
+      res.send({ error: "missing events" });
+    }
   } catch (code) {
     res.status(code);
   } finally {
@@ -87,9 +108,12 @@ export function updateItinerary(conn, req, res) {
     console.log("updating itinerary", req.body);
     const itinerary = new Itinerary(
       req.body.name,
+      null,
       req.body.startDate,
       req.body.endDate,
-      req.body.tags
+      null,
+      req.body.updatedAt,
+      req.body.type
     );
     itineraryService.updateItinerary(conn, itineraryId, itinerary, (result) => {
       res.status(200);
