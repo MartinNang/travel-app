@@ -9,10 +9,12 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Accordion from "react-bootstrap/Accordion";
 import PhotoCarousel from "../ui/carousel.jsx";
+import { useNavigate } from "react-router-dom";
 import itinerariesPreviewsData from "../../data/itineraryPreviews.json";
 
 const Itineraries = () => {
   const [selectedCity, setSelectedCity] = useState("dublin");
+  const navigate = useNavigate();
   const cities = ["Dublin", "NYC", "Paris", "Tokyo"];
   const carouselRef = useRef(null); // Create a ref for the carousel section
   const itinerariesPreviewsCity = itinerariesPreviewsData[selectedCity];
@@ -92,7 +94,8 @@ const Itineraries = () => {
                           backgroundColor: "#88e097",
                           border: "none",
                           color: "#000",
-                        }}>
+                        }}
+                        onClick={() => navigate("/inside-itinerary")}>
                         Go
                       </Button>
                     </div>

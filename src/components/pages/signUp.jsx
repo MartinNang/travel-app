@@ -8,10 +8,10 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import mapImg from "../../images/map.png";
+import AlertDismissible from "../ui/alertDismissible";
 
 axios.defaults.baseURL = "https://2425-cs7025-group1.scss.tcd.ie/";
 
@@ -21,44 +21,27 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [profileName, setProfileName] = useState("");
   const [profileImage, setProfileImage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [show, setShow] = useState(false);
+  const [validated, setValidated] = useState(false);
 
   const navigate = useNavigate();
 
   async function handleSubmit(event) {
-    event.preventDefault();
-    console.log("logging in");
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    } else {
+      console.log("upload profile image", profileImage);
+      const imgPath = (await uploadProfileImage(formData)).imagePath;
 
-    await axios
-      .post("/users/signup", {
-        email: email,
-        password: password,
-        profileName: profileName,
-        profileImage: profileImage,
-      })
-      .then((response) => {
-        console.log("response", response);
-        let user = response.data[0];
-        if (user && user.id) {
-          const userId = user.id;
-          const userEmail = user.email;
-          const userPwd = user.password;
-          const userProfileName = user.profileName;
-          const userProfileImage = user.profileImage;
+      console.log("signing up");
+      await signUserUp(imgPath);
+    }
 
-          sessionStorage.setItem("id", userId);
-          sessionStorage.setItem("email", userEmail);
-          sessionStorage.setItem("password", userPwd);
-          sessionStorage.setItem("profileName", userProfileName);
-          sessionStorage.setItem("profileImage", userProfileImage);
-          console.log(userId);
-
-          console.log("Success");
-          console.log("user email: ", userEmail);
-          navigate("/");
-        } else {
-          console.log("failed to log in user");
-        }
-      });
+    setValidated(true);
   }
 
   function handleChangeEmail(event) {
@@ -77,8 +60,57 @@ const SignUp = () => {
     setConfirmPassword(event.target.value);
   }
 
+  async function signUserUp(imagePath) {
+    await axios
+      .post("/users/signup", {
+        email: email,
+        password: password,
+        profileName: profileName,
+        profileImage: imagePath,
+      })
+      .then((response) => {
+        console.log("response", response);
+        let success = response.data.success;
+        if (success) {
+          console.log("Successfully signed up user");
+          navigate("/sign-in");
+        } else {
+          console.log("Failed to sign up user");
+        }
+      })
+      .catch(function (error) {
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          console.log(error.response.data.error);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+          setErrorMessage(error.response.data.error);
+          setShow(true);
+        } else if (error.request) {
+          // The request was made but no response was received
+          // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+          // http.ClientRequest in node.js
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log("Error", error.message);
+        }
+        console.log(error.config);
+      });
+  }
+
+  async function uploadProfileImage(formData) {
+    console.log("post form");
+    return await axios.post("/upload", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  }
+
   return (
-    <Container className="vh-100 d-flex align-items-center signin-page">
+    <Container className="d-flex align-items-center signin-page">
       {/* A line containing two columns */}
       <Row className="w-100">
         {/* Left column: image */}
@@ -100,22 +132,34 @@ const SignUp = () => {
           md={6}
           className="p-5"
           style={{ fontFamily: "inria, serif" }}>
+          <AlertDismissible
+            variant={"danger"}
+            error={"error"}
+            message={errorMessage}
+            show={show}
+            setShow={setShow}></AlertDismissible>
           <h2
             className="mb-4"
             style={{ fontWeight: "bold", fontFamily: "gyst, serif" }}>
             Create your next adventure!
           </h2>
-          <Form onSubmit={handleSubmit}>
+          <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Form.Group controlId="formProfileName">
               <Form.Label>Profile Name</Form.Label>
-
               <Form.Control
+                required
+                minLength={4}
+                maxLength={16}
                 className="bg-light"
-                type="email"
+                type="text"
                 placeholder="Profile Name"
                 value={profileName}
                 onInput={handleChangeProfileName}
               />
+              <Form.Control.Feedback type="invalid">
+                Please choose a username. The username must be between 4 and 16
+                characters.
+              </Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group controlId="formProfileImage" className="mt-3">
@@ -126,54 +170,69 @@ const SignUp = () => {
                 placeholder="Profile Image"
                 value={profileImage}
                 onInput={handleChangeProfileImage}
+                accept="image/*"
               />
             </Form.Group>
 
             <Form.Group controlId="formEmail" className="mt-3">
               <Form.Label>Email</Form.Label>
-
               <Form.Control
+                required
                 className="bg-light"
                 type="email"
                 placeholder="Email"
                 value={email}
                 onInput={handleChangeEmail}
               />
+              <Form.Control.Feedback type="invalid">
+                Please provide a valid e-mail address.
+              </Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group controlId="formPassword" className="mt-3">
               <Form.Label>Password</Form.Label>
-
               <Form.Control
+                required
                 className="bg-light"
                 type="password"
                 placeholder="Password"
                 value={password}
                 onInput={handleChangePwd}
+                minLength={4}
+                maxLength={16}
               />
+              <Form.Control.Feedback type="invalid">
+                Please insert a valid password. The password must be between 4
+                and 16 characters.
+              </Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group controlId="formConfirmPassword" className="mt-3">
               <Form.Label>Confirm Password</Form.Label>
-
               <Form.Control
+                required
                 className="bg-light"
                 type="password"
                 placeholder="Confirm Password"
                 value={confirmPassword}
                 onInput={handleChangeConfirmPwd}
+                isValid={
+                  password.length > 4 &&
+                  password.length < 16 &&
+                  password === confirmPassword
+                }
+                isInvalid={password !== confirmPassword}
+                minLength={4}
+                maxLength={16}
               />
-            </Form.Group>
-
-            {/* Remember me checkbox */}
-            <Form.Group controlId="formRememberMe" className="mt-3">
-              <Form.Check type="checkbox" label="Remember me" />
+              <Form.Control.Feedback type="invalid">
+                Password is invalid or does not match.
+              </Form.Control.Feedback>
             </Form.Group>
 
             <Row className="mt-4">
               <Col xs={12} md={4} className="mb-3 mb-md-0">
                 <Button
-                  onClick={handleSubmit}
                   style={{
                     backgroundColor: "#b1f8b6",
                     borderColor: "#b1f8b6",
