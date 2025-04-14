@@ -5,10 +5,14 @@ import polaroid from "../../images/polaroid.png";
 import settings from "../../images/settings.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { BACKEND_URL } from "../../App";
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState("all");
   const [itineraries, setItineraries] = useState([]);
+  const [profileImage, setProfileImage] = useState(
+    sessionStorage.getItem("profileImage")
+  );
 
   const navigate = useNavigate();
 
@@ -20,6 +24,7 @@ const Profile = () => {
 
   useEffect(() => {
     fetchItineraries();
+    setProfileImage(sessionStorage.getItem("profileImage"));
   }, []);
 
   function fetchItineraries() {
@@ -41,7 +46,11 @@ const Profile = () => {
     <>
       <div class="header">
         <div class="profile-info">
-          <img src={profilepic} alt="User Profile" class="profile-pic" />
+          <img
+            src={profileImage ? BACKEND_URL + profileImage : profilepic}
+            alt="User Profile"
+            class="profile-pic"
+          />
           <div class="user-details">
             <h1 class="username">{sessionStorage.getItem("profileName")}</h1>
             <p class="status">This is a user status</p>

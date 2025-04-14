@@ -127,7 +127,7 @@ nav {
   font-style: italic;
 }
 
-input[type="text"] {
+/* input[type="text"] {
   color: #554293;
   font-family: poppins, sans-serif;
   background-color: #f5f3f7;
@@ -137,6 +137,14 @@ input[type="text"] {
   width: 150px;
   padding: 6px 12px;
   border-radius: 9px;
+} */
+
+.signin-page input {
+  color: #554293;
+  font-family: poppins, sans-serif;
+  background-color: #f5f3f7;
+  border: none;
+  font-size: 1em;
 }
 
 input[type="text"]::placeholder {
@@ -813,4 +821,10 @@ input[type="text"]:focus {
   top: 50% !important;
   width: 100px !important;
   margin: auto;
+}
+
+.navbar #profile-img {
+  height: 2rem;
+  border: #000 1px solid;
+  border-radius: 100%;
 }

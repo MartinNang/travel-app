@@ -36,7 +36,9 @@ const storage = multer.diskStorage({
       "-" +
       Math.round(Math.random() * 1e9) +
       path.extname(file.originalname);
-    cb(null, file.fieldname + "-" + uniqueSuffix);
+    const filename = file.fieldname + "-" + uniqueSuffix;
+    req.body.file = filename;
+    cb(null, filename);
   },
 });
 const upload = multer({
@@ -78,8 +80,14 @@ app.get("/", (req, res) => {
 
 // file upload
 app.post("/upload", upload.single("img"), (req, res) => {
-  console.log("req", req.files);
-  res.status(200).send(req.files);
+  console.log("req.body", req.body);
+  if (req.file && req.file.path) {
+    res.status(200).send(req.file.path);
+  } else {
+    res
+      .status(400)
+      .send({ error: "no file was uploaded", "request-body": req.body });
+  }
 });
 
 // Collaborators
