@@ -46,7 +46,7 @@ const Footer = () => {
         <em>
           <p>
             <HashLink
-              to="/#anchor"
+              to="/about-us"
               style={{
                 fontStyle: "italic",
               }}>

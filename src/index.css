@@ -869,15 +869,16 @@ input[type="text"]:focus {
 #itinerary-columns {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  gap: 10px;
 }
 
 .day-column {
   background-color: #0B524C;
-  padding: 20px;
+  padding: 30px;
   border-radius: 30px;
   width: 30%;
-  min-height: 700px;
+  min-height: 600px;
+  max-height: 500px;
   box-sizing: border-box;
   max-width: 500px;
   min-width: 450px;
@@ -890,6 +891,10 @@ input[type="text"]:focus {
   font-weight: 600;
 }
 
+.day-column h2{
+  color: white;
+  text-align:center;
+}
 .activity-card {
   display: flex;
   align-items: center;
@@ -902,7 +907,7 @@ input[type="text"]:focus {
   background-color: #1E6E64;
   padding: 4px 10px;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   text-align: center;
 }

@@ -19,6 +19,7 @@ import InsideItinerary from "../pages/insideItinerary";
 import Cookies from "../pages/cookies";
 import PageNotFound from "../pages/pageNotFound";
 import AboutUs from "../pages/aboutUs";
+import ViewItinerary from "../pages/viewItinerary";
 
 const PageContent = () => {
   const [wishlist, setWishlist] = useState([]);
@@ -48,6 +49,7 @@ const PageContent = () => {
         <Route path="/cookies" element={<Cookies />} />
         <Route path="*" element={<PageNotFound />} />
         <Route path="/about-us" element={<AboutUs />}/>
+        <Route path="/view-itinerary" element={<ViewItinerary />}/>
       </Routes>
     </div>
   );

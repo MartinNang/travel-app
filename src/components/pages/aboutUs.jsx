@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import AboutImg from "../../images/maps.png"
 
 
-const Home = () => {
+const AboutUs = () => {
   return (
     <div>
 <div class="About-banner"><h1>About Us</h1></div>
@@ -54,4 +54,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default AboutUs;
