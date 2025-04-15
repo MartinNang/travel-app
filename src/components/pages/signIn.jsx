@@ -15,6 +15,8 @@ import mapImg from "../../images/map.png";
 
 axios.defaults.baseURL = "https://2425-cs7025-group1.scss.tcd.ie/";
 
+axios.defaults.headers.get["Content-Type"] = "application/json;charset=utf-8";
+axios.defaults.headers.get["Access-Control-Allow-Origin"] = "*";
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

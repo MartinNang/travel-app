@@ -29,16 +29,21 @@ const SignUp = () => {
 
   async function handleSubmit(event) {
     const form = event.currentTarget;
-    const formData = new FormData(form);
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     } else {
       console.log("upload profile image", profileImage);
-      const imgPath = (await uploadProfileImage(formData)).imagePath;
-
-      console.log("signing up");
-      await signUserUp(imgPath);
+      await uploadProfileImage(
+        document.querySelector('input[type="file"]').files[0],
+        (result) => {
+          console.log("result upload image", result.data);
+          if (result && result.data) {
+            console.log("signing up");
+            signUserUp(result.data);
+          }
+        }
+      );
     }
 
     setValidated(true);
@@ -100,13 +105,35 @@ const SignUp = () => {
       });
   }
 
-  async function uploadProfileImage(formData) {
-    console.log("post form");
-    return await axios.post("/upload", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
+  async function uploadProfileImage(img, callback) {
+    await axios
+      .postForm("/upload", {
+        img: img,
+      })
+      .then(function (result) {
+        console.log("uploaded image", result.data);
+        callback(result);
+      })
+      .catch(function (error) {
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          console.log(error.response.data.error);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+          setErrorMessage(error.response.data.error);
+          setShow(true);
+        } else if (error.request) {
+          // The request was made but no response was received
+          // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+          // http.ClientRequest in node.js
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log("Error", error.message);
+        }
+        console.log(error.config);
+      });
   }
 
   return (

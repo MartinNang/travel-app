@@ -2,16 +2,20 @@
  * A header, containing a Bootstrap navbar, displayed on all pages
  */
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { BsPerson } from "react-icons/bs";
 import logoImg from "../../images/logo.png";
+import { BACKEND_URL } from "../../App";
 
 const Header = () => {
   const location = useLocation();
+  const [profileImage, setProfileImage] = useState(
+    sessionStorage.getItem("profileImage")
+  );
 
   useEffect(() => {
     console.log("scrolling to top");
@@ -32,7 +36,9 @@ const Header = () => {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="ms-auto" activeKey={location.pathname}>
+            <Nav
+              className="ms-auto align-items-center"
+              activeKey={location.pathname}>
               <Nav.Link
                 href="/travel-app/#"
                 onClick={window.scrollTo(0, 0)}
@@ -62,7 +68,13 @@ const Header = () => {
                   href="/travel-app/#/profile"
                   onClick={window.scrollTo(0, 0)}
                   className="mx-3">
-                  <BsPerson id="profile-icon" />
+                  {profileImage ? (
+                    <img
+                      id="profile-img"
+                      src={BACKEND_URL + profileImage}></img>
+                  ) : (
+                    <BsPerson id="profile-icon" />
+                  )}
                   {/* <Nav.Link
                     href="/travel-app/#/profile"
                     onClick={window.scrollTo(0, 0)}>
