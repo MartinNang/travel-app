@@ -40,32 +40,32 @@ const Header = () => {
               className="ms-auto align-items-center"
               activeKey={location.pathname}>
               <Nav.Link
-                href="/travel-app/#"
+                href="/en-route/#"
                 onClick={window.scrollTo(0, 0)}
                 className="mx-3">
                 home
               </Nav.Link>
               <Nav.Link
-                href="/travel-app/#/itineraries"
+                href="/en-route/#/itineraries"
                 onClick={window.scrollTo(0, 0)}
                 className="mx-3">
                 itineraries
               </Nav.Link>
               {/* <Nav.Link
-                href="/travel-app/#/feed"
+                href="/en-route/#/feed"
                 onClick={window.scrollTo(0, 0)}
                 className="mx-3">
                 myFeed
               </Nav.Link> */}
               <Nav.Link
-                href="/travel-app/#/events"
+                href="/en-route/#/events"
                 onClick={window.scrollTo(0, 0)}
                 className="mx-3">
                 events
               </Nav.Link>
               {sessionStorage.getItem("profileName") ? (
                 <Nav.Link
-                  href="/travel-app/#/profile"
+                  href="/en-route/#/profile"
                   onClick={window.scrollTo(0, 0)}
                   className="mx-3">
                   {profileImage ? (
@@ -76,7 +76,7 @@ const Header = () => {
                     <BsPerson id="profile-icon" />
                   )}
                   {/* <Nav.Link
-                    href="/travel-app/#/profile"
+                    href="/en-route/#/profile"
                     onClick={window.scrollTo(0, 0)}>
                     {sessionStorage.getItem("profileName")}
                   </Nav.Link> */}

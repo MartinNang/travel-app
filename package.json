@@ -1,7 +1,7 @@
 {
-  "name": "travel-app",
+  "name": "en-route",
   "version": "0.1.0",
-  "homepage": "https://martinnang.github.io/travel-app/",
+  "homepage": "https://martinnang.github.io/en-route/",
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
