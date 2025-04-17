@@ -7,11 +7,15 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BACKEND_URL } from "../../App";
 
-const Profile = () => {
+const Profile = ({ id }) => {
   const [activeTab, setActiveTab] = useState("all");
   const [itineraries, setItineraries] = useState([]);
+  const [user, setUser] = useState();
+  const [isLoggedInUser, setIsLoggedInUser] = useState(
+    id === sessionStorage.getItem("id")
+  );
   const [profileImage, setProfileImage] = useState(
-    sessionStorage.getItem("profileImage")
+    isLoggedInUser ? sessionStorage.getItem("profileImage") : undefined
   );
 
   const navigate = useNavigate();
@@ -23,13 +27,29 @@ const Profile = () => {
   };
 
   useEffect(() => {
+    fetchUser();
     fetchItineraries();
     setProfileImage(sessionStorage.getItem("profileImage"));
   }, []);
 
+  function fetchUser() {
+    axios
+      .get("/users/" + id)
+      .then((response) => {
+        let users = response.data;
+        if (users && users.length > 0) {
+          setUser(users[0]);
+        }
+        console.log("data response:", response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
   function fetchItineraries() {
     axios
-      .get("/itineraries/user/" + sessionStorage.getItem("id"))
+      .get("/itineraries/user/" + id)
       .then((response) => {
         let itineraries = response.data;
         if (itineraries) {

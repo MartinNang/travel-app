@@ -53,26 +53,21 @@ export async function findUser(conn, req, res) {
   }
 }
 
-// export async function findUserById(conn, req, res) {
-//   try {
-//     userService.findUserById(
-//       conn,
-//       req.body.email,
-//       req.body.password,
-//       (result) => {
-//         if (result.length === 1) {
-//           res.status(200);
-//         } else if (result.length === 0) {
-//           res.status(404);
-//         }
-//         res.send(result);
-//       }
-//     );
-//   } catch (code) {
-//     res.status(code);
-//     res.send();
-//   }
-// }
+export async function findUserById(conn, req, res) {
+  try {
+    userService.findUserById(conn, req.params.userId, (result) => {
+      if (result.length === 1) {
+        res.status(200);
+      } else if (result.length === 0) {
+        res.status(404);
+      }
+      res.send(result);
+    });
+  } catch (code) {
+    res.status(code);
+    res.send();
+  }
+}
 
 export async function createUser(conn, req, res) {
   try {

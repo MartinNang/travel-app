@@ -29,6 +29,12 @@ export async function findUserByEmail(conn, email, callback) {
   callback(result);
 }
 
+export async function findUserById(conn, id, callback) {
+  console.log(conn);
+  const result = await conn.query(`SELECT * FROM users WHERE id = ?`, [id]);
+  callback(result);
+}
+
 export async function createUser(conn, user, callback) {
   console.log(conn);
   let result;

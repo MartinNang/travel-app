@@ -17,6 +17,10 @@ userRouter.post("/signup", (req, res, next) => {
   connect((conn) => userController.createUser(conn, req, res));
 });
 
+userRouter.get("/:userId", (req, res, next) => {
+  connect((conn) => userController.get);
+});
+
 userRouter.put("/:userId", (req, res, next) => {
   connect((conn) => userController.updateUser(conn, req, res));
 });
