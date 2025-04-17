@@ -7,28 +7,51 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
+import AboutImg from "../../images/maps.png"
 
-// Icons
-//import profile from "../assets/img/Profile.jpeg";
 
-const Home = () => {
+const AboutUs = () => {
   return (
     <div>
-      <Container>
-        <Row>
-          <h1>About Us</h1>
-        </Row>
-        <Row>
-          <Col xs={7}>
-            <p>Left Column</p>
-          </Col>
-          <Col xs={7}>
-            <p>Right Column</p>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+<div class="About-banner"><h1>About Us</h1></div>
+    <div class="About-us">
+        <img src={AboutImg} alt="Map" class="about-image" />
+    
+    <div class="About-container">
+    <div class="About-Us-Blurb">
+        <p> EnRoute Travel is revolutionizing the way people plan their trips by
+            offering personalized itineraries tailored to individual interests,
+            alongside expertly curated travel plans for those seeking
+            inspiration.
+            <br />
+            <br />
+            Our platform seamlessly integrates user preferences—whether it's
+            adventure, culture, relaxation, or gastronomy—into customized travel
+            schedules, ensuring every journey is uniquely fulfilling. <br />
+            <br />
+            For those who prefer ready-made plans, our carefully crafted
+            itineraries take the hassle out of decision-making, providing
+            seamless experiences backed by expert recommendations. <br />
+            <br />
+            At EnRoute Travel, we believe that planning a trip should be as
+            enjoyable as the journey itself, which is why we focus on
+            eliminating the stress of logistics, bookings, and scheduling.{" "}
+            <br />
+            <br />
+            With our intuitive platform, real-time updates, and user-friendly
+            design, we strive to make travel effortless, allowing our customers
+            to focus on what truly matters—exploring the world with ease and
+            confidence.
+          </p>
+       </div>
+    
+       </div>
+       </div>
+       
+      
+</div>
+    
   );
 };
 
-export default Home;
+export default AboutUs;
