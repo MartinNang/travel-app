@@ -1,0 +1,236 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #fff;
+    color: #222;
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    background: #fff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #554293;
+    font-size: 1.25rem;
+}
+
+.search-box {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: none;
+    background: rgba(217, 217, 217, 0.31);
+    color: #554293;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #554293;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Layout */
+.container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    position: relative;
+}
+
+.divider {
+    width: 1px;
+    background-color: #ccc;
+    height: auto;
+}
+
+/* Itinerary Cards */
+.itinerary-days {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.day-card {
+    background-color: #554293;
+    color: white;
+    border-radius: 60px;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.day-card h2 {
+    color: #f19edc;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.day-card img {
+    width: 144px;
+    height: 158px;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+/* Tour Overview */
+.tour-details {
+    flex: 1;
+    text-align: center;
+}
+
+.tour-details h1 {
+    font-size: 3rem;
+    color: #0b524c;
+    margin-bottom: 1rem;
+}
+
+.tour-details p {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.view-btn {
+    background-color: #554293;
+    color: #f19edc;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.photos {
+    position: relative;
+    margin: 2rem 0;
+    height: 400px;
+}
+
+.photos img {
+    position: absolute;
+    object-fit: cover;
+}
+
+.rotate-1 {
+    left: 0;
+    top: 0;
+    transform: rotate(-5deg);
+    width: 296px;
+    height: 327px;
+}
+
+.rotate-2 {
+    right: 0;
+    top: 40px;
+    transform: rotate(5deg);
+    width: 254px;
+    height: 282px;
+}
+
+.rotate-3 {
+    right: 80px;
+    bottom: 0;
+    transform: rotate(8deg);
+    width: 144px;
+    height: 158px;
+}
+
+.author {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.actions button {
+    background-color: #554293;
+    color: #f19edc;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    margin: 0 0.5rem;
+    cursor: pointer;
+}
+
+/* Hook Section */
+/* Hook Section */
+.subscribe {
+    background-color: #eef3f2;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.subscribe h2 {
+    font-size: 2.5rem;
+    color: #0b524c;
+}
+
+.subscribe h2 span {
+    font-weight: bold;
+}
+
+.subscribe button {
+    margin-top: 2rem;
+    background-color: #0b524c;
+    color: #f19edc;
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Footer */
+.footer {
+    background-color: #b1f8b6;
+    /*#bfe7c2*/
+    padding: 70px 120px;
+    margin: 0;
+    margin-top: 40px;
+    font-family: inria;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #6b4a8b;
+}
+
+.socials {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.socials img {
+    width: 38px;
+    height: 38px;
+}

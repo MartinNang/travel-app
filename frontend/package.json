@@ -1,0 +1,68 @@
+{
+  "name": "en-route",
+  "version": "0.1.0",
+  "homepage": "https://martinnang.github.io/en-route/",
+  "private": true,
+  "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "@fullcalendar/adaptive": "^6.1.15",
+    "@fullcalendar/daygrid": "^6.1.15",
+    "@fullcalendar/interaction": "^6.1.15",
+    "@fullcalendar/react": "^6.1.15",
+    "@fullcalendar/timegrid": "^6.1.15",
+    "axios": "^1.7.9",
+    "bcrypt": "^5.1.1",
+    "bootstrap": "^5.3.3",
+    "buffer": "^6.0.3",
+    "cors": "^2.8.5",
+    "cra-template": "1.2.0",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-fileupload": "^1.5.1",
+    "jquery": "^3.7.1",
+    "multer": "^1.4.5-lts.2",
+    "mysql": "^2.18.1",
+    "nodemon": "^3.1.9",
+    "query-overpass": "^1.5.5",
+    "query-string": "^9.1.1",
+    "querystring": "^0.2.1",
+    "querystring-es3": "^0.2.1",
+    "react": "^19.0.0",
+    "react-bootstrap": "^2.10.7",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.1.1",
+    "react-router-hash-link": "^2.4.3",
+    "react-scripts": "5.0.1"
+  },
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}

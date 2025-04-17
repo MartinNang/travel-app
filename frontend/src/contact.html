@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="home.html"> <img src="images/logo.png" width="150px"></a> 
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html" class="">home</a></li>
+                <li><a href="Itineraries.html">itineraries</a></li>
+                <li><a href="feed.html"><span class="it">my</span>Feed</a></li>
+                <li><a href="events.html">events</a></li>
+                <li><input type="text" placeholder="search people"></li>
+                <li><img src="images/profile-icon.png" width="20px"></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="hero-section"></div>
+
+   
+    <div class="contact-container">
+        
+        <img src="images/decor.png" alt="Decorative Element" class="decor">
+
+        
+        <div class="contact-box">
+            <h2>Contact Us!</h2>
+            <form class="contact-form" id="contact-form">
+                <input type="message" id="name" name="from_name" placeholder="Your Name*" required> <br>
+                <input type="message" id="email" name="from_email" placeholder="Email Address*" required><br>
+                <input type="message" id="subject" name="subject" placeholder="Subject*" required>
+                <textarea id="text" name="message" placeholder="Message*" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+                <script src="email.js"></script>
+            </script>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div>
+            <strong>SUPPORT</strong>
+            <em>
+                <p>
+                    <a href="contact.html">Contact Us</a><br>
+                    <a href="cookies.html">Cookie Policy</a><br>
+                    <a href="privacy.html">Privacy Policy</a>
+                </p>
+            </em>
+        </div>
+        <div>
+            <strong>ABOUT</strong>
+            <em>
+                <p><a href="about.html">About Us</a></p>
+            </em>
+        </div>
+        <div class="socials">
+            <span><img src="images/fb.png" width="25px" alt="Facebook"></span>
+            <span><img src="images/insta.png" width="25px" alt="Instagram"></span>
+            <span><img src="images/tiktok.png" width="25px" alt="TikTok"></span>
+        </div>
+    </div>
+    
+    </body>
+</html>
