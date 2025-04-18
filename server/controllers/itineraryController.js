@@ -153,8 +153,18 @@ export function deleteItinerary(conn, req, res) {
     const itineraryId = req.params.itineraryId;
     console.log("itineraryId", itineraryId);
 
-    itineraryService.deleteItinerary(conn, itineraryId, () => {
-      res.status(204);
+    eventService.deleteEvents(conn, itineraryId, (result) => {
+      if (result) {
+        itineraryService.deleteItinerary(conn, itineraryId, (result) => {
+          if (result) {
+            res.status(204);
+          } else {
+            res.status(500);
+          }
+        });
+      } else {
+        res.status(500);
+      }
     });
   } catch (code) {
     res.status(code);
