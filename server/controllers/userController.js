@@ -1,3 +1,4 @@
+import { error } from "console";
 import User from "../models/user.js";
 import * as userService from "../services/userService.js";
 import bcrypt from "bcrypt";
@@ -114,13 +115,23 @@ export async function updateUser(conn, req, res) {
       newProfileName,
       newProfileImage
     );
-    userService.updateUser(conn, id, user, () => {
-      res.status(200);
+    userService.findUserByEmail(conn, newEmail, (result) => {
+      if (result[0]) {
+        res
+          .status(400)
+          .send({ error: "user with new email address already exists" });
+      } else {
+        userService.updateUser(conn, id, user, (result) => {
+          if (result) {
+            res.status(200).send();
+          } else {
+            res.status(500).send({ error: "failed to update user" });
+          }
+        });
+      }
     });
   } catch (code) {
-    res.status(code);
-  } finally {
-    res.send();
+    res.status(code).send();
   }
 }
 
