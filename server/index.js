@@ -5,10 +5,6 @@ import mariadb from "mariadb";
 import multer from "multer";
 
 const app = express();
-import * as eventController from "./controllers/eventController.js";
-import * as itineraryController from "./controllers/itineraryController.js";
-import * as userController from "./controllers/userController.js";
-import * as postImagesController from "./controllers/postImageController.js";
 import path from "path";
 
 // Routers

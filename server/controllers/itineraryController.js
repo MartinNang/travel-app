@@ -111,13 +111,35 @@ export function updateItinerary(conn, req, res) {
       null,
       req.body.startDate,
       req.body.endDate,
-      null,
-      req.body.updatedAt,
       req.body.type
     );
     itineraryService.updateItinerary(conn, itineraryId, itinerary, (result) => {
-      res.status(200);
-      res.send(result);
+      if (result) {
+        res.status(200);
+        const events = req.body.events;
+        if (events) {
+          let updatedEvents = [];
+          for (let e of events) {
+            updatedEvents.push([e[0], itineraryId, e[1], e[2]]);
+          }
+          console.log("updated events", updatedEvents);
+          eventService.deleteEvents(conn, itineraryId, (result) => {
+            if (result) {
+              eventService.createEvents(conn, updatedEvents, (result) => {
+                if (result) {
+                  res.status(200);
+                } else {
+                  res.status(500);
+                }
+              });
+            } else {
+              res.status(500);
+            }
+          });
+        }
+      } else {
+        res.status(500);
+      }
     });
   } catch (code) {
     res.status(code);

@@ -63,3 +63,13 @@ export async function deleteEvent(conn, id, callback) {
   );
   callback(result);
 }
+
+export async function deleteEvents(conn, itineraryId, callback) {
+  console.log("deleting events with itineraryId", itineraryId);
+  const result = await conn.batch(
+    `DELETE FROM events
+      WHERE itinerary_id = ?`,
+    [itineraryId]
+  );
+  callback(result);
+}

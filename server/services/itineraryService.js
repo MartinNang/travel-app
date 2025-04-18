@@ -63,19 +63,20 @@ export async function createItinerary(conn, itinerary, callback) {
 
 export async function updateItinerary(conn, itineraryId, itinerary, callback) {
   console.log(conn);
+  console.log("updating itinerary with type", itinerary.type);
   const result = await conn.query(
     `UPDATE itineraries
-          SET name = ?, start_date = ?, end_date = ?, updated_at = ?, type = ?
+          SET name = ?, start_date = ?, end_date = ?, type = ?
           WHERE id = ?`,
     [
       itinerary.name,
       itinerary.startDate,
       itinerary.endDate,
-      itinerary.updatedAt,
       itinerary.type,
       itineraryId,
     ]
   );
+  console.log("result from updating", result);
   callback(result);
 }
 
