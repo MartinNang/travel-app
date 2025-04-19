@@ -65,13 +65,13 @@ const Header = () => {
               </Nav.Link>
               {sessionStorage.getItem("profileName") ? (
                 <Nav.Link
-                  href="/en-route/#/profile"
+                  href={`/en-route/#/profile/${sessionStorage.getItem("id")}`}
                   onClick={window.scrollTo(0, 0)}
                   className="mx-3">
                   {profileImage ? (
                     <img
                       id="profile-img"
-                      src={BACKEND_URL + profileImage}></img>
+                      src={BACKEND_URL + profileImage} onError={(i) => (i.target.src = "")}></img>
                   ) : (
                     <BsPerson id="profile-icon" />
                   )}

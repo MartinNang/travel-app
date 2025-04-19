@@ -233,7 +233,6 @@ const CustomCard = ({
                       type,
                       operator,
                       wheelchair,
-                      description,
                       wikidataId,
                       fee,
                     },

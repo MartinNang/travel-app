@@ -34,7 +34,7 @@ const PageContent = () => {
           element={<Events wishlist={wishlist} setWishlist={setWishlist} />}
         />
         <Route path="/itineraries" element={<Itineraries />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/:profileId" element={<Profile />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route

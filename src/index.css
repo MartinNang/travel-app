@@ -411,7 +411,7 @@ input[type="text"]:focus {
 .header {
   margin-top: 90px;
   background-color: #ECF2F1;
-  height: 110px;
+  min-height: 130px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -428,7 +428,7 @@ input[type="text"]:focus {
   width: 96px;
   height: 96px;
   border-radius: 50%;
-  margin-right: 20px;
+  /*margin-right: 20px;*/
 }
 
 .user-details {
@@ -492,10 +492,10 @@ input[type="text"]:focus {
   border: none;
   border-radius: 15px;
   cursor: pointer;
-  position: absolute;
-  right: 100px;
-  top: 50%;
-  transform: translateY(-50%);
+  /*position: absolute;*/
+  /*right: 100px;*/
+  /*top: 50%;*/
+  /*transform: translateY(-50%);*/
 }
 
 .follow-btn:hover {
@@ -503,9 +503,9 @@ input[type="text"]:focus {
 }
 
 .settings-btn {
-  position: absolute;
-  top:20px;
-  right: 20px;
+  /*position: absolute;*/
+  /*top:20px;*/
+  /*right: 20px;*/
   width: 30px;
   height: 30px;
   cursor: pointer;
