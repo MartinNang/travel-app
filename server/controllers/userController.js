@@ -7,7 +7,7 @@ export async function getAllUsers(conn, req, res) {
   try {
     console.log("response:", res);
     console.log("getting all users");
-    userService.getAllUsers(conn, (result) => {
+    await userService.getAllUsers(conn, (result) => {
       if (result && result.length > 0) {
         res.status(200);
       } else {
@@ -23,29 +23,29 @@ export async function getAllUsers(conn, req, res) {
 
 export async function findUser(conn, req, res) {
   try {
-    userService.findUserByEmail(conn, req.body.email, (result) => {
+    await userService.findUserByEmail(conn, req.body.email, (result) => {
       console.log("find user by email result:", result);
       if (result.length > 0) {
         bcrypt.compare(
-          req.body.password,
-          result[0].password,
-          function (err, compResult) {
-            if (compResult) {
-              console.log("Password match");
-              res.status(200);
-              res.send(result);
-            } else {
-              console.log("Password does not match");
-              console.log("pw", req.body.password);
-              console.log("hash", result[0].password);
-              res.status(400);
-              res.send({ error: "incorrect password" });
+            req.body.password,
+            result[0].password,
+            function (err, compResult) {
+              if (compResult) {
+                console.log("Password match");
+                res.status(200);
+                res.send(result);
+              } else {
+                console.log("Password does not match");
+                console.log("pw", req.body.password);
+                console.log("hash", result[0].password);
+                res.status(400);
+                res.send({error: "incorrect password"});
+              }
             }
-          }
         );
       } else {
         res.status(404);
-        res.send({ error: "incorrect user" });
+        res.send({error: "incorrect user"});
       }
     });
   } catch (code) {
@@ -56,7 +56,7 @@ export async function findUser(conn, req, res) {
 
 export async function findUserById(conn, req, res) {
   try {
-    userService.findUserById(conn, req.params.userId, (result) => {
+    await userService.findUserById(conn, req.params.userId, (result) => {
       if (result.length === 1) {
         res.status(200);
       } else if (result.length === 0) {
@@ -78,18 +78,18 @@ export async function createUser(conn, req, res) {
       req.body.profileName,
       req.body.profileImage
     );
-    userService.findUserByEmail(conn, user.email, (result) => {
+    await userService.findUserByEmail(conn, user.email, (result) => {
       if (result.length > 0) {
         res.status(400);
-        res.send({ error: "user already exists" });
+        res.send({error: "user already exists"});
       } else {
         userService.createUser(conn, user, (result) => {
           if (result) {
             res.status(200);
-            res.send({ success: "registered new user" });
+            res.send({success: "registered new user"});
           } else {
             res.status(500);
-            res.send({ error: "failed to register new user" });
+            res.send({error: "failed to register new user"});
           }
         });
       }
@@ -115,17 +115,17 @@ export async function updateUser(conn, req, res) {
       newProfileName,
       newProfileImage
     );
-    userService.findUserByEmail(conn, newEmail, (result) => {
+    await userService.findUserByEmail(conn, newEmail, (result) => {
       if (result[0]) {
         res
-          .status(400)
-          .send({ error: "user with new email address already exists" });
+            .status(400)
+            .send({error: "user with new email address already exists"});
       } else {
         userService.updateUser(conn, id, user, (result) => {
           if (result) {
             res.status(200).send();
           } else {
-            res.status(500).send({ error: "failed to update user" });
+            res.status(500).send({error: "failed to update user"});
           }
         });
       }
@@ -142,7 +142,7 @@ export async function updateProfileName(conn, req, res) {
     console.log("userId", userId);
     console.log("profileName", newProfileName);
 
-    userService.updateProfileName(conn, userId, newProfileName, (result) => {
+    await userService.updateProfileName(conn, userId, newProfileName, (result) => {
       res.status(204);
     });
   } catch (code) {
@@ -159,7 +159,7 @@ export async function updateProfileImage(conn, req, res) {
     console.log("userId", userId);
     console.log("profileImage", newProfileImage);
 
-    userService.updateProfileName(conn, userId, newProfileName, () => {
+    await userService.updateProfileName(conn, userId, newProfileName, () => {
       res.status(204);
       res.send();
     });
@@ -175,7 +175,7 @@ export async function deleteUser(conn, req, res) {
     const userId = req.params.userId;
     console.log("userId", userId);
 
-    userService.deleteUser(conn, userId, () => {
+    await userService.deleteUser(conn, userId, () => {
       res.status(204);
       res.send();
     });

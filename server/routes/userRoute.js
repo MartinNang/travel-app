@@ -5,26 +5,26 @@ import { connect } from "../index.js";
 
 export const userRouter = express.Router();
 
-userRouter.get("/", (req, res, next) => {
+userRouter.get("/", (req, res) => {
   connect((conn) => userController.getAllUsers(conn, req, res));
 });
 
-userRouter.post("/login", (req, res, next) => {
+userRouter.post("/login", (req, res) => {
   connect((conn) => userController.findUser(conn, req, res));
 });
 
-userRouter.post("/signup", (req, res, next) => {
+userRouter.post("/signup", (req, res) => {
   connect((conn) => userController.createUser(conn, req, res));
 });
 
-userRouter.get("/:userId", (req, res, next) => {
-  connect((conn) => userController.get);
+userRouter.get("/:userId", (req, res) => {
+  connect((conn) => userController.findUserById(conn, req, res));
 });
 
-userRouter.put("/:userId", (req, res, next) => {
+userRouter.put("/:userId", (req, res) => {
   connect((conn) => userController.updateUser(conn, req, res));
 });
 
-userRouter.delete("/:userId", (req, res, next) => {
+userRouter.delete("/:userId", (req, res) => {
   connect((conn) => userController.deleteUser(conn, req, res));
 });
