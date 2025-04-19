@@ -41,13 +41,13 @@ const Header = () => {
               activeKey={location.pathname}>
               <Nav.Link
                 href="/en-route/#"
-                onClick={window.scrollTo(0, 0)}
+                onClick={() => window.scrollTo(0, 0)}
                 className="mx-3">
                 home
               </Nav.Link>
               <Nav.Link
                 href="/en-route/#/itineraries"
-                onClick={window.scrollTo(0, 0)}
+                onClick={() => window.scrollTo(0, 0)}
                 className="mx-3">
                 itineraries
               </Nav.Link>
@@ -59,19 +59,20 @@ const Header = () => {
               </Nav.Link> */}
               <Nav.Link
                 href="/en-route/#/events"
-                onClick={window.scrollTo(0, 0)}
+                onClick={() => window.scrollTo(0, 0)}
                 className="mx-3">
                 events
               </Nav.Link>
               {sessionStorage.getItem("profileName") ? (
                 <Nav.Link
                   href={`/en-route/#/profile/${sessionStorage.getItem("id")}`}
-                  onClick={window.scrollTo(0, 0)}
+                  onClick={() => window.scrollTo(0, 0)}
                   className="mx-3">
                   {profileImage ? (
                     <img
                       id="profile-img"
-                      src={BACKEND_URL + profileImage} onError={(i) => (i.target.src = "")}></img>
+                      alt={"profile"}
+                      src={BACKEND_URL + profileImage} ></img>
                   ) : (
                     <BsPerson id="profile-icon" />
                   )}

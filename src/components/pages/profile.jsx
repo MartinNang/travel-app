@@ -4,11 +4,10 @@ import profilepic from "../../images/profile-pic.png";
 import polaroid from "../../images/polaroid.png";
 import settings from "../../images/settings.png";
 import { useNavigate, useParams } from "react-router-dom";
-import { Container, Row, Col, Button, Form } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import Itinerary from "../ui/itinerary";
 import axios from "axios";
 import { BACKEND_URL } from "../../App";
-import Dropdown from "react-bootstrap/Dropdown";
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState("all");

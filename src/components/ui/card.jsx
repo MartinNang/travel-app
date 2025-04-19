@@ -9,9 +9,8 @@ import {
   Col,
   Row,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { BsHeart, BsHeartFill, BsBoxArrowUpRight } from "react-icons/bs";
 import axios from "axios";
 import { Spinner } from "react-bootstrap";
@@ -39,8 +38,7 @@ import pubImg from "../../images/beer.png";
  * @param {id} id of the dynamically generated element
  * @param {name} name of the project
  * @param {date} release date
- * @param {description} project description
- * @param {link} url used in button element to link to project
+ * @param {link} link used in button element to link to project
  * @param {linkText} text displayed in button
  * @returns a bootstrap card element containing project information.
  */
