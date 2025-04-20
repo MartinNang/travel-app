@@ -27,6 +27,22 @@ export default function ItineraryDetailPage() {
           "DAY 1DAY 1D1DAY 1DAY 1DAY 1DAY 1DAY 1",
         ],
       },
+      {
+        title: "DAY 3",
+        activities: [
+          "DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1",
+          "DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1",
+          "DAY 1DAY 1D1DAY 1DAY 1DAY 1DAY 1DAY 1",
+        ],
+      },
+      {
+        title: "DAY 4",
+        activities: [
+          "DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1",
+          "DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1",
+          "DAY 1DAY 1D1DAY 1DAY 1DAY 1DAY 1DAY 1",
+        ],
+      },
     ],
   };
 
@@ -34,6 +50,7 @@ export default function ItineraryDetailPage() {
     <div className="itinerary-container">
       <main className="itinerary-main">
         <div className="columns">
+          {/* Left drawer cards */}
           <div className="left-column">
             {itineraryData.days.map((day, index) => (
               <div className="day-card" key={index}>
