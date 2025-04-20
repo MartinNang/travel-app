@@ -10,10 +10,10 @@ export const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 function App() {
   return (
     <div className="App">
-      <NavigationMenu></NavigationMenu>
-      <PageContent></PageContent>
-      <SubFooter></SubFooter>
-      <Footer></Footer>
+      <NavigationMenu />
+      <PageContent />
+      <SubFooter />
+      <Footer />
     </div>
   );
 }
