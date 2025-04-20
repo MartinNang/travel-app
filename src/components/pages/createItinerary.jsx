@@ -6,13 +6,12 @@ import interactionPlugin, { Draggable } from "@fullcalendar/interaction";
 import adaptivePlugin from "@fullcalendar/adaptive";
 
 const CreateItinerary = () => {
-  const [wishlist, setWishlist] = useState([]);
-  const [events, setEvents] = useState([]);
-  const [tempEventTitle, setTempEventTitle] = useState("");
+  const [wishlist, setWishlist] = useState([]); // Stores events the user wants to schedule (saved in localStorage)
+  const [events, setEvents] = useState([]); // Stores scheduled events already added to the calendar
   const calendarRef = useRef(null); // Reference to FullCalendar
-  const externalEventsRef = useRef(null); // Reference to external events container
+  const externalEventsRef = useRef(null); // Reference to the wishlisht container to make its elements draggable
 
-  // Load wishlist from localStorage and make events draggable
+  // Load wishlist from localStorage and sets drag-and-drop functionality to the wishlist items
   useEffect(() => {
     const storedWishlist = localStorage.getItem("wishlist");
     if (storedWishlist) {
@@ -30,9 +29,12 @@ const CreateItinerary = () => {
     }
   }, []);
 
+  /* Handles form submission for adding custom event to the wishlist
+   It retrieves the title from the form and create a new event object with a unique ID
+   Updates the wishlist and resets the form input field after submission*/
   const handleAddToWishlist = (e) => {
     e.preventDefault();
-    const title = e.target.title.value.trim();
+    const title = e.target.title.value.trim(); // Removing any extra spaces (to avoid accidentally adding blank events)
     if (!title) return;
   
     const newEvent = {
@@ -45,6 +47,90 @@ const CreateItinerary = () => {
     localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
   
     e.target.reset(); // clear input
+  };
+
+    // Triggered when a wishlist item is dropped onto the calendar
+    // Removes from wishlist, add to calendar, and prevent duplicates inside the calendar
+    const handleReceiveWishlistEvent = (info) => {
+      // 1. Remove from wishlist
+      const data = JSON.parse(info.draggedEl.getAttribute("data-event"));
+      const droppedId = data.id;
+    
+      setWishlist((prev) => {
+        const updated = prev.filter((event) => event.id !== droppedId);
+        localStorage.setItem("wishlist", JSON.stringify(updated));
+        return updated;
+      });
+    
+      // 2. Add to calendar events
+      const newEvent = {
+        title: info.event.title,
+        start: info.event.start,
+        id: info.event.id,
+      };
+    
+      setEvents((prev) => [...prev, newEvent]);
+    
+      // 3. Prevent FullCalendar from keeping its internal copy
+      info.revert();
+    };
+
+    const handleDeleteEvent = (event) => {
+      if (window.confirm(`Delete the event "${event.title}"?`)) {
+        setEvents((prevEvents) =>
+          prevEvents.filter((e) => e.id !== event.id)
+        );
+        event.remove(); // Remove from the calendar visually
+      }
+    };
+    
+    
+  
+  /* Sends the current itinerary (calendar state with event titles and times) to
+   the backend API using POST request
+   Also logs the result or errors*/
+  const handleSave = async () => {
+    const userId = "14"; // this is hardcoded for test
+  
+    // Prepare the itinerary data
+    const itinerary = {
+      name: "TRIP TEST", 
+      startDate: events[0]?.start ? events[0].start.toISOString() : "", 
+      endDate: events[events.length - 1]?.start ? events[events.length - 1].start.toISOString() : "", 
+      createdAt: null,
+      updatedAt: null,
+      type: "1",
+      events: events.map((event) => [
+        event.title,
+        event.start ? event.start.toISOString() : "", 
+        event.end ? event.end.toISOString() : event.start ? event.start.toISOString() : "" 
+      ])
+    };
+    
+  
+    console.log("Itinerary to send:", itinerary); // Log the data structure before sending
+  
+    try {
+      const res = await fetch(`https://2425-cs7025-group1.scss.tcd.ie/itineraries/${userId}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(itinerary),
+      });
+  
+      // Log response status and body
+      console.log('Response Status:', res.status);
+      const text = await res.text(); 
+      console.log('Response Body:', text);
+  
+      if (!res.ok) throw new Error("Failed to save itinerary");
+
+      alert("Itinerary saved successfully!");
+    } catch (err) {
+      console.error("Save failed:", err);
+      alert("Error saving itinerary.");
+    }
   };
   
 
@@ -71,28 +157,17 @@ const CreateItinerary = () => {
                 right: "timeGridDay,timeGridWeek",
               }}
               eventReceive={(info) => {
-                const newEvent = {
-                  title: info.event.title,
-                  start: info.event.start,
-                  id: info.event.id,
-                };
-              
-                setEvents((prev) => [...prev, newEvent]);
-                info.revert(); // Prevent duplicate
-              
-                // clear temp input after drop
-                setTempEventTitle("");
-              }}
-              
-              
-
+                handleReceiveWishlistEvent(info);
+              }}        
+              eventClick={(info) => handleDeleteEvent(info.event)}
+          
             />
 
 
             {/* Save button (logic to add) */}
             <Row className="p-3 mt-auto">
               <Col className="d-flex justify-content-end">
-                <Button>Save</Button>
+                <Button onClick={handleSave}>Save</Button>
               </Col>
             </Row>
           </Col>
@@ -150,7 +225,8 @@ const CreateItinerary = () => {
 
 export default CreateItinerary;
 
-// Renders the event inside the calendar
+
+/* Customizes how events appear in the calendar views (time or week grid) */
 function renderEventContent(eventInfo) {
   const viewType = eventInfo.view.type; // "timeGridDay" or "timeGridWeek"
   
