@@ -15,7 +15,7 @@ import CreateItinerary from "../pages/createItinerary";
 import { Route, Routes } from "react-router-dom";
 import Profile from "../pages/profile";
 import Contact from "../pages/contact";
-import InsideItinerary from "../pages/insideItinerary";
+import ItineraryDetailPageWrapper from "./itineraryDetailPageWrapper";
 import Cookies from "../pages/cookies";
 import PageNotFound from "../pages/pageNotFound";
 import AboutUs from "../pages/aboutUs";
@@ -45,7 +45,7 @@ const PageContent = () => {
           }
         />
         <Route path="/create-post" element={<CreatePost />} />
-        <Route path="/inside-itinerary" element={<InsideItinerary />} />
+        <Route path="/inside-itinerary/:city/:category" element={<ItineraryDetailPageWrapper />} />
         <Route path="/feed" element={<Feed />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/cookies" element={<Cookies />} />

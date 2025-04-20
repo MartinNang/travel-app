@@ -10,7 +10,7 @@ import Button from "react-bootstrap/Button";
 import Accordion from "react-bootstrap/Accordion";
 import PhotoCarousel from "../ui/carousel.jsx";
 import { useNavigate } from "react-router-dom";
-import itinerariesPreviewsData from "../../data/itineraryPreviews.json";
+import itinerariesPreviewsData from "../../data/itinerariesTexts.json";
 
 const Itineraries = () => {
   const [selectedCity, setSelectedCity] = useState("dublin");
@@ -85,9 +85,9 @@ const Itineraries = () => {
             <Accordion>
               {itinerariesPreviewsCity.map((itinerary, index) => (
                 <Accordion.Item key={index} eventKey={index.toString()}>
-                  <Accordion.Header>{itinerary.title}</Accordion.Header>
+                  <Accordion.Header>{itinerary.category}</Accordion.Header>
                   <Accordion.Body>
-                    {itinerary.description}
+                    {itinerary.preview}
                     <div className="mt-auto d-flex justify-content-end">
                       <Button
                         style={{
@@ -95,7 +95,7 @@ const Itineraries = () => {
                           border: "none",
                           color: "#000",
                         }}
-                        onClick={() => navigate("/inside-itinerary")}>
+                        onClick={() => navigate(`/inside-itinerary/${selectedCity}/${itinerary.category}`)}>
                         Go
                       </Button>
                     </div>

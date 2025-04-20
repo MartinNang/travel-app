@@ -1,0 +1,418 @@
+{
+    "dublin": [
+      {
+        "category": "Lazy and cozy",
+        "title": "The Lazy and Cozy Dublin Tour",
+        "author": "Sandra",
+        "preview": "Slow down and soak up Dublin's charm one cozy café at a time. Stroll along the River Liffey, browse indie bookshops, and curl up with a pint by a roaring pub fire. This is the ultimate chill-out trip, where there’s no rush—just vibes.",
+        "description": "This is a chill itinerary for exploring Dublin slowly...",
+        "images": ["aquarium.png", "it3.jpg", "it4.jpg"],
+        "days": [
+          {
+            "day_nb": "DAY 1",
+            "day_title": "Settle In & Stroll Slow",
+            "day_description": "Ease into Dublin with a relaxed morning browsing the boutiques and coffee spots of Drury Street. Grab a pastry and people-watch in St. Stephen’s Green, then wander through the Little Museum of Dublin for quirky, bite-sized history. In the evening, tuck into comfort food at a cozy Georgian townhouse restaurant and end the night with a hot whiskey by the fire in a snug old pub."
+          },
+          {
+            "day_nb": "DAY 2",
+            "day_title": "Books, Brews & Bliss",
+            "day_description": "Start your day wrapped in the scent of old books at the beautiful Long Room in Trinity College Library. Then it’s over to the Chester Beatty Library for calm vibes and global treasures. Spend your afternoon in a tea room or sipping Irish coffee in a plush hotel lounge, and if you're feeling fancy, treat yourself to a slow, scenic ride on the vintage green Dublin Tram Café."
+          },
+          {
+            "day_nb": "DAY 3",
+            "day_title": "Coastal Calm & Cottagecore Energy",
+            "day_description": "Take a peaceful train ride to Dalkey or Killiney for sea air and small-town charm. Enjoy a quiet walk along the coast, then cozy up with lunch in a seaside café. Head back to Dublin for a final evening of jazz, gentle tunes, or a storytelling session—your perfect soft landing before heading home."
+          }
+        ]
+      },
+      {
+        "category": "Adventurous",
+        "title": "The Adventurous Dublin Tour",
+        "author": "Sandra",
+        "preview": "Ready to chase the wild side of Dublin? Hike the dramatic cliffs of Howth, kayak under historic bridges, and uncover ancient secrets in castle ruins. This trip brings the thrill—urban energy meets epic nature.",
+        "description": "Discover the thrills of Dublin and all its fascinating history... ",
+        "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
+        "days": [
+          {
+            "day_nb": "DAY 1",
+            "day_title": "Urban Thrills & Hidden History",
+            "day_description": "Kick things off by diving into Dublin’s energetic heart. Start with a self-guided Viking treasure hunt through the cobbled streets of Temple Bar, then hop on a city bike and cruise past landmarks like Dublin Castle and St. Patrick’s Cathedral. In the afternoon, gear up for a spooky underground tour of the Crypts at St. Michan’s, and wrap up the day with a night kayak down the Liffey—lit by the city skyline."
+          },
+          {
+            "day_nb": "DAY 2",
+            "day_title": "Cliff Hikes & Sea Breezes",
+            "day_description": "Hop on a quick DART train to Howth for a day of rugged coastline and salty air. Hike the Howth Cliff Loop for epic views and crashing waves, keeping an eye out for seals and seabirds. Refuel with fish and chips from a local seaside shack before heading back into the city for some live music and well-earned pub grub."
+          },
+          {
+            "day_nb": "DAY 3",
+            "day_title": "Castles, Caves & Wild Escapes",
+            "day_description": "Time to explore beyond the city! Take a day trip to the Wicklow Mountains where you’ll hike through Glendalough’s lush trails and ancient monastic ruins. Stop at Powerscourt Waterfall—the tallest in Ireland—for a photo op, and maybe even a wild dip if you're brave. End your adventure back in Dublin with one last pint and a storytelling session at a traditional folk pub."
+          }
+        ]
+      },
+      {
+        "category": "Family-friendly",
+        "title": "The Family-friendly Dublin Tour",
+        "author": "Sandra",
+        "preview": "Big fun for little explorers! Meet animals at Dublin Zoo, sail through Viking history on a splashy city tour, and enjoy hands-on science at EPIC and Explorium. It's smiles, stories, and memory-making for the whole crew.",
+        "description": "Discover fun activities to do with all the family! ",
+        "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
+        "days": [
+          {
+            "day_nb": "DAY 1",
+            "day_title": "Animals, Parks & Playtime",
+            "day_description": "Start the adventure at Dublin Zoo in Phoenix Park—home to lions, elephants, and playful penguins. After lunch, let the kids run wild in the park’s massive playground or rent bikes for a relaxed family ride. End the day with a cozy dinner and maybe even a scoop (or two) from Murphy’s Ice Cream."
+          },
+          {
+            "day_nb": "DAY 2",
+            "day_title": "Vikings, Science & Splash Zones",
+            "day_description": "Get hands-on at EPIC The Irish Emigration Museum, where interactive exhibits and digital fun bring history to life. Then hop aboard the Viking Splash Tour—part city tour, part water adventure! In the afternoon, dive into the wonders of science and sports at Explorium, where kids can climb, discover, and create."
+          },
+          {
+            "day_nb": "DAY 3",
+            "day_title": "Castles, Fairy Tales & Seaside Fun",
+            "day_description": "Take a short trip to Malahide Castle where you can explore towers, gardens, and even a magical fairy trail. Pack a picnic or grab lunch nearby, then spend the afternoon by the beach or throwing pebbles along the coastline in Portmarnock. Head back to Dublin for a casual dinner and a well-earned early night (for the kids, anyway!)."
+          }
+        ]
+      },
+      {
+        "category": "Foodie",
+        "title": "The Foodie Dublin Tour",
+        "author": "Sandra",
+        "preview": "Bring your appetite—Dublin’s ready to wow you. From world-class seafood to street food gems and Guinness-infused everything, every bite tells a story. This is a delicious deep dive into the heart of Irish flavour.",
+        "description": "Discover all the good food spots of Dublin!",
+        "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
+        "days": [
+          {
+            "day_nb": "DAY 1",
+            "day_title": "Taste the City",
+            "day_description": "Kick things off with a guided Dublin food tour—nibble your way through the best of Irish cheeses, breads, and artisan bites. Grab lunch at The Woollen Mills or Tang, where Irish produce meets modern flair. In the evening, indulge in a cozy, candlelit dinner at The Winding Stair, overlooking the Liffey, and treat yourself to a rich Irish dessert (hello, sticky toffee pudding!)."
+          },
+          {
+            "day_nb": "DAY 2",
+            "day_title": "Markets, Brunch & Bold Flavors",
+            "day_description": "Begin with a lazy brunch at Bibi’s Café or Two Pups, where eggs, avo, and strong coffee shine. Then it’s off to George’s Street Arcade and The Green Door Market to explore local vendors and sweet treats. For dinner, dive into Dublin’s global side—try incredible Middle Eastern at Shouk, or spice things up at Pickle for elevated Indian cuisine."
+          },
+          {
+            "day_nb": "DAY 3",
+            "day_title": "Coastal Catch & Gastro Delights",
+            "day_description": "Take the train to Howth for fresh-off-the-boat seafood—try the chowder at Octopussy’s or fish and chips by the pier. Stroll the market, grab a crepe or local fudge, and breathe in the sea air. Head back to the city for a final feast at Chapter One or Bastible—the perfect Michelin-starred ending to your foodie love affair with Dublin."
+          }
+        ]
+      }
+    ],
+
+
+    "nyc": [
+      {
+        "category": "Adventurous",
+        "title": "The Adventurous NYC Tour",
+        "author": "Sandra",
+        "preview": "New York is your urban jungle gym—climb, cruise, explore! From rooftop views to kayaking on the Hudson, the city’s got thrills in every borough. Lace-up, look up, and let the adventure unfold.",
+        "description": "Discover the thrills of NYC, the city who never sleeps... ",
+        "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
+        "days": [
+          {
+            "day_nb": "DAY 1",
+            "day_title": "Skyscrapers & Speed",
+            "day_description": "Start with the Edge or Summit One Vanderbilt for insane views, then ride a CitiBike (for cheaper a price book a bike rental on viator) or down the West Side Highway. Try jet-skiing on the Hudson if you're feeling bold, or take a guided bike tour through the city. Wrap up your day with a rooftop dinner at Harriet’s in Brooklyn."
+          },
+          {
+            "day_nb": "DAY 2",
+            "day_title": "Explore the Boroughs",
+            "day_description": "Take the subway to Queens and eat your way through Flushing’s Chinatown, or hike the trails in Van Cortlandt Park in the Bronx. Ferry out to Governors Island for ziplining and biking. At night, try an underground speakeasy or comedy club for a taste of wild NYC nightlife."
+          },
+          {
+            "day_nb": "DAY 3",
+            "day_title": "Climb, Cruise & Conquer",
+            "day_description": "Hit The Vessel at Hudson Yards (or just take the stairs for the thrill), then do a kayaking session on the Hudson (free in warmer months!). Get your final thrill with a helicopter tour or a walk across the Brooklyn Bridge at sunset. End it all with street eats and live music at Smorgasburg (if it's the weekend!)."
+          }
+        ]
+      },
+      {
+        "category": "Lazy and cozy",
+        "title": "The Lazy and Cozy NYC Tour",
+        "author": "Sandra",
+        "preview": "Big city energy, slow-paced vibes. Think quiet coffee shops, book browsing in hidden corners, and slow walks through leafy parks. This trip is all about soaking up New York’s softer side—at your own pace.",
+        "description": "This is a chill itinerary for exploring New-York slowly...",
+        "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
+        "days": [
+          {
+            "day_nb": "DAY 1",
+            "day_title": "Chill in Central Park & Cozy Corners",
+            "day_description": "Start your day with a slow stroll through Central Park, maybe with a hot chocolate in hand. Visit The Met, but take it easy—wander at your own pace, maybe just one wing. End the evening with a glass of wine and jazz at Bemelmans Bar or tucked away in The Library Bar at the NoMad."
+          },
+          {
+            "day_nb": "DAY 2",
+            "day_title": "Bookshops, Boutiques & Brooklyn",
+            "day_description": "Head to McNally Jackson or Strand Bookstore for the cosiest book-lovers dream, then browse local shops in SoHo or DUMBO. Take the ferry across to Brooklyn just for the ride, and enjoy a slow lunch at Celestine overlooking the water. Wind down with a sunset walk along the Brooklyn Heights Promenade."
+          },
+          {
+            "day_nb": "DAY 3",
+            "day_title": "Art, Cafés & Quiet Corners",
+            "day_description": "Spend your morning wandering the galleries of The Frick Collection or The Morgan Library, then sink into a café seat at Cafe Sabarsky or Everyman Espresso. Enjoy a late lunch and people-watching in Washington Square Park, and finish your trip with a slow dinner in Greenwich Village—think fairy lights and pasta at L'Artusi."
+          }
+        ]
+      },
+      {
+        "category": "Family-friendly",
+        "title": "The Family-friendly NYC Tour",
+        "author": "Sandra",
+        "preview": "Big fun for little legs and curious minds! From world-famous zoos to hands-on museums and Broadway shows for all ages, NYC is a playground for the whole family. Expect smiles, snacks, and lots of “wow!”",
+        "description": "Discover fun activities to do with all the family! ",
+        "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
+        "days": [
+          {
+            "day_nb": "DAY 1",
+            "day_title": "Animals, Parks & Playgrounds",
+            "day_description": "Kick things off with a visit to Central Park Zoo, then let the kids run wild at Heckscher Playground. Grab lunch nearby and spend the afternoon at The American Museum of Natural History (dinosaurs = instant win!). Dinner can be fun and casual at Ellen’s Stardust Diner, where the waiters sing show tunes."
+          },
+          {
+            "day_nb": "DAY 2",
+            "day_title": "Boats, Broadway & Big Smiles",
+            "day_description": "Take a ride on the Staten Island Ferry for Statue of Liberty views without the lines, then spend the afternoon at The Intrepid Sea, Air & Space Museum. If the kids are old enough, catch a Broadway or Off-Broadway family-friendly show in the evening—Aladdin, The Lion King, or Wicked are all big hits."
+          },
+          {
+            "day_nb": "DAY 3",
+            "day_title": "Science & Sugar Rush",
+            "day_description": "Visit the Children’s Museum of Manhattan or Brooklyn Children's Museum for hands-on play. Stop by Dylan’s Candy Bar for a treat, then explore Little Island, a floating park perfect for a fun final wander. End with pizza at John’s of Bleecker Street—classic, cozy, and kid-approved."
+          }
+        ]
+      },
+      {
+        "category": "Foodie",
+        "title": "The Foodie NYC Tour",
+        "author": "Sandra",
+        "preview": "Come hungry—New York’s flavours are endless. Bagels, dumplings, pizza, Michelin stars, and everything in between. Every neighbourhood’s a new bite, every meal’s a memory.",
+        "description": "Discover all the good food spots of NYC!",
+        "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
+        "days": [
+          {
+            "day_nb": "DAY 1",
+            "day_title": "The Classics, Reimagined",
+            "day_description": "Start with a legendary bagel and lox from Russ & Daughters, then take a food history tour of the Lower East Side. For lunch, dive into dumplings and hand-pulled noodles in Chinatown, then finish with dinner at Estela or Cosme—bold flavours, and stylish settings."
+          },
+          {
+            "day_nb": "DAY 2",
+            "day_title": "Market Hopping & Neighbourhood Bites",
+            "day_description": "Begin at Chelsea Market with pastries and tacos, then snack your way down the High Line. Spend your afternoon grazing through Smorgasburg (weekends only) or explore Arthur Avenue in the Bronx for authentic Italian eats. Book a dinner at Katz’s Deli or treat yourself to Le Bernardin if you’re feeling fancy."
+          },
+          {
+            "day_nb": "DAY 3",
+            "day_title": "Sweets, Street Food & Stars",
+            "day_description": "Hit Dominique Ansel Bakery for the famous cronut or go full New York with a black-and-white cookie. Grab a slice from Joe’s Pizza, a dirty-water hot dog, or halal from a street cart. Cap it off with a Michelin-starred meal at Atomix, Cote, or Rezdôra—a food finale you’ll dream about."
+          }
+        ]
+      }
+    ],
+
+
+
+    "paris": [
+      {
+        "category": "categ",
+        "title": "The ? Paris Tour",
+        "author": "Sandra",
+        "preview": "preview to add",
+        "description": "description to add",
+        "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
+        "days": [
+          {
+            "day_nb": "DAY 1",
+            "day_title": "",
+            "day_description": ""
+          },
+          {
+            "day_nb": "DAY 2",
+            "day_title": "",
+            "day_description": ""
+          },
+          {
+            "day_nb": "DAY 3",
+            "day_title": "",
+            "day_description": ""
+          }
+        ]
+      },
+      {
+        "category": "categ",
+        "title": "The ? Paris Tour",
+        "author": "Sandra",
+        "preview": "preview to add",
+        "description": "description to add",
+        "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
+        "days": [
+          {
+            "day_nb": "DAY 1",
+            "day_title": "",
+            "day_description": ""
+          },
+          {
+            "day_nb": "DAY 2",
+            "day_title": "",
+            "day_description": ""
+          },
+          {
+            "day_nb": "DAY 3",
+            "day_title": "",
+            "day_description": ""
+          }
+        ]
+      },
+      {
+        "category": "categ",
+        "title": "The ? Paris Tour",
+        "author": "Sandra",
+        "preview": "preview to add",
+        "description": "description to add",
+        "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
+        "days": [
+          {
+            "day_nb": "DAY 1",
+            "day_title": "",
+            "day_description": ""
+          },
+          {
+            "day_nb": "DAY 2",
+            "day_title": "",
+            "day_description": ""
+          },
+          {
+            "day_nb": "DAY 3",
+            "day_title": "",
+            "day_description": ""
+          }
+        ]
+      },
+      {
+        "category": "categ",
+        "title": "The ? Paris Tour",
+        "author": "Sandra",
+        "preview": "preview to add",
+        "description": "description to add",
+        "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
+        "days": [
+          {
+            "day_nb": "DAY 1",
+            "day_title": "",
+            "day_description": ""
+          },
+          {
+            "day_nb": "DAY 2",
+            "day_title": "",
+            "day_description": ""
+          },
+          {
+            "day_nb": "DAY 3",
+            "day_title": "",
+            "day_description": ""
+          }
+        ]
+      }
+
+    ],
+    "tokyo": [
+      {
+        "category": "categ",
+        "title": "The ? Tokyo Tour",
+        "author": "Sandra",
+        "preview": "preview to add",
+        "description": "description to add",
+        "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
+        "days": [
+          {
+            "day_nb": "DAY 1",
+            "day_title": "",
+            "day_description": ""
+          },
+          {
+            "day_nb": "DAY 2",
+            "day_title": "",
+            "day_description": ""
+          },
+          {
+            "day_nb": "DAY 3",
+            "day_title": "",
+            "day_description": ""
+          }
+        ]
+      },
+      {
+        "category": "categ",
+        "title": "The ? Tokyo Tour",
+        "author": "Sandra",
+        "preview": "preview to add",
+        "description": "description to add",
+        "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
+        "days": [
+          {
+            "day_nb": "DAY 1",
+            "day_title": "",
+            "day_description": ""
+          },
+          {
+            "day_nb": "DAY 2",
+            "day_title": "",
+            "day_description": ""
+          },
+          {
+            "day_nb": "DAY 3",
+            "day_title": "",
+            "day_description": ""
+          }
+        ]
+      },
+      {
+        "category": "categ",
+        "title": "The ? Tokyo Tour",
+        "author": "Sandra",
+        "preview": "preview to add",
+        "description": "description to add",
+        "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
+        "days": [
+          {
+            "day_nb": "DAY 1",
+            "day_title": "",
+            "day_description": ""
+          },
+          {
+            "day_nb": "DAY 2",
+            "day_title": "",
+            "day_description": ""
+          },
+          {
+            "day_nb": "DAY 3",
+            "day_title": "",
+            "day_description": ""
+          }
+        ]
+      },
+      {
+        "category": "categ",
+        "title": "The ? Tokyo Tour",
+        "author": "Sandra",
+        "preview": "preview to add",
+        "description": "description to add",
+        "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
+        "days": [
+          {
+            "day_nb": "DAY 1",
+            "day_title": "",
+            "day_description": ""
+          },
+          {
+            "day_nb": "DAY 2",
+            "day_title": "",
+            "day_description": ""
+          },
+          {
+            "day_nb": "DAY 3",
+            "day_title": "",
+            "day_description": ""
+          }
+        ]
+      }
+    ]
+  }
+  
+  

@@ -1,73 +1,74 @@
+
 {
     "dublin": [
       {
-        "title": "Adventurous",
+        "category": "Adventurous",
         "description": "Ready to chase the wild side of Dublin? Hike the dramatic cliffs of Howth, kayak under historic bridges, and uncover ancient secrets in castle ruins. This trip brings the thrill—urban energy meets epic nature."
       },
       {
-        "title": "Lazy and cozy",
+        "category": "Lazy and cozy",
         "description": "Slow down and soak up Dublin's charm one cozy café at a time. Stroll along the River Liffey, browse indie bookshops, and curl up with a pint by a roaring pub fire. This is the ultimate chill-out trip, where there’s no rush—just vibes."
       },
       {
-        "title": "Family-friendly",
+        "category": "Family-friendly",
         "description": "Big fun for little explorers! Meet animals at Dublin Zoo, sail through Viking history on a splashy city tour, and enjoy hands-on science at EPIC and Explorium. It's smiles, stories, and memory-making for the whole crew."
       },
       {
-        "title": "Foodie",
+        "category": "Foodie",
         "description": "Bring your appetite—Dublin’s ready to wow you. From world-class seafood to street food gems and Guinness-infused everything, every bite tells a story. This is a delicious deep dive into the heart of Irish flavour."
       }
     ],
     "nyc": [
       {
-        "title": "Adventurous",
+        "category": "Adventurous",
         "description": "New York is your urban jungle gym—climb, cruise, explore! From rooftop views to kayaking on the Hudson, the city’s got thrills in every borough. Lace-up, look up, and let the adventure unfold."
       },
       {
-        "title": "Lazy and cozy",
+        "category": "Lazy and cozy",
         "description": "Big city energy, slow-paced vibes. Think quiet coffee shops, book browsing in hidden corners, and slow walks through leafy parks. This trip is all about soaking up New York’s softer side—at your own pace."
       },
       {
-        "title": "Family-friendly",
+        "category": "Family-friendly",
         "description": "Big fun for little legs and curious minds! From world-famous zoos to hands-on museums and Broadway shows for all ages, NYC is a playground for the whole family. Expect smiles, snacks, and lots of “wow!”"
       },
       {
-        "title": "Foodie",
+        "category": "Foodie",
         "description": "Come hungry—New York’s flavours are endless. Bagels, dumplings, pizza, Michelin stars, and everything in between. Every neighbourhood’s a new bite, every meal’s a memory."
       }
     ],
     "paris": [
       {
-        "title": "Adventurous",
+        "category": "Adventurous",
         "description": "Preview of the adventurous itinerary in Paris."
       },
       {
-        "title": "Touristic",
+        "category": "Touristic",
         "description": "Preview of the touristic itinerary in Paris."
       },
       {
-        "title": "Lazy",
+        "category": "Lazy",
         "description": "Preview of the lazy itinerary in Paris."
       },
       {
-        "title": "Original",
+        "category": "Original",
         "description": "Preview of the original itinerary in Paris."
       }
     ],
     "tokyo": [
       {
-        "title": "Slay",
+        "category": "Slay",
         "description": "Preview of the adventurous itinerary in Tokyo. slay slay"
       },
       {
-        "title": "Touristic",
+        "category": "Touristic",
         "description": "Preview of the touristic itinerary in Tokyo."
       },
       {
-        "title": "Lazy",
+        "category": "Lazy",
         "description": "Preview of the lazy itinerary in Tokyo."
       },
       {
-        "title": "Original",
+        "category": "Original",
         "description": "Preview of the original itinerary in Tokyo."
       }
     ]
