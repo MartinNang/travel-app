@@ -55,7 +55,6 @@ code {
   color: #6b4a8b;
 }
 
-
 .footer a {
   text-decoration: none;
   color: #6b4a8b;
@@ -66,7 +65,7 @@ code {
 }
 
 .footer a:hover {
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 .socials {
@@ -173,7 +172,7 @@ input[type="text"]:focus {
   border-radius: 30px;
   min-height: 450px;
   max-height: 70vh;
-  overflow-y:  auto;
+  overflow-y: auto;
 }
 
 .wishlist-body h3 {
@@ -281,17 +280,12 @@ input[type="text"]:focus {
   opacity: 0.6;
 }
 
-
-
-
 /* cookie policy */
-
 
 .cookie-policy {
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
- 
 }
 
 .cookie-policy h2 {
@@ -302,7 +296,7 @@ input[type="text"]:focus {
 }
 
 .cookie-policy h3 {
-  color: #6D5FAA; 
+  color: #6d5faa;
   margin-top: 20px;
   font-size: 1.5rem;
 }
@@ -324,7 +318,7 @@ input[type="text"]:focus {
 }
 
 .cookie-policy ul li strong {
-  color: #6D5FAA; 
+  color: #6d5faa;
 }
 
 .cookie-banner {
@@ -335,14 +329,13 @@ input[type="text"]:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 .cookie-banner h1 {
-  color: white; 
+  color: white;
   padding: 10px 20px;
   border-radius: 8px;
   font-size: 2rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .About-banner {
@@ -354,44 +347,42 @@ input[type="text"]:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 .About-banner h1 {
-  color: white; 
+  color: white;
   padding: 10px 20px;
   border-radius: 8px;
   font-size: 2rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 .About-us {
-  padding: 0px 0; 
+  padding: 0px 0;
   text-align: center;
   position: relative;
-  height: 500px; 
+  height: 500px;
 }
 
 .about-image {
-  position: absolute; 
+  position: absolute;
   left: 0;
-  width: 100%; 
-  height: 100%; 
-  object-fit: cover; 
-  z-index: 1; 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
   opacity: 0.5;
 }
-
 
 .About-container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  position: relative; 
-  z-index: 2; 
+  position: relative;
+  z-index: 2;
 }
 
 .About-Us-Blurb {
-  background-color: #0B4D48;
+  background-color: #0b4d48;
   padding: 40px;
   border-radius: 15px;
   max-width: 800px;
@@ -401,16 +392,13 @@ input[type="text"]:focus {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   margin-bottom: 50px;
   margin-top: 50px;
-
 }
-
 
 /*PROFILE PAGE IN PROGRESS */
 
-
 .header {
   margin-top: 90px;
-  background-color: #ECF2F1;
+  background-color: #ecf2f1;
   min-height: 130px;
   display: flex;
   justify-content: space-between;
@@ -439,14 +427,14 @@ input[type="text"]:focus {
 
 .username {
   font-size: 40px;
-  color: #0B524C;
+  color: #0b524c;
   margin: 0;
 }
 
 .status {
   font-size: 20px;
-  font-family: 'Inter', sans-serif;
-  color: #6D5FAA;
+  font-family: "Inter", sans-serif;
+  color: #6d5faa;
   margin: 0;
 }
 
@@ -471,23 +459,23 @@ input[type="text"]:focus {
 
 .stat-number {
   font-size: 40px;
-  color: #0B524C;
+  color: #0b524c;
   margin: 0;
   font-weight: bold;
 }
 
 .stat-title {
   font-size: 20px;
-  color: #F19EDC;
+  color: #f19edc;
   margin: 0;
 }
 
 .follow-btn {
   width: 100px;
   height: 50px;
-  background-color: #3E3568;
+  background-color: #3e3568;
   color: white;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   border: none;
   border-radius: 15px;
@@ -499,7 +487,7 @@ input[type="text"]:focus {
 }
 
 .follow-btn:hover {
-  background-color: #6D5FAA;
+  background-color: #6d5faa;
 }
 
 .settings-btn {
@@ -511,13 +499,11 @@ input[type="text"]:focus {
   cursor: pointer;
 }
 
-
 .separator {
   width: 100%;
   height: 1px;
-  background-color: #6D5FAA;
+  background-color: #6d5faa;
 }
-
 
 .tabs {
   display: flex;
@@ -528,23 +514,20 @@ input[type="text"]:focus {
 
 .tab {
   font-size: 25px;
-  font-family: 'Inter', sans-serif;
-  color: #BBB9B9;
+  font-family: "Inter", sans-serif;
+  color: #bbb9b9;
   cursor: pointer;
   padding: 5px 10px;
 }
 
-
 .tab.active {
-  color: #F19EDC;
+  color: #f19edc;
 }
-
 
 .tab-content {
-  display: none; 
+  display: none;
   padding: 20px;
 }
-
 
 .tab-content.active {
   display: block;
@@ -552,13 +535,13 @@ input[type="text"]:focus {
 .all-itinerary-wrapper {
   display: flex;
   gap: 20px;
-  overflow-x: auto; 
-  white-space: nowrap; 
-  padding-bottom: 10px; 
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 10px;
 }
 
 .all-itinerary-container {
-  background-color: #ECF2F1;
+  background-color: #ecf2f1;
   padding: 20px;
   border-radius: 15px;
   text-align: center;
@@ -575,7 +558,7 @@ input[type="text"]:focus {
 
 .all-itinerary-title {
   font-size: 16px;
-  color: #F19EDC;
+  color: #f19edc;
   text-transform: uppercase;
   font-weight: bold;
   margin-bottom: 10px;
@@ -583,16 +566,16 @@ input[type="text"]:focus {
 
 .all-itinerary-text {
   font-size: 12px;
-  color: #6D5FAA;
-  position: absolute;
+  color: #6d5faa;
+  /* position: absolute;
   left: 10px;
-  top: 70px;
+  top: 70px; */
   text-align: left;
 }
 
 .all-itinerary-text-right {
   font-size: 12px;
-  color: #6D5FAA;
+  color: #6d5faa;
   position: absolute;
   right: 3px;
   bottom: 30px;
@@ -619,7 +602,6 @@ input[type="text"]:focus {
   display: block;
   border-radius: 4px;
 }
-
 
 .all-photo-collage-container {
   display: flex;
@@ -652,7 +634,7 @@ input[type="text"]:focus {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 35px; 
+  gap: 35px;
   justify-content: center;
   align-items: center;
   padding: 20px;
@@ -669,32 +651,30 @@ input[type="text"]:focus {
   transition: all 0.3s ease-in-out;
 }
 
-
-.collage-item:nth-child(6n+1) {
-  transform: scale(1.2) rotate(-5deg); 
+.collage-item:nth-child(6n + 1) {
+  transform: scale(1.2) rotate(-5deg);
 }
-.collage-item:nth-child(6n+2) {
-  transform: scale(0.95) rotate(4deg); 
+.collage-item:nth-child(6n + 2) {
+  transform: scale(0.95) rotate(4deg);
 }
-.collage-item:nth-child(6n+3) {
-  transform: scale(1.05) rotate(-2deg); 
+.collage-item:nth-child(6n + 3) {
+  transform: scale(1.05) rotate(-2deg);
 }
-.collage-item:nth-child(6n+4) {
-  transform: scale(1.15) rotate(3deg); 
+.collage-item:nth-child(6n + 4) {
+  transform: scale(1.15) rotate(3deg);
 }
-.collage-item:nth-child(6n+5) {
-  transform: scale(1.0) rotate(-3deg); 
+.collage-item:nth-child(6n + 5) {
+  transform: scale(1) rotate(-3deg);
 }
-.collage-item:nth-child(6n+6) {
-  transform: scale(1.1) rotate(2deg); 
+.collage-item:nth-child(6n + 6) {
+  transform: scale(1.1) rotate(2deg);
 }
-
 
 .collage-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 4px;  
+  border-radius: 4px;
 }
 
 .collage-item:hover {
@@ -705,14 +685,14 @@ input[type="text"]:focus {
 .itinerary-wrapper {
   display: flex;
   gap: 20px;
-  overflow-x: auto; 
-  white-space: nowrap; 
-  padding-bottom: 10px; 
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 10px;
   scrollbar-width: thin;
 }
 
 .itinerary-container {
-  background-color: #ECF2F1;
+  background-color: #ecf2f1;
   padding: 20px;
   border-radius: 15px;
   text-align: center;
@@ -729,7 +709,7 @@ input[type="text"]:focus {
 
 .itinerary-title {
   font-size: 16px;
-  color: #F19EDC;
+  color: #f19edc;
   text-transform: uppercase;
   font-weight: bold;
   margin-bottom: 10px;
@@ -737,7 +717,7 @@ input[type="text"]:focus {
 
 .itinerary-text {
   font-size: 12px;
-  color: #6D5FAA;
+  color: #6d5faa;
   position: absolute;
   left: 10px;
   top: 70px;
@@ -746,7 +726,7 @@ input[type="text"]:focus {
 
 .itinerary-text-right {
   font-size: 12px;
-  color: #6D5FAA;
+  color: #6d5faa;
   position: absolute;
   right: 3px;
   bottom: 30px;
@@ -823,7 +803,7 @@ input[type="text"]:focus {
 /* Change background color of the entire calendar */
 .fc {
   background-color: #554293;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   color: white;
 }
 
@@ -861,7 +841,6 @@ input[type="text"]:focus {
 #itinerary-title {
   color: #554293;
   font-size: 28px;
-  
 
   margin-bottom: 10px;
 }
@@ -873,7 +852,7 @@ input[type="text"]:focus {
 }
 
 .day-column {
-  background-color: #0B524C;
+  background-color: #0b524c;
   padding: 30px;
   border-radius: 30px;
   width: 30%;
@@ -891,9 +870,9 @@ input[type="text"]:focus {
   font-weight: 600;
 }
 
-.day-column h2{
+.day-column h2 {
   color: white;
-  text-align:center;
+  text-align: center;
 }
 .activity-card {
   display: flex;
@@ -904,7 +883,7 @@ input[type="text"]:focus {
 }
 
 .activity-tag {
-  background-color: #1E6E64;
+  background-color: #1e6e64;
   padding: 4px 10px;
   border-radius: 10px;
   font-size: 14px;
@@ -916,7 +895,6 @@ input[type="text"]:focus {
   flex-direction: column;
   gap: 10px;
 }
-
 
 .activity-name {
   flex-grow: 1;
@@ -930,8 +908,6 @@ input[type="text"]:focus {
   height: 0px;
   margin-bottom: 20px;
 }
-
-
 
 /* Add "..." if the title is too long for the calendar slot */
 .fc-event-content {
@@ -1000,4 +976,3 @@ input[type="text"]:focus {
   width: 100px !important;
   margin: auto;
 }
-

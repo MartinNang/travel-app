@@ -36,6 +36,7 @@ const PageContent = () => {
         />
         <Route path="/itineraries" element={<Itineraries />} />
         <Route path="/profile/:profileId" element={<Profile />} />
+        <Route path="/itinerary/:itineraryId" element={<ViewItinerary />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route
@@ -45,7 +46,10 @@ const PageContent = () => {
           }
         />
         <Route path="/create-post" element={<CreatePost />} />
-        <Route path="/inside-itinerary/:city/:category" element={<ItineraryDetailPageWrapper />} />
+        <Route
+          path="/inside-itinerary/:city/:category"
+          element={<ItineraryDetailPageWrapper />}
+        />
         <Route path="/feed" element={<Feed />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/cookies" element={<Cookies />} />
