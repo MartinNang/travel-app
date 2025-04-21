@@ -17,6 +17,21 @@ export function getAllPosts(conn, req, res) {
   }
 }
 
+export function getPostsByUserId(conn, req, res) {
+  try {
+    console.log("getting posts by user id", req.params.userId);
+    postService.findPostsByUserId(conn, req.params.userId, (result) => {
+      if (result) {
+        res.status(200);
+      }
+      res.send(result);
+    });
+  } catch (code) {
+    res.status(code);
+    res.send();
+  }
+}
+
 export function createPost(conn, req, res) {
   try {
     const post = new Post(

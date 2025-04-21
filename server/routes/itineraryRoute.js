@@ -19,6 +19,10 @@ itineraryRouter.get("/user/:userId", (req, res, next) => {
   );
 });
 
+itineraryRouter.get("/:itineraryId", (req, res, next) => {
+  connect((conn) => itineraryController.findItinerariesById(conn, req, res));
+});
+
 itineraryRouter.put("/:itineraryId", (req, res, next) => {
   connect((conn) => itineraryController.updateItinerary(conn, req, res));
 });

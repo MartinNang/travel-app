@@ -38,6 +38,27 @@ export function findItinerariesByName(conn, req, res) {
   }
 }
 
+export function findItinerariesById(conn, req, res) {
+  console.log("find itinerary by id", req.params.itineraryId);
+  try {
+    itineraryService.findItinerariesById(
+      conn,
+      req.params.itineraryId,
+      (result) => {
+        if (result.length === 1) {
+          res.status(200);
+        } else if (result.length === 0) {
+          res.status(404);
+        }
+        res.send(result);
+      }
+    );
+  } catch (code) {
+    res.status(code);
+    res.send();
+  }
+}
+
 export function findItinerariesByUserId(conn, req, res) {
   try {
     console.log("finding itineraries by userId", req.params.userId);

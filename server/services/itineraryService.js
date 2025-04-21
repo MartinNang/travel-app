@@ -44,6 +44,14 @@ export async function findItinerariesByName(conn, itineraryName, callback) {
   callback(result);
 }
 
+export async function findItinerariesById(conn, itineraryId, callback) {
+  console.log(conn);
+  const result = await conn.query(`SELECT * FROM itineraries WHERE id = (?)`, [
+    itineraryId,
+  ]);
+  callback(result);
+}
+
 export async function createItinerary(conn, itinerary, callback) {
   console.log(conn);
   const result = await conn.query(

@@ -9,6 +9,10 @@ postRouter.get("/", (req, res, next) => {
   connect((conn) => postController.getAllPosts(conn, req, res));
 });
 
+postRouter.get("/:userId", (req, res, next) => {
+  connect((conn) => postController.getPostsByUserId(conn, req, res));
+});
+
 postRouter.put("itinerary/:itineraryId/user/:userId", (req, res, next) => {
   connect((conn) => postController.updatePost(conn, req, res));
 });
@@ -17,7 +21,7 @@ postRouter.post("/", (req, res, next) => {
   connect((conn) => postController.createPost(conn, req, res));
 });
 
-postRouter.post("/:overpassId", (req, res, next) => {
+postRouter.post("/:itineraryId", (req, res, next) => {
   connect((conn) => postController.createEvent(conn, req, res));
 });
 
