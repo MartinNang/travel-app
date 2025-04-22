@@ -13,6 +13,7 @@ import Pagination from "react-bootstrap/Pagination";
 const Profile = () => {
   const [activeTab, setActiveTab] = useState("all");
   const [itineraries, setItineraries] = useState([]);
+  const [posts, setPosts] = useState([]);
   const [user, setUser] = useState("");
   const [active, setActive] = useState(1);
 
@@ -80,6 +81,24 @@ const Profile = () => {
       .catch((error) => {
         console.error(error);
         setItineraries([]);
+      });
+  }
+
+
+
+  function fetchPosts() {
+    console.log("fetching posts for user with profileId:", profileId);
+    axios
+      .get("/posts")
+      .then((response) => {
+        let posts = response.data;
+        setPosts(posts);
+
+        console.log("posts data response:", posts);
+      })
+      .catch((error) => {
+        console.error(error);
+        setPosts([]);
       });
   }
 
@@ -234,31 +253,19 @@ const Profile = () => {
         class={`tab-content ${activeTab === "photos" ? "active" : ""}`}
         id="photos">
         <div class="collage-container">
+
           <div class="collage-item">
             <img src={polaroid} alt="Polaroid Image" />
           </div>
+
+          {posts.map( function(){
           <div class="collage-item">
             <img src={polaroid} alt="Polaroid Image" />
           </div>
-          <div class="collage-item">
-            <img src={polaroid} alt="Polaroid Image" />
+          })}
+
+      
           </div>
-          <div class="collage-item">
-            <img src={polaroid} alt="Polaroid Image" />
-          </div>
-          <div class="collage-item">
-            <img src={polaroid} alt="Polaroid Image" />
-          </div>
-          <div class="collage-item">
-            <img src={polaroid} alt="Polaroid Image" />
-          </div>
-          <div class="collage-item">
-            <img src={polaroid} alt="Polaroid Image" />
-          </div>
-          <div class="collage-item">
-            <img src={polaroid} alt="Polaroid Image" />
-          </div>
-        </div>
       </div>
     </>
   );
