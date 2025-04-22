@@ -24,14 +24,8 @@ export async function findPostsByUserId(conn, userId, callback) {
 export async function createPost(conn, post, callback) {
   console.log("creating post", post);
   const result = await conn.query(
-    "INSERT INTO posts (`itinerary_id`, `user_id`, `description`, `image`, `created_at`) VALUES (?, ?, ?, ?, ?);",
-    [
-      post.itineraryId,
-      post.userId,
-      post.description,
-      post.image,
-      post.createdAt,
-    ]
+    "INSERT INTO posts (`itinerary_id`, `user_id`, `description`) VALUES (?, ?, ?) RETURNING `id`;",
+    [post.itineraryId, post.userId, post.description]
   );
   callback(result);
 }

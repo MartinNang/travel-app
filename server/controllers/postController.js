@@ -1,5 +1,6 @@
 import Post from "../models/post.js";
 import * as postService from "../services/postService.js";
+import * as postImageService from "../services/postImageService.js";
 
 export function getAllPosts(conn, req, res) {
   try {
@@ -37,13 +38,18 @@ export function createPost(conn, req, res) {
     const post = new Post(
       req.body.itineraryId,
       req.body.userId,
-      req.body.description,
-      req.body.image,
-      req.body.createdAt
+      req.body.description
     );
+    const files = req.files;
+    console.log("files", files);
 
-    postService.createItinerary(conn, post, () => {
-      res.status(200);
+    postService.createPost(conn, post, (postId) => {
+      for (let file of req.files) {
+        postImageService.createPostImage(conn, postId, file, (piResult) => {
+          // TODO
+          res.status(200);
+        });
+      }
     });
   } catch (code) {
     res.status(code);

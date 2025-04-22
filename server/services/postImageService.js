@@ -13,11 +13,11 @@ export async function findPostImagesByPostId(conn, overpassId, callback) {
   callback(result);
 }
 
-export async function createPostImage(conn, postImage, callback) {
+export async function createPostImage(conn, postId, postImage, callback) {
   console.log("creating post image", postImage);
   const result = await conn.query(
     "INSERT INTO postImages (`post_id`, `imagePath`) VALUES (?, ?);",
-    [postImage.id, postImage.path]
+    [postId, postImage]
   );
   callback(result);
 }

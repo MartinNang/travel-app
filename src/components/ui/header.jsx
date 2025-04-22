@@ -139,7 +139,11 @@ const Header = () => {
                     <img
                       id="profile-img"
                       alt={"profile"}
-                      src={BACKEND_URL + profileImage}></img>
+                      src={BACKEND_URL + profileImage}
+                      onError={({ currentTarget }) => {
+                        currentTarget.onerror = null;
+                        currentTarget.src = "images/icon_set/user_profile.png";
+                      }}></img>
                   ) : (
                     <BsPerson id="profile-icon" />
                   )}

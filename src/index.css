@@ -993,3 +993,10 @@ input[type="text"]:focus {
   height: 120px;
   overflow: auto;
 }
+
+#profile-img {
+  width: 20px;
+  border-radius: 0px;
+  /* border: lightgray 1px solid; */
+  /* padding: 2px; */
+}

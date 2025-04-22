@@ -74,7 +74,7 @@ app.get("/", (req, res) => {
   res.send("Hello");
 });
 
-// file upload
+// profile image upload
 app.post("/upload", upload.single("img"), (req, res) => {
   console.log("req.body", req.body);
   if (req.file && req.file.path) {
