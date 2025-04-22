@@ -47,14 +47,36 @@ const ViewItinerary = () => {
       <div id="itinerary-columns">
         <div class="day-column" id="day1">
           <h2 class="day-title">Day 1</h2>
-          <div class="activity-card">
+          
+          {events.map((event) => (
+            /*   <Col>
+                  <Itinerary
+                    id={itinerary.id}
+                    title={itinerary.name}
+                    startDate={itinerary.start_date}
+                    endDate={itinerary.end_date}
+                    type={itinerary.type}></Itinerary>
+                </Col> */
+                <>
+                <div class="activity-card">
+                <div class="tag-stack">
+                  <div class="activity-tag"> {event.start_time}</div>
+                  <div class="activity-tag">{event.end_time}</div>    
+                  </div>
+                <div class="activity-name"> {event.name} </div>
+                <br/>
+                <div class="activity-line"></div> 
+                </div>
+                </>
+              ))}
+
             <div class="tag-stack">
               <div class="activity-tag">START</div>
               <div class="activity-tag">END</div>
             </div>
 
             <div class="activity-name">ACTIVITY 1</div>
-          </div>
+          
           <div class="activity-line"></div>
           <div class="activity-card">
             <div class="tag-stack">
@@ -92,7 +114,7 @@ const ViewItinerary = () => {
             <div class="activity-name">ACTIVITY 5</div>
           </div>
         </div>
-
+</div>
         <div class="day-column" id="day2">
           <h2 class="day-title">Day 2</h2>
           <div class="activity-card">
@@ -285,7 +307,7 @@ const ViewItinerary = () => {
           </div>
         </div>
       </div>
-    </div>
+    
   );
 };
 
