@@ -11,42 +11,80 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="stylesheet" href="homepage.css" href="">
 
-    <title>React App</title>
+    <title>Home-En Route</title>
 </head>
 
 <body> <!--I need Eve's navigation bar css layout/ html code-->
     <header class="hero">
         <img src="images/signin.jpg" alt="Signin Image">
+        <div class="clouds"> <!--cloud animation update-->
+            <img src="images/cloud1.png" style="--i:1;">
+            <img src="images/cloud2.png" style="--i:2;">
+            <img src="images/cloud3.png" style="--i:3;">
+            <img src="images/cloud4.png" style="--i:4;">
+            <img src="images/cloud5.png" style="--i:5;">
+        </div>
         <h1>Your Journey, Perfectly Planned.</h1>
         <button>Sign In</button>
     </header>
-
-    <!-- Dashboard Section -->
+    
+     <!-- Dashboard Section -->
     <section class="dashboard">
-        <img src="images/map.png" alt="Dashboard Image">
+        <img src="images/map.png" class="dashboard-map" alt="world map">
         <img src="images/computer.png" id="computer-image" alt="Computer Image">
+        <video id="computer-video" class="delayed-video" src="videos/video.mp4" muted autoplay loop playsinline></video> <!--Mock up video-->
+
         <p>A Step By Step Guide On How To Navigate Our Website</p>
-    </section>
-
-    <section class="dropdown-section">
-        <div class="dropdown-tab" style="top: 50px; left: 50px;">
-            <span>Step One</span>
-            <div class="dropdown-content">More info about Tab 1.</div>
-        </div>
-        <div class="dropdown-tab" style="top: 120px; left: 50px;">
-            <span>Step Two</span>
-            <div class="dropdown-content">More info about Tab 2.</div>
-        </div>
-        <div class="dropdown-tab" style="top: 190px; left: 50px;">
-            <span>Step Three</span>
-            <div class="dropdown-content">More info about Tab 3.</div>
-        </div>
-        <div class="dropdown-tab" style="top: 260px; left: 50px;">
-            <span> Step Four</span>
-            <div class="dropdown-content">More info about Tab 4.</div>
-        </div>
 
     </section>
+
+    <section class="dropdown-section" id="dropdown-wrapper">
+        <div class="dropdown-tab" data-step="1">
+            <span class="step-label">Step One</span>
+            <div class="dropdown-content">Sign in or create an account to unlock access to suggested itineraries and
+                exclusive features.</div>
+        </div>
+        <div class="dropdown-tab" data-step="2">
+            <span class="step-label">Step Two</span>
+            <div class="dropdown-content">After creating an account, select your destination on the interactive map.
+            </div>
+        </div>
+        <div class="dropdown-tab" data-step="3">
+            <span class="step-label">Step Three</span>
+            <div class="dropdown-content">Choose a suggested itinerary for your destination or create your own.</div>
+        </div>
+        <div class="dropdown-tab" data-step="4">
+            <span class="step-label">Step Four</span>
+            <div class="dropdown-content">Save your itinerary and travel documents to your profile and wallet, and
+                upload trip photos to personalize your page.</div>
+        </div>
+    </section>
+
+    <script>
+        const computerImage = document.getElementById('computer-image');
+        const dashboard = document.querySelector(".dashboard");
+        const video = document.getElementById('computer-video');
+
+        let videoTimeout;
+
+        computerImage.addEventListener('mouseenter', () => {
+            document.body.classList.add('computer-hover-active');
+
+            // Delay showing the video
+            videoTimeout = setTimeout(() => {
+                video.style.display = 'block';
+            }, 500); // 500ms = 0.5 seconds
+        });
+
+        computerImage.addEventListener('mouseleave', () => {
+            document.body.classList.remove('computer-hover-active');
+
+            // Cancel the timeout and hide the video immediately
+            clearTimeout(videoTimeout);
+            video.style.display = 'none';
+        });
+    </script>
+
 
     <!-- About Us Section -->
     <div class="about-section">
@@ -142,7 +180,7 @@
         </div>
     </div>
 
-    <script> //this scirpt will be put into a javascript file don't worry 
+    <script>  
 
         let currentSlide = 1; // Track which slide is currently being displayed
         const totalSlides = 3; // Total number of slides
