@@ -856,8 +856,7 @@ input[type="text"]:focus {
   padding: 30px;
   border-radius: 30px;
   width: 30%;
-  min-height: 600px;
-  max-height: 500px;
+ 
   box-sizing: border-box;
   max-width: 500px;
   min-width: 450px;
