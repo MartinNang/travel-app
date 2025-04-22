@@ -61,6 +61,7 @@ const Profile = () => {
           setProfileImage(users[0].profileImage);
           console.log("user", users[0]);
           fetchItineraries();
+          
         }
       })
       .catch((error) => {
@@ -75,7 +76,7 @@ const Profile = () => {
       .then((response) => {
         let itineraries = response.data;
         setItineraries(itineraries);
-
+        fetchPosts();
         console.log("itineraries data response:", itineraries);
       })
       .catch((error) => {
@@ -258,7 +259,7 @@ const Profile = () => {
             <img src={polaroid} alt="Polaroid Image" />
           </div>
 
-          {posts.map( function(){
+          {posts.map(function(){
           <div class="collage-item">
             <img src={polaroid} alt="Polaroid Image" />
           </div>
