@@ -104,7 +104,7 @@ const Header = () => {
                         <Form.Control
                           type="text"
                           autoComplete="off"
-                          placeholder="Search"
+                          placeholder="Search Users"
                           onChange={onInput}
                           className="mr-sm-2"
                         />
