@@ -10,17 +10,48 @@ import Navbar from "react-bootstrap/Navbar";
 import { BsPerson } from "react-icons/bs";
 import logoImg from "../../images/logo.png";
 import { BACKEND_URL } from "../../App";
+import { Form, Row, Col, Button, Dropdown, ButtonGroup } from "react-bootstrap";
+import axios from "axios";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const Header = () => {
   const location = useLocation();
   const [profileImage, setProfileImage] = useState(
     sessionStorage.getItem("profileImage")
   );
+  const [searchTerm, setSearchTerm] = useState(""),
+    onInput = ({ target: { value } }) => {
+      setSearchTerm(value);
+      console.log("search term", searchTerm);
+      searchUsers(value);
+    };
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  axios.defaults.baseURL = "https://2425-cs7025-group1.scss.tcd.ie";
 
   useEffect(() => {
     console.log("scrolling to top");
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [location.pathname]);
+
+  function searchUsers(value) {
+    console.log("sending request:", value);
+    setLoading(true);
+    axios
+      .get("/users/profileName/" + value)
+      .then((response) => {
+        if (response.data && response.data.length > 0) {
+          setUsers(response.data);
+          console.log("fetched users", users);
+          setLoading(false);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 
   return (
     <header>
@@ -63,6 +94,42 @@ const Header = () => {
                 className="mx-3">
                 events
               </Nav.Link>
+              <Form inline>
+                <Row>
+                  <Col xs="auto">
+                    <Dropdown as={ButtonGroup}>
+                      <Dropdown.Toggle
+                        className="bg-transparent"
+                        id="user-search">
+                        <Form.Control
+                          type="text"
+                          autoComplete="off"
+                          placeholder="Search"
+                          onChange={onInput}
+                          className="mr-sm-2"
+                        />
+                      </Dropdown.Toggle>
+
+                      <Dropdown.Menu>
+                        <p>
+                          {loading ? (
+                            <Skeleton count={3} />
+                          ) : (
+                            users.map((user) => (
+                              <Dropdown.Item
+                                key={user}
+                                eventKey={user}
+                                href={`/en-route/#/profile/${user.id}`}>
+                                {user.profileName}
+                              </Dropdown.Item>
+                            ))
+                          )}
+                        </p>
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </Col>
+                </Row>
+              </Form>
               {sessionStorage.getItem("profileName") ? (
                 <Nav.Link
                   href={`/en-route/#/profile/${sessionStorage.getItem("id")}`}
@@ -72,7 +139,7 @@ const Header = () => {
                     <img
                       id="profile-img"
                       alt={"profile"}
-                      src={BACKEND_URL + profileImage} ></img>
+                      src={BACKEND_URL + profileImage}></img>
                   ) : (
                     <BsPerson id="profile-icon" />
                   )}

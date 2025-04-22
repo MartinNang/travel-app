@@ -9,6 +9,10 @@ userRouter.get("/", (req, res) => {
   connect((conn) => userController.getAllUsers(conn, req, res));
 });
 
+userRouter.get("/profileName/:profileName", (req, res) => {
+  connect((conn) => userController.findUserByProfileName(conn, req, res));
+});
+
 userRouter.post("/login", (req, res) => {
   connect((conn) => userController.findUser(conn, req, res));
 });

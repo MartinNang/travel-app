@@ -14,6 +14,10 @@ const Profile = () => {
   const [activeTab, setActiveTab] = useState("all");
   const [itineraries, setItineraries] = useState([]);
   const [user, setUser] = useState("");
+  const [itineraryItems, setItineraryItems] = useState([]);
+  const [active, setActive] = useState(1);
+  let [items, setItems] = useState([]);
+
   let { profileId } = useParams();
   console.log("profile id:", profileId);
 
@@ -37,6 +41,41 @@ const Profile = () => {
     setActiveTab(tabId);
   };
 
+  fillPaginationItems();
+
+  function fillPaginationItems(pageIndex) {
+    for (let number = pageIndex; number <= itineraries.length / 6; number++) {
+      items.push(
+        <Pagination.Item key={number} active={number === active}>
+          {number}
+        </Pagination.Item>
+      );
+    }
+  }
+
+  fillItineraryItems(1);
+  function fillItineraryItems(pageIndex) {
+    for (
+      let i = 6 * pageIndex;
+      i <= itineraries.length && i <= 6 * pageIndex + 6;
+      i++
+    ) {
+      let it = itineraries[i];
+      setItineraryItems((itineraryItems) => [
+        ...itineraryItems,
+        <Col>
+          <Itinerary
+            id={it.id}
+            title={it.name}
+            startDate={it.start_date}
+            endDate={it.end_date}
+            type={it.type}></Itinerary>
+        </Col>,
+      ]);
+      console.log("new item", it);
+    }
+  }
+
   useEffect(() => {
     console.log("user", user.id, "url", profileId);
     if (!user || user.id !== parseInt(profileId)) {
@@ -45,7 +84,16 @@ const Profile = () => {
     }
     setIsLoggedInUser(profileId === sessionStorage.getItem("id"));
     // setProfileImage(sessionStorage.getItem("profileImage"));
-  }, [user, itineraries, activeTab, profileId, isLoggedInUser, profileImage]);
+  }, [
+    user,
+    itineraries,
+    activeTab,
+    profileId,
+    isLoggedInUser,
+    profileImage,
+    itineraryItems,
+    items,
+  ]);
 
   function fetchData() {
     console.log("fetching user with profileId:", profileId);
@@ -74,6 +122,11 @@ const Profile = () => {
         setItineraries(itineraries);
 
         console.log("itineraries data response:", itineraries);
+        console.log("filling pagination items");
+        fillPaginationItems();
+        console.log("filling itinerary items");
+        fillItineraryItems();
+        console.log(items, itineraryItems);
       })
       .catch((error) => {
         console.error(error);
@@ -169,15 +222,21 @@ const Profile = () => {
         class={`tab-content ${activeTab === "all" ? "active" : ""}`}
         id="all">
         <Row>
-          <Col>
-            {itineraries.map((itinerary) => (
-              <Itinerary
-                id={itinerary.id}
-                title={itinerary.name}
-                startDate={itinerary.start_date}
-                endDate={itinerary.end_date}
-                type={itinerary.type}></Itinerary>
-            ))}
+          <Col xs={6}>
+            <Row id={"itineraries"}>
+              {/* {itineraries.map((itinerary) => (
+                <Col>
+                  <Itinerary
+                    id={itinerary.id}
+                    title={itinerary.name}
+                    startDate={itinerary.start_date}
+                    endDate={itinerary.end_date}
+                    type={itinerary.type}></Itinerary>
+                </Col>
+              ))} */}
+              {itineraryItems.map((itinerary) => ({ itinerary }))}
+              <Pagination>{items}</Pagination>
+            </Row>
           </Col>
 
           <Col class="all-photo-collage-container">

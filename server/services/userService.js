@@ -35,6 +35,15 @@ export async function findUserById(conn, id, callback) {
   callback(result);
 }
 
+export async function findUserByProfileName(conn, profileName, callback) {
+  console.log(conn);
+  const result = await conn.query(
+    `SELECT * FROM users WHERE profileName LIKE ?`,
+    ["%" + profileName + "%"]
+  );
+  callback(result);
+}
+
 export async function createUser(conn, user, callback) {
   console.log(conn);
   let result;

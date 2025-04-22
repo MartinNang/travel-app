@@ -976,3 +976,20 @@ input[type="text"]:focus {
   width: 100px !important;
   margin: auto;
 }
+
+#user-search {
+  border: none;
+}
+
+#user-search:hover {
+  background-color: transparent !important;
+}
+
+#user-search::after {
+  display: none;
+}
+
+.dropdown-menu {
+  height: 120px;
+  overflow: auto;
+}
