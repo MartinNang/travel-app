@@ -38,6 +38,8 @@ const ViewItinerary = () => {
       setLoaded(true);
     }
   }, [events, itinerary, loaded]);
+let startDate = new Date (itinerary.start_date);
+let endDate = new Date (itinerary.end_date);
 
   return (
     <div id="itinerary-container">
@@ -46,7 +48,7 @@ const ViewItinerary = () => {
       </h1>
       <div id="itinerary-columns">
         <div class="day-column" id="day1">
-          <h2 class="day-title">Day 1</h2>
+          <h2 class="day-title">{startDate.getDate()}</h2>
           
           {events.map((event) => (
             /*   <Col>
