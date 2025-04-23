@@ -2,44 +2,30 @@
     width: 100%;
     height: 100%;
     min-width: 80%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 40px 0;
-    box-sizing: border-box;
+    margin: 0 auto 5rem;
     background-color: white;
-    padding: 2.5rem;
-}
-
-/* Main layout */
-.columns {
-    display: flex;
-    width: 100%;
-    height: 100%;
+    padding: 1.5rem;
     position: relative;
 }
 
-/* Left side */
-.left-column {
-    width: 50%;
-    max-height: calc(100vh - 200px);
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding: 1rem 2.5rem 1rem 0;
+/* Title of the itinerary (city, category)*/
+.tour-title {
+    color: #0b524c;
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.2;
 }
 
-/* Cards */
+/* Daily Cards */
 .day-card {
     background-color: #554293;
     border-radius: 40px;
-    padding: 30px;
     color: white;
     position: relative;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     min-height: 240px;
+    width: 400px !important;
 }
 
 .day-title {
@@ -54,97 +40,100 @@
     margin-bottom: 6px;
 }
 
-.day-image {
+
+/* Button "Save as PDF" */
+.btn-pdf {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
-    width: 100px;
+    top: 440px;
+    right: 100px;
 }
 
-/* Divider */
-.columns::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 0;
-    height: 100%;
-    width: 1px;
-    background-color: #ccc;
-    transform: translateX(-50%);
-}
 
-/* Right side */
-.right-column {
-    width: 50%;
-    padding-left: 10px;
+/* used in coverflowCarousel.jsx */
+.coverflow-container {
     display: flex;
-    flex-direction: column;
     align-items: center;
-}
-
-/* Tour heading */
-.tour-details {
-    text-align: center;
-    margin-bottom: 30px;
+    justify-content: center;
+    padding-bottom: 2.5rem;
+    margin: 1rem auto;
+    position: relative;
     width: 100%;
+    max-width: 1200px;  
+    overflow: hidden;
 }
 
-.tour-title {
-    color: #0b524c;
-    font-size: 48px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    line-height: 1.2;
+.coverflow-carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    height: 300px;
+    perspective: 1000px;
 }
 
-.tour-details p {
-    font-size: 16px;
-    margin: 4px 0;
-}
-
-.btn-view {
-    margin-top: 20px;
-    background-color: #554293;
-    color: #f19edc;
-    padding: 10px 24px;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
+.coverflow-item {
+    position: absolute;
+    transition: all 0.5s ease;
+    width: 400px;  
+    height: 100%;
     cursor: pointer;
 }
 
-/* Polaroids */
-.image-cluster {
-    position: relative;
-    width: 100%;
-    height: 300px;
-    margin: 30px 0;
-}
 
+/* Polaroid pictures */
 .polaroid {
     position: absolute;
+    width: 100px;
+    height: 120px;
     object-fit: cover;
-    border-radius: 4px;
+    border: 5px solid white;
+    border-bottom: 20px solid white;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+    z-index: 2;
+  }
+
+
+  
+.polaroid:hover {
+    z-index: 10;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
 }
 
-.rotate-5 {
-    top: 0;
-    left: 40px;
-    transform: rotate(-5deg);
+.polaroid:nth-child(1) {
+    top: 35px;
+    left: 10px;
+    transform: rotate(-12deg);
 }
 
-.rotate--5 {
-    top: 40px;
-    right: 40px;
-    transform: rotate(5deg);
+.polaroid:nth-child(2) {
+    top: 20px;
+    right: 30px;
+    transform: rotate(10deg);
 }
 
-.rotate-8 {
-    bottom: 0;
-    right: 240px;
-    transform: rotate(8deg);
+.polaroid:nth-child(3) {
+    top: 60px;
+    right: -35px;
+    transform: rotate(30deg);
 }
+
+.polaroid:nth-child(4) {
+    top: 325px;
+    right: -25px;
+    transform: rotate(23deg);
+}
+
+.polaroid:nth-child(5) {
+    top: 300px;
+    left: -35px;
+    transform: rotate(-15deg);
+}
+
+
+
 
 /* Footer */
 .byline {
@@ -171,3 +160,4 @@
     border-radius: 8px;
     cursor: pointer;
 }
+

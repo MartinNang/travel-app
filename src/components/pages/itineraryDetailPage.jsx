@@ -1,11 +1,12 @@
-import React from "react";
-import "./ItineraryDetailPage.css";
-import it2 from "../../images/it2.jpg";
-import it3 from "../../images/it3.jpg";
-import it4 from "../../images/it4.jpg";
+import React, { useState, useEffect } from "react";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import itineraryData from "../../data/itinerariesTexts.json";
+import CoverflowCarousel from "../ui/coverflowCarousel";
+import "./ItineraryDetailPage.css"; 
 
-export default function ItineraryDetailPage({ city, category }) {
+const ItineraryDetailPage = ({ city, category }) => {
+  const [activeIndex, setActiveIndex] = useState(0); // tracks which day is active
+
   const cityItinerary = itineraryData[city]?.find(
     (itinerary) => itinerary.category === category
   );
@@ -14,192 +15,59 @@ export default function ItineraryDetailPage({ city, category }) {
     return <div>Itinerary not found for this city and category.</div>;
   }
 
-  return (
-    <div className="itinerary-container">
-      <main className="itinerary-main">
-        <div className="columns">
-          <div className="left-column">
-            {cityItinerary.days.map((day, index) => (
-              <div className="day-card" key={index}>
-                <h2 className="day-title">{day.day_nb} - {day.day_title}</h2>
-                <p className="day-activity">
-                  {day.day_description || "Details coming soon!"}
-                </p>
-                <img src={it2} alt="Polaroid" className="day-image" />
-              </div>
-            ))}
-          </div>
-
-          <div className="right-column">
-            <div className="tour-details">
-              <h1 className="tour-title">{cityItinerary.title}</h1>
-              <p>{cityItinerary.description.split(" ").slice(0, 10).join(" ")}</p>
-              <p>{cityItinerary.description.split(" ").slice(10, 20).join(" ")}</p>
-              <p>{cityItinerary.description.split(" ").slice(20).join(" ")}</p>
-              <button className="btn-view">Click to view</button>
-            </div>
-
-            <div className="image-cluster">
-
-            <img
-                src={it3}
-                alt="polaroid1"
-                className="polaroid rotate-5"
-                width="296"
-                height="327"
-              />
-              <img
-                src={it4}
-                alt="polaroid2"
-                className="polaroid rotate--5"
-                width="254"
-                height="282"
-              />
-              <img
-                src={it2}
-                alt="polaroid3"
-                className="polaroid rotate-8"
-                width="144"
-                height="158"
-              />
-
-
-            </div>
-
-            <div className="byline">
-              <p className="author">By {cityItinerary.author}</p>
-              <div className="action-buttons">
-                <button className="btn-action">Modify</button>
-                <button className="btn-action">Next</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
+  const dailyCards = cityItinerary.days.map((day, index) => (
+    <div className="day-card" key={index}>
+      <h2 className="day-title">
+        {day.day_nb} - {day.day_title}
+      </h2>
+      <p className="day-activity">
+        {day.day_description || "Details coming soon!"} {/* Alternative if no description is found */}
+      </p>
     </div>
-  );
-}
+  ));
 
+  const dailyPhotos = cityItinerary.days[activeIndex].day_images.slice(0, 5).map((img, index) => ( // slice(0,5) makes sure there are only 5 photos
+    <img
+      key={index}
+      src={`./${img}`}
+      alt={`polaroid-${index}`}
+      className="polaroid"
+    />
+  ));
 
-// Removed duplicate default export
-
-
-/*
-              <img
-                src={it5}
-                alt="polaroid1"
-                className="polaroid rotate-5"
-                width="296"
-                height="327"
-              />
-              <img
-                src={it4}
-                alt="polaroid2"
-                className="polaroid rotate--5"
-                width="254"
-                height="282"
-              />
-              <img
-                src={it2}
-                alt="polaroid3"
-                className="polaroid rotate-8"
-                width="144"
-                height="158"
-              />
-export default function ItineraryDetailPage() {
-  const itineraryData = {
-    title: "The Lazy Dublin Tour",
-    author: "Sandra",
-    description:
-      "hshhshshhxhshhxsc jhsvcjsavhdgvcagvsdj hshhshshhxhshhxsc jhsvcjsavhdgvcagvsdj hshhshshhxhshhxscjjs",
-    days: [
-      {
-        title: "DAY 1",
-        activities: [
-          "testDAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1",
-          "DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1",
-          "DAY 1DAY 1D1DAY 1DAY 1DAY 1DAY 1DAY 1",
-        ],
-      },
-      {
-        title: "DAY 2",
-        activities: [
-          "DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1",
-          "DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1DAY 1",
-          "DAY 1DAY 1D1DAY 1DAY 1DAY 1DAY 1DAY 1",
-        ],
-      },
-    ],
-  };
 
   return (
     <div className="itinerary-container">
-      <main className="itinerary-main">
-        <div className="columns">
-          <div className="left-column">
-            {itineraryData.days.map((day, index) => (
-              <div className="day-card" key={index}>
-                <h2 className="day-title">{day.title}</h2>
-                {day.activities.map((activity, i) => (
-                  <p className="day-activity" key={i}>
-                    {activity}
-                  </p>
-                ))}
-                <img src={it2} alt="Polaroid" className="day-image" />
-              </div>
-            ))}
+      <Container>
+        {/* Title section */}
+        <Row>
+          <Col>
+            <div className="title-section">
+              <div className="tour-title">{cityItinerary.title}</div>
+            </div>
+          </Col>
+        </Row>
+
+        {/* Day cards - Itineraries description */}
+        <Row className="itineraries-description-cards">
+          <Col>
+            <CoverflowCarousel items={dailyCards} onSlideChange={setActiveIndex} />
+          </Col>
+        </Row>
+
+        {/* Button - Positioned at the bottom right */}
+        <Row className="justify-content-end">
+          <Col xs="auto">
+            <Button className="btn-pdf">Download as PDF</Button>
+          </Col>
+        </Row>
+
+          <div className="images-polaroids">
+            {dailyPhotos}
           </div>
-
-          <div className="right-column">
-            <div className="tour-details">
-              <h1 className="tour-title">
-                The Lazy <br /> Dublin Tour
-              </h1>
-              <p>
-                {itineraryData.description.split(" ").slice(0, 10).join(" ")}
-              </p>
-              <p>
-                {itineraryData.description.split(" ").slice(10, 20).join(" ")}
-              </p>
-              <p>{itineraryData.description.split(" ").slice(20).join(" ")}</p>
-              <button className="btn-view">Click to view</button>
-            </div>
-
-            <div className="image-cluster">
-              <img
-                src={it3}
-                alt="polaroid1"
-                className="polaroid rotate-5"
-                width="296"
-                height="327"
-              />
-              <img
-                src={it4}
-                alt="polaroid2"
-                className="polaroid rotate--5"
-                width="254"
-                height="282"
-              />
-              <img
-                src={it2}
-                alt="polaroid3"
-                className="polaroid rotate-8"
-                width="144"
-                height="158"
-              />
-            </div>
-
-            <div className="byline">
-              <p className="author">By {itineraryData.author}</p>
-              <div className="action-buttons">
-                <button className="btn-action">Modify</button>
-                <button className="btn-action">Next</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
+      </Container>
     </div>
   );
-}
-*/
+};
+
+export default ItineraryDetailPage;
