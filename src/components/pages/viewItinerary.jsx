@@ -3,16 +3,47 @@ import $ from "jquery";
 import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import CustomCard from "../ui/card";
+import Day from "../ui/day";
 import { Spinner } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+
 const ViewItinerary = () => {
   let { itineraryId } = useParams();
   const [itinerary, setItinerary] = useState([]);
   const [events, setEvents] = useState([]);
   const [loaded, setLoaded] = useState(false);
+  const [days, setDays] = useState([]);
 
   axios.defaults.baseURL = "https://2425-cs7025-group1.scss.tcd.ie";
+
+  function createDays(events) {
+      let days = new Map();
+      let i = 0;
+      // let previousDate = Date.parse(events[0].startDate);
+      for (; i < events.length; i++) {
+          // get date
+          const event = events[i];
+          console.log("event", event);
+          let eventStartDate = new Date(event.start_time).setHours(0, 0, 0, 0);
+          console.log("eventStartDate", eventStartDate, event.start_time);
+          // create new day entry
+          const doesDayExist = !!days.get(eventStartDate);
+          console.log("has this entry been created already?", doesDayExist)
+
+          if (doesDayExist) {
+              console.log("before:", days.get(eventStartDate));
+              let day = days.get(eventStartDate);
+              day.push(event);
+              days.set(eventStartDate, day);
+              console.log("after:", days.get(eventStartDate));
+          } else {
+              days.set(eventStartDate, [event]);
+          }
+      }
+      console.log("days", days);
+      setDays(days);
+  }
 
   useEffect(() => {
     if (!loaded) {
@@ -28,6 +59,7 @@ const ViewItinerary = () => {
               if (events && events.length > 0) {
                 setEvents(events);
                 console.log("events", events);
+                createDays(events);
               }
             });
           }
@@ -47,34 +79,21 @@ let endDate = new Date (itinerary.end_date);
         <strong> {itinerary.title} </strong>
       </h1>
       <div id="itinerary-columns">
-        <div class="day-column" id="day1">
-          <h2 class="day-title">{startDate.getDate()}</h2>
-          
-          {events.map((event) => (
-            /*   <Col>
-                  <Itinerary
-                    id={itinerary.id}
-                    title={itinerary.name}
-                    startDate={itinerary.start_date}
-                    endDate={itinerary.end_date}
-                    type={itinerary.type}></Itinerary>
-                </Col> */
-                <>
-                <div class="activity-card">
-                <div class="tag-stack">
-                  <div class="activity-tag">{event.start_time}</div>
-                  <div class="activity-tag">{event.end_time}</div>
-                </div>
+          <Container>
+              <Row>
+                  {Array.from(days.entries()).map((day, index) => (
+                      <Col xs={12} lg={6} className={"mb-3"}>
+                          <Day key={index} day={day}>
+                          </Day>
+                      </Col>
 
-                <div class="activity-name">{event.name}</div>
-              </div>
-              <div class="activity-line"></div>
-              </>
-              ))}
+                  ))}
+              </Row>
 
-            </div>
-        </div>
+          </Container>
+
       </div>
+    </div>
     
   );
 };

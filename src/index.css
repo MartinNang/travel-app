@@ -855,11 +855,11 @@ input[type="text"]:focus {
   background-color: #0b524c;
   padding: 30px;
   border-radius: 30px;
-  width: 30%;
+  /*width: 30%;*/
  
   box-sizing: border-box;
-  max-width: 500px;
-  min-width: 450px;
+  /*max-width: 500px;*/
+  min-width: 300px;
 }
 
 .day-title {
