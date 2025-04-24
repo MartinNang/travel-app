@@ -1004,3 +1004,30 @@ input[type="text"]:focus {
   max-height: 100vh;
   overflow: scroll;
 }
+
+
+/* Accordion of categories of itineraries (itinerary page) */
+.custom-accordion {
+  border: none;
+}
+
+.custom-accordion > .accordion-header .accordion-button {
+  background-color: #0b524cda;
+  color: #F19EDC;
+  border:none ;
+}
+
+/* header when opened (Bootstrap adds .collapsed when CLOSED) */
+.custom-accordion > .accordion-header .accordion-button:not(.collapsed) {
+  background-color: #0b524cda;
+  color: #F19EDC;
+  box-shadow: none; /* remove blue focus ring */
+  border: none;
+}
+
+/* body */
+.custom-accordion > .accordion-collapse .accordion-body {
+  background-color: #0b524cda;
+  color: #ffffff;
+  border: none;
+}
