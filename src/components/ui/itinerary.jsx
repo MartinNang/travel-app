@@ -4,11 +4,15 @@
  */
 
 import React from "react";
-import polaroid from "../../images/polaroid.png";
 import { Card, CardBody, CardHeader, CardLink } from "react-bootstrap";
 
-const Itinerary = ({ id, title, startDate, endDate, type, events, images }) => {
+
+
+const Itinerary = ({ id, title, startDate, endDate, type}) => {
   console.log("start:", startDate, "end:", endDate, "type:", type);
+  let start = new Date(startDate);
+  let end = new Date(endDate);
+
   return (
     <>
       <Card className="all-itinerary-container mb-3 w-100">
@@ -17,10 +21,10 @@ const Itinerary = ({ id, title, startDate, endDate, type, events, images }) => {
         <CardBody className="all-itinerary-content">
           <div class="all-itinerary-text">
             <p>
-              <strong>Start Date: </strong> {startDate ? startDate : "-"}
+              <strong>Start Date: </strong> {startDate ? start.toDateString() : "-"}
             </p>
             <p>
-              <strong>End Date: </strong> {endDate ? endDate : "-"}
+              <strong>End Date: </strong> {endDate ? end.toDateString() : "-"}
             </p>
             <p>
               <strong>Type: </strong> {type ? type : "-"}
