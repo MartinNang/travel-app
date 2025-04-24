@@ -84,13 +84,24 @@ const CreateItinerary = () => {
       }
     };
     
+
+    const getUserId = () => {
+      // key name must match whatever your login code stores
+      return sessionStorage.getItem("userId"); // returns null if missing
+    };
+    
     
   
   /* Sends the current itinerary (calendar state with event titles and times) to
    the backend API using POST request
    Also logs the result or errors*/
   const handleSave = async () => {
-    const userId = "14"; // this is hardcoded for test
+    const userId = getUserId();
+
+    if (!userId) {
+      alert("No user ID found. Make sure you are logged in!");
+      return;
+    }
   
     // Prepare the itinerary data
     const itinerary = {
