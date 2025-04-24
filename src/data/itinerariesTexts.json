@@ -447,22 +447,22 @@
       "days": [
         {
           "day_nb": "DAY 1",
-          "day_title": "",
-          "day_description": "",
+          "day_title": "Markets and Street Eats",
+          "day_description": "Starting with an early trip to the fish market for breakfast. Then head to Tsukiji outer market for street snacks, and finish the day with depachika for high-end treats and bento boxes!",
           "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
 
         },
         {
           "day_nb": "DAY 2",
-          "day_title": "",
-          "day_description": "",
+          "day_title": "Ramen and local flavours",
+          "day_description": "Explore ramen alleys like Tokyo Ramen Street. Then later in the day hop between Izakatas in Shinjuku's Omoide Yokocho! ",
           "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
 
         },
         {
           "day_nb": "DAY 3",
-          "day_title": "",
-          "day_description": "",
+          "day_title": "Foodie's day out",
+          "day_description": "Begin your day with a brilliant food class. Take a break and visit an animal café, and wrap up your amazing adventure with a multi-coursed dinner in Roppongi!",
           "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
 
         }
