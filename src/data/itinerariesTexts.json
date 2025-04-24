@@ -299,8 +299,8 @@
         "category": "The Romantic",
         "title": "The Romantic Paris Tour",
         "author": "Sandra",
-        "preview": "Wander hand-in-hand",
-        "description": "Wander hand-in-hand through cobbled streets, cosy cafés, and gardens made for lingering. Whether you're travelling solo or with a partner, this dreamy itinerary captures the poetic essence of Paris",
+        "preview": "Wander hand-in-hand through cobbled streets, cosy cafés, and gardens made for lingering. Whether you're travelling solo or with a partner, this dreamy itinerary captures the poetic essence of Paris",
+        "description": "Everything for a romantic get away!",
         "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
         "days": [
           {
@@ -349,100 +349,100 @@
     ],
   "tokyo": [
     {
-      "category": "categ",
-      "title": "The ? Tokyo Tour",
-      "preview": "preview to add",
-      "description": "description to add",
+      "category": "Neon Dreams",
+      "title": "The neon Tokyo Tour",
+      "preview": "Step into a cyberpunk wonderland with towering LED billboards, talking toilets and cutting edge technology. Tokyo's future-forward charm will leave you in awe.",
+      "description": "3 Days in futuristic Tokyo",
       "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
       "days": [
         {
           "day_nb": "DAY 1",
-          "day_title": "",
-          "day_description": "",
+          "day_title": "Shibuya & Shinjuku",
+          "day_description": "Start with Shibuya Scramble Crossing and Hachiko statue then make your way over to Shibuya's cutting-edge shopping district. End the day with a Robot Restaurant show and end the day with a sensory overloading walk at Kabukicho's sensory overload.",
           "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
 
         },
         {
           "day_nb": "DAY 2",
-          "day_title": "",
-          "day_description": "",
+          "day_title": "Interactive worlds & Sci-Fi",
+          "day_description": "Drive into Tokyo's digital art revolution. Afterwards explore Odaiba's futuristic landmarks like the Unicorn Gundam statue and explore arcade-filled entertainment complexes. Ending your day with a scenic cruise.",
           "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
 
         },
         {
           "day_nb": "DAY 3",
-          "day_title": "",
-          "day_description": "",
+          "day_title": "Tech Culture & Quirky Cafés",
+          "day_description": "Beginning at Akihabara's tech shop, you will explore the latest gadgets, retro consoles and VR arcades. Visit a themed café for something uniquely Tokyo. Wrap up your trip with a panoramic city view from Tokyo's Skytree's observation deck.",
           "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
 
         }
       ]
     },
     {
-      "category": "categ",
-      "title": "The ? Tokyo Tour",
-      "preview": "preview to add",
-      "description": "description to add",
+      "category": "Tradition meets Trend",
+      "title": "The trendy Tokyo Tour",
+      "preview": "Wander ancient temples, sip matcha in gorgeous gardens and dive into the quirky Harajuku fashion.",
+      "description": "A cultural Tokyo Escape",
       "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
       "days": [
         {
           "day_nb": "DAY 1",
-          "day_title": "",
-          "day_description": "",
+          "day_title": "The Historic Heart of Tokyo",
+          "day_description": "Begin your day at the Senso-Ji Temple in asakuse, then make your way to Nakamise Street to try traditional snacks and enjoy the handmade crafts. Afterward to a rickshaw ride and end your day with a visit to Ueno Park's museums with a quiet tea ceremony.",
           "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
 
         },
         {
           "day_nb": "DAY 2",
-          "day_title": "",
-          "day_description": "",
+          "day_title": "Fashion & Fusion in Harajuku",
+          "day_description": "Spend your day in Harajuku, exploring the Takeshita Street's bold streetwear and youthful vibes. Then wander down Omotesando for art galleries, arhitecture and stylish cafés. Don't miss the serenity of Meji Shrine hidden in a forest nearby!",
           "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
 
         },
         {
           "day_nb": "DAY 3",
-          "day_title": "",
-          "day_description": "",
+          "day_title": "the old & new in Shibuya",
+          "day_description": "Experience the ultra-modern with a visit to Shibuya's shopping meccas, art spaces and bustling crosswalk! Then wind down your visit by heading to Daikanyama, one of Tokyo's trendiest neighbourhoods with peaceful canals, boutiques and more.",
           "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
 
         }
       ]
     },
     {
-      "category": "categ",
-      "title": "The ? Tokyo Tour",
-      "preview": "preview to add",
-      "description": "description to add",
+      "category": "For the Anime lovers",
+      "title": "The Otaku Odyssey Tokyo Tour",
+      "preview": "Level up your trip with Akihabara's arcades, anime cafés and Studio Ghibli's whimsy. Explore everything gamer and anime that Tokyo has to offer!",
+      "description": "Tokyo for the Anime & Game lovers!",
       "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
       "days": [
         {
           "day_nb": "DAY 1",
-          "day_title": "",
-          "day_description": "",
+          "day_title": "Akihabara Overload",
+          "day_description": "Negin your exploration in Akihabara. Explore the multi-level anime and figure shops, retro game arcades and themed cafés like Final Fantasy Eorzea Café. Book a VR experience and step into a maid café for an eccentric cultural treat.",
           "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
 
         },
         {
           "day_nb": "DAY 2",
-          "day_title": "",
-          "day_description": "",
+          "day_title": "Ghibli & Hidden Gems",
+          "day_description": "Visit the enchanting Ghibli Museum in Mitaka, followed by a peaceful stroll through Inokashira Park. Return to Tokyo to explore Nakano Broadway, packed with vintage collectibles, manga and rare merch for the hardcore fans.",
           "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
 
         },
         {
           "day_nb": "DAY 3",
-          "day_title": "",
-          "day_description": "",
+          "day_title": "Real-world Anime",
+          "day_description": "Go on an anime location hunt. Visit real-life places featured in your favourite shows, like the steps from Your Name in Yotsuya or the settings of Steins;Gate around akihabara. End your trip with a themed dinner at Pokémon café.",
           "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
 
         }
       ]
     },
     {
-      "category": "categ",
-      "title": "The ? Tokyo Tour",
-      "preview": "preview to add",
-      "description": "description to add",
+      "category": "Tokyo Bites",
+      "title": "The foodie Tokyo Tour",
+      "preview": "From sushi counters to street snacks, indulge in izakayas, Tsukji markets fresh seafood delights and ramen alleys!",
+      "description": "A culinary crawl through Tokyo",
       "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
       "days": [
         {
