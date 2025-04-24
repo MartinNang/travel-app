@@ -20,7 +20,7 @@ const ItineraryDetailPage = ({ city, category }) => {
       <h2 className="day-title">
         {day.day_nb} - {day.day_title}
       </h2>
-      <p className="day-activity">
+      <p className="day-activity" style={{fontSize:"0.9em"}}>
         {day.day_description || "Details coming soon!"} {/* Alternative if no description is found */}
       </p>
     </div>
@@ -38,7 +38,7 @@ const ItineraryDetailPage = ({ city, category }) => {
 
   return (
     <div className="itinerary-container">
-      <Container>
+      <Container style={{fontFamily: '"Poppins","serif"'}}>
         {/* Title section */}
         <Row>
           <Col>
@@ -55,12 +55,23 @@ const ItineraryDetailPage = ({ city, category }) => {
           </Col>
         </Row>
 
-        {/* Button - Positioned at the bottom right */}
-        <Row className="justify-content-end">
-          <Col xs="auto">
-            <Button className="btn-pdf">Download as PDF</Button>
-          </Col>
-        </Row>
+        {/* Dowloading as PDF, if the feature is available for this itinerary */}
+        {cityItinerary.pdf && (
+          <Row className="justify-content-end">
+            <Col xs="auto">
+              <Button
+                as="a"
+                href={`/en-route${cityItinerary.pdf}`}
+                download
+                className="btn-pdf"
+                style={{ fontFamily: '"Poppins", serif' }}
+              >
+                Download as PDF
+              </Button>
+            </Col>
+          </Row>
+        )}
+
 
           <div className="images-polaroids">
             {dailyPhotos}

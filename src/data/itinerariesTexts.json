@@ -5,27 +5,26 @@
       "title": "The Lazy and Cozy Dublin Tour",
       "preview": "Slow down and soak up Dublin's charm one cozy café at a time. Stroll along the River Liffey, browse indie bookshops, and curl up with a pint by a roaring pub fire. This is the ultimate chill-out trip, where there’s no rush—just vibes.",
       "description": "This is a chill itinerary for exploring Dublin slowly...",
-      "images": ["aquarium.png", "it3.jpg", "it4.jpg"],
       "days": [
         {
           "day_nb": "DAY 1",
           "day_title": "Settle In & Stroll Slow",
           "day_description": "Ease into Dublin with a relaxed morning browsing the boutiques and coffee spots of Drury Street. Grab a pastry and people-watch in St. Stephen’s Green, then wander through the Little Museum of Dublin for quirky, bite-sized history. In the evening, tuck into comfort food at a cozy Georgian townhouse restaurant and end the night with a hot whiskey by the fire in a snug old pub.",
-          "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+          "day_images": ["/images/itinerary_page/dublin-lazy-bookofkells.jpg","/images/itinerary_page/dublin-lazy-buidling.jpg","/images/itinerary_page/dublin-lazy-phoenixPark.jpg","/images/itinerary_page/dublin-lazy-stairs.jpg","/images/itinerary_page/dublin-lazy-statue.jpg"]
 
         },
         {
           "day_nb": "DAY 2",
           "day_title": "Books, Brews & Bliss",
           "day_description": "Start your day wrapped in the scent of old books at the beautiful Long Room in Trinity College Library. Then it’s over to the Chester Beatty Library for calm vibes and global treasures. Spend your afternoon in a tea room or sipping Irish coffee in a plush hotel lounge, and if you're feeling fancy, treat yourself to a slow, scenic ride on the vintage green Dublin Tram Café.",
-          "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+          "day_images": ["/images/itinerary_page/dublin-lazy-stairs.jpg","/images/itinerary_page/dublin-lazy-bookofkells.jpg","/images/itinerary_page/dublin-lazy-buidling.jpg","/images/itinerary_page/dublin-lazy-statue.jpg","/images/itinerary_page/dublin-lazy-phoenixPark.jpg"]
 
         },
         {
           "day_nb": "DAY 3",
           "day_title": "Coastal Calm & Cottagecore Energy",
           "day_description": "Take a peaceful train ride to Dalkey or Killiney for sea air and small-town charm. Enjoy a quiet walk along the coast, then cozy up with lunch in a seaside café. Head back to Dublin for a final evening of jazz, gentle tunes, or a storytelling session—your perfect soft landing before heading home.",
-          "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+          "day_images": ["/images/itinerary_page/dublin-lazy-phoenixPark.jpg","/images/itinerary_page/dublin-lazy-stairs.jpg","/images/itinerary_page/dublin-lazy-statue.jpg", "/images/itinerary_page/dublin-lazy-bookofkells.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/lazy-dublin-buidling.jpg"]
 
         }
       ]
@@ -129,7 +128,7 @@
       "title": "The Adventurous NYC Tour",
       "preview": "New York is your urban jungle gym—climb, cruise, explore! From rooftop views to kayaking on the Hudson, the city’s got thrills in every borough. Lace-up, look up, and let the adventure unfold.",
       "description": "Discover the thrills of NYC, the city who never sleeps... ",
-      "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
+      "pdf": "/pdf/adventurous_itinerary_nyc.pdf",
       "days": [
         {
           "day_nb": "DAY 1",
@@ -159,7 +158,7 @@
       "title": "The Lazy and Cozy NYC Tour",
       "preview": "Big city energy, slow-paced vibes. Think quiet coffee shops, book browsing in hidden corners, and slow walks through leafy parks. This trip is all about soaking up New York’s softer side—at your own pace.",
       "description": "This is a chill itinerary for exploring New-York slowly...",
-      "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
+      "pdf": "/pdf/lazy_itinerary_nyc.pdf",
       "days": [
         {
           "day_nb": "DAY 1",
@@ -189,7 +188,7 @@
       "title": "The Family-friendly NYC Tour",
       "preview": "Big fun for little legs and curious minds! From world-famous zoos to hands-on museums and Broadway shows for all ages, NYC is a playground for the whole family. Expect smiles, snacks, and lots of “wow!”",
       "description": "Discover fun activities to do with all the family! ",
-      "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
+      "pdf": "/pdf/family_friendly_itinerary_nyc.pdf",
       "days": [
         {
           "day_nb": "DAY 1",
@@ -218,7 +217,7 @@
       "title": "The Foodie NYC Tour",
       "preview": "Come hungry—New York’s flavours are endless. Bagels, dumplings, pizza, Michelin stars, and everything in between. Every neighbourhood’s a new bite, every meal’s a memory.",
       "description": "Discover all the good food spots of NYC!",
-      "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
+      "pdf": "/pdf/foodie_itinerary_nyc.pdf",
       "days": [
         {
           "day_nb": "DAY 1",

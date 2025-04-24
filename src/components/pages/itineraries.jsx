@@ -11,6 +11,8 @@ import Accordion from "react-bootstrap/Accordion";
 import PhotoCarousel from "../ui/carousel.jsx";
 import { useNavigate } from "react-router-dom";
 import itinerariesPreviewsData from "../../data/itinerariesTexts.json";
+import Background from "../../images/Purple_World_Map.png";
+
 
 const Itineraries = () => {
   const [selectedCity, setSelectedCity] = useState("dublin");
@@ -24,7 +26,7 @@ const Itineraries = () => {
 
     // Scroll to the carousel section
     if (carouselRef.current) {
-      const yOffset = -100; // Adjust this value to scroll slightly less
+      const yOffset = -100; 
       const y =
         carouselRef.current.getBoundingClientRect().top +
         window.scrollY +
@@ -37,9 +39,16 @@ const Itineraries = () => {
   return (
     <div>
       <Container
-        fluid
-        className="vh-100 d-flex flex-column justify-content-center align-items-center bg-dark">
-        <h1 style={{ fontWeight: 700, color: "#b1f8b6" }}>
+          fluid
+          className="vh-100 d-flex flex-column justify-content-center align-items-center"
+          style={{
+            fontFamily: '"Poppins","serif"',
+            backgroundImage: `url(${Background})`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat'
+          }}>
+        <h1 style={{ fontWeight: 700, color: "#b1f8b6",  }}>
           Where do you want to go?
         </h1>
         <div className="mt-3">
@@ -52,7 +61,6 @@ const Itineraries = () => {
                 backgroundColor:
                   selectedCity === city.toLowerCase() ? "#88e097" : "#555",
                 border: "none",
-                color: "#000",
               }}>
               {city}
             </Button>
@@ -63,7 +71,7 @@ const Itineraries = () => {
       <Container
         ref={carouselRef}
         className="my-4 p-3 rounded"
-        style={{ backgroundColor: "#0b524c" }}>
+        style={{ backgroundColor: "#0b524c" , fontFamily: '"Poppins","serif"',}}>
         <Row>
           <Col md={6}>
             <h2
@@ -84,7 +92,7 @@ const Itineraries = () => {
 
             <Accordion>
               {itinerariesPreviewsCity.map((itinerary, index) => (
-                <Accordion.Item key={index} eventKey={index.toString()}>
+                <Accordion.Item key={index} eventKey={index.toString()} className="custom-accordion">
                   <Accordion.Header>{itinerary.category}</Accordion.Header>
                   <Accordion.Body>
                     {itinerary.preview}
