@@ -1,11 +1,7 @@
-import queryOverpass from "query-overpass";
-import $ from "jquery";
-import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
-import CustomCard from "../ui/card";
 import Day from "../ui/day";
-import { Spinner } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const ViewItinerary = () => {
@@ -20,7 +16,9 @@ const ViewItinerary = () => {
   function createDays(events) {
       let days = new Map();
       let i = 0;
-      // let previousDate = Date.parse(events[0].startDate);
+      /**
+       * let previousDate = Date.parse(events[0].startDate);
+       */
       for (; i < events.length; i++) {
           // get date
           const event = events[i];
@@ -70,14 +68,13 @@ const ViewItinerary = () => {
       setLoaded(true);
     }
   }, [events, itinerary, loaded]);
-let startDate = new Date (itinerary.start_date);
-let endDate = new Date (itinerary.end_date);
 
   return (
     <div id="itinerary-container">
       <h1 id="itinerary-title">
         <strong> {itinerary.title} </strong>
       </h1>
+
       <div id="itinerary-columns">
           <Container>
               <Row>

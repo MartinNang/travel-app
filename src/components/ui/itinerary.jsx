@@ -4,12 +4,11 @@
  */
 
 import React from "react";
-import polaroid from "../../images/polaroid.png";
 import { Card, CardBody, CardHeader, CardLink } from "react-bootstrap";
 
 
 
-const Itinerary = ({ id, title, startDate, endDate, type, events, images }) => {
+const Itinerary = ({ id, title, startDate, endDate, type}) => {
   console.log("start:", startDate, "end:", endDate, "type:", type);
   let start = new Date(startDate);
   let end = new Date(endDate);
@@ -25,7 +24,7 @@ const Itinerary = ({ id, title, startDate, endDate, type, events, images }) => {
               <strong>Start Date: </strong> {startDate ? start.toDateString() : "-"}
             </p>
             <p>
-              <strong>End Date: </strong> {endDate ? start.toDateString() : "-"}
+              <strong>End Date: </strong> {endDate ? end.toDateString() : "-"}
             </p>
             <p>
               <strong>Type: </strong> {type ? type : "-"}

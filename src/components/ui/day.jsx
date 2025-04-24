@@ -4,8 +4,6 @@
  */
 
 import React from "react";
-import polaroid from "../../images/polaroid.png";
-import { Card, CardBody, CardHeader, CardLink } from "react-bootstrap";
 
 const Day = ({ day }) => {
     console.log("day key", day[0], "day value", day[1]);
