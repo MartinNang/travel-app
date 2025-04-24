@@ -55,12 +55,23 @@ const ItineraryDetailPage = ({ city, category }) => {
           </Col>
         </Row>
 
-        {/* Button - Positioned at the bottom right */}
-        <Row className="justify-content-end">
-          <Col xs="auto">
-            <Button className="btn-pdf" style={{fontFamily: '"Poppins","serif"'}}>Download as PDF</Button>
-          </Col>
-        </Row>
+        {/* Dowloading as PDF, if the feature is available for this itinerary */}
+        {cityItinerary.pdf && (
+          <Row className="justify-content-end">
+            <Col xs="auto">
+              <Button
+                as="a"
+                href={`/en-route${cityItinerary.pdf}`}
+                download
+                className="btn-pdf"
+                style={{ fontFamily: '"Poppins", serif' }}
+              >
+                Download as PDF
+              </Button>
+            </Col>
+          </Row>
+        )}
+
 
           <div className="images-polaroids">
             {dailyPhotos}
