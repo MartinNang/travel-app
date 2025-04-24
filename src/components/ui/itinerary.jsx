@@ -6,7 +6,25 @@
 import React from "react";
 import { Card, CardBody, CardHeader, CardLink } from "react-bootstrap";
 
+export class ItineraryType {
+  static LAZY = "lazy";
+  static ADVENTUROUS = "adventurous";
+  static TOURISTIC = "touristic";
+  static ORIGINAL = "original";
 
+  static valueOf(num) {
+    switch (num) {
+      case 1:
+        return this.LAZY;
+      case 2:
+        return this.ADVENTUROUS;
+      case 3:
+        return this.TOURISTIC;
+      case 4:
+        return this.ORIGINAL;
+    }
+  }
+}
 
 const Itinerary = ({ id, title, startDate, endDate, type}) => {
   console.log("start:", startDate, "end:", endDate, "type:", type);
@@ -27,17 +45,9 @@ const Itinerary = ({ id, title, startDate, endDate, type}) => {
               <strong>End Date: </strong> {endDate ? end.toDateString() : "-"}
             </p>
             <p>
-              <strong>Type: </strong> {type ? type : "-"}
+              <strong>Type: </strong> {type ? ItineraryType.valueOf(type) : "-"}
             </p>
-            {/* <p>
-              <strong>Day 1 -</strong> More events
-            </p>
-            <p>
-              <strong>Day 2 -</strong> Something new
-            </p>
-            <p>
-              <strong>Day 3 -</strong> Great experience
-            </p> */}
+
             <CardLink href={`/en-route/#/itinerary/${id}`}>view</CardLink>
           </div>
 
@@ -49,18 +59,7 @@ const Itinerary = ({ id, title, startDate, endDate, type}) => {
               <img src={polaroid} alt="Polaroid Image" />
             </div>
           </div> */}
-          {/* 
-          <div class="all-itinerary-text-right">
-            <p>
-              <strong>Day 4 -</strong> New fun
-            </p>
-            <p>
-              <strong>Day 5 -</strong> Exciting stuff
-            </p>
-            <p>
-              <strong>Day 6 -</strong> The last party
-            </p>
-          </div> */}
+
         </CardBody>
       </Card>
     </>
