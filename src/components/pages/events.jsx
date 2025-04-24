@@ -79,14 +79,14 @@ const Events = ({ wishlist, setWishlist }) => {
               filter && filter.length > 0 ? '"="' + filter : ""
             }"][wikidata]${
           searchTerm && searchTerm.length > 0
-            ? '["name"~"' + searchTerm + '"]'
+            ? '["name"~"' + searchTerm + '",i]'
             : ""
         };
             nwr(area)["amenity${
               filter && filter.length > 0 ? '"="' + filter : ""
             }"][wikidata]${
           searchTerm && searchTerm.length > 0
-            ? '["name"~"' + searchTerm + '"]'
+            ? '["name"~"' + searchTerm + '",i]'
             : ""
         };
           );

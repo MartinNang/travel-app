@@ -40,6 +40,20 @@ const storage = multer.diskStorage({
 });
 export const upload = multer({
   storage: storage,
+  fileFilter: (req, file, cb) => {
+    if (
+        file.mimetype === 'image/jpeg' ||
+        file.mimetype === 'image/jpg' ||
+        file.mimetype === 'image/png'
+    ) {
+      cb(null, true);
+    } else {
+      cb(null, false);
+      const err = new Error('Only .jpg .jpeg .png images are supported!');
+      err.name = 'ExtensionError';
+      return cb(err);
+    }
+  },
   limits: { fileSize: 5 * 1000 * 1000 },
 });
 const hostname = "nodejs_2425-cs7025-group1";
@@ -116,8 +130,11 @@ app.get("/uploads/:image", function (req, res) {
   res.sendFile(path.join(__dirname, "/uploads/", req.params.image)); // find out the filePath based on given fileName
 });
 
-app.post("/create-post", upload.array("postImages", 10), (req, res) => {
+app.post("/create-post", upload.array("postImages", 5), (req, res) => {
   console.log("req.body", req.body);
+  console.log("req.files", req.files);
+  if (req.file) console.log("req.file", req.file);
+
   if (req.files ) { // && req.file.path
     connect((conn) => postController.createPost(conn, req, res));
     // res.status(200).send(req.files);

@@ -35,10 +35,11 @@ const ItineraryDetailPage = ({ city, category }) => {
     />
   ));
 
-
+  
   return (
     <div className="itinerary-container">
       <Container style={{fontFamily: '"Poppins","serif"'}}>
+
         {/* Title section */}
         <Row>
           <Col>
@@ -49,9 +50,17 @@ const ItineraryDetailPage = ({ city, category }) => {
         </Row>
 
         {/* Day cards - Itineraries description */}
-        <Row className="itineraries-description-cards">
+        {/* Carousel for large screens */}
+        <Row>
           <Col>
             <CoverflowCarousel items={dailyCards} onSlideChange={setActiveIndex} />
+          </Col>
+        </Row>
+
+        {/* Scrolling for smaller screens */}
+        <Row className="smaller-screen-dailycards">
+          <Col>
+            {dailyCards}
           </Col>
         </Row>
 
@@ -71,7 +80,6 @@ const ItineraryDetailPage = ({ city, category }) => {
             </Col>
           </Row>
         )}
-
 
           <div className="images-polaroids">
             {dailyPhotos}

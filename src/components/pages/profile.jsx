@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 
 import profilepic from "../../images/profile-pic.png";
-import polaroid from "../../images/polaroid.png";
 import settings from "../../images/settings.png";
 import { useNavigate, useParams } from "react-router-dom";
 import {Container, Row, Col, Button} from "react-bootstrap";
 import Itinerary from "../ui/itinerary";
 import axios from "axios";
 import { BACKEND_URL } from "../../App";
-import Pagination from "react-bootstrap/Pagination";
 // import Post from "../ui/post";
 import Photo from "../ui/photo";
 
@@ -18,7 +16,6 @@ const Profile = () => {
   // const [posts, setPosts] = useState([]);
   const [photos, setPhotos] = useState([]);
   const [user, setUser] = useState("");
-  const [active, setActive] = useState(1);
 
   let { profileId } = useParams();
   console.log("profile id:", profileId);
@@ -275,13 +272,20 @@ const Profile = () => {
       
           </Row>
       </Container>
-      <Container>
-        <Row>
-          <Button href={"#/create-post"}>
-            Create new post
-          </Button>
-        </Row>
-      </Container>
+      {/*{isLoggedInUser ?*/}
+          <Container>
+            <Row>
+              <Button href={"#/create-post"} className={"mb-2"} disabled={itineraries.length === 0}>
+                Create a new post
+              </Button>
+              <Button href={"#/events"} className={"mb-2"}>
+                Create a new itinerary
+              </Button>
+            </Row>
+          </Container>
+          {/*: ""*/}
+      {/*}*/}
+
     </>
   );
 };

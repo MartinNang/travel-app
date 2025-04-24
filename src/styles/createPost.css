@@ -30,7 +30,7 @@
     display: flex;
     width: 70%;
     max-height: calc(100vh - 20px);
-    background-color: #d7d7d7;
+    background-color: #d7d7d7 !important;
     padding: 1rem 2.5rem 1rem 0;
     border-radius: 2rem;
 }
@@ -216,7 +216,7 @@
 }
 
 .create-post-button-container {
-    margin-right: 128px;
+    /*margin-right: 128px;*/
 }
 
 .post-button {
@@ -227,4 +227,9 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    /*max-width: 10rem;*/
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    display: grid;
 }
