@@ -4,20 +4,29 @@ export async function getAllPostImages(conn, callback) {
   callback(result);
 }
 
-export async function findPostImagesByPostId(conn, overpassId, callback) {
-  console.log("find postImages by post_id", overpassId);
+export async function findPostImagesByPostId(conn, postId, callback) {
+  console.log("find postImages by post_id", postId);
   const result = await conn.query(
     `SELECT * FROM postImages WHERE post_id = (?)`,
-    [itineraryId]
+    [postId]
   );
   callback(result);
 }
 
-export async function createPostImage(conn, postId, postImage, callback) {
-  console.log("creating post image", postImage);
+export async function findPostImagesByUserId(conn, userId, callback) {
+  console.log("find postImages by user_id", userId);
   const result = await conn.query(
-    "INSERT INTO postImages (`post_id`, `imagePath`) VALUES (?, ?);",
-    [postId, postImage]
+      `SELECT * FROM postImages WHERE user_id = (?)`,
+      [userId]
+  );
+  callback(result);
+}
+
+export async function createPostImage(conn, postId, postImagePath, userId, callback) {
+  console.log("creating post image", postImagePath);
+  const result = await conn.query(
+    "INSERT INTO postImages (`post_id`, `imagePath`, `user_id`) VALUES (?, ?, ?);",
+    [postId, postImagePath, userId]
   );
   callback(result);
 }

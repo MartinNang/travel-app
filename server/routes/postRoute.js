@@ -33,7 +33,7 @@ postRouter.put("/itinerary/:itineraryId/user/:userId", (req, res, next) => {
 // });
 
 postRouter.post("/:itineraryId", (req, res, next) => {
-  connect((conn) => postController.createEvent(conn, req, res));
+  connect((conn) => postController.createPost(conn, req, res));
 });
 
 postRouter.delete("/:overpassId", (req, res, next) => {

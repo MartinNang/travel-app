@@ -1,6 +1,7 @@
 export default class PostImage {
-  constructor(id, path) {
-    this.id = id;
+  constructor(postId, userId, path) {
+    this.postId = postId;
+    this.userId = userId;
     this.path = path;
   }
 }

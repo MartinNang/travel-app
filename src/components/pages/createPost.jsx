@@ -1,5 +1,5 @@
 import React from "react";
-import "./createPost.css";
+import "../../styles/createPost.css";
 import it2 from "../../images/it2.jpg";
 import it3 from "../../images/it3.jpg";
 import it4 from "../../images/it4.jpg";

@@ -36,10 +36,30 @@ export function findPostImagesByPostId(conn, req, res) {
   }
 }
 
+export function findPostImagesByUserId(conn, req, res) {
+  try {
+    postImageService.findPostImagesByUserId(
+        conn,
+        req.params.userId,
+        (result) => {
+          if (result.length === 1) {
+            res.status(200);
+          } else if (result.length === 0) {
+            res.status(403);
+          }
+          res.send(result);
+        }
+    );
+  } catch (code) {
+    res.status(code);
+    res.send();
+  }
+}
+
 export function createPostImage(conn, req, res) {
   try {
-    let postImage = new PostImage(req.body.postId, req.body.imagePath);
-    postImageService.createPostImage(conn, postImage, (result) => {
+    let postImage = new PostImage(req.body.postId, req.body.userId, req.body.imagePath);
+    postImageService.createPostImage(conn, postImage,(result) => {
       if (result.length === 1) {
         res.status(200);
       } else if (result.length === 0) {

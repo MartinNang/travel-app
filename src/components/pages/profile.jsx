@@ -4,16 +4,19 @@ import profilepic from "../../images/profile-pic.png";
 import polaroid from "../../images/polaroid.png";
 import settings from "../../images/settings.png";
 import { useNavigate, useParams } from "react-router-dom";
-import { Container, Row, Col } from "react-bootstrap";
+import {Container, Row, Col, Button} from "react-bootstrap";
 import Itinerary from "../ui/itinerary";
 import axios from "axios";
 import { BACKEND_URL } from "../../App";
 import Pagination from "react-bootstrap/Pagination";
+// import Post from "../ui/post";
+import Photo from "../ui/photo";
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState("all");
   const [itineraries, setItineraries] = useState([]);
-  const [posts, setPosts] = useState([]);
+  // const [posts, setPosts] = useState([]);
+  const [photos, setPhotos] = useState([]);
   const [user, setUser] = useState("");
   const [active, setActive] = useState(1);
 
@@ -61,7 +64,6 @@ const Profile = () => {
           setProfileImage(users[0].profileImage);
           console.log("user", users[0]);
           fetchItineraries();
-          
         }
       })
       .catch((error) => {
@@ -76,7 +78,7 @@ const Profile = () => {
       .then((response) => {
         let itineraries = response.data;
         setItineraries(itineraries);
-        fetchPosts();
+        fetchPhotos();
         console.log("itineraries data response:", itineraries);
       })
       .catch((error) => {
@@ -87,25 +89,25 @@ const Profile = () => {
 
 
 
-  function fetchPosts() {
-    console.log("fetching posts for user with profileId:", profileId);
+  function fetchPhotos() {
+    console.log("fetching photos for user with profileId:", profileId);
     axios
-      .get("/posts")
+      .get("/postImages/user/" + profileId)
       .then((response) => {
-        let posts = response.data;
-        setPosts(posts);
+        setPhotos(response.data);
 
-        console.log("posts data response:", posts);
+        console.log("photos data response:", photos);
+        // console.log("post 1", photos[0].description);
       })
       .catch((error) => {
         console.error(error);
-        setPosts([]);
+        setPhotos([]);
       });
   }
 
   return (
     <>
-      <Container fluid className={"m-0 header"}>
+      <Container fluid className={"m-0 header"} >
         <Row
           className={"w-100 h-100 align-items-center justify-content-center"}>
           <Col xs={6} xl={2} className={"profile-info justify-content-center"}>
@@ -132,13 +134,17 @@ const Profile = () => {
             <p class="stat-number">{itineraries.length}</p>
             <p class="stat-title">Trips</p>
           </Col>
-          <Col xs={4} xl={2} className={"stat-item"}>
+          {/*<Col xs={4} xl={2} className={"stat-item"}>
             <p class="stat-number">200</p>
             <p class="stat-title">Followers</p>
           </Col>
           <Col xs={4} xl={2} className={"stat-item"}>
             <p class="stat-number">150</p>
             <p class="stat-title">Following</p>
+          </Col>*/}
+          <Col xs={4} xl={2} className={"stat-item"}>
+            <p class="stat-number">{photos.length}</p>
+            <p class="stat-title">Photos</p>
           </Col>
           {/*</div>*/}
           <Col
@@ -161,9 +167,9 @@ const Profile = () => {
                 </button>
                 <img src={settings} alt="Settings" className="settings-btn" />
               </div>
-            ) : (
+            ) : /*(
               <button className="follow-btn">Follow</button>
-            )}
+            )*/""}
           </Col>
           {/*<Col className={ "d-flex align-items-center justify-content-center"}>*/}
 
@@ -173,69 +179,67 @@ const Profile = () => {
       </Container>
 
       <div class="separator"></div>
-      <div class="tabs">
-        <div
-          class={`tab ${activeTab === "all" ? "active" : ""}`}
-          onClick={() => handleTabClick("all")}>
-          Overview
+      <Container className={"tab-container"}>
+        <div class="tabs">
+          <div
+              class={`tab ${activeTab === "all" ? "active" : ""}`}
+              onClick={() => handleTabClick("all")}>
+            Overview
+          </div>
+          <div
+              class={`tab ${activeTab === "itineraries" ? "active" : ""}`}
+              onClick={() => handleTabClick("itineraries")}>
+            Itineraries
+          </div>
+          <div
+              class={`tab ${activeTab === "photos" ? "active" : ""}`}
+              onClick={() => handleTabClick("photos")}>
+            Photos
+          </div>
         </div>
-        <div
-          class={`tab ${activeTab === "itineraries" ? "active" : ""}`}
-          onClick={() => handleTabClick("itineraries")}>
-          Itineraries
-        </div>
-        <div
-          class={`tab ${activeTab === "photos" ? "active" : ""}`}
-          onClick={() => handleTabClick("photos")}>
-          Photos
-        </div>
-      </div>
+      </Container>
+
 
       <Container
-        class={`tab-content ${activeTab === "all" ? "active" : ""}`}
+        class={`tab-content ${activeTab === "all" ? "active" : ""} container tab-container`}
         id="all">
         <Row>
-          <Col xs={6}>
-            <Row id={"itineraries"}>
+          <Col xs={12} lg={6}>
+            <Container>
+              <Row id={"itineraries"}>
               {itineraries.map((itinerary) => (
-                <Col>
-                  <Itinerary
-                    id={itinerary.id}
-                    title={itinerary.name}
-                    startDate={itinerary.start_date}
-                    endDate={itinerary.end_date}
-                    type={itinerary.type}></Itinerary>
-                </Col>
+                  <Col xs={4}>
+                    <Itinerary
+                        id={itinerary.id}
+                        title={itinerary.name}
+                        startDate={itinerary.start_date}
+                        endDate={itinerary.end_date}
+                        type={itinerary.type}></Itinerary>
+                  </Col>
               ))}
-            </Row>
+              </Row>
+            </Container>
           </Col>
 
-          <Col class="all-photo-collage-container">
-            <div class="all-photo-row">
-              <div class="all-photo">
-                <img src={polaroid} alt="Event 1" />
-              </div>
-              <div class="all-photo">
-                <img src={polaroid} alt="Event 2" />
-              </div>
-              <div class="all-photo">
-                <img src={polaroid} alt="Event 3" />
-              </div>
-            </div>
-            <div class="all-photo-row">
-              <div class="all-photo">
-                <img src={polaroid} alt="Event 4" />
-              </div>
-              <div class="all-photo">
-                <img src={polaroid} alt="Event 5" />
-              </div>
-            </div>
+          <Col xs={12} lg={6}>
+            <Container>
+              <Row id={"photos"}>
+                {photos.map((photo, index) => (
+                    <Col xs={4}>
+                      <Photo
+                          id={index}
+                          imageSrc={photo.imagePath}
+                      ></Photo>
+                    </Col>
+                ))}
+              </Row>
+            </Container>
           </Col>
         </Row>
       </Container>
 
       <Container
-        className={`tab-content ${activeTab === "itineraries" ? "active" : ""}`}
+        className={`tab-content ${activeTab === "itineraries" ? "active" : ""} container tab-container`}
         id="itineraries">
         <Row>
           {itineraries.map((itinerary) => (
@@ -250,24 +254,34 @@ const Profile = () => {
           ))}
         </Row>
       </Container>
-      <div
-        class={`tab-content ${activeTab === "photos" ? "active" : ""}`}
+      <Container
+        className={`tab-content ${activeTab === "photos" ? "active" : ""} tab-container`}
         id="photos">
-        <div class="collage-container">
+        <Row className="collage-container">
 
-          <div class="collage-item">
-            <img src={polaroid} alt="Polaroid Image" />
-          </div>
+          {/*<div class="collage-item">*/}
+          {/*  <img src={polaroid} alt="Polaroid Image" />*/}
+          {/*</div>*/}
 
-          {posts.map(function(){
-          <div class="collage-item">
-            <img src={polaroid} alt="Polaroid Image" />
-          </div>
-          })}
+          {photos.map((photo, index) => (
+              <Col>
+                <Photo
+                    id={index}
+                    imageSrc={photo.imagePath}
+                ></Photo>
+              </Col>
+          ))}
 
       
-          </div>
-      </div>
+          </Row>
+      </Container>
+      <Container>
+        <Row>
+          <Button href={"#/create-post"}>
+            Create new post
+          </Button>
+        </Row>
+      </Container>
     </>
   );
 };

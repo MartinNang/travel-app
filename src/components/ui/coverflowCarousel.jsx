@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../pages/ItineraryDetailPage.css";
+import "../../styles/ItineraryDetailPage.css";
 
 const CoverflowCarousel = ({ items, onSlideChange }) => {
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -999,3 +999,8 @@ input[type="text"]:focus {
   /* border: lightgray 1px solid; */
   /* padding: 2px; */
 }
+
+.tab-container {
+  max-height: 100vh;
+  overflow: scroll;
+}

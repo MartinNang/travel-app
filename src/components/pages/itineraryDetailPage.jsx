@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import itineraryData from "../../data/itinerariesTexts.json";
 import CoverflowCarousel from "../ui/coverflowCarousel";
-import "./ItineraryDetailPage.css"; 
+import "../../styles/ItineraryDetailPage.css";
 
 const ItineraryDetailPage = ({ city, category }) => {
   const [activeIndex, setActiveIndex] = useState(0); // tracks which day is active

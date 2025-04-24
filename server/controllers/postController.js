@@ -43,18 +43,23 @@ export function createPost(conn, req, res) {
     const files = req.files;
     console.log("files", files);
 
-    postService.createPost(conn, post, (postId) => {
-      for (let file of req.files) {
-        postImageService.createPostImage(conn, postId, file, (piResult) => {
-          // TODO
-          res.status(200);
-        });
+    postService.createPost(conn, post, (result) => {
+      if (result && result.length > 0) {
+        let postId = result[0].id;
+        console.log("postId", postId);
+        for (let file of req.files) {
+          console.log("post image file", file);
+          postImageService.createPostImage(conn, postId, file.path, req.body.userId, (piResult) => {
+            // TODO
+            res.status(200).send();
+          });
+        }
+      } else {
+        res.status(500).send();
       }
     });
   } catch (code) {
     res.status(code);
-  } finally {
-    res.send();
   }
 }
 

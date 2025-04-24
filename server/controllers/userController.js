@@ -1,4 +1,3 @@
-import { error } from "console";
 import User from "../models/user.js";
 import * as userService from "../services/userService.js";
 import bcrypt from "bcrypt";

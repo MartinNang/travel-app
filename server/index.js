@@ -18,6 +18,7 @@ import { postRouter } from "./routes/postRoute.js";
 import { userRouter } from "./routes/userRoute.js";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
+import * as postController from "./controllers/postController.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -37,7 +38,7 @@ const storage = multer.diskStorage({
     cb(null, filename);
   },
 });
-const upload = multer({
+export const upload = multer({
   storage: storage,
   limits: { fileSize: 5 * 1000 * 1000 },
 });
@@ -113,6 +114,18 @@ app.use("/users", userRouter);
 // Images
 app.get("/uploads/:image", function (req, res) {
   res.sendFile(path.join(__dirname, "/uploads/", req.params.image)); // find out the filePath based on given fileName
+});
+
+app.post("/create-post", upload.array("postImages", 10), (req, res) => {
+  console.log("req.body", req.body);
+  if (req.files ) { // && req.file.path
+    connect((conn) => postController.createPost(conn, req, res));
+    // res.status(200).send(req.files);
+  } else {
+    res
+        .status(400)
+        .send({ error: "no file was uploaded", "request-body": req.body });
+  }
 });
 
 app.listen(port, hostname, () => {
