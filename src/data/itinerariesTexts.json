@@ -257,19 +257,19 @@
             "day_nb": "DAY 1",
             "day_title": "Icons and Aerial Views",
             "day_description": "Step into a storybook with a stroll through the heart of Paris. Starting at the Eiffel Tower, ride all the way to the top for a sweeping view of the city. Then wander down the Champ de Mars to the Seine and hop on a scenic river cruise past Notre-Dame, the Louvre and more iconic structures. Wrap up the day with dinner on the Champs-Élysées and a moonlit walk.",
-            "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+            "day_images": ["/images/itinerary_page/sights1.jpg","/images/itinerary_page/sights2.jpg","/images/itinerary_page/sights3.jpg","/images/itinerary_page/sights4.jpg","/images/itinerary_page/aandc3.jpg"]
           },
           {
             "day_nb": "DAY 2",
             "day_title": "Masterpiece Magic",
             "day_description": "Begin at the Louvre and soak in the highlights (hello Mona Lisa!). After lunch in the Tuileries Gardens, head north to the bohemian Montmartre. Meet the artists at Place du Tertre and climb the Sacré-coeur for breathtaking views.",
-            "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+            "day_images": ["/images/itinerary_page/aandc2.jpg","/images/itinerary_page/sights2.jpg","/images/itinerary_page/sights3.jpg","/images/itinerary_page/sights4.jpg","/images/itinerary_page/aandc3.jpg"]
           },
           {
             "day_nb": "DAY 3",
             "day_title": "Parisian Farewell",
             "day_description": "Starting at Notre-Dame Cathedrel you will cross over to Île Saint-Louis for a quiet morning of boutique browsing and Berthillon ice cream. Wander the Latin Quarter for history-soaked streets and a visit to the Panthéon. End you trip with a farewell dinner in the elegant Saint-Germain-des-Prés. ",
-            "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+            "day_images": ["/images/itinerary_page/sights1.jpg","/images/itinerary_page/aandc1.jpg","/images/itinerary_page/sights3.jpg","/images/itinerary_page/sights4.jpg","/images/itinerary_page/aandc3.jpg"]
           }
         ]
       },
@@ -286,19 +286,19 @@
             "day_nb": "DAY 1",
             "day_title": "Brushstrokes and Boulevards",
             "day_description": "Begining your journey at the Musée d'Orsay, you will see impressionist icons at every turn! Then cross the Seine to explore the Louvre's glass pyramid and curated highlights tour. As the sun begins to set, stroll through the Tuileries Gardens and end you day with dinner in the Latin Quarter.",
-            "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+            "day_images":["/images/itinerary_page/bicycle.jpg","/images/itinerary_page/eiffel-tower.jpg","/images/itinerary_page/sights3.jpg","/images/itinerary_page/sights4.jpg","/images/itinerary_page/aandc3.jpg"]
           },
           {
             "day_nb": "DAY 2",
             "day_title": "Myths & Montmartre",
             "day_description": "your morning will be spent in Montmartre, visit the Espace Dalí and see where Picasso once roamed. In the afternoon, stop by the legendary Shakespeare & Company bookshop. Settle in for an evening at the Opéra Garnier or catch a smaller performance in the Marais.",
-            "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+            "day_images": ["/images/itinerary_page/sights1.jpg","/images/itinerary_page/sights2.jpg","/images/itinerary_page/luvre.jpg","/images/itinerary_page/aandc1.jpg","/images/itinerary_page/aandc3.jpg"]
           },
           {
             "day_nb": "DAY 3",
             "day_title": "Sculptures and Streets",
             "day_description": "Kicking off at Centre Pompidou, where bold art meets bold architecture. Leter you will discover the peaceful Rodin Museum and its sculpture garden oasis. Wrap up your artistic escape at a gallery or a café exhibit, letting the city's creativity linger for a little longer. ",
-            "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+            "day_images": ["/images/itinerary_page/jardin-du-luxembourg.jpg","/images/itinerary_page/sights2.jpg","/images/itinerary_page/sights3.jpg","/images/itinerary_page/sights4.jpg","/images/itinerary_page/aandc3.jpg"]
           }
         ]
       },
@@ -315,19 +315,19 @@
             "day_nb": "DAY 1",
             "day_title": "Sunset Strolls",
             "day_description": "Start your Parisian escape with a relaxed sunset picnic at Champ de Mars, watching the Eiffel Tower shimmer as the ligh fades. Then wander along the Seine, stopping at the iconic lover's lock bridge. End your evening with a cozy candlelit dinner in the enchanting La Marais, full of cobblestone streets and romance.",
-            "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+            "day_images": ["/images/itinerary_page/luxemdeer.jpg","/images/itinerary_page/sights2.jpg","/images/itinerary_page/louvre.jpg","/images/itinerary_page/sights4.jpg","/images/itinerary_page/bicycle.jpg"]
           },
           {
             "day_nb": "DAY 2",
             "day_title": "Hidden Passages",
             "day_description": "Take a stroll through the hidden passages of Galerie Vivienne, where Parisian boutiques and vintage cafés await. Spend the afternoon unwinding in the serene Jardin du Luxembourg. As the night falls, head up to a rooftop bar for sparkling views of the Eiffel Tower and a glass of wine.",
-            "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+            "day_images":["/images/itinerary_page/eiffel-tower.jpg","/images/itinerary_page/sights2.jpg","/images/itinerary_page/aandc2.jpg","/images/itinerary_page/sights4.jpg","/images/itinerary_page/aandc3.jpg"]
           },
           {
             "day_nb": "DAY 3",
             "day_title": "Love Is In The Air",
             "day_description": "Spend your last day wandering the quieter streets of Paris, discovering hidden corners. Enjoy an intimate boat ride along the Seine, letting the city unfold infront of you. After a leisurey lunch, find a quiet café by the river for a final goodbye.",
-            "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+            "day_images": ["/images/itinerary_page/jardin-du-luxembourg.jpg","/images/itinerary_page/sights2.jpg","/images/itinerary_page/sights3.jpg","/images/itinerary_page/sights4.jpg","/images/itinerary_page/aandc3.jpg"]
           }
         ]
       },
@@ -375,21 +375,21 @@
           "day_nb": "DAY 1",
           "day_title": "Shibuya & Shinjuku",
           "day_description": "Start with Shibuya Scramble Crossing and Hachiko statue then make your way over to Shibuya's cutting-edge shopping district. Have dinner at a Robot Restaurant show and end the day with a sensory overloading walk at Kabukicho's sensory overload.",
-          "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+          "day_images": ["tokyo8.jpg", "tokyo6.jpg","tokyo5.jpg"]
 
         },
         {
           "day_nb": "DAY 2",
           "day_title": "Interactive worlds & Sci-Fi",
           "day_description": "Drive into Tokyo's digital art revolution. Afterwards explore Odaiba's futuristic landmarks like the Unicorn Gundam statue and explore arcade-filled entertainment complexes. Ending your day with a scenic cruise.",
-          "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+          "day_images": ["tokyo5.jpg","tokyo8.jpg","tokyo7.jpg","tokyo6.jpg"]
 
         },
         {
           "day_nb": "DAY 3",
           "day_title": "Tech Culture & Quirky Cafés",
           "day_description": "Beginning at Akihabara's tech shop, you will explore the latest gadgets, retro consoles and VR arcades. Visit a themed café for something uniquely Tokyo. Wrap up your trip with a panoramic city view from Tokyo's Skytree's observation deck.",
-          "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+          "day_images": ["tokyo8.jpg", "tokyo6.jpg","tokyo5.jpg"]
 
         }
       ]
@@ -399,28 +399,27 @@
       "title": "The trendy Tokyo Tour",
       "preview": "Wander ancient temples, sip matcha in gorgeous gardens and dive into the quirky Harajuku fashion.",
       "description": "A cultural Tokyo Escape",
-      "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
+      "images": "tokyo1.jp",
       "pdf": "/pdf/tradition_to_trend_tokyo.pdf",
       "days": [
         {
           "day_nb": "DAY 1",
           "day_title": "The Historic Heart of Tokyo",
           "day_description": "Begin your day at the Senso-Ji Temple in asakuse, then make your way to Nakamise Street to try traditional snacks and enjoy the handmade crafts. Afterward to a rickshaw ride and end your day with a visit to Ueno Park's museums with a quiet tea ceremony.",
-          "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+          "day_images": ["tokyo1.jpg", "tokyo2.jpg","tokyo6.jpg"]
 
         },
         {
           "day_nb": "DAY 2",
           "day_title": "Fashion & Fusion in Harajuku",
           "day_description": "Spend your day in Harajuku, exploring the Takeshita Street's bold streetwear and youthful vibes. Then wander down Omotesando for art galleries, arhitecture and stylish cafés. Don't miss the serenity of Meji Shrine hidden in a forest nearby!",
-          "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
-
+          "day_images": ["tokyo2.jpg", "tokyo9.jpg","tokyo4.jpg", "tokyo1.jpg"]
         },
         {
           "day_nb": "DAY 3",
           "day_title": "the old & new in Shibuya",
           "day_description": "Experience the ultra-modern with a visit to Shibuya's shopping meccas, art spaces and bustling crosswalk! Then wind down your visit by heading to Daikanyama, one of Tokyo's trendiest neighbourhoods with peaceful canals, boutiques and more.",
-          "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+          "day_images":["tokyo9.jpg", "tokyo1.jpg","tokyo3.jpg"]
 
         }
       ]
@@ -437,22 +436,21 @@
           "day_nb": "DAY 1",
           "day_title": "Akihabara Overload",
           "day_description": "Negin your exploration in Akihabara. Explore the multi-level anime and figure shops, retro game arcades and themed cafés like Final Fantasy Eorzea Café. Book a VR experience and step into a maid café for an eccentric cultural treat.",
-          "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+          "day_images": ["tokyo1.jpg", "tokyo6.jpg","tokyo7.jpg", "tokyo8.jpg"]
 
         },
         {
           "day_nb": "DAY 2",
           "day_title": "Ghibli & Hidden Gems",
           "day_description": "Visit the enchanting Ghibli Museum in Mitaka, followed by a peaceful stroll through Inokashira Park. Return to Tokyo to explore Nakano Broadway, packed with vintage collectibles, manga and rare merch for the hardcore fans.",
-          "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+          "day_images": ["tokyo5.jpg", "tokyo6.jpg","tokyo7.jpg", "tokyo8.jpg"]
 
         },
         {
           "day_nb": "DAY 3",
           "day_title": "Real-world Anime",
           "day_description": "Go on an anime location hunt. Visit real-life places featured in your favourite shows, like the steps from Your Name in Yotsuya or the settings of Steins;Gate around akihabara. End your trip with a themed dinner at Pokémon café.",
-          "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
-
+          "day_images": ["tokyo5.jpg", "tokyo6.jpg","tokyo7.jpg", "tokyo8.jpg", "tokyo1.jpg"]
         }
       ]
     },
@@ -468,21 +466,22 @@
           "day_nb": "DAY 1",
           "day_title": "Markets and Street Eats",
           "day_description": "Starting with an early trip to the fish market for breakfast. Then head to Tsukiji outer market for street snacks, and finish the day with depachika for high-end treats and bento boxes!",
-          "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+          "day_images": ["tokyo1.jpg", "tokyo2.jpg", "tokyo5.jpg","shibuya-crossing.jpg"]
 
         },
         {
           "day_nb": "DAY 2",
           "day_title": "Ramen and local flavours",
           "day_description": "Explore ramen alleys like Tokyo Ramen Street. Then later in the day hop between Izakatas in Shinjuku's Omoide Yokocho! ",
-          "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+          "day_images": ["tokyo2.jpg", "tokyo5.jpg","shibuya-crossing.jpg", "tokyo1.jpg"]
 
         },
         {
           "day_nb": "DAY 3",
           "day_title": "Foodie's day out",
           "day_description": "Begin your day with a brilliant food class. Take a break and visit an animal café, and wrap up your amazing adventure with a multi-coursed dinner in Roppongi!",
-          "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+          "day_images": ["tokyo2.jpg","shibuya-crossing.jpg", "tokyo1.jpg", "tokyo5.jpg"]
+
 
         }
       ]
