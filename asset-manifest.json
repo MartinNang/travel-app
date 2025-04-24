@@ -1,8 +1,7 @@
 {
   "files": {
-    "main.css": "/en-route/static/css/main.d3833363.css",
-    "main.js": "/en-route/static/js/main.5940bdd0.js",
-    "static/media/it3.jpg": "/en-route/static/media/it3.ee0a3fba77682521277c.jpg",
+    "main.css": "/en-route/static/css/main.9597d06e.css",
+    "main.js": "/en-route/static/js/main.717dc1a5.js",
     "static/media/mountains.jpg": "/en-route/static/media/mountains.3991bf8055a7e8b0c918.jpg",
     "static/media/about.png": "/en-route/static/media/about.875343880be3deb79a24.png",
     "static/media/balloon.png": "/en-route/static/media/balloon.4911bd5e124c8dd82c9a.png",
@@ -10,11 +9,10 @@
     "static/media/signin.jpg": "/en-route/static/media/signin.de1d84e1afe70e5a743e.jpg",
     "static/media/aboutus.jpg": "/en-route/static/media/aboutus.92028798cd4aeed44dc5.jpg",
     "static/media/newyork.jpg": "/en-route/static/media/newyork.13105619e11da89697af.jpg",
+    "static/media/Purple_World_Map.png": "/en-route/static/media/Purple_World_Map.fa91e469394707f99b3d.png",
     "static/media/cookies.jpg": "/en-route/static/media/cookies.7e1ea922cb2eaae5114b.jpg",
     "static/media/tokyo.jpg": "/en-route/static/media/tokyo.f2efb195efe14c811190.jpg",
-    "static/media/it4.jpg": "/en-route/static/media/it4.008fd841c575bbed3f76.jpg",
     "static/media/map.png": "/en-route/static/media/map.d0ea8b4ffd6eb4b0ad37.png",
-    "static/media/it2.jpg": "/en-route/static/media/it2.7d3e3f716380e0548b94.jpg",
     "static/media/paris.jpg": "/en-route/static/media/paris.32863644f21e8f8582ea.jpg",
     "static/media/maps.png": "/en-route/static/media/maps.0abc16ee9d44f712783f.png",
     "static/media/Poppins-Regular.ttf": "/en-route/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
@@ -40,11 +38,11 @@
     "static/media/cocktail.png": "/en-route/static/media/cocktail.0a138e2a1757cd31f624.png",
     "static/media/slot-machine.png": "/en-route/static/media/slot-machine.7df3bad59267d893e79b.png",
     "index.html": "/en-route/index.html",
-    "main.d3833363.css.map": "/en-route/static/css/main.d3833363.css.map",
-    "main.5940bdd0.js.map": "/en-route/static/js/main.5940bdd0.js.map"
+    "main.9597d06e.css.map": "/en-route/static/css/main.9597d06e.css.map",
+    "main.717dc1a5.js.map": "/en-route/static/js/main.717dc1a5.js.map"
   },
   "entrypoints": [
-    "static/css/main.d3833363.css",
-    "static/js/main.5940bdd0.js"
+    "static/css/main.9597d06e.css",
+    "static/js/main.717dc1a5.js"
   ]
 }
