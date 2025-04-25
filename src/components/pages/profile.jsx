@@ -162,7 +162,7 @@ const Profile = () => {
                   }}>
                   Sign out
                 </button>
-                <img src={settings} alt="Settings" className="settings-btn" />
+                {/*<img src={settings} alt="Settings" className="settings-btn" />*/}
               </div>
             ) : /*(
               <button className="follow-btn">Follow</button>

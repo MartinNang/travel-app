@@ -134,7 +134,7 @@ const Home = () => {
         <img src={mapsImg} alt="Dashboard Image"/>
         <img src={computerImg} id="computer-image" alt="Computer Image"/>
         {/*Mock up video*/}
-        <video id="computer-video" className="delayed-video" src={{video}} muted autoPlay loop
+        <video id="computer-video" className="delayed-video" src={video} muted autoPlay loop
                playsInline></video>
 
         <p>A Step By Step Guide On How To Navigate Our Website</p>
