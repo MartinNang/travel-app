@@ -218,21 +218,30 @@ const Events = ({ wishlist, setWishlist }) => {
           <Col xs={12} lg={8} xl={6} className="mb-3 pb-3">
             <Container className="events-body p-4">
               <Row className="p-4" style={{ height: "100%" }}>
-                <h2
-                  className="text-center align-self-center"
-                  style={{ top: "50%", color: "white" }}>
-                  {loading ? (
-                    <Spinner animation="grow" role="status">
-                      <span className="visually-hidden">Loading...</span>
-                    </Spinner>
+                {loading ? (
+                    <h2
+                      className="text-center align-self-center"
+                      style={{ top: "50%", color: "white" }}>
+                        <Spinner animation="grow" role="status">
+                          <span className="visually-hidden">Loading...</span>
+                        </Spinner>
+                    </h2>
                   ) : results === null ? (
-                    "Search for attractions for your itinerary!"
+                    <h2
+                        className="text-center align-self-center"
+                        style={{ top: "50%", color: "white" }}>
+                      "Search for attractions for your itinerary!"
+                    </h2>
                   ) : results.elements.length === 0 ? (
-                    "No results, try a different search."
+                        <h2
+                            className="text-center align-self-center"
+                            style={{ top: "50%", color: "white" }}>
+                          "No results, try a different search."
+                        </h2>
                   ) : (
                     ""
-                  )}
-                </h2>
+                )}
+
 
                 {failed ? <h2>failed</h2> : null}
                 {results

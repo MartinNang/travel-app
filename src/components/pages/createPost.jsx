@@ -13,7 +13,7 @@ export default function CreatePost() {
   const [loadingItinerary,  setLoadingItinerary] = useState(true);
   const [validated, setValidated] = useState(false);
   const [postImages,  setPostImages] = useState("");
-  const profileId = sessionStorage.getItem("id");
+  const profileId = localStorage.getItem("id");
 
   const navigate = useNavigate();
 

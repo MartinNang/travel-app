@@ -193,6 +193,7 @@ input[type="text"]:focus {
 .event-card {
   background: #ffffff;
   border-radius: 60px !important;
+  height: max-content;
 }
 
 .wishlist-card {

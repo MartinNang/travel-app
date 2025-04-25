@@ -18,7 +18,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 const Header = () => {
   const location = useLocation();
   const [profileImage, setProfileImage] = useState(
-    sessionStorage.getItem("profileImage")
+    localStorage.getItem("profileImage")
   );
   const [searchTerm, setSearchTerm] = useState(""),
     onInput = ({ target: { value } }) => {
@@ -130,9 +130,9 @@ const Header = () => {
                   </Col>
                 </Row>
               </Form>
-              {sessionStorage.getItem("profileName") ? (
+              {localStorage.getItem("profileName") ? (
                 <Nav.Link
-                  href={`/en-route/#/profile/${sessionStorage.getItem("id")}`}
+                  href={`/en-route/#/profile/${localStorage.getItem("id")}`}
                   onClick={() => window.scrollTo(0, 0)}
                   className="mx-3">
                   {profileImage ? (
@@ -150,7 +150,7 @@ const Header = () => {
                   {/* <Nav.Link
                     href="/en-route/#/profile"
                     onClick={window.scrollTo(0, 0)}>
-                    {sessionStorage.getItem("profileName")}
+                    {localStorage.getItem("profileName")}
                   </Nav.Link> */}
                 </Nav.Link>
               ) : (
