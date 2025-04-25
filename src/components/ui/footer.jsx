@@ -57,8 +57,8 @@ const Footer = () => {
       </div>
       <div class="socials">
         <span>
-          <Link
-            to="/Cookie"
+        <Link
+            to="/Socials"
             style={{
               fontStyle: "italic",
             }}>
@@ -66,8 +66,8 @@ const Footer = () => {
           </Link>
         </span>
         <span>
-          <Link
-            to="/Cookies"
+        <Link
+            to="/Socials"
             style={{
               fontStyle: "italic",
             }}>
@@ -76,7 +76,7 @@ const Footer = () => {
         </span>
         <span>
           <Link
-            to="/Cookies"
+            to="/Socials"
             style={{
               fontStyle: "italic",
             }}>

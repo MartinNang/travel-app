@@ -21,6 +21,7 @@ import PageNotFound from "../pages/pageNotFound";
 import AboutUs from "../pages/aboutUs";
 import ViewItinerary from "../pages/viewItinerary";
 import CreatePost from "../pages/createPost";
+import Socials from "../pages/socials"
 
 const PageContent = () => {
   const [wishlist, setWishlist] = useState([]);
@@ -56,6 +57,7 @@ const PageContent = () => {
         <Route path="*" element={<PageNotFound />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/view-itinerary" element={<ViewItinerary />} />
+        <Route path="/socials" element={<Socials />} />
       </Routes>
     </div>
   );

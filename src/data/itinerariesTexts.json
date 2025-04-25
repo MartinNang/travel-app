@@ -5,6 +5,7 @@
       "title": "The Lazy and Cozy Dublin Tour",
       "preview": "Slow down and soak up Dublin's charm one cozy café at a time. Stroll along the River Liffey, browse indie bookshops, and curl up with a pint by a roaring pub fire. This is the ultimate chill-out trip, where there’s no rush—just vibes.",
       "description": "This is a chill itinerary for exploring Dublin slowly...",
+      "pdf": "/pdf/dublin-lazy-itinerary.pdf",
       "days": [
         {
           "day_nb": "DAY 1",
@@ -35,6 +36,7 @@
       "preview": "Ready to chase the wild side of Dublin? Hike the dramatic cliffs of Howth, kayak under historic bridges, and uncover ancient secrets in castle ruins. This trip brings the thrill—urban energy meets epic nature.",
       "description": "Discover the thrills of Dublin and all its fascinating history... ",
      "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
+     "pdf": "/pdf/dublin-adventurous-itinerary.pdf",
       "days": [
         {
           "day_nb": "DAY 1",
