@@ -68,7 +68,7 @@ const Home = () => {
       <div class="hero">
         <img src={signinImg} alt="Signin Image" />
         <h1>Your Journey, Perfectly Planned.</h1>
-        {!localStorage.getItem("profileName") ? (
+        {!sessionStorage.getItem("profileName") ? (
           <Link to={"/sign-in"}>
             <button className="btn btn-primary" type="submit">
               Sign In

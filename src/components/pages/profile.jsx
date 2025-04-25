@@ -21,7 +21,7 @@ const Profile = () => {
   console.log("profile id:", profileId);
 
   const [isLoggedInUser, setIsLoggedInUser] = useState(
-    profileId === localStorage.getItem("id")
+    profileId === sessionStorage.getItem("id")
   );
   console.log(
     "is this the profile page of the currently logged in user?",
@@ -29,7 +29,7 @@ const Profile = () => {
   );
 
   const [profileImage, setProfileImage] = useState(
-    isLoggedInUser ? localStorage.getItem("profileImage") : undefined
+    isLoggedInUser ? sessionStorage.getItem("profileImage") : undefined
   );
 
   const navigate = useNavigate();
@@ -46,8 +46,8 @@ const Profile = () => {
       console.log("fetch data");
       fetchData();
     }
-    setIsLoggedInUser(profileId === localStorage.getItem("id"));
-    // setProfileImage(localStorage.getItem("profileImage"));
+    setIsLoggedInUser(profileId === sessionStorage.getItem("id"));
+    // setProfileImage(sessionStorage.getItem("profileImage"));
   }, [user, itineraries, activeTab, profileId, isLoggedInUser, profileImage]);
 
   function fetchData() {
@@ -153,11 +153,11 @@ const Profile = () => {
                 <button
                   className="follow-btn bg-danger"
                   onClick={(e) => {
-                    localStorage.removeItem("id");
-                    localStorage.removeItem("email");
-                    localStorage.removeItem("password");
-                    localStorage.removeItem("profileImage");
-                    localStorage.removeItem("profileName");
+                    sessionStorage.removeItem("id");
+                    sessionStorage.removeItem("email");
+                    sessionStorage.removeItem("password");
+                    sessionStorage.removeItem("profileImage");
+                    sessionStorage.removeItem("profileName");
                     navigate("/");
                   }}>
                   Sign out

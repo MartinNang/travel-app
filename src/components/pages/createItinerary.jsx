@@ -87,7 +87,7 @@ const CreateItinerary = () => {
 
     const getUserId = () => {
       // key name must match whatever your login code stores
-      return localStorage.getItem("userId"); // returns null if missing
+      return sessionStorage.getItem("userId"); // returns null if missing
     };
     
     

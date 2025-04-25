@@ -38,11 +38,11 @@ const SignIn = () => {
           const userProfileName = user.profileName;
           const userProfileImage = user.profileImage;
 
-          localStorage.setItem("id", userId);
-          localStorage.setItem("email", userEmail);
-          localStorage.setItem("password", userPwd);
-          localStorage.setItem("profileName", userProfileName);
-          localStorage.setItem("profileImage", userProfileImage);
+          sessionStorage.setItem("id", userId);
+          sessionStorage.setItem("email", userEmail);
+          sessionStorage.setItem("password", userPwd);
+          sessionStorage.setItem("profileName", userProfileName);
+          sessionStorage.setItem("profileImage", userProfileImage);
           console.log(userId);
 
           console.log("Success");
