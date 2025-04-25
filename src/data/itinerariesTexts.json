@@ -25,7 +25,7 @@
           "day_nb": "DAY 3",
           "day_title": "Coastal Calm & Cottagecore Energy",
           "day_description": "Take a peaceful train ride to Dalkey or Killiney for sea air and small-town charm. Enjoy a quiet walk along the coast, then cozy up with lunch in a seaside café. Head back to Dublin for a final evening of jazz, gentle tunes, or a storytelling session—your perfect soft landing before heading home.",
-          "day_images": ["/images/itinerary_page/dublin-lazy-phoenixPark.jpg","/images/itinerary_page/dublin-lazy-stairs.jpg","/images/itinerary_page/dublin-lazy-statue.jpg", "/images/itinerary_page/dublin-lazy-bookofkells.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/lazy-dublin-buidling.jpg"]
+          "day_images": ["/images/itinerary_page/dublin-lazy-phoenixPark.jpg","/images/itinerary_page/dublin-lazy-stairs.jpg","/images/itinerary_page/dublin-lazy-statue.jpg", "/images/itinerary_page/dublin-lazy-bookofkells.jpg","/images/itinerary_page/dublin-lazy-liffey.jpg","/images/itinerary_page/lazy-dublin-buidling.jpg"]
 
         }
       ]
@@ -35,28 +35,27 @@
       "title": "The Adventurous Dublin Tour",
       "preview": "Ready to chase the wild side of Dublin? Hike the dramatic cliffs of Howth, kayak under historic bridges, and uncover ancient secrets in castle ruins. This trip brings the thrill—urban energy meets epic nature.",
       "description": "Discover the thrills of Dublin and all its fascinating history... ",
-     "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
      "pdf": "/pdf/dublin-adventurous-itinerary.pdf",
       "days": [
         {
           "day_nb": "DAY 1",
           "day_title": "Urban Thrills & Hidden History",
           "day_description": "Kick things off by diving into Dublin’s energetic heart. Start with a self-guided Viking treasure hunt through the cobbled streets of Temple Bar, then hop on a city bike and cruise past landmarks like Dublin Castle and St. Patrick’s Cathedral. In the afternoon, gear up for a spooky underground tour of the Crypts at St. Michan’s, and wrap up the day with a night kayak down the Liffey—lit by the city skyline.",
-          "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+          "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/dublin-adventurous-stpatricks.jpg","/images/itinerary_page/dublin-adventurous-bar.jpg","/images/itinerary_page/dublin-adventurous-explorium.jpg","/images/itinerary_page/dublin-adventurous-four-courts.jpg"]
 
         },
         {
           "day_nb": "DAY 2",
           "day_title": "Cliff Hikes & Sea Breezes",
           "day_description": "Hop on a quick DART train to Howth for a day of rugged coastline and salty air. Hike the Howth Cliff Loop for epic views and crashing waves, keeping an eye out for seals and seabirds. Refuel with fish and chips from a local seaside shack before heading back into the city for some live music and well-earned pub grub.",
-          "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+          "day_images": ["/images/itinerary_page/dublin-adventurous-howth.jpg","/images/itinerary_page/dublin-adventurous-irishman.jpg","/images/itinerary_page/dublin-adventurous-trailwalk.jpg","/images/itinerary_page/dublin-adventurous-explorium1.jpg","/images/itinerary_page/temple-bar.jpg"]
 
         },
         {
           "day_nb": "DAY 3",
           "day_title": "Castles, Caves & Wild Escapes",
           "day_description": "Time to explore beyond the city! Take a day trip to the Wicklow Mountains where you’ll hike through Glendalough’s lush trails and ancient monastic ruins. Stop at Powerscourt Waterfall—the tallest in Ireland—for a photo op, and maybe even a wild dip if you're brave. End your adventure back in Dublin with one last pint and a storytelling session at a traditional folk pub.",
-          "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+          "day_images": ["/images/itinerary_page/dublin-adventurous-trailwalk.jpg","/images/itinerary_page/dublin-adventurous-cave.jpg","/images/itinerary_page/dublin-adventurous.jpg","/images/itinerary_page/temple-bar.jpg", "/images/itinerary_page/dublin-adventurous-bar.jpg"]
 
         }
       ]
@@ -66,27 +65,27 @@
       "title": "The Family-friendly Dublin Tour",
       "preview": "Big fun for little explorers! Meet animals at Dublin Zoo, sail through Viking history on a splashy city tour, and enjoy hands-on science at EPIC and Explorium. It's smiles, stories, and memory-making for the whole crew.",
       "description": "Discover fun activities to do with all the family! ",
-      "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
+      "pdf": "/pdf/dublin-family-friendly-itinerary.pdf",
       "days": [
         {
           "day_nb": "DAY 1",
           "day_title": "Animals, Parks & Playtime",
           "day_description": "Start the adventure at Dublin Zoo in Phoenix Park—home to lions, elephants, and playful penguins. After lunch, let the kids run wild in the park’s massive playground or rent bikes for a relaxed family ride. End the day with a cozy dinner and maybe even a scoop (or two) from Murphy’s Ice Cream.",
-          "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/times-square.jpg","/images/itinerary_page/trinity-college.jpg","/images/itinerary_page/louvre.jpg","/images/itinerary_page/stephens-green.jpg"]
+          "day_images": ["/images/itinerary_page/dublin-family-friendly-dublinzoo.jpg","/images/itinerary_page/dublin-family-friendly-dublinzoo1.jpg","/images/itinerary_page/dublin-family-friendly-EPIC-Entrance.jpg","/images/itinerary_page/dublin-family-friendly-epic.jpg","/images/itinerary_page/dublin-family-friendly-irish.jpg"]
 
         },
         {
           "day_nb": "DAY 2",
           "day_title": "Vikings, Science & Splash Zones",
           "day_description": "Get hands-on at EPIC The Irish Emigration Museum, where interactive exhibits and digital fun bring history to life. Then hop aboard the Viking Splash Tour—part city tour, part water adventure! In the afternoon, dive into the wonders of science and sports at Explorium, where kids can climb, discover, and create.",
-          "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+          "day_images": ["/images/itinerary_page/dublin-family-friendly-irish.jpg","/images/itinerary_page/dublin-family-friendly-dublinzoo.jpg","/images/itinerary_page/dublin-family-friendly-dublinzoo1.jpg","/images/itinerary_page/dublin-family-friendly-EPIC-Entrance.jpg","/images/itinerary_page/dublin-family-friendly-epic.jpg"]
 
         },
         {
           "day_nb": "DAY 3",
           "day_title": "Castles, Fairy Tales & Seaside Fun",
           "day_description": "Take a short trip to Malahide Castle where you can explore towers, gardens, and even a magical fairy trail. Pack a picnic or grab lunch nearby, then spend the afternoon by the beach or throwing pebbles along the coastline in Portmarnock. Head back to Dublin for a casual dinner and a well-earned early night (for the kids, anyway!).",
-          "day_images": ["/images/itinerary_page/times-square.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+          "day_images": ["/images/itinerary_page/dublin-family-friendly-epic.jpg","/images/itinerary_page/dublin-family-friendly-irish.jpg","/images/itinerary_page/dublin-adventurous-trailwalk.jpg","/images/itinerary_page/dublin-adventurous-irishman.jpg","/images/itinerary_page/dublin-family-friendly-EPIC-Entrance.jpg"]
 
         }
       ]
@@ -96,27 +95,27 @@
       "title": "The Foodie Dublin Tour",
       "preview": "Bring your appetite—Dublin’s ready to wow you. From world-class seafood to street food gems and Guinness-infused everything, every bite tells a story. This is a delicious deep dive into the heart of Irish flavour.",
       "description": "Discover all the good food spots of Dublin!",
-      "images": ["images/itinerary_page/temple-bar.jpg", "it3.jpg", "it4.jpg"],
+      "pdf": "/pdf/dublin-foodie-itinerary.pdf",
       "days": [
         {
           "day_nb": "DAY 1",
           "day_title": "Taste the City",
           "day_description": "Kick things off with a guided Dublin food tour—nibble your way through the best of Irish cheeses, breads, and artisan bites. Grab lunch at The Woollen Mills or Tang, where Irish produce meets modern flair. In the evening, indulge in a cozy, candlelit dinner at The Winding Stair, overlooking the Liffey, and treat yourself to a rich Irish dessert (hello, sticky toffee pudding!).",
-          "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+          "day_images": ["/images/itinerary_page/dublin-food-drink.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/dublin-food-sandwich.jpg","/images/itinerary_page/dublin-foodie-guinness.jpg","/images/itinerary_page/dublin-food-sign.jpg"]
 
         },
         {
           "day_nb": "DAY 2",
           "day_title": "Markets, Brunch & Bold Flavors",
           "day_description": "Begin with a lazy brunch at Bibi’s Café or Two Pups, where eggs, avo, and strong coffee shine. Then it’s off to George’s Street Arcade and The Green Door Market to explore local vendors and sweet treats. For dinner, dive into Dublin’s global side—try incredible Middle Eastern at Shouk, or spice things up at Pickle for elevated Indian cuisine.",
-          "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+          "day_images": ["/images/itinerary_page/dublin-foodie-guinness.jpg","/images/itinerary_page/dublin-food-drink.jpg","/images/itinerary_page/dublin-foodie-templebar.jpg","/images/itinerary_page/dublin-food-sign.jpg","/images/itinerary_page/dublin-food-sandwich.jpg"]
 
         },
         {
           "day_nb": "DAY 3",
           "day_title": "Coastal Catch & Gastro Delights",
           "day_description": "Take the train to Howth for fresh-off-the-boat seafood—try the chowder at Octopussy’s or fish and chips by the pier. Stroll the market, grab a crepe or local fudge, and breathe in the sea air. Head back to the city for a final feast at Chapter One or Bastible—the perfect Michelin-starred ending to your foodie love affair with Dublin.",
-          "day_images": ["/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg","/images/itinerary_page/temple-bar.jpg"]
+          "day_images": ["/images/itinerary_page/dublin-food-sign.jpg","/images/itinerary_page/dublin-food-sandwich.jpg","/images/itinerary_page/dublin-food-drink.jpg","/images/itinerary_page/dublin-adventurous-howth.jpg","/images/itinerary_page/temple-bar.jpg"]
 
         }
       ]

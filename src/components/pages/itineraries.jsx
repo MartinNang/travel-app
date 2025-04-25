@@ -15,14 +15,18 @@ import Background from "../../images/Purple_World_Map.png";
 
 
 const Itineraries = () => {
-  const [selectedCity, setSelectedCity] = useState("dublin");
+  const [selectedCity, setSelectedCity] = useState(() => {
+    return localStorage.getItem("selectedCity") || "dublin"; // Dublin by default, but then the latest selected city
+  });
   const navigate = useNavigate();
   const cities = ["Dublin", "NYC", "Paris", "Tokyo"];
   const carouselRef = useRef(null); // Create a ref for the carousel section
   const itinerariesPreviewsCity = itinerariesPreviewsData[selectedCity];
 
   const handleCityClick = (city) => {
-    setSelectedCity(city.toLowerCase());
+    const cityLower = city.toLowerCase();
+    setSelectedCity(cityLower);
+    localStorage.setItem("selectedCity", cityLower);
 
     // Scroll to the carousel section
     if (carouselRef.current) {
