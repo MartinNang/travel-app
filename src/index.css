@@ -139,7 +139,7 @@ nav {
   font-style: italic;
 }
 
-input[type="text"] {
+input[type="text"]:not(#formProfileName) {
   color: #554293;
   font-family: poppins, sans-serif;
   background-color: #f5f3f7;
