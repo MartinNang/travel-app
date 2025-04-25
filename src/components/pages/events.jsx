@@ -25,25 +25,55 @@ const cities = [
   },
 ];
 const tags = [
+  "artwork",
+  "arts_centre",
+  "attraction",
+  "aquarium",
+  "bar",
+  "cafe",
+  "casino",
+  "cinema",
+  "events_venue",
+  "gallery",
+  "hotel",
+  "library",
+  "museum",
+  "pub",
+  "restaurant",
+  "university",
+  "zoo",
+  "yes"
+];
+
+const tourismTags = [
   "attraction",
   "artwork",
   "aquarium",
   "gallery",
   "hotel",
   "museum",
-  "zoo",
-  "bar",
-  "cafe",
-  "pub",
-  "restaurant",
-  "events_venue",
-  "casino",
-  "cinema",
-  "arts_centre",
-  "library",
-  "university",
-  "yes",
-];
+  "zoo"
+]
+
+function getQuery(filter, searchTerm) {
+  if (tourismTags.includes(filter)) {
+    return `nwr(area.a)["tourism${
+        filter && filter.length > 0 ? '"="' + filter : ""
+    }"]${
+        searchTerm && searchTerm.length > 0
+            ? '["name"~"' + searchTerm + '",i]'
+            : ""
+    };`
+  } else {
+    return `nwr(area.a)["amenity${
+        filter && filter.length > 0 ? '"="' + filter : ""
+    }"]${
+        searchTerm && searchTerm.length > 0
+            ? '["name"~"' + searchTerm + '",i]'
+            : ""
+    };`
+  }
+}
 
 const Events = ({ wishlist, setWishlist }) => {
   const [city, setCity] = useState({
@@ -71,24 +101,11 @@ const Events = ({ wishlist, setWishlist }) => {
       const requestData = {
         data: `
           [out:json]
-          [timeout:25]
+          [timeout:60]
           ;
-          area["name"="${city.overpassName}"];
+          area["name"="${city.overpassName}"]->.a;
           (
-            nwr(area)["tourism${
-              filter && filter.length > 0 ? '"="' + filter : ""
-            }"][wikidata]${
-          searchTerm && searchTerm.length > 0
-            ? '["name"~"' + searchTerm + '",i]'
-            : ""
-        };
-            nwr(area)["amenity${
-              filter && filter.length > 0 ? '"="' + filter : ""
-            }"][wikidata]${
-          searchTerm && searchTerm.length > 0
-            ? '["name"~"' + searchTerm + '",i]'
-            : ""
-        };
+            ${getQuery(filter, searchTerm)}            
           );
           out center 30;
       `,
@@ -211,7 +228,7 @@ const Events = ({ wishlist, setWishlist }) => {
                   ) : results === null ? (
                     "Search for attractions for your itinerary!"
                   ) : results.elements.length === 0 ? (
-                    "No results"
+                    "No results, try a different search."
                   ) : (
                     ""
                   )}
@@ -235,7 +252,7 @@ const Events = ({ wishlist, setWishlist }) => {
                           phoneNr={element.tags.phone}
                           email={element.tags.email}
                           link={element.tags.website}
-                          type={element.tags.tourism}
+                          type={element.tags.tourism ? element.tags.tourism : element.tags.amenity}
                           operator={element.tags.operator}
                           wheelchair={element.tags.wheelchair}
                           description={

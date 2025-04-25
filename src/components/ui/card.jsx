@@ -71,8 +71,8 @@ const CustomCard = ({
   useEffect(() => {
     if (!description && wikidataId) {
       // console.log("fetching wikidata", wikidataId);
-      setDescriptionLoading(true);
-      fetchWikidata(wikidataId);
+      // setDescriptionLoading(true);
+      // fetchWikidata(wikidataId);
     }
 
     function fetchWikidata(wikidataId) {
