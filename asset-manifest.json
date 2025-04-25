@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/en-route/static/css/main.676eef89.css",
-    "main.js": "/en-route/static/js/main.97778203.js",
+    "main.js": "/en-route/static/js/main.9541fd84.js",
     "static/media/mountains.jpg": "/en-route/static/media/mountains.3991bf8055a7e8b0c918.jpg",
     "static/media/about.png": "/en-route/static/media/about.875343880be3deb79a24.png",
     "static/media/balloon.png": "/en-route/static/media/balloon.4911bd5e124c8dd82c9a.png",
@@ -12,13 +12,8 @@
     "static/media/Purple_World_Map.png": "/en-route/static/media/Purple_World_Map.fa91e469394707f99b3d.png",
     "static/media/cookies.jpg": "/en-route/static/media/cookies.7e1ea922cb2eaae5114b.jpg",
     "static/media/tokyo.jpg": "/en-route/static/media/tokyo.f2efb195efe14c811190.jpg",
-    "static/media/cloud4.png": "/en-route/static/media/cloud4.d6d2482cad00d1249394.png",
     "static/media/map.png": "/en-route/static/media/map.d0ea8b4ffd6eb4b0ad37.png",
-    "static/media/cloud5.png": "/en-route/static/media/cloud5.2b00aa33f09440ccb96b.png",
-    "static/media/cloud3.png": "/en-route/static/media/cloud3.9328a85b3cf03bf84ee6.png",
-    "static/media/cloud2.png": "/en-route/static/media/cloud2.d30b116bea0977a389cb.png",
     "static/media/paris.jpg": "/en-route/static/media/paris.32863644f21e8f8582ea.jpg",
-    "static/media/cloud1.png": "/en-route/static/media/cloud1.deebc7b5ced3c8ad3222.png",
     "static/media/maps.png": "/en-route/static/media/maps.0abc16ee9d44f712783f.png",
     "static/media/Poppins-Regular.ttf": "/en-route/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
     "static/media/polaroid.png": "/en-route/static/media/polaroid.d19420ab6dd398fac8ce.png",
@@ -44,10 +39,10 @@
     "static/media/slot-machine.png": "/en-route/static/media/slot-machine.7df3bad59267d893e79b.png",
     "index.html": "/en-route/index.html",
     "main.676eef89.css.map": "/en-route/static/css/main.676eef89.css.map",
-    "main.97778203.js.map": "/en-route/static/js/main.97778203.js.map"
+    "main.9541fd84.js.map": "/en-route/static/js/main.9541fd84.js.map"
   },
   "entrypoints": [
     "static/css/main.676eef89.css",
-    "static/js/main.97778203.js"
+    "static/js/main.9541fd84.js"
   ]
 }
