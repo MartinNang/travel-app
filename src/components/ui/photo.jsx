@@ -12,8 +12,8 @@ import {BACKEND_URL} from "../../App";
 const Photo = ({ id, imageSrc }) => {
     return (
         <>
-            <Card className="all-itinerary-container mb-3 w-100">
-                <CardHeader className="all-itinerary-title">
+            <Card className="all-itinerary-container photo-card mb-3 w-100">
+                <CardHeader className="all-itinerary-title p-0">
                     <CardImg
                         variant="top"
                         src={imageSrc ? BACKEND_URL +  imageSrc : placeholderImg}>

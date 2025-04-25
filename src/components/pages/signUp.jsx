@@ -17,7 +17,7 @@ axios.defaults.baseURL = "https://2425-cs7025-group1.scss.tcd.ie/";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState("");
   const [profileName, setProfileName] = useState("");
   const [profileImage, setProfileImage] = useState("");
@@ -28,22 +28,28 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   async function handleSubmit(event) {
+    event.preventDefault();
+
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
-      event.preventDefault();
       event.stopPropagation();
     } else {
-      console.log("upload profile image", profileImage);
-      await uploadProfileImage(
-        document.querySelector('input[type="file"]').files[0],
-        (result) => {
-          console.log("result upload image", result.data);
-          if (result && result.data) {
-            console.log("signing up");
-            signUserUp(result.data);
-          }
-        }
-      );
+      if (profileImage) {
+        console.log("upload profile image", profileImage);
+        await uploadProfileImage(
+            document.querySelector('input[type="file"]').files[0],
+            (result) => {
+              console.log("result upload image", result.data);
+              if (result && result.data) {
+                console.log("signing up");
+                signUserUp(result.data);
+              }
+            }
+        );
+      } else {
+        signUserUp();
+      }
+
     }
 
     setValidated(true);
@@ -197,7 +203,7 @@ const SignUp = () => {
                 placeholder="Profile Image"
                 value={profileImage}
                 onInput={handleChangeProfileImage}
-                accept="image/*"
+                accept="image/png, image/jpeg"
               />
             </Form.Group>
 
@@ -244,6 +250,7 @@ const SignUp = () => {
                 value={confirmPassword}
                 onInput={handleChangeConfirmPwd}
                 isValid={
+                  password &&
                   password.length > 4 &&
                   password.length < 16 &&
                   password === confirmPassword

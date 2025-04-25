@@ -82,6 +82,17 @@ export async function updateUser(conn, userId, updatedUser, callback) {
   });
 }
 
+export async function subscribeUserToNewsletter(conn, userId, callback) {
+  console.log(conn);
+  const result = await conn.query(
+      `UPDATE users
+      SET newsletter = true
+      WHERE id = ?`,
+      [userId]
+  );
+  callback(result);
+}
+
 export async function updateProfileName(conn, userId, profileName, callback) {
   console.log(conn);
   const result = await conn.query(

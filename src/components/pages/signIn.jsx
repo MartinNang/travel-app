@@ -111,9 +111,9 @@ const SignIn = () => {
             </Form.Group>
 
             {/* Remember me checkbox */}
-            <Form.Group controlId="formRememberMe" className="mt-3">
+            {/*<Form.Group controlId="formRememberMe" className="mt-3">
               <Form.Check type="checkbox" label="Remember me" />
-            </Form.Group>
+            </Form.Group>*/}
 
             <Row className="mt-4">
               <Col xs={12} md={4} className="mb-3 mb-md-0">

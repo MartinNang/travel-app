@@ -34,7 +34,7 @@ const Itinerary = ({ id, title, startDate, endDate, type}) => {
   return (
     <>
       <Card className="all-itinerary-container mb-3 w-100">
-        <CardHeader className="all-itinerary-title">{title}</CardHeader>
+        <CardHeader className="all-itinerary-title bg-transparent"> <CardLink href={`/en-route/#/itinerary/${id}`} style={{color: "#f19edc"}}><h3>{title}</h3></CardLink></CardHeader>
 
         <CardBody className="all-itinerary-content">
           <div class="all-itinerary-text">
@@ -48,7 +48,7 @@ const Itinerary = ({ id, title, startDate, endDate, type}) => {
               <strong>Type: </strong> {type ? ItineraryType.valueOf(type) : "-"}
             </p>
 
-            <CardLink href={`/en-route/#/itinerary/${id}`}>view</CardLink>
+            <a href={`/en-route/#/itinerary/${id}`}>view itinerary</a>
           </div>
 
           {/* <div class="all-itinerary-images">

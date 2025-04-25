@@ -10,7 +10,7 @@
 
 body {
   margin: 0;
-  /* font-family: gyst, serif; */
+  font-family: gyst, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -18,6 +18,11 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 /*homepage image*/
@@ -34,6 +39,44 @@ code {
   z-index: -1;
 }
 
+.hero .clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 3;
+}
+
+.hero .clouds img {
+  position: absolute;
+  bottom: -50px;
+  width: auto;
+  /* Allow natural width */
+  height: auto;
+  /* Keep aspect ratio */
+  max-width: none;
+  /* Prevent stretching */
+  opacity: 0.8;
+  /* Make it blend better */
+  filter: blur(3px);
+  /* Optional: softens edges */
+  animation: animate calc(8s * var(--i)) linear infinite;
+  z-index: 3;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Dark overlay */
 .hero::before {
   content: "";
   position: absolute;
@@ -44,12 +87,31 @@ code {
   background-color: rgba(39, 63, 39, 0.222);
   /* Semi-transparent dark green */
   z-index: 1;
-  /* Makes sure the overlay is above the image */
+  /* Ensures overlay is above the image */
 }
 
+/* Soft semi-transparent white gradient at the bottom */
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  /* Adjust this value for more or less gradient */
+  background: linear-gradient(
+    to top,
+    rgb(255, 255, 255),
+    rgba(255, 255, 255, 0)
+  );
+  z-index: 2;
+  /* Ensure it's above the image but below text */
+}
+
+/* Heading */
 .hero h1 {
   font-family: gyst, serif;
-  font-size: xx-large;
+  font-size: 3.5rem;
   position: absolute;
   top: 40%;
   left: 50%;
@@ -57,7 +119,7 @@ code {
   z-index: 100;
 }
 
-/*sign in button*/
+/* Sign-in button */
 .hero button {
   position: absolute;
   top: 50%;
@@ -66,7 +128,7 @@ code {
   padding: 15px 40px;
   font-size: 18px;
   font-family: "Times New Roman", Times, serif;
-  font-weight: bold;
+  /*font-weight: bold;*/
   border: none;
   border-radius: 10px;
   background-color: #b1f8b6;
@@ -77,7 +139,7 @@ code {
   z-index: 100;
 }
 
-/* sign in - Hover effect */
+/* Sign-in button hover effect */
 .hero button:hover {
   background-color: #6b4a8b;
   /* Darker purple for hover */
@@ -90,6 +152,8 @@ section {
   position: relative;
 }
 
+/*dashboard section*/
+
 .dashboard {
   padding-top: 0;
   margin-top: -28px;
@@ -99,31 +163,33 @@ section {
   align-items: center;
   justify-content: flex-end;
   gap: 20px;
-  /* Optional gap between the image and text */
+  z-index: 99;
 }
 
-.dashboard p {
-  font-family: sans-serif;
-  padding-bottom: 550px;
-  padding-right: 5px;
-  z-index: 12;
-  font-size: 1.5rem;
-  white-space: nowrap;
+.dashboard h2 {
+  /*font-family: sans-serif;*/
+  /*padding-bottom: 33%;*/
+  top: 95px;
+  /*padding-right: 5px;*/
+  /*z-index: 12;*/
+  /*font-size: 1.5rem;*/
+  /*white-space: nowrap;*/
   position: absolute;
   z-index: 13;
+  margin-left: 50%;
+  /*font-weight: bold;*/
 }
 
-/* Section to hold dropdown tabs */
 .dropdown-section {
   position: absolute;
-  bottom: -460px;
-  left: 72%;
+  bottom: -700px;
+  left: 75%;
   transform: translateX(-50%);
   z-index: 100;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  gap: 65px;
 }
 
 .dropdown-tab {
@@ -146,21 +212,32 @@ section {
   transition: all 0.3s ease-in-out;
 }
 
-/* Hover effect */
 .dropdown-tab:hover {
   background: linear-gradient(135deg, #b1f8b6, #88d6a0);
   transform: scale(1.05);
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
 }
 
-/* Dropdown Content */
+.dropdown-tab::before {
+  content: "";
+  position: absolute;
+  width: 105%;
+  height: 125%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  /*border:1px solid green; !* for demo purposes *!*/
+}
+
 .dropdown-content {
   display: none;
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  width: 650px;
+  width: 630px;
   background: rgba(255, 255, 255, 0.95);
   color: #333;
   padding: 15px;
@@ -174,26 +251,25 @@ section {
   transition: all 0.3s ease-in-out;
 }
 
-/* Show dropdown on hover */
 .dropdown-tab:hover .dropdown-content {
   display: block;
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(5px);
-  /* Smooth movement */
 }
 
 #computer-image {
   position: absolute;
   top: 28px;
-  right: 45%;
-  z-index: 10;
+  right: 50%;
   width: 82%;
-  opacity: 100%;
   height: auto;
+  transition: all 0.5s ease-in-out;
+  z-index: 100;
+  opacity: 100%;
 }
 
-.dashboard img {
+.dashboard-map {
   width: 100%;
   height: auto;
   display: block;
@@ -201,11 +277,101 @@ section {
   z-index: 1;
 }
 
+/* === NEW EFFECT (update)  === */
+
+/* Hover class triggers */
+.computer-hover-active #computer-image {
+  right: 50%;
+  transform: translateX(50%);
+  z-index: 15;
+}
+
+/* Tabs become circles */
+.computer-hover-active .dropdown-tab {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  justify-content: center;
+  align-items: center;
+  background-color: #88d6a0;
+  left: auto;
+  right: -150px;
+  top: -130px;
+  transform: translateY(-50%);
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Hides content and label */
+.computer-hover-active .dropdown-tab .dropdown-content {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.computer-hover-active .dropdown-tab .step-label {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.computer-hover-active .dropdown-tab::before {
+  content: attr(data-step);
+  position: absolute;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  z-index: 20;
+}
+
+/*  makes the paragraph invisible when hovering over the computer image */
+.computer-hover-active .dashboard p {
+  visibility: hidden;
+  /* Hide the paragraph */
+  opacity: 0;
+  /* Make it fully transparent */
+  transition: opacity 0.3s ease-in-out, visibility 0s 0.3s;
+  /* Smooth transition */
+}
+
+/* shows the paragraph back when the hover effect is removed */
+.dashboard p {
+  visibility: visible;
+  /* Make the paragraph visible again */
+  opacity: 1;
+  /* Restore full opacity */
+  transition: opacity 0.3s ease-in-out, visibility 0s 0s;
+  /* Smooth transition */
+}
+/* video */
+#computer-video {
+  position: absolute;
+  top: 88px;
+  right: 50%;
+  width: 60%;
+  height: 73%;
+  object-fit: cover;
+  transform: translateX(50%);
+  z-index: 16;
+  display: none;
+  pointer-events: none;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.computer-hover-active #computer-video {
+  display: block;
+}
+
 .about-section {
   position: relative;
   width: 100%;
   max-width: 1300px;
-  height: 600px;
+  height: 680px;
   margin: 50px auto;
   border-radius: 20px;
   overflow: hidden;
@@ -278,8 +444,8 @@ section {
 .new-content {
   display: none;
   position: absolute;
-  top: 200px;
-  left: 50px;
+  /*top: 200px;*/
+  /*left: 50px;*/
   color: #fff;
   width: 100%;
   height: 100%;
@@ -332,6 +498,7 @@ section {
 .new-text {
   width: 50%;
   margin: 2px;
+  margin-top: 80px;
   padding: 10px;
   font-family: sans-serif;
   line-height: 1.6;
@@ -343,9 +510,27 @@ section {
   text-align: center;
 }
 
+.recommendation-card {
+  min-height: 440px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.recommendation-card img {
+}
+
+.recommendation-card h3 {
+  margin: 1rem 0;
+}
+
+.recommendation-card p {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
 .card img {
   width: 100%;
-  height: 80%;
+  height: 250px;
   border-radius: 5px;
   display: block;
   z-index: 1;
@@ -358,18 +543,15 @@ section {
 }
 
 .card {
-  /* width: 30%; */
+  /*width: 30%;*/
   padding: 20px;
   border-radius: 10px;
 }
 
-.recommendation-card {
-  background: rgba(0, 0, 0, 0.1);
-}
-
 .card button {
-  background-color: #007bff;
+  background-color: #4e356f;
   color: white;
+  margin-top: 5px;
   padding: 8px 16px;
   border: none;
   border-radius: 5px;
@@ -378,22 +560,28 @@ section {
 }
 
 .card button:hover {
-  background-color: #0056b3;
+  background-color: #6b4a8b;
 }
 
-/*footer*/
+/*
+!*footer*!
 .footer {
   background-color: #b1f8b6;
-  /*#bfe7c2*/
+  !*#bfe7c2*!
   padding: 70px 120px;
   margin: 0;
-  /*margin-top: 40px;*/
+  margin-top: 40px;
   font-family: inria;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 14px;
   color: #6b4a8b;
+}*/
+
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+  filter: invert(100%);
 }
 
 /*socials*/
@@ -403,4 +591,12 @@ section {
   gap: 75px;
   font-size: 20px;
   margin-top: 0;
+}
+
+.dashboard img {
+  display: block;
+  height: auto;
+  opacity: 50%;
+  width: 100%;
+  z-index: 1;
 }

@@ -213,7 +213,7 @@ const CreateItinerary = () => {
           >
             <div>
               <Row>
-                <h3>Wishlist</h3>
+                <h2>Wishlist</h2>
               </Row>
 
               <Row>
