@@ -127,7 +127,7 @@ code {
   padding: 15px 40px;
   font-size: 18px;
   font-family: 'Times New Roman', Times, serif;
-  font-weight: bold;
+  /*font-weight: bold;*/
   border: none;
   border-radius: 10px;
   background-color: #b1f8b6;

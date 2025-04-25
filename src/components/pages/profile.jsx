@@ -224,7 +224,7 @@ const Profile = () => {
             <Container>
               <Row id={"photos"}>
                 {photos.map((photo, index) => (
-                    <Col xs={4}>
+                    <Col xs={12} md={6} xl={4}>
                       <Photo
                           id={index}
                           imageSrc={photo.imagePath}
@@ -263,7 +263,7 @@ const Profile = () => {
           {/*</div>*/}
 
           {photos.map((photo, index) => (
-              <Col>
+              <Col xs={12} md={4} xl={3}>
                 <Photo
                     id={index}
                     imageSrc={photo.imagePath}

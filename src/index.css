@@ -587,7 +587,7 @@ input[type="text"]:focus {
 }
 
 .all-itinerary-text {
-  font-size: 12px;
+  /*font-size: 12px;*/
   color: #6d5faa;
   /* position: absolute;
   left: 10px;
@@ -1066,4 +1066,23 @@ input[type="text"]:focus {
 
 .all-itinerary-container {
   background: #F7F7F7 !important;
+}
+
+.all-itinerary-title {
+  border-bottom: none;
+}
+
+.all-itinerary-title:first-child {
+}
+
+.photo-card {
+  border-radius: 0 !important;
+}
+
+.photo-card .all-itinerary-title {
+  border: var(--bs-card-border-width) solid var(--bs-card-border-color) !important;
+}
+
+.photo-card .card-img-top {
+  border-radius: 0 !important;
 }
