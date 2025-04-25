@@ -13,6 +13,10 @@ userRouter.get("/profileName/:profileName", (req, res) => {
   connect((conn) => userController.findUserByProfileName(conn, req, res));
 });
 
+userRouter.get("/:userId", (req, res) => {
+  connect((conn) => userController.findUserById(conn, req, res));
+});
+
 userRouter.post("/login", (req, res) => {
   connect((conn) => userController.findUser(conn, req, res));
 });
@@ -21,8 +25,8 @@ userRouter.post("/signup", (req, res) => {
   connect((conn) => userController.createUser(conn, req, res));
 });
 
-userRouter.get("/:userId", (req, res) => {
-  connect((conn) => userController.findUserById(conn, req, res));
+userRouter.post("/:userId/newsletter", (req, res) => {
+  connect((conn) => userController.subscribeUserToNewsletter(conn, req, res));
 });
 
 userRouter.put("/:userId", (req, res) => {

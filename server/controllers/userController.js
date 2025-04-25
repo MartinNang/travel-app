@@ -2,6 +2,7 @@ import User from "../models/user.js";
 import * as userService from "../services/userService.js";
 import bcrypt from "bcrypt";
 
+
 export async function getAllUsers(conn, req, res) {
   try {
     console.log("response:", res);
@@ -154,6 +155,24 @@ export async function updateUser(conn, req, res) {
   }
 }
 
+export async function subscribeUserToNewsletter(conn, req, res) {
+  try {
+    const id = req.params.userId;
+
+    await userService.subscribeUserToNewsletter(conn, id, (result) => {
+        if (result) {
+          res.status(200).send({ success: "subscribed user to newsletter" });
+        } else {
+          res.status(500).send({ error: "failed to subscribe user to newsletter" });
+        }
+    });
+
+  } catch (code) {
+    res.status(code);
+    res.send();
+  }
+}
+
 export async function updateProfileName(conn, req, res) {
   try {
     const userId = req.params.userId;
@@ -166,13 +185,13 @@ export async function updateProfileName(conn, req, res) {
       userId,
       newProfileName,
       (result) => {
-        res.status(204);
+        if (result) {
+          res.status(204).send({ success: "updated user profile name" });
+        }
       }
     );
   } catch (code) {
-    res.status(code);
-  } finally {
-    res.send();
+    res.status(code).send();
   }
 }
 

@@ -628,8 +628,8 @@ input[type="text"]:focus {
 
 .collage-container {
   position: relative;
-  width: 80%;
-  height: 80vh;
+  /*width: 80%;*/
+  /*height: 80vh;*/
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
