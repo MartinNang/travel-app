@@ -7,7 +7,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import "../../styles/homepage.css";
 import aboutUsImg from "../../images/aboutus.jpg";
 import mountainsImg from "../../images/mountains.jpg";
@@ -35,6 +35,8 @@ const Home = () => {
   let currentSlide = 1; // Track which slide is currently being displayed
   const totalSlides = 3; // Total number of slides
   let isContentVisible = false; // Track whether new content is visible
+
+  const navigate = useNavigate();
 
   function toggleContent() {
     console.log("toggle content");
@@ -277,11 +279,13 @@ const Home = () => {
         <Container class="cards">
           <Row className="mt-4">
             <Col xs={12} md={6} lg={4}>
-              <Card className="recommendation-card">
+              <Card className="recommendation-card mb-4">
                 <img src={newyorkImg} alt="Destination 1" height="110%" />
                 <h3>Lazy New York City Itinerary</h3>
-                <p>Some details here...</p>
-                <button>View</button>
+                {/*<p>Some details here...</p>*/}
+                <Link to={"/inside-itinerary/nyc/Lazy%20and%20cozy"} className={"mt-auto w-100"}>
+                  <button className={"w-100"}>View</button>
+                </Link>
               </Card>
             </Col>
             <Col
@@ -289,11 +293,13 @@ const Home = () => {
               md={6}
               lg={4}
               className="mt-xl-0 mt-sm-2 mt-xs-2 mt-md-0 mt-lg-0">
-              <Card className="recommendation-card">
+              <Card className="recommendation-card mb-4">
                 <img src={tokyoImg} alt="Destination 2" />
-                <h3>Cozy Tokyo Itinerary</h3>
-                <p>Some details here...</p>
-                <button>View</button>
+                <h3>Neon Dreams Tokyo Itinerary</h3>
+                {/*<p>Some details here...</p>*/}
+                <Link to={"/inside-itinerary/tokyo/Neon%20Dreams"} className={"mt-auto w-100"}>
+                  <button className={"w-100"}>View</button>
+                </Link>
               </Card>
             </Col>
             <Col
@@ -303,9 +309,11 @@ const Home = () => {
               className="mt-xl-0 mt-sm-2 mt-xs-2 mt-md-0 mt-lg-0">
               <Card className="recommendation-card">
                 <img src={parisImg} alt="Destination 3" />
-                <h3>Adventurous Paris Itinerary</h3>
-                <p>Some details here...</p>
-                <button>View</button>
+                <h3>Family Friendly Paris Itinerary</h3>
+                {/*<p>Some details here...</p>*/}
+                <Link to={"/inside-itinerary/paris/Family-Friendly%20Adventurers"} className={"mt-auto w-100"}>
+                  <button className={"w-100"}>View</button>
+                </Link>
               </Card>
             </Col>
           </Row>
