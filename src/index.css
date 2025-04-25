@@ -831,6 +831,7 @@ input[type="text"]:focus {
 /* Add hover effect to events */
 .fc .fc-event:hover {
   opacity: 0.8;
+  cursor: grab;
 }
 
 /* Itinerary */

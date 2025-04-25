@@ -87,7 +87,7 @@ const CreateItinerary = () => {
 
     const getUserId = () => {
       // key name must match whatever your login code stores
-      return sessionStorage.getItem("userId"); // returns null if missing
+      return sessionStorage.getItem("id"); // returns null if missing
     };
     
     
@@ -97,6 +97,8 @@ const CreateItinerary = () => {
    Also logs the result or errors*/
   const handleSave = async () => {
     const userId = getUserId();
+    console.log("User ID from sessionStorage:", sessionStorage.getItem("id"));
+
 
     if (!userId) {
       alert("No user ID found. Make sure you are logged in!");
@@ -106,8 +108,8 @@ const CreateItinerary = () => {
     // Prepare the itinerary data
     const itinerary = {
       name: "TRIP TEST", 
-      startDate: events[0]?.start ? events[0].start.toISOString() : "", 
-      endDate: events[events.length - 1]?.start ? events[events.length - 1].start.toISOString() : "", 
+      startDate: events[0]?.start ? events[0].start.toISOString().split("T")[0] : "", 
+      endDate: events[events.length - 1]?.start ? events[events.length - 1].start.toISOString().split("T")[0] : "", 
       createdAt: null,
       updatedAt: null,
       type: "1",
@@ -117,6 +119,8 @@ const CreateItinerary = () => {
         event.end ? event.end.toISOString() : event.start ? event.start.toISOString() : "" 
       ])
     };
+
+    
     
   
     console.log("Itinerary to send:", itinerary); // Log the data structure before sending
@@ -198,6 +202,7 @@ const CreateItinerary = () => {
 
               <Row>
                 {wishlist.map((event) => (
+                  
                   <div
                     key={event.id}
                     className="wishlist-card p-2 ps-4 mb-2 fc-event"
