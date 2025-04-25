@@ -16,7 +16,6 @@ import newyorkImg from "../../images/newyork.jpg";
 import signinImg from "../../images/signin.jpg";
 import mapsImg from "../../images/maps.png";
 import computerImg from "../../images/computer.png";
-import japanImg from "../../images/japan.jpg";
 import parisImg from "../../images/paris.jpg";
 import cloud1Img from "../../images/cloud1.png";
 import cloud2Img from "../../images/cloud2.png";
@@ -25,9 +24,6 @@ import cloud4Img from "../../images/cloud4.png";
 import cloud5Img from "../../images/cloud5.png";
 import video from "../../images/video.mp4";
 import { Card } from "react-bootstrap";
-
-// Icons
-//import profile from "../assets/img/Profile.jpeg";
 
 const Home = () => {
   //this scirpt will be put into a javascript file don't worry
