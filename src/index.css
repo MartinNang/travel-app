@@ -17,11 +17,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, p, button, a {
+h1,
+h2,
+h3,
+p,
+button,
+a {
   font-family: Poppins, serif;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-weight: 550 !important;
 }
 
@@ -30,7 +36,9 @@ h3 {
   font-size: 1.2rem !important;
 }
 
-p, button, a {
+p,
+button,
+a {
   font-family: Poppins, serif !important;
 }
 
@@ -659,7 +667,7 @@ input[type="text"]:focus {
   gap: 35px;
   justify-content: center;
   align-items: center;
-/*  padding: 20px;
+  /*  padding: 20px;
   margin-bottom: 40px;
   margin-top: 20px;*/
 }
@@ -879,7 +887,7 @@ input[type="text"]:focus {
   padding: 30px;
   border-radius: 30px;
   /*width: 30%;*/
- 
+
   box-sizing: border-box;
   /*max-width: 500px;*/
   min-width: 300px;
@@ -1031,7 +1039,6 @@ input[type="text"]:focus {
   overflow: scroll;
 }
 
-
 /* Accordion of categories of itineraries (itinerary page) */
 .custom-accordion {
   border: none;
@@ -1039,14 +1046,14 @@ input[type="text"]:focus {
 
 .custom-accordion > .accordion-header .accordion-button {
   background-color: #0b524cda;
-  color: #F19EDC;
-  border:none ;
+  color: #f19edc;
+  border: none;
 }
 
 /* header when opened (Bootstrap adds .collapsed when CLOSED) */
 .custom-accordion > .accordion-header .accordion-button:not(.collapsed) {
   background-color: #0b524cda;
-  color: #F19EDC;
+  color: #f19edc;
   box-shadow: none; /* remove blue focus ring */
   border: none;
 }
@@ -1065,7 +1072,7 @@ input[type="text"]:focus {
 }
 
 .all-itinerary-container {
-  background: #F7F7F7 !important;
+  background: #f7f7f7 !important;
 }
 
 .all-itinerary-title {
