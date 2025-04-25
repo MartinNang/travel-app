@@ -4,6 +4,7 @@ import FullCalendar from "@fullcalendar/react";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin, { Draggable } from "@fullcalendar/interaction";
 import adaptivePlugin from "@fullcalendar/adaptive";
+import { v4 as uuidv4 } from 'uuid';
 
 const CreateItinerary = () => {
   const [wishlist, setWishlist] = useState([]); // Stores events the user wants to schedule (saved in localStorage)
@@ -15,8 +16,20 @@ const CreateItinerary = () => {
   useEffect(() => {
     const storedWishlist = localStorage.getItem("wishlist");
     if (storedWishlist) {
-      setWishlist(JSON.parse(storedWishlist));
+      let parsedWishlist = JSON.parse(storedWishlist);
+    
+      // Fix: assign UUID to any item that doesn't have one
+      const updatedWishlist = parsedWishlist.map(item => {
+        if (!item.id) {
+          return { ...item, id: uuidv4() };
+        }
+        return item;
+      });
+    
+      setWishlist(updatedWishlist);
+      localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
     }
+    
 
     if (externalEventsRef.current) {
       new Draggable(externalEventsRef.current, {
@@ -38,7 +51,7 @@ const CreateItinerary = () => {
     if (!title) return;
   
     const newEvent = {
-      id: Date.now().toString(), // unique ID
+      id: uuidv4(), // unique ID
       name: title,
     };
   
@@ -64,10 +77,10 @@ const CreateItinerary = () => {
     
       // 2. Add to calendar events
       const newEvent = {
+        id: data.id,
         title: info.event.title,
         start: info.event.start,
-        id: info.event.id,
-      };
+        };
     
       setEvents((prev) => [...prev, newEvent]);
     
@@ -142,12 +155,15 @@ const CreateItinerary = () => {
       if (!res.ok) throw new Error("Failed to save itinerary");
 
       alert("Itinerary saved successfully!");
+
     } catch (err) {
       console.error("Save failed:", err);
       alert("Error saving itinerary.");
     }
   };
   
+
+  console.log("Wishlist:", wishlist);
 
   return (
     <article>
