@@ -14,33 +14,33 @@ const ViewItinerary = () => {
   axios.defaults.baseURL = "https://2425-cs7025-group1.scss.tcd.ie";
 
   function createDays(events) {
-      let days = new Map();
-      let i = 0;
-      /**
-       * let previousDate = Date.parse(events[0].startDate);
-       */
-      for (; i < events.length; i++) {
-          // get date
-          const event = events[i];
-          console.log("event", event);
-          let eventStartDate = new Date(event.start_time).setHours(0, 0, 0, 0);
-          console.log("eventStartDate", eventStartDate, event.start_time);
-          // create new day entry
-          const doesDayExist = !!days.get(eventStartDate);
-          console.log("has this entry been created already?", doesDayExist)
+    let days = new Map();
+    let i = 0;
+    /**
+     * let previousDate = Date.parse(events[0].startDate);
+     */
+    for (; i < events.length; i++) {
+      // get date
+      const event = events[i];
+      console.log("event", event);
+      let eventStartDate = new Date(event.start_time).setHours(0, 0, 0, 0);
+      console.log("eventStartDate", eventStartDate, event.start_time);
+      // create new day entry
+      const doesDayExist = !!days.get(eventStartDate);
+      console.log("has this entry been created already?", doesDayExist);
 
-          if (doesDayExist) {
-              console.log("before:", days.get(eventStartDate));
-              let day = days.get(eventStartDate);
-              day.push(event);
-              days.set(eventStartDate, day);
-              console.log("after:", days.get(eventStartDate));
-          } else {
-              days.set(eventStartDate, [event]);
-          }
+      if (doesDayExist) {
+        console.log("before:", days.get(eventStartDate));
+        let day = days.get(eventStartDate);
+        day.push(event);
+        days.set(eventStartDate, day);
+        console.log("after:", days.get(eventStartDate));
+      } else {
+        days.set(eventStartDate, [event]);
       }
-      console.log("days", days);
-      setDays(days);
+    }
+    console.log("days", days);
+    setDays(days);
   }
 
   useEffect(() => {
@@ -71,27 +71,22 @@ const ViewItinerary = () => {
 
   return (
     <div id="itinerary-container">
-      <h1 id="itinerary-title">
-        <strong> {itinerary.title} </strong>
+      <h1 id="itinerary-title" className="my-4 d-flex justify-content-center">
+        <strong> {itinerary.name} </strong>
       </h1>
 
       <div id="itinerary-columns">
-          <Container>
-              <Row>
-                  {Array.from(days.entries()).map((day, index) => (
-                      <Col xs={12} lg={6} className={"mb-3"}>
-                          <Day key={index} day={day}>
-                          </Day>
-                      </Col>
-
-                  ))}
-              </Row>
-
-          </Container>
-
+        <Container>
+          <Row>
+            {Array.from(days.entries()).map((day, index) => (
+              <Col xs={12} lg={6} className={"mb-3"}>
+                <Day key={index} day={day}></Day>
+              </Col>
+            ))}
+          </Row>
+        </Container>
       </div>
     </div>
-    
   );
 };
 
