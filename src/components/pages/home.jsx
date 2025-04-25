@@ -2,11 +2,11 @@
  * En Route - Home page
  */
 
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../../styles/homepage.css";
 import aboutUsImg from "../../images/aboutus.jpg";
 import mountainsImg from "../../images/mountains.jpg";
@@ -25,7 +25,6 @@ import video from "../../images/video.mp4";
 import { Card } from "react-bootstrap";
 
 const Home = () => {
-
   let currentSlide = 1; // Track which slide is currently being displayed
   const totalSlides = 3; // Total number of slides
   let isContentVisible = false; // Track whether new content is visible
@@ -65,18 +64,18 @@ const Home = () => {
   }
 
   useEffect(() => {
-    const computerImage = document.getElementById('computer-image');
+    const computerImage = document.getElementById("computer-image");
     // const dashboard = document.querySelector(".dashboard");
-    const video = document.getElementById('computer-video');
-    const stepOne = document.getElementById('step-one');
-    const stepTwo = document.getElementById('step-two');
-    const stepThree = document.getElementById('step-three');
-    const stepFour = document.getElementById('step-four');
+    const video = document.getElementById("computer-video");
+    const stepOne = document.getElementById("step-one");
+    const stepTwo = document.getElementById("step-two");
+    const stepThree = document.getElementById("step-three");
+    const stepFour = document.getElementById("step-four");
 
     let videoTimeout;
 
-    computerImage.addEventListener('mouseenter', () => {
-      document.body.classList.add('computer-hover-active');
+    computerImage.addEventListener("mouseenter", () => {
+      document.body.classList.add("computer-hover-active");
       stepOne.innerText = "1.";
       stepTwo.innerText = "2.";
       stepThree.innerText = "3.";
@@ -84,12 +83,12 @@ const Home = () => {
 
       // Delay showing the video
       videoTimeout = setTimeout(() => {
-        video.style.display = 'block';
+        video.style.display = "block";
       }, 500); // 500ms = 0.5 seconds
     });
 
-    computerImage.addEventListener('mouseleave', () => {
-      document.body.classList.remove('computer-hover-active');
+    computerImage.addEventListener("mouseleave", () => {
+      document.body.classList.remove("computer-hover-active");
       stepOne.innerText = "Step One";
       stepTwo.innerText = "Step Two";
       stepThree.innerText = "Step Three";
@@ -97,70 +96,80 @@ const Home = () => {
 
       // Cancel the timeout and hide the video immediately
       clearTimeout(videoTimeout);
-      video.style.display = 'none';
+      video.style.display = "none";
     });
-  })
+  });
 
   return (
     <>
       <div class="hero">
-        <img src={signinImg} alt="Signin Image"/>
+        <img src={signinImg} alt="Signin Image" />
         {/*cloud animation update*/}
         <div class="clouds">
-          <img src={cloud1Img} style={{"--i":1}}/>
-          <img src={cloud2Img} style={{"--i":2}}/>
-          <img src={cloud3Img} style={{"--i":3}}/>
-          <img src={cloud4Img} style={{"--i":4}}/>
-          <img src={cloud5Img} style={{"--i":5}}/>
+          <img src={cloud1Img} style={{ "--i": 1 }} />
+          <img src={cloud2Img} style={{ "--i": 2 }} />
+          <img src={cloud3Img} style={{ "--i": 3 }} />
+          <img src={cloud4Img} style={{ "--i": 4 }} />
+          <img src={cloud5Img} style={{ "--i": 5 }} />
         </div>
         <h1>Your Journey, Perfectly Planned.</h1>
         {!sessionStorage.getItem("profileName") ? (
-            <Link to={"/sign-in"}>
-              <button className="btn btn-primary" type="submit">
-                Sign In
-              </button>
-            </Link>
+          <Link to={"/sign-in"}>
+            <button className="btn btn-primary" type="submit">
+              Sign In
+            </button>
+          </Link>
         ) : (
-            ""
+          ""
         )}
       </div>
 
       {/* <!-- Dashboard Section --> */}
       <section class="dashboard">
-        <img src={mapsImg} alt="Dashboard Image"/>
-        <img src={computerImg} id="computer-image" alt="Computer Image"/>
+        <img src={mapsImg} alt="Dashboard Image" />
+        <img src={computerImg} id="computer-image" alt="Computer Image" />
         {/*Mock up video*/}
-        <video id="computer-video" className="delayed-video" src={video} muted autoPlay loop
-               playsInline></video>
+        <video
+          id="computer-video"
+          className="delayed-video"
+          src={video}
+          muted
+          autoPlay
+          loop
+          playsInline
+        ></video>
 
         <p>A Step By Step Guide On How To Navigate Our Website</p>
       </section>
 
       <section class="dropdown-section">
-        <div
-            class="dropdown-tab"
-            style={{}}>
+        <div class="dropdown-tab" style={{}}>
           <span id={"step-one"}>Step One</span>
-          <div class="dropdown-content">Sign in or create an account to unlock access to suggested itineraries and
-            exclusive features.</div>
+          <div class="dropdown-content">
+            Sign in or create an account to unlock access to suggested
+            itineraries and exclusive features.
+          </div>
         </div>
-        <div
-          class="dropdown-tab"
-          style={{}}>
+        <div class="dropdown-tab" style={{}}>
           <span id={"step-two"}>Step Two</span>
-          <div class="dropdown-content">After creating an account, select your destination on the interactive map.
+          <div class="dropdown-content">
+            After creating an account, select your destination on the
+            interactive map.
           </div>
         </div>
         <div class="dropdown-tab" style={{}}>
           <span id={"step-three"}>Step Three</span>
-          <div class="dropdown-content">Choose a suggested itinerary for your destination or create your own.</div>
+          <div class="dropdown-content">
+            Choose a suggested itinerary for your destination or create your
+            own.
+          </div>
         </div>
-        <div
-          class="dropdown-tab"
-          style={{}}>
+        <div class="dropdown-tab" style={{}}>
           <span id={"step-four"}> Step Four</span>
-          <div class="dropdown-content">Save your itinerary and travel documents to your profile and wallet, and
-            upload trip photos to personalize your page.</div>
+          <div class="dropdown-content">
+            Save your itinerary and travel documents to your profile and wallet,
+            and upload trip photos to personalize your page.
+          </div>
         </div>
       </section>
       {/* <!-- About Us Section --> */}
@@ -275,7 +284,10 @@ const Home = () => {
                 <img src={newyorkImg} alt="Destination 1" height="110%" />
                 <h3>Lazy New York City Itinerary</h3>
                 {/*<p>Some details here...</p>*/}
-                <Link to={"/inside-itinerary/nyc/Lazy%20and%20cozy"} className={"mt-auto w-100"}>
+                <Link
+                  to={"/inside-itinerary/nyc/Lazy%20and%20cozy"}
+                  className={"mt-auto w-100"}
+                >
                   <button className={"w-100"}>View</button>
                 </Link>
               </Card>
@@ -284,12 +296,16 @@ const Home = () => {
               xs={12}
               md={6}
               lg={4}
-              className="mt-xl-0 mt-sm-2 mt-xs-2 mt-md-0 mt-lg-0">
+              className="mt-xl-0 mt-sm-2 mt-xs-2 mt-md-0 mt-lg-0"
+            >
               <Card className="recommendation-card mb-4">
                 <img src={tokyoImg} alt="Destination 2" />
                 <h3>Neon Dreams Tokyo Itinerary</h3>
                 {/*<p>Some details here...</p>*/}
-                <Link to={"/inside-itinerary/tokyo/Neon%20Dreams"} className={"mt-auto w-100"}>
+                <Link
+                  to={"/inside-itinerary/tokyo/Neon%20Dreams"}
+                  className={"mt-auto w-100"}
+                >
                   <button className={"w-100"}>View</button>
                 </Link>
               </Card>
@@ -298,12 +314,16 @@ const Home = () => {
               xs={12}
               md={6}
               lg={4}
-              className="mt-xl-0 mt-sm-2 mt-xs-2 mt-md-0 mt-lg-0">
+              className="mt-xl-0 mt-sm-2 mt-xs-2 mt-md-0 mt-lg-0"
+            >
               <Card className="recommendation-card">
                 <img src={parisImg} alt="Destination 3" />
                 <h3>Family Friendly Paris Itinerary</h3>
                 {/*<p>Some details here...</p>*/}
-                <Link to={"/inside-itinerary/paris/Family-Friendly%20Adventurers"} className={"mt-auto w-100"}>
+                <Link
+                  to={"/inside-itinerary/paris/Family-Friendly%20Adventurers"}
+                  className={"mt-auto w-100"}
+                >
                   <button className={"w-100"}>View</button>
                 </Link>
               </Card>
