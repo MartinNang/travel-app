@@ -80,6 +80,7 @@ const Profile = () => {
       .catch((error) => {
         console.error(error);
         setItineraries([]);
+        fetchPhotos();
       });
   }
 
