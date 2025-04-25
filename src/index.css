@@ -17,6 +17,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1, h2, h3, p, button, a {
+  font-family: Poppins, serif;
+}
+
+h1, h2 {
+  font-weight: 550 !important;
+}
+
+h3 {
+  font-family: Poppins, serif;
+  font-size: 1.2rem !important;
+}
+
+p, button, a {
+  font-family: Poppins, serif !important;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -78,7 +95,7 @@ code {
 
 header {
   background-color: #fff;
-  padding: 15px 0;
+  padding: 13px 0;
   position: fixed;
   width: 100%;
   top: 0;
@@ -413,10 +430,14 @@ input[type="text"]:focus {
 }
 
 .profile-pic {
-  width: 96px;
-  height: 96px;
+  width: 100%;
   border-radius: 50%;
+  object-fit: cover;
   /*margin-right: 20px;*/
+  height: auto;
+  margin-bottom: -20px;
+  max-height: 12rem;
+  max-width: 12rem;
 }
 
 .user-details {
@@ -426,7 +447,7 @@ input[type="text"]:focus {
 }
 
 .username {
-  font-size: 40px;
+  /*font-size: 40px;*/
   color: #0b524c;
   margin: 0;
 }
@@ -458,7 +479,7 @@ input[type="text"]:focus {
 }
 
 .stat-number {
-  font-size: 40px;
+  font-size: 2.5rem;
   color: #0b524c;
   margin: 0;
   font-weight: bold;
@@ -513,8 +534,9 @@ input[type="text"]:focus {
 }
 
 .tab {
-  font-size: 25px;
+  font-size: 1.5rem;
   font-family: "Inter", sans-serif;
+  font-weight: normal !important;
   color: #bbb9b9;
   cursor: pointer;
   padding: 5px 10px;
@@ -557,11 +579,11 @@ input[type="text"]:focus {
 }
 
 .all-itinerary-title {
-  font-size: 16px;
-  color: #f19edc;
+  font-size: 1rem;
+  color: #f19edc !important;
   text-transform: uppercase;
   font-weight: bold;
-  margin-bottom: 10px;
+  text-decoration-line: underline;
 }
 
 .all-itinerary-text {
@@ -637,9 +659,9 @@ input[type="text"]:focus {
   gap: 35px;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+/*  padding: 20px;
   margin-bottom: 40px;
-  margin-top: 20px;
+  margin-top: 20px;*/
 }
 
 .collage-item {
@@ -1040,4 +1062,8 @@ input[type="text"]:focus {
   padding-top: 5%;
   padding-bottom: 5%;
   font-size: x-large;
+}
+
+.all-itinerary-container {
+  background: #F7F7F7 !important;
 }

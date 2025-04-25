@@ -34,7 +34,7 @@ const Itinerary = ({ id, title, startDate, endDate, type}) => {
   return (
     <>
       <Card className="all-itinerary-container mb-3 w-100">
-        <CardHeader className="all-itinerary-title">{title}</CardHeader>
+        <CardHeader className="all-itinerary-title bg-transparent"><h3>{title}</h3></CardHeader>
 
         <CardBody className="all-itinerary-content">
           <div class="all-itinerary-text">

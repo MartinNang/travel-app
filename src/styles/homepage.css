@@ -110,7 +110,7 @@ code {
 /* Heading */
 .hero h1 {
   font-family: gyst, serif;
-  font-size: xx-large;
+  font-size: 3.5rem;
   position: absolute;
   top: 40%;
   left: 50%;
@@ -166,17 +166,18 @@ section {
   z-index: 99;
 }
 
-.dashboard p {
-  font-family: sans-serif;
+.dashboard h2 {
+  /*font-family: sans-serif;*/
   /*padding-bottom: 33%;*/
   top: 95px;
-  padding-right: 5px;
-  z-index: 12;
-  font-size: 1.5rem;
-  white-space: nowrap;
+  /*padding-right: 5px;*/
+  /*z-index: 12;*/
+  /*font-size: 1.5rem;*/
+  /*white-space: nowrap;*/
   position: absolute;
   z-index: 13;
-  font-weight: bold;
+  margin-left: 50%;
+  /*font-weight: bold;*/
 }
 
 
@@ -517,6 +518,7 @@ section {
 
 .recommendation-card {
   min-height: 440px;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .recommendation-card img {
@@ -525,6 +527,12 @@ section {
 
 .recommendation-card h3 {
   margin: 1rem 0;
+}
+
+.recommendation-card p {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  margin-top: 2px;
 }
 
 .card img {
@@ -543,16 +551,11 @@ section {
 
 .card {
   /*width: 30%;*/
-  background: rgba(0, 0, 0, 0.1);
   padding: 20px;
   border-radius: 10px;
 }
 
-.card p {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 12px;
-  margin-top: 2px;
-}
+
 
 .card button {
 

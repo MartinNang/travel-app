@@ -105,9 +105,11 @@ const Profile = () => {
   return (
     <>
       <Container fluid className={"m-0 header"} >
+        {isLoggedInUser ? (<Row>
+        </Row>) : ""}
         <Row
           className={"w-100 h-100 align-items-center justify-content-center"}>
-          <Col xs={6} xl={2} className={"profile-info justify-content-center"}>
+          <Col xs={6} xl={3} className={"profile-info justify-content-center"}>
             <img
               src={profileImage ? BACKEND_URL + profileImage : profilepic}
               alt="User Profile"
@@ -118,7 +120,7 @@ const Profile = () => {
               }}
             />
           </Col>
-          <Col xs={6} xl={2}>
+          <Col xs={6} xl={3}>
             {/*<div class="user-details w-100">*/}
             <h1 class="username">{user.profileName}</h1>
             {/*<p class="status">This is a user status</p>*/}
@@ -145,7 +147,7 @@ const Profile = () => {
           </Col>
           {/*</div>*/}
           <Col
-            xl={1}
+            xl={2}
             className={"d-flex align-items-center justify-content-center"}>
             {isLoggedInUser ? (
               <div>
@@ -178,21 +180,21 @@ const Profile = () => {
       <div class="separator"></div>
       <Container className={"tab-container"}>
         <div class="tabs">
-          <div
+          <h2
               class={`tab ${activeTab === "all" ? "active" : ""}`}
               onClick={() => handleTabClick("all")}>
             Overview
-          </div>
-          <div
+          </h2>
+          <h2
               class={`tab ${activeTab === "itineraries" ? "active" : ""}`}
               onClick={() => handleTabClick("itineraries")}>
             Itineraries
-          </div>
-          <div
+          </h2>
+          <h2
               class={`tab ${activeTab === "photos" ? "active" : ""}`}
               onClick={() => handleTabClick("photos")}>
             Photos
-          </div>
+          </h2>
         </div>
       </Container>
 
@@ -205,7 +207,7 @@ const Profile = () => {
             <Container>
               <Row id={"itineraries"}>
               {itineraries.map((itinerary) => (
-                  <Col xs={4}>
+                  <Col xs={12} xl={6}>
                     <Itinerary
                         id={itinerary.id}
                         title={itinerary.name}
@@ -274,6 +276,9 @@ const Profile = () => {
       </Container>
       {/*{isLoggedInUser ?*/}
           <Container>
+            <Row>
+              <p>Newsletter subscription: {user.newsletter ? "yes" : "no"}</p>
+            </Row>
             <Row>
               <Button href={"#/create-post"} className={"mb-2"} disabled={itineraries.length === 0}>
                 Create a new post
