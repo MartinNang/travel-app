@@ -995,8 +995,11 @@ input[type="text"]:focus {
 }
 
 #profile-img {
-  width: 20px;
-  border-radius: 0px;
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 90px;
+
   /* border: lightgray 1px solid; */
   /* padding: 2px; */
 }

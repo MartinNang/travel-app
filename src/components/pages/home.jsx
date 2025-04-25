@@ -6,8 +6,7 @@ import React, {useEffect} from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import "../../styles/homepage.css";
 import aboutUsImg from "../../images/aboutus.jpg";
 import mountainsImg from "../../images/mountains.jpg";
@@ -26,13 +25,10 @@ import video from "../../images/video.mp4";
 import { Card } from "react-bootstrap";
 
 const Home = () => {
-  //this scirpt will be put into a javascript file don't worry
 
   let currentSlide = 1; // Track which slide is currently being displayed
   const totalSlides = 3; // Total number of slides
   let isContentVisible = false; // Track whether new content is visible
-
-  const navigate = useNavigate();
 
   function toggleContent() {
     console.log("toggle content");
@@ -70,7 +66,7 @@ const Home = () => {
 
   useEffect(() => {
     const computerImage = document.getElementById('computer-image');
-    const dashboard = document.querySelector(".dashboard");
+    // const dashboard = document.querySelector(".dashboard");
     const video = document.getElementById('computer-video');
     const stepOne = document.getElementById('step-one');
     const stepTwo = document.getElementById('step-two');
