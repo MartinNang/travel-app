@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/en-route/static/css/main.c8ea2470.css",
+    "main.css": "/en-route/static/css/main.41181f37.css",
     "main.js": "/en-route/static/js/main.878acdd7.js",
     "static/media/video.mp4": "/en-route/static/media/video.4fcb33467f38f5ac5227.mp4",
     "static/media/mountains.jpg": "/en-route/static/media/mountains.3991bf8055a7e8b0c918.jpg",
@@ -43,11 +43,11 @@
     "static/media/cocktail.png": "/en-route/static/media/cocktail.0a138e2a1757cd31f624.png",
     "static/media/slot-machine.png": "/en-route/static/media/slot-machine.7df3bad59267d893e79b.png",
     "index.html": "/en-route/index.html",
-    "main.c8ea2470.css.map": "/en-route/static/css/main.c8ea2470.css.map",
+    "main.41181f37.css.map": "/en-route/static/css/main.41181f37.css.map",
     "main.878acdd7.js.map": "/en-route/static/js/main.878acdd7.js.map"
   },
   "entrypoints": [
-    "static/css/main.c8ea2470.css",
+    "static/css/main.41181f37.css",
     "static/js/main.878acdd7.js"
   ]
 }
