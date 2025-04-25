@@ -2,13 +2,13 @@
  * En Route - Home page
  */
 
-import React from "react";
+import React, {useEffect} from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import homepageCss from "../../styles/homepage.css";
+import "../../styles/homepage.css";
 import aboutUsImg from "../../images/aboutus.jpg";
 import mountainsImg from "../../images/mountains.jpg";
 import tokyoImg from "../../images/tokyo.jpg";
@@ -18,6 +18,12 @@ import mapsImg from "../../images/maps.png";
 import computerImg from "../../images/computer.png";
 import japanImg from "../../images/japan.jpg";
 import parisImg from "../../images/paris.jpg";
+import cloud1Img from "../../images/cloud1.png";
+import cloud2Img from "../../images/cloud2.png";
+import cloud3Img from "../../images/cloud3.png";
+import cloud4Img from "../../images/cloud4.png";
+import cloud5Img from "../../images/cloud5.png";
+import video from "../../images/video.mp4";
 import { Card } from "react-bootstrap";
 
 // Icons
@@ -63,60 +69,104 @@ const Home = () => {
     // Toggle state (not really necessary in this version)
     isContentVisible = true;
   }
+
+  useEffect(() => {
+    const computerImage = document.getElementById('computer-image');
+    const dashboard = document.querySelector(".dashboard");
+    const video = document.getElementById('computer-video');
+    const stepOne = document.getElementById('step-one');
+    const stepTwo = document.getElementById('step-two');
+    const stepThree = document.getElementById('step-three');
+    const stepFour = document.getElementById('step-four');
+
+    let videoTimeout;
+
+    computerImage.addEventListener('mouseenter', () => {
+      document.body.classList.add('computer-hover-active');
+      stepOne.innerText = "1.";
+      stepTwo.innerText = "2.";
+      stepThree.innerText = "3.";
+      stepFour.innerText = "4.";
+
+      // Delay showing the video
+      videoTimeout = setTimeout(() => {
+        video.style.display = 'block';
+      }, 500); // 500ms = 0.5 seconds
+    });
+
+    computerImage.addEventListener('mouseleave', () => {
+      document.body.classList.remove('computer-hover-active');
+      stepOne.innerText = "Step One";
+      stepTwo.innerText = "Step Two";
+      stepThree.innerText = "Step Three";
+      stepFour.innerText = "Step Four";
+
+      // Cancel the timeout and hide the video immediately
+      clearTimeout(videoTimeout);
+      video.style.display = 'none';
+    });
+  })
+
   return (
     <>
       <div class="hero">
-        <img src={signinImg} alt="Signin Image" />
+        <img src={signinImg} alt="Signin Image"/>
+        {/*cloud animation update*/}
+        <div class="clouds">
+          <img src={cloud1Img} style={{"--i":1}}/>
+          <img src={cloud2Img} style={{"--i":2}}/>
+          <img src={cloud3Img} style={{"--i":3}}/>
+          <img src={cloud4Img} style={{"--i":4}}/>
+          <img src={cloud5Img} style={{"--i":5}}/>
+        </div>
         <h1>Your Journey, Perfectly Planned.</h1>
         {!sessionStorage.getItem("profileName") ? (
-          <Link to={"/sign-in"}>
-            <button className="btn btn-primary" type="submit">
-              Sign In
-            </button>
-          </Link>
+            <Link to={"/sign-in"}>
+              <button className="btn btn-primary" type="submit">
+                Sign In
+              </button>
+            </Link>
         ) : (
-          ""
+            ""
         )}
       </div>
 
       {/* <!-- Dashboard Section --> */}
       <section class="dashboard">
-        <img src={mapsImg} alt="Dashboard Image" />
-        <img src={computerImg} id="computer-image" alt="Computer Image" />
+        <img src={mapsImg} alt="Dashboard Image"/>
+        <img src={computerImg} id="computer-image" alt="Computer Image"/>
+        {/*Mock up video*/}
+        <video id="computer-video" className="delayed-video" src={{video}} muted autoPlay loop
+               playsInline></video>
+
         <p>A Step By Step Guide On How To Navigate Our Website</p>
       </section>
 
       <section class="dropdown-section">
         <div
-          class="dropdown-tab"
-          style={{
-            top: "50px",
-            left: "50px",
-          }}>
-          <span>Step One</span>
-          <div class="dropdown-content">More info about Tab 1.</div>
+            class="dropdown-tab"
+            style={{}}>
+          <span id={"step-one"}>Step One</span>
+          <div class="dropdown-content">Sign in or create an account to unlock access to suggested itineraries and
+            exclusive features.</div>
         </div>
         <div
           class="dropdown-tab"
-          style={{
-            top: "120px",
-            left: "50px",
-          }}>
-          <span>Step Two</span>
-          <div class="dropdown-content">More info about Tab 2.</div>
+          style={{}}>
+          <span id={"step-two"}>Step Two</span>
+          <div class="dropdown-content">After creating an account, select your destination on the interactive map.
+          </div>
         </div>
-        <div class="dropdown-tab" style={{ top: "190px", left: "50px" }}>
-          <span>Step Three</span>
-          <div class="dropdown-content">More info about Tab 3.</div>
+        <div class="dropdown-tab" style={{}}>
+          <span id={"step-three"}>Step Three</span>
+          <div class="dropdown-content">Choose a suggested itinerary for your destination or create your own.</div>
         </div>
         <div
           class="dropdown-tab"
-          style={{
-            top: "260px",
-            left: "50px",
-          }}>
-          <span> Step Four</span>
-          <div class="dropdown-content">More info about Tab 4.</div>
+          style={{}}>
+          <span id={"step-four"}> Step Four</span>
+          <div class="dropdown-content">Save your itinerary and travel documents to your profile and wallet, and
+            upload trip photos to personalize your page.</div>
         </div>
       </section>
       {/* <!-- About Us Section --> */}
@@ -129,7 +179,7 @@ const Home = () => {
         </div>
 
         {/* <!-- Arrow (loop function) --> */}
-        <div class="arrow" onclick="toggleContent()">
+        <div class="arrow" onClick={toggleContent}>
           &#8594; {/* <!-- Right Arrow --> */}
         </div>
 
