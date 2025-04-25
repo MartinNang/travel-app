@@ -6,7 +6,6 @@ import React, { useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import "../../styles/homepage.css";
 import aboutUsImg from "../../images/aboutus.jpg";
@@ -16,7 +15,6 @@ import newyorkImg from "../../images/newyork.jpg";
 import signinImg from "../../images/signin.jpg";
 import mapsImg from "../../images/maps.png";
 import computerImg from "../../images/computer.png";
-import japanImg from "../../images/japan.jpg";
 import parisImg from "../../images/paris.jpg";
 import cloud1Img from "../../images/cloud1.png";
 import cloud2Img from "../../images/cloud2.png";
@@ -26,12 +24,7 @@ import cloud5Img from "../../images/cloud5.png";
 import video from "../../images/video.mp4";
 import { Card } from "react-bootstrap";
 
-// Icons
-//import profile from "../assets/img/Profile.jpeg";
-
 const Home = () => {
-  //this scirpt will be put into a javascript file don't worry
-
   let currentSlide = 1; // Track which slide is currently being displayed
   const totalSlides = 3; // Total number of slides
   let isContentVisible = false; // Track whether new content is visible
@@ -72,7 +65,7 @@ const Home = () => {
 
   useEffect(() => {
     const computerImage = document.getElementById("computer-image");
-    const dashboard = document.querySelector(".dashboard");
+    // const dashboard = document.querySelector(".dashboard");
     const video = document.getElementById("computer-video");
     const stepOne = document.getElementById("step-one");
     const stepTwo = document.getElementById("step-two");
@@ -139,7 +132,7 @@ const Home = () => {
         <video
           id="computer-video"
           className="delayed-video"
-          src={{ video }}
+          src={video}
           muted
           autoPlay
           loop
@@ -287,11 +280,16 @@ const Home = () => {
         <Container class="cards">
           <Row className="mt-4">
             <Col xs={12} md={6} lg={4}>
-              <Card className="recommendation-card">
+              <Card className="recommendation-card mb-4">
                 <img src={newyorkImg} alt="Destination 1" height="110%" />
                 <h3>Lazy New York City Itinerary</h3>
-                <p>Some details here...</p>
-                <button>View</button>
+                {/*<p>Some details here...</p>*/}
+                <Link
+                  to={"/inside-itinerary/nyc/Lazy%20and%20cozy"}
+                  className={"mt-auto w-100"}
+                >
+                  <button className={"w-100"}>View</button>
+                </Link>
               </Card>
             </Col>
             <Col
@@ -300,11 +298,16 @@ const Home = () => {
               lg={4}
               className="mt-xl-0 mt-sm-2 mt-xs-2 mt-md-0 mt-lg-0"
             >
-              <Card className="recommendation-card">
+              <Card className="recommendation-card mb-4">
                 <img src={tokyoImg} alt="Destination 2" />
-                <h3>Cozy Tokyo Itinerary</h3>
-                <p>Some details here...</p>
-                <button>View</button>
+                <h3>Neon Dreams Tokyo Itinerary</h3>
+                {/*<p>Some details here...</p>*/}
+                <Link
+                  to={"/inside-itinerary/tokyo/Neon%20Dreams"}
+                  className={"mt-auto w-100"}
+                >
+                  <button className={"w-100"}>View</button>
+                </Link>
               </Card>
             </Col>
             <Col
@@ -315,9 +318,14 @@ const Home = () => {
             >
               <Card className="recommendation-card">
                 <img src={parisImg} alt="Destination 3" />
-                <h3>Adventurous Paris Itinerary</h3>
-                <p>Some details here...</p>
-                <button>View</button>
+                <h3>Family Friendly Paris Itinerary</h3>
+                {/*<p>Some details here...</p>*/}
+                <Link
+                  to={"/inside-itinerary/paris/Family-Friendly%20Adventurers"}
+                  className={"mt-auto w-100"}
+                >
+                  <button className={"w-100"}>View</button>
+                </Link>
               </Card>
             </Col>
           </Row>

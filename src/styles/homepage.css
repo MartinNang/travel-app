@@ -168,13 +168,15 @@ section {
 
 .dashboard p {
   font-family: sans-serif;
-  padding-bottom: 550px;
+  /*padding-bottom: 33%;*/
+  top: 95px;
   padding-right: 5px;
   z-index: 12;
   font-size: 1.5rem;
   white-space: nowrap;
   position: absolute;
   z-index: 13;
+  font-weight: bold;
 }
 
 
@@ -568,11 +570,11 @@ section {
   background-color: #6b4a8b;
 }
 
-
-/*footer*/
+/*
+!*footer*!
 .footer {
   background-color: #b1f8b6;
-  /*#bfe7c2*/
+  !*#bfe7c2*!
   padding: 70px 120px;
   margin: 0;
   margin-top: 40px;
@@ -582,6 +584,19 @@ section {
   align-items: center;
   font-size: 14px;
   color: #6b4a8b;
+}*/
+
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+  filter: invert(100%);
+}
+
+.carousel-control-next {
+  margin-right: -8rem;
+}
+
+.carousel-control-prev {
+  margin-left: -8rem;
 }
 
 /*socials*/

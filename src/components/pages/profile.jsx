@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 import profilepic from "../../images/profile-pic.png";
-import settings from "../../images/settings.png";
 import { useNavigate, useParams } from "react-router-dom";
 import {Container, Row, Col, Button} from "react-bootstrap";
 import Itinerary from "../ui/itinerary";
@@ -162,7 +161,7 @@ const Profile = () => {
                   }}>
                   Sign out
                 </button>
-                <img src={settings} alt="Settings" className="settings-btn" />
+                {/*<img src={settings} alt="Settings" className="settings-btn" />*/}
               </div>
             ) : /*(
               <button className="follow-btn">Follow</button>

@@ -28,9 +28,10 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   async function handleSubmit(event) {
+    event.preventDefault();
+
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
-      event.preventDefault();
       event.stopPropagation();
     } else {
       console.log("upload profile image", profileImage);
@@ -197,7 +198,7 @@ const SignUp = () => {
                 placeholder="Profile Image"
                 value={profileImage}
                 onInput={handleChangeProfileImage}
-                accept="image/*"
+                accept="image/png, image/jpeg"
               />
             </Form.Group>
 
