@@ -112,19 +112,20 @@ code {
 .hero h1 {
   font-family: gyst, serif;
   font-size: 3.5rem;
-  position: absolute;
+  /* position: absolute;
   top: 40%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   z-index: 100;
 }
 
 /* Sign-in button */
 .hero button {
-  position: absolute;
+  /* position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
+  position: relative;
   padding: 15px 40px;
   font-size: 18px;
   font-family: "Times New Roman", Times, serif;
@@ -143,7 +144,8 @@ code {
 .hero button:hover {
   background-color: #6b4a8b;
   /* Darker purple for hover */
-  transform: translate(-50%, -50%) scale(1.05);
+  /* transform: translate(-50%, -50%) scale(1.05); */
+  transform: scale(1.05);
   /* Slightly enlarges on hover */
 }
 

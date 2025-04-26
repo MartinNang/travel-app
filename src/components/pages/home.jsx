@@ -71,6 +71,7 @@ const Home = () => {
     const stepTwo = document.getElementById("step-two");
     const stepThree = document.getElementById("step-three");
     const stepFour = document.getElementById("step-four");
+    const guideTitle = document.getElementById("guide-title");
 
     let videoTimeout;
 
@@ -80,6 +81,7 @@ const Home = () => {
       stepTwo.innerText = "2.";
       stepThree.innerText = "3.";
       stepFour.innerText = "4.";
+      guideTitle.style.display = "none";
 
       // Delay showing the video
       videoTimeout = setTimeout(() => {
@@ -93,6 +95,7 @@ const Home = () => {
       stepTwo.innerText = "Step Two";
       stepThree.innerText = "Step Three";
       stepFour.innerText = "Step Four";
+      guideTitle.style.display = "block";
 
       // Cancel the timeout and hide the video immediately
       clearTimeout(videoTimeout);
@@ -103,7 +106,7 @@ const Home = () => {
   return (
     <>
       <div class="hero">
-        <img src={signinImg} alt="Signin Image" />
+        {/* <img src={signinImg} alt="Signin Image" /> */}
         {/*cloud animation update*/}
         <div class="clouds">
           <img src={cloud1Img} style={{ "--i": 1 }} />
@@ -112,16 +115,22 @@ const Home = () => {
           <img src={cloud4Img} style={{ "--i": 4 }} />
           <img src={cloud5Img} style={{ "--i": 5 }} />
         </div>
-        <h1>Your Journey, Perfectly Planned.</h1>
-        {!sessionStorage.getItem("profileName") ? (
-          <Link to={"/sign-in"}>
-            <button className="btn btn-primary" type="submit">
-              Sign In
-            </button>
-          </Link>
-        ) : (
-          ""
-        )}
+        <Container className="align-items-center d-flex h-100 flex-column justify-content-center">
+          <Row>
+            <h1>Your Journey, Perfectly Planned.</h1>
+          </Row>
+          <Row className="mt-4">
+            {!sessionStorage.getItem("profileName") ? (
+              <Link to={"/sign-in"}>
+                <button className="btn btn-primary" type="submit">
+                  Sign In
+                </button>
+              </Link>
+            ) : (
+              ""
+            )}
+          </Row>
+        </Container>
       </div>
 
       {/* <!-- Dashboard Section --> */}
@@ -136,10 +145,11 @@ const Home = () => {
           muted
           autoPlay
           loop
-          playsInline
-        ></video>
+          playsInline></video>
 
-        <h2>A Step By Step Guide On How To Navigate Our Website</h2>
+        <h2 id="guide-title">
+          A Step By Step Guide On How To Navigate Our Website
+        </h2>
       </section>
 
       <section class="dropdown-section">
@@ -286,8 +296,7 @@ const Home = () => {
                 {/*<p>Some details here...</p>*/}
                 <Link
                   to={"/inside-itinerary/nyc/Lazy%20and%20cozy"}
-                  className={"mt-auto w-100"}
-                >
+                  className={"mt-auto w-100"}>
                   <button className={"w-100"}>View</button>
                 </Link>
               </Card>
@@ -296,16 +305,14 @@ const Home = () => {
               xs={12}
               md={6}
               lg={4}
-              className="mt-xl-0 mt-sm-2 mt-xs-2 mt-md-0 mt-lg-0"
-            >
+              className="mt-xl-0 mt-sm-2 mt-xs-2 mt-md-0 mt-lg-0">
               <Card className="recommendation-card mb-4">
                 <img src={tokyoImg} alt="Destination 2" />
                 <h3>Neon Dreams Tokyo Itinerary</h3>
                 {/*<p>Some details here...</p>*/}
                 <Link
                   to={"/inside-itinerary/tokyo/Neon%20Dreams"}
-                  className={"mt-auto w-100"}
-                >
+                  className={"mt-auto w-100"}>
                   <button className={"w-100"}>View</button>
                 </Link>
               </Card>
@@ -314,16 +321,14 @@ const Home = () => {
               xs={12}
               md={6}
               lg={4}
-              className="mt-xl-0 mt-sm-2 mt-xs-2 mt-md-0 mt-lg-0"
-            >
+              className="mt-xl-0 mt-sm-2 mt-xs-2 mt-md-0 mt-lg-0">
               <Card className="recommendation-card">
                 <img src={parisImg} alt="Destination 3" />
                 <h3>Family Friendly Paris Itinerary</h3>
                 {/*<p>Some details here...</p>*/}
                 <Link
                   to={"/inside-itinerary/paris/Family-Friendly%20Adventurers"}
-                  className={"mt-auto w-100"}
-                >
+                  className={"mt-auto w-100"}>
                   <button className={"w-100"}>View</button>
                 </Link>
               </Card>

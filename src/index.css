@@ -1093,3 +1093,9 @@ input[type="text"]:focus {
 .photo-card .card-img-top {
   border-radius: 0 !important;
 }
+
+.hero {
+  height: 100vh;
+  background-size: cover;
+  background-image: url("./images/signin.jpg");
+}
