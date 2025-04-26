@@ -329,7 +329,7 @@ section {
 }
 
 /*  makes the paragraph invisible when hovering over the computer image */
-.computer-hover-active .dashboard p {
+.computer-hover-active .dashboard h2 {
   visibility: hidden;
   /* Hide the paragraph */
   opacity: 0;
