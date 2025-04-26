@@ -1,7 +1,10 @@
 # A Step By Step Guide On How To Navigate Our Website
 Step 1: Sign in or create an account to unlock access to suggested itineraries and exclusive features.
+
 Step 2: After creating an account, select your destination on the interactive map.
+
 Step 3: Choose a suggested itinerary for your destination or create your own.
+
 Step 4: Save your itinerary and travel documents to your profile and wallet, and upload trip photos to personalize your page.
 
 # Getting Started with Create React App
