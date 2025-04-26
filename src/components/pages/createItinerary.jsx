@@ -128,8 +128,8 @@ const CreateItinerary = () => {
       type: "1",
       events: events.map((event) => [
         event.title,
-        event.start ? event.start.toISOString() : "", 
-        event.end ? event.end.toISOString() : event.start ? event.start.toISOString() : "" 
+        event.start ? event.start.toISOString().replace("Z", " ").replace("T", " ") : "", 
+        event.end ? event.end.toISOString().replace("Z", " ").replace("T", " ") : event.start ? event.start.toISOString().replace("Z", " ").replace("T", " ") : "" 
       ])
     };
 
