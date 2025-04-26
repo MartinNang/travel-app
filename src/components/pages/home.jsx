@@ -139,7 +139,7 @@ const Home = () => {
           playsInline
         ></video>
 
-        <h2>A Step By Step Guide On How To Navigate Our Website</h2>
+        <p>A Step By Step Guide On How To Navigate Our Website</p>
       </section>
 
       <section class="dropdown-section">
