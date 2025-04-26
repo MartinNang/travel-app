@@ -123,6 +123,8 @@ code {
 .hero button {
   /* position: absolute;
   top: 50%;
+  position: absolute;
+  top: 46%;
   left: 50%;
   transform: translate(-50%, -50%); */
   position: relative;
@@ -331,7 +333,7 @@ section {
 }
 
 /*  makes the paragraph invisible when hovering over the computer image */
-.computer-hover-active .dashboard p {
+.computer-hover-active .dashboard h2 {
   visibility: hidden;
   /* Hide the paragraph */
   opacity: 0;
@@ -341,7 +343,7 @@ section {
 }
 
 /* shows the paragraph back when the hover effect is removed */
-.dashboard p {
+.dashboard h2 {
   visibility: visible;
   /* Make the paragraph visible again */
   opacity: 1;
