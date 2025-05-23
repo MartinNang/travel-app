@@ -1,6 +1,4 @@
-import { Container } from "react-bootstrap";
-import React, { useRef } from "react";
-import CookieImg from "../../images/cookies.jpg";
+import React from "react";
 
 
 const Cookies = ({}) => {

@@ -32,12 +32,12 @@ const Contact = () => {
       <div class="hero-section"></div>
 
       <div class="contact-container">
-        <img src={decor} alt="Decorative Element" class="decor" />
+        <img src={decor} alt="Decorative Element" className="decor" />
 
         <div class="contact-box">
           <h2>Contact Us!</h2>
           <form
-            class="contact-form"
+            className="contact-form"
             id="contact-form"
             ref={form}
             onSubmit={sendEmail}>

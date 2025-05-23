@@ -1,4 +1,3 @@
-import ItineraryType from "../models/itineraryType.js";
 import * as itineraryTypeService from "../services/itineraryTypeService.js";
 
 export function getAllItineraryTypes(conn, req, res) {

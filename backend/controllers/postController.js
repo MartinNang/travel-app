@@ -49,7 +49,7 @@ export function createPost(conn, req, res) {
         console.log("postId", postId);
         for (let file of req.files) {
           console.log("post image file", file);
-          postImageService.createPostImage(conn, postId, file.path, req.body.userId, (piResult) => {
+          postImageService.createPostImage(conn, postId, file.path, req.body.userId, () => {
             // TODO
             res.status(200).send();
           });

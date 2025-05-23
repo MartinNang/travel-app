@@ -5,15 +5,15 @@ import { connect } from "../index.js";
 
 export const postRouter = express.Router();
 
-postRouter.get("/", (req, res, next) => {
+postRouter.get("/", (req, res) => {
   connect((conn) => postController.getAllPosts(conn, req, res));
 });
 
-postRouter.get("/:userId", (req, res, next) => {
+postRouter.get("/:userId", (req, res) => {
   connect((conn) => postController.getPostsByUserId(conn, req, res));
 });
 
-postRouter.put("/itinerary/:itineraryId/user/:userId", (req, res, next) => {
+postRouter.put("/itinerary/:itineraryId/user/:userId", (req, res) => {
   connect((conn) => postController.updatePost(conn, req, res));
 });
 
@@ -32,10 +32,10 @@ postRouter.put("/itinerary/:itineraryId/user/:userId", (req, res, next) => {
 //   }
 // });
 
-postRouter.post("/:itineraryId", (req, res, next) => {
+postRouter.post("/:itineraryId", (req, res) => {
   connect((conn) => postController.createPost(conn, req, res));
 });
 
-postRouter.delete("/:overpassId", (req, res, next) => {
+postRouter.delete("/:overpassId", (req, res) => {
   connect((conn) => postController.deleteEvent(conn, req, res));
 });

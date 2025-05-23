@@ -12,7 +12,6 @@ import aboutUsImg from "../../images/aboutus.jpg";
 import mountainsImg from "../../images/mountains.jpg";
 import tokyoImg from "../../images/tokyo.jpg";
 import newyorkImg from "../../images/newyork.jpg";
-import signinImg from "../../images/signin.jpg";
 import mapsImg from "../../images/maps.png";
 import computerImg from "../../images/computer.png";
 import parisImg from "../../images/paris.jpg";
@@ -109,11 +108,11 @@ const Home = () => {
         {/* <img src={signinImg} alt="Signin Image" /> */}
         {/*cloud animation update*/}
         <div class="clouds">
-          <img src={cloud1Img} style={{ "--i": 1 }} />
-          <img src={cloud2Img} style={{ "--i": 2 }} />
-          <img src={cloud3Img} style={{ "--i": 3 }} />
-          <img src={cloud4Img} style={{ "--i": 4 }} />
-          <img src={cloud5Img} style={{ "--i": 5 }} />
+          <img src={cloud1Img} style={{ "--i": 1 }} alt={"image 1 of a cloud"}/>
+          <img src={cloud2Img} style={{ "--i": 2 }} alt={"image 2 of a cloud"}/>
+          <img src={cloud3Img} style={{ "--i": 3 }} alt={"image 3 of a cloud"}/>
+          <img src={cloud4Img} style={{ "--i": 4 }} alt={"image 4 of a cloud"}/>
+          <img src={cloud5Img} style={{ "--i": 5 }} alt={"image 5 of a cloud"}/>
         </div>
         <Container className="align-items-center d-flex h-100 flex-column justify-content-center">
           <Row>

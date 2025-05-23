@@ -4,12 +4,41 @@
  */
 
 import React from "react";
-import polaroid from "../../images/polaroid.png";
-import { Card, CardImg, CardBody, CardHeader, CardLink } from "react-bootstrap";
+import { Card, CardImg, CardBody, CardHeader } from "react-bootstrap";
 import placeholderImg from "../../images/placeholder_300x200.png";
 
-const Post = ({ itineraryName, userName, description, createdAt, imageSrc }) => {
+const Post = ({ itineraryName, userName, description, imageSrc }) => {
     console.log("itineraryName:", itineraryName, "userName:", userName, "description:", description);
+    /* <p>
+              <strong>Day 1 -</strong> More events
+            </p>
+            <p>
+              <strong>Day 2 -</strong> Something new
+            </p>
+            <p>
+              <strong>Day 3 -</strong> Great experience
+            </p> */
+    /*<CardLink href={`/en-route/#/itinerary/${id}`}>view</CardLink>*/
+    /* <div class="all-itinerary-images">
+            <div class="all-itinerary-polaroid itinerary-rotated-left">
+              <img src={polaroid} alt="Polaroid Image" />
+            </div>
+            <div class="all-itinerary-polaroid itinerary-rotated-right">
+              <img src={polaroid} alt="Polaroid Image" />
+            </div>
+          </div> */
+    /*
+          <div class="all-itinerary-text-right">
+            <p>
+              <strong>Day 4 -</strong> New fun
+            </p>
+            <p>
+              <strong>Day 5 -</strong> Exciting stuff
+            </p>
+            <p>
+              <strong>Day 6 -</strong> The last party
+            </p>
+          </div> */
     return (
         <>
             <Card className="all-itinerary-container mb-3 w-100">
@@ -29,38 +58,7 @@ const Post = ({ itineraryName, userName, description, createdAt, imageSrc }) => 
                         <p>
                             <strong>Description: </strong> {description ? description : "-"}
                         </p>
-                        {/* <p>
-              <strong>Day 1 -</strong> More events
-            </p>
-            <p>
-              <strong>Day 2 -</strong> Something new
-            </p>
-            <p>
-              <strong>Day 3 -</strong> Great experience
-            </p> */}
-                        {/*<CardLink href={`/en-route/#/itinerary/${id}`}>view</CardLink>*/}
                     </div>
-
-                    {/* <div class="all-itinerary-images">
-            <div class="all-itinerary-polaroid itinerary-rotated-left">
-              <img src={polaroid} alt="Polaroid Image" />
-            </div>
-            <div class="all-itinerary-polaroid itinerary-rotated-right">
-              <img src={polaroid} alt="Polaroid Image" />
-            </div>
-          </div> */}
-                    {/*
-          <div class="all-itinerary-text-right">
-            <p>
-              <strong>Day 4 -</strong> New fun
-            </p>
-            <p>
-              <strong>Day 5 -</strong> Exciting stuff
-            </p>
-            <p>
-              <strong>Day 6 -</strong> The last party
-            </p>
-          </div> */}
                 </CardBody>
             </Card>
         </>

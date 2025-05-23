@@ -5,8 +5,6 @@
 import React, { useEffect } from "react";
 import fbImg from "../images/fb.png";
 import instaImg from "../images/inst.png";
-import logoImg from "../images/logo.png";
-import mapImg from "../images/map.png";
 import tiktokImg from "../images/tiktok.png";
 
 const Footer = () => {
@@ -40,13 +38,13 @@ const Footer = () => {
       </div>
       <div class="socials">
         <span>
-          <img src={fbImg} width="25px" />
+          <img src={fbImg} width="25px" alt={"facebook logo"}/>
         </span>
         <span>
-          <img src={instaImg} width="25px" />
+          <img src={instaImg} width="25px" alt={"instagram logo"}/>
         </span>
         <span>
-          <img src={tiktokImg} width="25px" />
+          <img src={tiktokImg} width="25px" alt={"tiktok logo"}/>
         </span>
       </div>
     </footer>

@@ -6,7 +6,6 @@ import { BACKEND_URL } from "../../App";
 
 const UserTable = ({}) => {
   const [isEdit, setEdit] = useState([]);
-  const [username, setUsername] = useState("");
   const [users, setUsers] = useState([]);
   const [profileNames, setProfileNames] = useState([]);
   const [show, setShow] = useState(false);

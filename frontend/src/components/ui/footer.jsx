@@ -5,8 +5,6 @@
 import React, { useEffect } from "react";
 import fbImg from "../../images/fb.png";
 import instaImg from "../../images/insta.png";
-import logoImg from "../../images/logo.png";
-import mapImg from "../../images/map.png";
 import tiktokImg from "../../images/tiktok.png";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
@@ -62,7 +60,7 @@ const Footer = () => {
             style={{
               fontStyle: "italic",
             }}>
-            <img src={fbImg} width="25px" />
+            <img src={fbImg} width="25px" alt={"Facebook logo"}/>
           </Link>
         </span>
         <span>
@@ -71,7 +69,7 @@ const Footer = () => {
             style={{
               fontStyle: "italic",
             }}>
-            <img src={instaImg} width="25px" />
+            <img src={instaImg} width="25px" alt={"Instagram logo"}/>
           </Link>
         </span>
         <span>
@@ -80,7 +78,7 @@ const Footer = () => {
             style={{
               fontStyle: "italic",
             }}>
-            <img src={tiktokImg} width="25px" />
+            <img src={tiktokImg} width="25px" alt={"TikTok logo"}/>
           </Link>
         </span>
       </div>

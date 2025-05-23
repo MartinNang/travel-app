@@ -1,24 +1,18 @@
 import {
-  Container,
   Row,
-  Col,
-  Form,
-  Button,
   Table,
-  Alert,
+
 } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AlertDismissible from "../ui/alertDismissible";
-import { BACKEND_URL } from "../../App";
 
 const ItineraryTable = ({}) => {
-  const [isEdit, setEdit] = useState([]);
   const [itineraries, setItineraries] = useState([]);
   const [show, setShow] = useState(false);
-  const [heading, setHeading] = useState("");
-  const [message, setMessage] = useState("");
-  const [variant, setVariant] = useState("");
+  const [heading] = useState("");
+  const [message] = useState("");
+  const [variant] = useState("");
 
   axios.defaults.headers.get["Content-Type"] = "application/json;charset=utf-8";
   axios.defaults.headers.get["Access-Control-Allow-Origin"] = "*";

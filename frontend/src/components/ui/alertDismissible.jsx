@@ -1,6 +1,4 @@
-import { useState } from "react";
 import Alert from "react-bootstrap/Alert";
-import Button from "react-bootstrap/Button";
 
 function AlertDismissible({ variant, heading, message, show, setShow }) {
   if (show) {
@@ -11,7 +9,6 @@ function AlertDismissible({ variant, heading, message, show, setShow }) {
       </Alert>
     );
   }
-  return;
 }
 
 export default AlertDismissible;

@@ -10,14 +10,14 @@ import Navbar from "react-bootstrap/Navbar";
 import { BsPerson } from "react-icons/bs";
 import logoImg from "../../images/logo.png";
 import { BACKEND_URL } from "../../App";
-import { Form, Row, Col, Button, Dropdown, ButtonGroup } from "react-bootstrap";
+import { Form, Row, Col, Dropdown, ButtonGroup } from "react-bootstrap";
 import axios from "axios";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 const Header = () => {
   const location = useLocation();
-  const [profileImage, setProfileImage] = useState(
+  const [profileImage] = useState(
     sessionStorage.getItem("profileImage")
   );
   const [searchTerm, setSearchTerm] = useState(""),

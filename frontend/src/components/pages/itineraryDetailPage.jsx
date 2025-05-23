@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import itineraryData from "../../data/itinerariesTexts.json";
 import CoverflowCarousel from "../ui/coverflowCarousel";

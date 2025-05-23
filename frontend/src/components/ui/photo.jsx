@@ -4,12 +4,11 @@
  */
 
 import React from "react";
-import polaroid from "../../images/polaroid.png";
-import { Card, CardImg, CardBody, CardHeader, CardLink } from "react-bootstrap";
+import { Card, CardImg, CardBody, CardHeader } from "react-bootstrap";
 import placeholderImg from "../../images/placeholder_300x200.png";
 import {BACKEND_URL} from "../../App";
 
-const Photo = ({ id, imageSrc }) => {
+const Photo = ({imageSrc }) => {
     return (
         <>
             <Card className="all-itinerary-container photo-card mb-3 w-100">
