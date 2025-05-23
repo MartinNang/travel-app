@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/en-route/static/css/main.203a139a.css",
-    "main.js": "/en-route/static/js/main.6de1806f.js",
+    "main.css": "/en-route/static/css/main.afdc7fbe.css",
+    "main.js": "/en-route/static/js/main.7040a134.js",
     "static/media/video.mp4": "/en-route/static/media/video.4fcb33467f38f5ac5227.mp4",
     "static/media/mountains.jpg": "/en-route/static/media/mountains.3991bf8055a7e8b0c918.jpg",
     "static/media/about.png": "/en-route/static/media/about.875343880be3deb79a24.png",
@@ -21,7 +21,6 @@
     "static/media/cloud1.png": "/en-route/static/media/cloud1.deebc7b5ced3c8ad3222.png",
     "static/media/maps.png": "/en-route/static/media/maps.0abc16ee9d44f712783f.png",
     "static/media/Poppins-Regular.ttf": "/en-route/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
-    "static/media/polaroid.png": "/en-route/static/media/polaroid.d19420ab6dd398fac8ce.png",
     "static/media/computer.png": "/en-route/static/media/computer.9a57d78c3d3284e9a6ea.png",
     "static/media/gyst-regular.otf": "/en-route/static/media/gyst-regular.592e6ddd2e57b90bc8be.otf",
     "static/media/InriaSerif-Regular.ttf": "/en-route/static/media/InriaSerif-Regular.f43b3e7fe0caf2aaeade.ttf",
@@ -43,11 +42,11 @@
     "static/media/cocktail.png": "/en-route/static/media/cocktail.0a138e2a1757cd31f624.png",
     "static/media/slot-machine.png": "/en-route/static/media/slot-machine.7df3bad59267d893e79b.png",
     "index.html": "/en-route/index.html",
-    "main.203a139a.css.map": "/en-route/static/css/main.203a139a.css.map",
-    "main.6de1806f.js.map": "/en-route/static/js/main.6de1806f.js.map"
+    "main.afdc7fbe.css.map": "/en-route/static/css/main.afdc7fbe.css.map",
+    "main.7040a134.js.map": "/en-route/static/js/main.7040a134.js.map"
   },
   "entrypoints": [
-    "static/css/main.203a139a.css",
-    "static/js/main.6de1806f.js"
+    "static/css/main.afdc7fbe.css",
+    "static/js/main.7040a134.js"
   ]
 }
